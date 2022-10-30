@@ -1,11 +1,11 @@
 //
 //
 //
-// 'use strict';
+'use strict';
 
-import express from 'express';
+import express, { Application, Request, Response, NextFunction } from 'express';
 import path from 'path';
-import { create } from 'express-handlebars';
+import { create, ExpressHandlebars } from 'express-handlebars';
 // import grmjDB from './dist/public/src/database/database.js';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
@@ -16,7 +16,7 @@ import open from 'open';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
 import logEvents from './logEvents.js';
-// import router from './controller/routes/router.js';
+import router from './controller/router.js';
 
 // Config Loaders
 dotenv.config({ path: './config/config.env' });
@@ -25,7 +25,7 @@ dotenv.config({ path: './config/config.env' });
 const __filename: string = fileURLToPath(import.meta.url);
 const __dirname: string = path.dirname(__filename);
 
-const app: any = express();
+const app: Application = express();
 
 // body-parser
 app.use(express.urlencoded({ extended: false }));
@@ -38,7 +38,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // Handlebars Template Middleware
-const handlebars: any = create({
+const handlebars: ExpressHandlebars = create({
 	extname: 'hbs',
 	defaultLayout: 'main',
 	layoutsDir: path.join(__dirname, 'views/layouts'),
@@ -51,28 +51,28 @@ app.set('views', path.join(__dirname, 'views'));
 app.enable('view cache');
 
 // Global Variables
-app.use(function (req: any, res: any, next: any): void {
-	res.locals.user = req.user || null;
+app.use(function (_req: Request, res: Response, next: NextFunction): void {
+	if (!res.locals.partials) res.locals.partials = {};
 	next();
 });
 
 // static Folders
-app.use(express.static(path.join(__dirname, './public')));
-app.use(express.static(path.join(__dirname, './controller')));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'controller')));
 
 // Favicon Icon
 app.use(favicon(path.join(__dirname, './public/src/images', 'typeScript.png')));
 
 // Routes...
-// app.use('/', router);
-// app.use('/login', router);
+app.use('/', router);
 
-// app.get('/state', (req: any, res: any) => {
-// 	res.sendFile('components.js', {
-// 		root: '/state/library/'
-// 	});
-// 	res.set('Content-Type', 'text/javascript');
-// });
+// app.use('/login', router);
+app.get('/state', (_req: Request, res: Response): void => {
+	res.sendFile('components.js', {
+		root: '/state/library/'
+	});
+	res.set('Content-Type', 'text/javascript');
+});
 // app.get('/state', (req: any, res: any) => {
 // 	res.sendFile('pubsub.js', {
 // 		root: '/state/library/'
