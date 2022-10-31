@@ -1,14 +1,3 @@
 {
-	"cSpell.words": [
-		"Componentized",
-		"Evolutive",
-		"formatjs",
-		"grmj",
-		"messageformat",
-		"npmignore",
-		"tsbuildinfo",
-		"unmocked",
-		"webe",
-		"Webelistics"
-	]
+	"cSpell.words": ["npmignore", "Webelistics"]
 }

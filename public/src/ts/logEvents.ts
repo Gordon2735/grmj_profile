@@ -4,26 +4,29 @@ import { format } from 'date-fns';
 import fs from 'fs';
 import fsPromises from 'fs/promises';
 import path from 'path';
-import { v4 as uuidv4 } from 'uuid'; //. npm i -D @types/uuid
+import { v4 as uuidv4 } from 'uuid';
 import { fileURLToPath } from 'url';
 
 export const __filename: string = fileURLToPath(import.meta.url);
 export const __dirname: string = path.dirname(__filename);
 
-const logEvents: any = async (message: any): Promise<void> => {
-	const dateTime: string = `${format(new Date(), 'yyyMMdd\tHH:mm:ss')}`;
-	const logItem: string = `${dateTime}\t${message}\t${uuidv4()}\n`;
+export const date: Date = new Date();
+const uuidFour: string | undefined = uuidv4();
 
+const logEvents: any = async (message: any) => {
+	const dateTime: string = `${format(date, 'yyyyMMdd\tHH:mm:ss')}`;
+	const logItem: string = `${dateTime}\t${uuidFour}\t${message}\n`;
+	console.log(logItem);
 	try {
 		if (!fs.existsSync(path.join(__dirname, 'logs'))) {
 			await fsPromises.mkdir(path.join(__dirname, 'logs'));
 		} else {
 			await fsPromises.appendFile(
-				path.join(__dirname, './logs', 'eventLog.log'),
+				path.join(__dirname, 'logs', 'eventLog.log'),
 				logItem
 			);
 		}
-	} catch (error: unknown) {
+	} catch (error: any) {
 		console.log(error);
 	}
 };

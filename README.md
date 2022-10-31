@@ -34,3 +34,17 @@
 10. Progressive software development, regarding industry standards, and best practices. I am always learning and improving my skills.
 11. A desired goal in this combination of technologies is to achieve a 100% score on the Lighthouse Audit done aggressively with a regular cadence and continuance reporting within Google's Lighthouse Environment using Puppeteer for the PDF Documentation of the Lighthouse Audit.
 12. Considering a total integration of these software development technologies, we realize the natural tendency of gravitating toward complexity. Therefore with determination, our attitude toward this development project will strive for the least possible complexity; and endeavour reaching determined goals with the modest possible simplicity. This is the goal of the project's development strategy.
+
+> npm set init-author-email "example-user@example.com"
+> npm set init-author-name "example_user"
+> npm set init-license "MIT"
+
+13. NPM installs: npm i -g typescript, npm i express-handlebars,
+    npm i express, npm i -D typescript, npm i ts-node, npm i nodemon, npm i @types/node, npm i @types/express, npm i jest -D, npm i serve-favicon -D, npm i path date-fns uuid morgan -D, npm i cors body-parser, npm i -D dotenv,
+    npm i -G eslint-plugin-jest, npm install --save-dev npmignore, npm i mongoose, npm i -D cross-env, npm i -D @types/cors @types/morgan, npm i @types/node, npm i -D open, npm i @types/uuid
+
+14. app open
+
+    Type: string | string[]
+
+    Specify the app to open the target with, or an array with the app and app arguments.
