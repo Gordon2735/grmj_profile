@@ -41,7 +41,7 @@
 
 13. NPM installs: npm i -g typescript, npm i express-handlebars,
     npm i express, npm i -D typescript, npm i ts-node, npm i nodemon, npm i @types/node, npm i @types/express, npm i jest -D, npm i serve-favicon -D, npm i path date-fns uuid morgan -D, npm i cors body-parser, npm i -D dotenv,
-    npm i -G eslint-plugin-jest, npm install --save-dev npmignore, npm i mongoose, npm i -D cross-env, npm i -D @types/cors @types/morgan, npm i @types/node, npm i -D open, npm i @types/uuid
+    npm i -G eslint-plugin-jest, npm install --save-dev npmignore, npm i mongoose, npm i -D cross-env, npm i -D @types/cors @types/morgan, npm i @types/node, npm i -D open, npm i @types/uuid, @types/handlebars, @types/handlebars-helpers
 
 14. app open
 

@@ -10,9 +10,10 @@ import morgan from 'morgan';
 import cors from 'cors';
 import { EventEmitter } from 'events';
 import open from 'open';
-import favicon from 'serve-favicon';
+// import favicon from 'serve-favicon';
 import { fileURLToPath } from 'url';
-import logEvents, { date } from './public/src/ts/logEvents';
+import logEvents, { date } from './logEvents.js';
+import router from './controller/router.js';
 
 dotenv.config({ path: './config/config.env' });
 
@@ -27,41 +28,42 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // body-parser...
-app.use(express.urlencoded({ extended: false }));
+// app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
 
-app.use<any>(express.static(path.join(__dirname, 'public')));
-
-// Handlebars Template Middleware
 const handlebars: ExpressHandlebars = create({
-	extname: '.hbs',
-	defaultLayout: 'main',
-	layoutsDir: path.join(__dirname, 'views/layouts'),
-	partialsDir: path.join(__dirname, 'views/partials'),
-	helpersDir: path.join(__dirname, 'views/helpers'),
+	extname: 'hbs',
+	defaultLayout: 'default',
+	layoutsDir: path.resolve(__dirname, '/views/layouts'),
+	partialsDir: path.resolve(__dirname, '/views/partials'),
 	helpers: {}
 });
+
+app.set('defaultView', 'default');
+app.set('view engine', 'hbs');
 app.engine('hbs', handlebars.engine);
-app.set('view engine', '.hbs');
-app.set('views', './views');
-// app.enable('view cache');
+app.set('views', path.resolve(__dirname, './views'));
+// app.set('layout', 'main');
+app.enable('view cache');
+// app.set('layouts', 'main');
 
 // set Global Variables
-app.use(function (req: Request, res: Response, next: NextFunction) {
-	res.locals.user = req.user || null;
+app.use(function (_req: Request, res: Response, next: NextFunction) {
+	if (!res.locals.partials) res.locals.partials = {};
 	next();
 });
 
+// Routes
+app.use('/', router);
+
 // static folders
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'controller')));
+app.use(express.static('src'));
+app.use(express.static('views'));
+// app.use(express.static('controller'));
 
 // favicon
-app.use(favicon(path.join(__dirname, 'public/src/img', 'favicon.ico')));
-
-// Routes
-app.use('/', routes);
+// app.use(favicon(path.join(__dirname, 'public/src/img', 'favicon.ico')));
 
 const PORT = process.env.PORT || 9080;
 const HOST = process.env.HOST || `127.0.0.1`;
