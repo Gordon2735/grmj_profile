@@ -28,25 +28,31 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // body-parser...
-// app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
 
+app.set('src', path.resolve(__dirname, '/grmj_profile/src'));
+
 const handlebars: ExpressHandlebars = create({
 	extname: 'hbs',
-	defaultLayout: 'default',
-	layoutsDir: path.resolve(__dirname, '/views/layouts'),
-	partialsDir: path.resolve(__dirname, '/views/partials'),
+	defaultLayout: 'main',
+	layoutsDir: path.resolve(__dirname, '/grmj_profile/views/layouts'),
+	partialsDir: path.resolve(__dirname, '/grmj_profile/views/partials'),
 	helpers: {}
 });
 
-app.set('defaultView', 'default');
+app.set('src', path.resolve(__dirname, '/grmj_profile/src', 'src'));
+app.set('defaultView', 'main');
 app.set('view engine', 'hbs');
 app.engine('hbs', handlebars.engine);
-app.set('views', path.resolve(__dirname, './views'));
-// app.set('layout', 'main');
+app.set('layouts', 'main');
 app.enable('view cache');
-// app.set('layouts', 'main');
+
+// static folders
+app.use(express.static('controller'));
+app.use(express.static('src'));
+app.use(express.static('views'));
 
 // set Global Variables
 app.use(function (_req: Request, res: Response, next: NextFunction) {
@@ -57,10 +63,9 @@ app.use(function (_req: Request, res: Response, next: NextFunction) {
 // Routes
 app.use('/', router);
 
-// static folders
-app.use(express.static('src'));
-app.use(express.static('views'));
-// app.use(express.static('controller'));
+app.get('/', (_req: Request, res: Response) => {
+	res.send('Hello World!');
+});
 
 // favicon
 // app.use(favicon(path.join(__dirname, 'public/src/img', 'favicon.ico')));

@@ -5,7 +5,7 @@ import home from './routes/home_route.js';
 
 const router: Router = express.Router();
 
-router.use(express.static('./src/routes'));
+router.use(express.static('./routes'));
 
 router.use('/', home);
 
