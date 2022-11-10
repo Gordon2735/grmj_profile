@@ -14,6 +14,7 @@ import open from 'open';
 import { fileURLToPath } from 'url';
 import logEvents, { date } from './logEvents.js';
 import router from './controller/router.js';
+import init from './ts/index.js';
 
 dotenv.config({ path: './config/config.env' });
 
@@ -32,8 +33,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
 
-app.set('src', path.resolve(__dirname, '/grmj_profile/src'));
-
 const handlebars: ExpressHandlebars = create({
 	extname: 'hbs',
 	defaultLayout: 'main',
@@ -42,7 +41,6 @@ const handlebars: ExpressHandlebars = create({
 	helpers: {}
 });
 
-app.set('src', path.resolve(__dirname, '/grmj_profile/src', 'src'));
 app.set('defaultView', 'main');
 app.set('view engine', 'hbs');
 app.engine('hbs', handlebars.engine);
@@ -50,9 +48,11 @@ app.set('layouts', 'main');
 app.enable('view cache');
 
 // static folders
-app.use(express.static('controller'));
+// app.use(express.static('controller'));
 app.use(express.static('src'));
-app.use(express.static('views'));
+// app.use(express.static('views'));
+// app.set(__dirname, path.resolve(__dirname, '/grmj_profile/src'));
+// app.set(__dirname, path.join(__dirname, '/grmj_profile/src'));
 
 // set Global Variables
 app.use(function (_req: Request, res: Response, next: NextFunction) {
@@ -63,9 +63,9 @@ app.use(function (_req: Request, res: Response, next: NextFunction) {
 // Routes
 app.use('/', router);
 
-app.get('/', (_req: Request, res: Response) => {
-	res.send('Hello World!');
-});
+// app.get('/', (_req: Request, res: Response) => {
+// 	res.send('Hello World!');
+// });
 
 // favicon
 // app.use(favicon(path.join(__dirname, 'public/src/img', 'favicon.ico')));
@@ -100,6 +100,7 @@ setTimeout((): void => {
 		'Nodemon Server Logging initiated: "EVENT EMITTED"'
 	),
 		console.log(date);
+	init();
 }, 500);
 
 // Create a write stream (in append mode)(morgan)
