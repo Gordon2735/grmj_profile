@@ -2,6 +2,7 @@
 
 import { ProfileTemplate } from './profile-template';
 import { profile_sharedStyles } from './profile-sharedStyles';
+import { profile_sharedHTML } from './profile-sharedHTML';
 
 export class ProfileShell extends ProfileTemplate {
 	constructor() {
@@ -19,6 +20,8 @@ export class ProfileShell extends ProfileTemplate {
             <style>
                 ${profile_sharedStyles.global}
             </style>
+
+			${profile_sharedHTML}
         `;
 	}
 }
