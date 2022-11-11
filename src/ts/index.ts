@@ -1,6 +1,6 @@
 'use strict';
 
-function init() {
+function init(): any | void {
 	console.log('HooT™️ Webelistics®️ Rendered Here!!!');
 }
 

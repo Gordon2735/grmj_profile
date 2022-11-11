@@ -33,6 +33,7 @@
 		"@types/handlebars-helpers": "^0.5.3",
 		"@types/morgan": "^1.9.3",
 		"@types/node": "^18.11.9",
+		"@types/serve-favicon": "^2.5.3",
 		"cross-env": "^7.0.3",
 		"date-fns": "^2.29.3",
 		"dotenv": "^16.0.3",

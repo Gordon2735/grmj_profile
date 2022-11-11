@@ -45,6 +45,7 @@
 
     npm install -D concurrently nodemon
     npm i -D tslint
+    npm i @types/serve-favicon
 
 14. app open
 

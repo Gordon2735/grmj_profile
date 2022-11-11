@@ -10,7 +10,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import { EventEmitter } from 'events';
 import open from 'open';
-// import favicon from 'serve-favicon';
+import favicon from 'serve-favicon';
 import { fileURLToPath } from 'url';
 import logEvents, { date } from './logEvents.js';
 import router from './controller/router.js';
@@ -48,11 +48,7 @@ app.set('layouts', 'main');
 app.enable('view cache');
 
 // static folders
-// app.use(express.static('controller'));
 app.use(express.static('src'));
-// app.use(express.static('views'));
-// app.set(__dirname, path.resolve(__dirname, '/grmj_profile/src'));
-// app.set(__dirname, path.join(__dirname, '/grmj_profile/src'));
 
 // set Global Variables
 app.use(function (_req: Request, res: Response, next: NextFunction) {
@@ -63,12 +59,14 @@ app.use(function (_req: Request, res: Response, next: NextFunction) {
 // Routes
 app.use('/', router);
 
-// app.get('/', (_req: Request, res: Response) => {
-// 	res.send('Hello World!');
-// });
+app.get('/', (_req: Request, res: Response) => {
+	res.send('Hello World!');
+});
 
-// favicon
-// app.use(favicon(path.join(__dirname, 'public/src/img', 'favicon.ico')));
+app.use(
+	favicon(path.resolve(__dirname, '/grmj_profile/src/images', 'favicon.ico'))
+);
+// app.use(serveFavicon(__dirname + '/grmj_profile/src/images/favicon.ico'));
 
 const PORT = process.env.PORT || 9080;
 const HOST = process.env.HOST || `127.0.0.1`;
@@ -112,3 +110,6 @@ app.use<any>(morgan<Request>('combined', { stream: accessLogStream }));
 app.get<any>('/', (_req: Request, res: Response) => {
 	res.send('HOOT Webelistics Logger Tracker');
 });
+// function serveFavicon(_arg0: string): any {
+// 	throw new Error('Function not implemented.');
+// }
