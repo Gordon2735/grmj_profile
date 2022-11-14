@@ -4,7 +4,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+  <head id="head">
     <meta charset="UTF-8" />
     	<meta
 			name="Description"
@@ -14,14 +14,15 @@
     {{> seo_head}}
     <link
 			rel="shortcut icon"
-			href="../../images/Hoot-LOGO-400X320.png"
+			href="/src/images/Hoot-LOGO-400X320.png"
 			type="image/x-icon"
 			origin="anonymous"
 		/>
-    <link href="../../css/index.css" rel="stylesheet" type="text/css" crossorigin="anonymous" />
+    {{!-- <link href="../../css/index.css" rel="stylesheet" type="text/css" crossorigin="anonymous" /> --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="anonymous">
-    {{!-- <script type="module" src="../../ts/index.js" content="text/javascript" crossorigin="anonymous"></script>     --}}
+    {{!-- <script type="module" src="/src/components/profileHome/profile-shell.js" content="text/javascript" crossorigin="anonymous"></script>     --}}
+    <script type="module" src="/src/ts/index.js" content="text/javascript" crossorigin="anonymous"></script>    
         <title>Gordon's Profile</title>
   </head>
 
@@ -29,9 +30,11 @@
        {{! Before Production this is going to be a Web-Component  }}
 
     <body>
-      {{{body}}}
-
-   
+      {{{body}}}   
+      <script type="module">
+        import init from '/src/ts/index.js';
+        init();
+      </script>
     </body>
 
   

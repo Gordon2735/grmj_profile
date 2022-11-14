@@ -4,7 +4,6 @@ import express, { Router, Request, Response, NextFunction } from 'express';
 import home from './routes/home_route.js';
 
 const router: Router = express.Router();
-
 router.use(express.static('./routes'));
 
 router.use('/', home);

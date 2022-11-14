@@ -1,8 +1,8 @@
 'use strict';
 
-import { ProfileTemplate } from './profile-template';
-import { profile_sharedStyles } from './profile-sharedStyles';
-import { profile_sharedHTML } from './profile-sharedHTML';
+import { ProfileTemplate } from './profile-template.js';
+import { profile_sharedStyles } from './profile-sharedStyles.js';
+import { profile_sharedHTML } from './profile-sharedHTML.js';
 
 export class ProfileShell extends ProfileTemplate {
 	constructor() {
@@ -14,14 +14,16 @@ export class ProfileShell extends ProfileTemplate {
 		super.connectedCallback();
 	}
 	override get template() {
-		return `
+		return /*html*/ `
             <profile-home id="profileHome" class="profile-home"></profile-home>
-
+			
             <style>
-                ${profile_sharedStyles.global}
+				${profile_sharedStyles.global}
             </style>
 
-			${profile_sharedHTML}
+			${profile_sharedHTML.shell}
+			
+			<side-panel_shell id="sidePanelShell" class="side-panel"></side-panel_shell>
         `;
 	}
 }

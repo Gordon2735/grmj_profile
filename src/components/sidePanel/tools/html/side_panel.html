@@ -1,0 +1,194 @@
+<!--    Webelistics®  Web Application Development    -->
+<!--     Gordon R. Mullen Jr  'Date: 2022/00/00'     -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="./index.css">
+    <!-- <script type="module" src="./index_1.js" content="text/javascript"></script> -->
+    <title>No OOP, Shai UI</title>
+</head>
+
+<body>
+
+    <style>
+        #container {
+            margin-bottom: 20px;
+            position: absolute;
+            top: 60px;
+            left: 0px;
+            z-index: 999;
+            width: 200px;
+            height: calc(100% - 90px);
+            background: #ccc;
+            overflow: hidden;
+            transform: translateX(-210px);
+            transition: all 1s;
+            box-shadow: 9px 8px 10px rgba(0, 0, 0, 0.6);
+            border-radius: 0px 8px 8px 0px;
+        }
+
+        #big-3 {
+            margin-bottom: 20px;
+            margin-top: 80px;
+            left: 15px;
+            display: inline-block;
+            position: absolute;
+            align-items: center;
+            width: 160px;
+            z-index: 1000;
+            filter: drop-shadow(3px 2px 2px rgba(0, 0, 0, 0.6));
+            aspect-ratio: 50 / 19;
+            transform: rotate(-360deg);
+            transition: all 2s;
+        }
+
+        #line {
+            margin-bottom: 20px;
+            margin-top: 220px;
+            left: 15px;
+        }
+
+        #js-symbol {
+            margin-bottom: 20px;
+            margin-top: 60px;
+            left: 15px;
+            display: inline-block;
+            position: absolute;
+            align-items: center;
+            width: 160px;
+            z-index: 1000;
+            filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.6));
+            aspect-ratio: 1 / 1;
+            transform: rotate(-360deg);
+            transition: all 2s;
+        }
+
+        #line2 {
+            margin-bottom: 20px;
+            margin-top: 330px;
+            left: 15px;
+        }
+
+        #vanilla {
+            margin-bottom: 20px;
+            margin-top: 12px;
+            padding: 0.3em;
+            position: absolute;
+            display: inline-block;
+            left: 0px;
+            font-Family: 'sans-serif';
+            font-size: 1.75rem;
+            letter-spacing: 0.2em;
+            color: hsl(52, 97%, 58%);
+            text-shadow: 5px 3px 4px rgba(0, 0, 0, 0.9);
+            align-self: center;
+            text-align: center;
+            z-index: 1000;
+            background: rgb(87, 87, 87);
+            border-top: 2px solid hsl(10, 66%, 51%);
+            border-bottom: 2px solid hsl(213, 62%, 45%);
+            box-shadow: 2px 2px 20px 4px rgba(0, 0, 0, 0.5);
+
+        }
+
+        @keyframes FadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes FadeOut {
+            0% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .hamburger {
+            position: absolute;
+            top: -5px;
+            cursor: pointer;
+            font-size: 40px;
+            margin: 10px;
+            color: #888;
+            filter: drop-shadow(3px 2px 2px rgba(0, 0, 0, 0.6));
+        }
+
+        .hamburger:hover {
+            color: hsl(52, 77%, 53%);
+        }
+
+        .hamburger:active {
+            color: rgb(252, 4, 4);
+            transform: rotate(180deg);
+            transition: all .5s;
+        }
+    </style>
+
+    <div id="hamburger" class="hamburger" onclick="menu.show()">&#9776;</div>
+
+    <div id="container" class="container">
+    </div>
+
+
+    <script>
+
+        class Menu {
+
+            show() {
+                if (!this.isMenuShown)
+                    document.getElementById('container').style.transform = 'translateX(0px)',
+                        document.getElementById('big-3').style.transform = 'rotate(360deg)',
+                        document.getElementById('big-3').style.animation = 'FadeIn 2s',
+                        document.getElementById('js-symbol').style.transform = 'rotate(360deg)',
+                        document.getElementById('js-symbol').style.animation = 'FadeIn 2s',
+                        document.getElementById('vanilla').style.animation = 'FadeIn 4s';
+
+                else
+                    document.getElementById('container').style.transform = 'translateX(-210px)',
+                        document.getElementById('big-3').style.transform = 'rotate(-360deg)',
+                        document.getElementById('big-3').style.animation = 'FadeOut 500ms',
+                        document.getElementById('js-symbol').style.transform = 'rotate(-360deg)',
+                        document.getElementById('js-symbol').style.animation = 'FadeOut 500ms',
+                        document.getElementById('vanilla').style.animation = 'FadeOut 1s';
+
+                this.isMenuShown = !this.isMenuShown
+            }
+
+            constructor() {
+                this.isMenuShown = false;
+                var itemHTML = /*html*/`
+                    <div class="item">&#x260e;&nbsp;&nbsp;&nbsp; Item1</div>
+                    <div class="item">&#x2606;&nbsp;&nbsp;&nbsp; Item2</div>
+                    <div class="item">&#x2702;&nbsp;&nbsp;&nbsp; Item3</div>
+                    <img id="big-3" src="./html-js-css_transparent.png" alt="big three languages image" class="big-3">
+                    <hr id="line" class="line">
+                    <img id="js-symbol" src="./javascript-transparent.png" alt="big three languages image" class="js-symbol">
+                    <hr id="line2" class="line2">
+                    <h3 id="vanilla" class="vanilla">Vanilla is BEST!</h3>
+                `;
+                document.getElementById('container').innerHTML = itemHTML;
+            };
+
+        };
+
+        var menu = new Menu();
+
+    </script>
+
+</body>
+
+</html>

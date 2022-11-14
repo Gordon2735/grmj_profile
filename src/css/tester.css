@@ -1,0 +1,16 @@
+.logo {
+    --grmj-profile-background: linear-gradient(to left, hsl(0, 0%, 20%), hsl(0, 0%, 75%));
+    --grmj-profile-test: linear-gradient(020deg, hsla(0, 0%, 20%, 0.99), hsla(0, 0%, 75%, 0.9) 70.71%),
+        linear-gradient(100deg, hsla(0, 0%, 20%, 0.99), hsla(0, 0%, 75%, 0.9) 70.71%),
+        linear-gradient(180deg, hsla(0, 0%, 20%, 0.99), hsla(0, 0%, 75%, 0.9) 70.71%);
+
+    --grmj-color1: hsla(197, 71%, 73%, 0.99);
+    --grmj-color2: hsla(197, 98%, 17%, 0.99);
+    --grmj-color3: hsla(197, 45%, 63%, 0.99);
+    --grmj-color4: hsla(0, 0%, 0%, 0.99);
+    --grmj-color5: hsla(198, 86%, 92%, 0.99);
+    --grmj-color6: hsla(198, 53%, 87%, 0.99);
+    --grmj-color7: hsla(198, 23%, 59%, 0.99);
+
+    --grmj-text-shadow: 5px 3px 5px hsla(0, 0%, 0%, 0.99);
+}

@@ -1,6 +1,6 @@
 'use strict';
 
-export class ProfileTemplate extends HTMLElement {
+export class SidePanelTemplate extends HTMLElement {
 	noShadow: any;
 	private _template: any;
 	public get template(): any {

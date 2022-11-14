@@ -1,0 +1,232 @@
+
+<h1>Synthesizer Playground</h1> 
+<p class="para">hello there, why won't you work?</p>
+{{{body}}}
+
+<style>
+
+    .dropdown {
+        margin: 6em 0 2em 2em;
+        background: white;
+        border: 1px solid #aaa;
+        width: 200px;
+        height: 30px;
+        box-shadow: 2px 2px 4px #999;
+        border-radius: 5px;
+        color: #333;
+
+        line-height: 30px;
+        user-select: none;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 0.8em;
+        font-family: Arial, Helvetica, sans-serif;
+        position: relative;
+    }
+
+    .dropdow_value {
+        display: inline-block;
+        padding-left: 5px;        
+    }
+
+    .dropdown_arrow {
+        position: absolute;
+        right: 5px;
+        top: 0px;
+        color: #ccc;
+        font-size: 25px;
+        transition: all 0.3s ease;
+    }
+
+    .dropdown_panel {
+        position: absolute;
+        background: transparent;
+        width: calc(100% + 11px);
+        z-index: 999;
+        height: 203px;
+        left: -1px;
+        top: 28px;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    .dropdown ::-webkit-scrollbar {
+        width: 0.4em;
+        background-color: hsla(0, 1%, 66%, 0.9);
+    }
+
+   .dropdown ::-webkit-scrollbar:hover {
+        width: 0.5em;
+        background-color: hsla(0, 1%, 34%, 0.9);
+    }
+
+
+    .dropdown ::-webkit-scrollbar-thumb {
+        width: 0.5em;
+        background-color: hsl(224, 42%, 40%);
+        border-radius: 0.5em;
+    }
+
+
+    .dropdown ::-webkit-scrollbar-thumb:hover {
+        background-color: hsla(224, 25%, 73%, 0.993);
+    }
+
+
+    .dropdown_items {
+        position: absolute;
+        pointer-events: all;
+        top: 0px;
+        width: calc(100% - 11px);
+        max-height: 170px;
+        background: white;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        box-shadow: 2px 2px 4px #999;
+        overflow-y: auto;
+        border: 1px solid #aaa;
+        transform: translate(0px, -200px);
+        transition: 0.3s all  ease-out;
+    }
+
+    .dropdown_item {
+        padding: 5px;
+    }
+
+    .dropdown_item:hover {
+        background: #eee;
+    }
+
+</style>
+
+<div id="dd1"></div>
+{{!-- <br/>
+<br/> --}}
+<div id="dd2"></div>
+
+<script>
+
+    function Dropdown(o) {
+
+        this.options = o;
+
+        window.getdd = function(elem) {
+            var id = elem.closest('.dropdown').parentElement.id;
+            return window.dropdowns[id];
+        }
+
+        this.init = function() {
+            this.elem = document.getElementById(this.options.id);
+
+            let val = this.options.val;
+            let HTML = /*html*/ `
+                <div id:="dropdown" class="dropdown">
+                    <div class="dropdown_value">${val}</div>
+                    <div class="dropdown_arrow">▾</div>
+                    <div   class="dropdown_panel">
+                        <div id:="dd1s"  class="dropdown_items scrollbar"></div>
+                    </div>
+                </div>
+            
+            `;
+
+            this.elem.innerHTML = HTML;
+            let elem = this.elem;
+
+            {{!-- Make parent elem inline-block --}}
+            this.elem.style.display = 'inline-block';
+
+            if (!window.dropdowns) window.dropdowns = {}; 
+                window.dropdowns[this.options.id] = this;
+
+            this.items = elem.querySelector('.dropdown_items');
+            this.arrow = elem.querySelector('.dropdown_arrow');
+            this.value = elem.querySelector('.dropdown_value');
+
+            const data = this.options.data;
+            HTML = '';
+            data.forEach(function(elem) {
+                HTML += /*html*/ `
+                    <div class="dropdown_item" onmousedown="var self = getdd(this); self.clicked(this)">${elem}</div>
+                `;
+            });
+            this.items.innerHTML = HTML;
+
+            var self = this;
+
+            document.addEventListener('mousedown', function() {
+                self.hide();
+            });
+
+            this.elem.addEventListener('mousedown', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                if (self.inVisible)
+                    self.hide()
+                else
+                    self.show()
+                   
+            });  
+
+        }
+
+        this.clicked = function(elem) {
+            event.stopPropagation();
+            this.hide();
+
+            var newval = elem.innerHTML;
+            this.value.innerHTML = newval;
+
+            if (this.options.cb)
+                this.options.cb(newval);          
+        }
+
+        this.show = function() {
+
+            {{!-- close all dropdowns --}}
+            for (var dd in window.dropdowns)
+                window.dropdowns[dd].hide();
+
+            this.inVisible = true;
+            this.items.style.transform = 'translate(0px, 0px)';
+            this.arrow.style.transform = 'rotate(180deg)';
+        }
+
+        this.hide = function() {
+
+            if (!this.inVisible) return;
+
+            this.inVisible = false;
+            this.items.style.transform = 'translate(0px, -255px)';
+            this.arrow.style.transform = 'rotate(0deg)';
+        }        
+
+        this.init();
+
+        return this;
+    }
+
+    const dd1 = new Dropdown({
+        id: 'dd1',
+        val: 'cat',
+        data: ['cat', 'dog', 'mouse', 'horse', 'rabbit', 'lion', 'bear',
+            'tiger'
+        ],
+        cb: function(newval) {
+            {{!-- alert(newval); --}}
+        }
+    });
+
+    const dd2 = new Dropdown({
+        id: 'dd2',
+        val: 'rabbit',
+        data: ['cat', 'dog', 'mouse', 'horse', 'rabbit', 'lion', 'bear',
+            'tiger'
+        ],
+        cb: function(newval) {
+            {{!-- alert(newval); --}}
+        }
+    });
+
+
+</script>

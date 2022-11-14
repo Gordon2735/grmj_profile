@@ -10,7 +10,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import { EventEmitter } from 'events';
 import open from 'open';
-// import favicon from 'serve-favicon';
+import favicon from 'serve-favicon';
 import { fileURLToPath } from 'url';
 import logEvents, { date } from './logEvents.js';
 import router from './controller/router.js';
@@ -28,24 +28,26 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // body-parser...
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
 
 const handlebars: ExpressHandlebars = create({
-	extname: '.hbs',
+	extname: 'hbs',
 	defaultLayout: 'main',
-	layoutsDir: '/grmj_profile/views/layouts',
-	partialsDir: '/grmj_profile/views/partials',
+	layoutsDir: path.resolve(__dirname, '/grmj_profile/views/layouts'),
+	partialsDir: path.resolve(__dirname, '/grmj_profile/views/partials'),
 	helpers: {}
 });
 
+app.set('defaultView', 'main');
 app.set('view engine', 'hbs');
 app.engine('hbs', handlebars.engine);
+app.set('layouts', 'main');
 app.enable('view cache');
 
 // static folders
-app.use(express.static('dist/'));
-app.use(express.static('dist/src/components'));
+app.use(express.static('src'));
 
 // set Global Variables
 app.use(function (_req: Request, res: Response, next: NextFunction) {
@@ -60,15 +62,10 @@ app.get('/', (_req: Request, res: Response) => {
 	res.send('Hello World!');
 });
 
-router.use((_req: Request, res: Response, next: NextFunction) => {
-	if (!res.locals.partials) res.locals.partials = {};
-	next();
-});
-
-// app.use(
-// 	favicon(path.resolve(__dirname, '/grmj_profile/src/images', 'favicon.ico'))
-// );
-// app.use(favicon(path.join(__dirname + '/images, favicon.ico')));
+app.use(
+	favicon(path.resolve(__dirname, '/grmj_profile/src/images', 'favicon.ico'))
+);
+// app.use(serveFavicon(__dirname + '/grmj_profile/src/images/favicon.ico'));
 
 const PORT = process.env.PORT || 9080;
 const HOST = process.env.HOST || `127.0.0.1`;
@@ -111,3 +108,7 @@ app.use<any>(morgan<Request>('combined', { stream: accessLogStream }));
 app.get<any>('/', (_req: Request, res: Response) => {
 	res.send('HOOT Webelistics Logger Tracker');
 });
+
+// function serveFavicon(_arg0: string): any {
+// 	throw new Error('Function not implemented.');
+// }
