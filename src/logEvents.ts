@@ -18,11 +18,11 @@ const logEvents: any = async (message: any) => {
 	const logItem: string = `${dateTime}\t${uuidFour}\t${message}\n`;
 	console.log(logItem);
 	try {
-		if (!fs.existsSync(path.join(__dirname, 'logs'))) {
-			await fsPromises.mkdir(path.join(__dirname, 'logs'));
+		if (!fs.existsSync(path.join('/grmj_profile/logs'))) {
+			await fsPromises.mkdir(path.join('/grmj_profile/logs'));
 		} else {
 			await fsPromises.appendFile(
-				path.join(__dirname, 'logs', 'eventLog.log'),
+				path.join('/grmj_profile/logs', 'eventLog.log'),
 				logItem
 			);
 		}

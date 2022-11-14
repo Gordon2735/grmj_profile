@@ -41,9 +41,9 @@ export default class Menu {
             <div class="item">&#x260e;&nbsp;&nbsp;&nbsp; Item1</div>
             <div class="item">&#x2606;&nbsp;&nbsp;&nbsp; Item2</div>
             <div class="item">&#x2702;&nbsp;&nbsp;&nbsp; Item3</div>
-            <img id="big-3" src="./html-js-css_transparent.png" alt="big three languages image" class="big-3">
+            <img id="big-3" src="/src/components/sidePanel/tools/images/html-js-css_transparent.png" alt="big three languages image" class="big-3">
             <hr id="line" class="line">
-            <img id="js-symbol" src="./javascript-transparent.png" alt="big three languages image" class="js-symbol">
+            <img id="js-symbol" src="/src/components/sidePanel/tools/images/javascript-transparent.png" alt="big three languages image" class="js-symbol">
             <hr id="line2" class="line2">
             <h3 id="vanilla" class="vanilla">Vanilla is BEST!</h3>
         `;

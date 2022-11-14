@@ -11,14 +11,14 @@ import cors from 'cors';
 import { EventEmitter } from 'events';
 import open from 'open';
 // import favicon from 'serve-favicon';
-import { fileURLToPath } from 'url';
+// import { fileURLToPath } from 'url';
 import logEvents, { date } from './logEvents.js';
 import router from './controller/router.js';
 
 dotenv.config({ path: './config/config.env' });
 
-const __fileName: string = fileURLToPath(import.meta.url);
-const __dirname: string = path.dirname(__fileName);
+// const __fileName: string = fileURLToPath(import.meta.url);
+// const __dirname: string = path.dirname(__fileName);
 
 const app: Application = express();
 
@@ -104,7 +104,7 @@ setTimeout((): void => {
 
 // Create a write stream (in append mode)(morgan)
 const accessLogStream: fs.WriteStream = fs.createWriteStream(
-	path.join(__dirname, 'logs', 'access.log'),
+	path.join('/grmj_profile/logs', 'access.log'),
 	{ flags: 'a' }
 );
 app.use<any>(morgan<Request>('combined', { stream: accessLogStream }));
