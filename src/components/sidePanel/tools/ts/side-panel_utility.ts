@@ -1,7 +1,7 @@
 'use strict';
 
-function setAttributes(tag: any, attribute: string | object | any) {
-	Object.keys(attribute).map(function (keys: any) {
+function setAttributes(tag: any, attribute: string | object | any): void {
+	Object.keys(attribute).map(function (keys: any): void {
 		tag.setAttribute(keys, attribute[keys]);
 	});
 }

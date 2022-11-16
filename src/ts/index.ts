@@ -32,6 +32,14 @@ async function init(): Promise<void> {
 				src: '/src/components/sidePanel/side-panel_shell.js'
 			});
 			head?.append(script2);
+
+			const script3: HTMLScriptElement = document.createElement('script');
+			setAttributes(script3, {
+				type: 'module',
+				content: 'text/javascript',
+				src: '/src/components/profileHistory/profile-history.js'
+			});
+			head?.append(script3);
 		} else {
 			waitOnDOM();
 		}

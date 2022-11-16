@@ -72,7 +72,7 @@ function newDomTag(
 	attributes: { [x: string]: any },
 	children: any[],
 	...list: any[]
-) {
+): void {
 	const tagDom = new Map();
 	tagDom.set('01', 'type_1');
 	tagDom.set('02', 'type_2');
@@ -86,6 +86,7 @@ function newDomTag(
 	if (tagDom.get(domMethod) === 'type_1') {
 		Object.keys(attributes).map(key => {
 			element.setAttribute(key, attributes[key]);
+			return element;
 		});
 	}
 	if (tagDom.get(domMethod) === 'type_2') {

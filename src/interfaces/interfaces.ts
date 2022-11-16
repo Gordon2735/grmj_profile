@@ -20,5 +20,13 @@ export interface sidePanel_sharedHTML {
 	panel: string;
 }
 
+export interface profileHistory_sharedStyles {
+	history: string;
+}
+
+export interface profileHistory_sharedHTML {
+	history: string;
+}
+
 export default profile_sharedStyles;
 // export  profile_sharedHTML ;

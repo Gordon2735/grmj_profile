@@ -5,7 +5,8 @@ import express, { Router, Request, Response } from 'express';
 // const app = express();
 const router: Router = express.Router();
 // router.use(express.static('/src/views'));
-router.use(express.static('./routes'));
+// router.use(express.static('./routes'));
+router.use(express.static('../../views'));
 
 //%  /Home page Route
 let user: any;
