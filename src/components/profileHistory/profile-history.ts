@@ -3,16 +3,14 @@
 import { ProfileHistoryTemplate } from './profile-history_template.js';
 import { profileHistory_sharedStyles } from './profile-history_sharedStyles.js';
 import { profileHistory_sharedHTML } from './profile-history_sharedHTML.js';
-// import { profile_sharedStyles } from '../profileHome/profile-sharedStyles.js';
-import removeAttributes, {
+import RegisterComponent, {
 	setAttributes,
-	appendChildren
-	// newDomTag
-} from './profile-history_services.js';
-
+	appendChildren,
+	removeChildren
+} from '../componentTools/components_services.js';
 export class ProfileHistory extends ProfileHistoryTemplate {
 	body: HTMLBodyElement | null;
-	removeAttributes = removeAttributes;
+	removeChildren = removeChildren;
 	setAttributes = setAttributes;
 	appendChildren = appendChildren;
 	constructor() {
@@ -22,31 +20,12 @@ export class ProfileHistory extends ProfileHistoryTemplate {
 
 		const body = document.querySelector('body');
 		this.body = body;
-
-		// const titleText: string | any = 'The History of Gordon Mullen';
-
-		// const title: HTMLElement | any = newDomTag(
-		// 	'01',
-		// 	'h1',
-		// 	{
-		// 		id: 'title',
-		// 		class: 'title'
-		// 	},
-		// 	null,
-		// 	null
-		// );
-		// title.innerHTML = titleText;
-		// this.title = title;
-		// this.body?.append(title);
 	}
 	override connectedCallback() {
 		super.connectedCallback();
-
-		// appendChildren(this.body, [this.title]);
 	}
 	override get template() {
 		return /*html*/ `
-
 
             ${profileHistory_sharedHTML.history}
 
@@ -56,4 +35,4 @@ export class ProfileHistory extends ProfileHistoryTemplate {
         `;
 	}
 }
-customElements.define('profile-history', ProfileHistory);
+RegisterComponent('profile-history', ProfileHistory);

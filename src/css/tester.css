@@ -11,6 +11,8 @@
     --grmj-color5: hsla(198, 86%, 92%, 0.99);
     --grmj-color6: hsla(198, 53%, 87%, 0.99);
     --grmj-color7: hsla(198, 23%, 59%, 0.99);
-
+    --grmj-color8: hsla(240, 1%, 68%, 0.39);
+    --grmj-color9: hsla(0, 0%, 0%, 0.72);
+    --grmj-color10: hsla(0, 0%, 0%, 0.6);
     --grmj-text-shadow: 5px 3px 5px hsla(0, 0%, 0%, 0.99);
 }

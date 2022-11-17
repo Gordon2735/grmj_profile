@@ -34,8 +34,8 @@ sidePanel_sharedStyles.panel = /*css*/ `
         overflow: hidden;
         transform: translateX(-227px);
         transition: all 1s;
-        box-shadow: 6px 3px 9px hsla(240, 1%, 68%, 0.69);
-        border: 2.5px solid hsl(240, 81%, 12%);
+        filter: var(--grmj-filter-dropShadow-0);
+        border: var(--grmj-border-0);
         border-radius: 0px 8px 8px 0px;
         font-Family: var(--grmj-font-family-1);
         z-index: 999;
@@ -48,7 +48,7 @@ sidePanel_sharedStyles.panel = /*css*/ `
         position: absolute;
         width: 160px;
         align-items: center;
-        filter: drop-shadow(3px 2px 2px rgba(0, 0, 0, 0.6));
+        filter: var(--grmj-filter-dropShadow-1);
         transform: rotate(-360deg);
         transition: all 2s;
         aspect-ratio: 160 / 61;
@@ -67,7 +67,7 @@ sidePanel_sharedStyles.panel = /*css*/ `
         position: absolute;
         width: 80px;
         align-items: center;
-        filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.6));
+        filter: var(--grmj-filter-dropShadow-2);
         transform: rotate(-360deg);
         transition: all 2s;
         aspect-ratio: 1 / 1;
@@ -81,7 +81,7 @@ sidePanel_sharedStyles.panel = /*css*/ `
         position: absolute;
         width: 80px;
         align-items: baseline;
-        filter: drop-shadow(6px 4px 4px rgba(0, 0, 0, 0.6));
+        filter: var(--grmj-filter-dropShadow-2);
         transform: rotate(-360deg);
         transition: all 2s;
         aspect-ratio: 1 / 1;
@@ -159,7 +159,13 @@ sidePanel_sharedStyles.panel = /*css*/ `
         line-height: 9px;
         border-bottom: 1px solid #999;
         font-size: 12px; 
-        cursor: pointer;
+        cursor: pointer;  
+    }
+
+    .item .history-a {
+		color: var(--grmj-font-color-5);
+        text-decoration: none;
+        outline: none;
     }
     
     .item:hover {

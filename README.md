@@ -1,4 +1,6 @@
-# Profile Site for Gordon R MUllen Jr
+# Copyright (c) 2022 HOOT Webelistics®, LLC
+
+# Copyright (c) 2022 Webelistics® CodeOperate©️ Software Development || Profile Landing Page for Gordon R Mullen Jr
 
 ## Principle Software Utilized || Fullstack
 

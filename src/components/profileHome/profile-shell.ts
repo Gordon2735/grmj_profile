@@ -3,6 +3,7 @@
 import { ProfileTemplate } from './profile-template.js';
 import { profile_sharedStyles } from './profile-sharedStyles.js';
 import { profile_sharedHTML } from './profile-sharedHTML.js';
+import ComponentRegistry from '../componentTools/components_services.js';
 
 export class ProfileShell extends ProfileTemplate {
 	constructor() {
@@ -27,4 +28,4 @@ export class ProfileShell extends ProfileTemplate {
         `;
 	}
 }
-customElements.define('profile-shell', ProfileShell);
+ComponentRegistry('profile-shell', ProfileShell);

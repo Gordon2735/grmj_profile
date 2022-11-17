@@ -3,15 +3,9 @@
 import { SidePanelTemplate } from './side-panel_template.js';
 import { sidePanel_sharedStyles } from './side-panel_sharedStyles.js';
 import { sidePanel_sharedHTML } from './side-panel_sharedHTML.js';
-import { setAttributes } from './tools/ts/side-panel_utility.js';
-// import express, { Router, Request, Response } from 'express';
-// import router from './controller/router.js';
-
-// const app = express();
-// const router: Router = express.Router();
-
-// app.use('/', router);
-
+import ComponentRegistry, {
+	setAttributes
+} from '../componentTools/components_services.js';
 export class SidePanel extends SidePanelTemplate {
 	// [x: string]: any;
 	// menu: Menu | undefined;
@@ -158,4 +152,4 @@ export class SidePanel extends SidePanelTemplate {
         `;
 	}
 }
-customElements.define('side-panel', SidePanel);
+ComponentRegistry('side-panel', SidePanel);

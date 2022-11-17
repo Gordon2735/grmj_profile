@@ -1,6 +1,6 @@
 {
 	"name": "grmj_profile",
-	"description": "Profile Site for Gordon R Mullen Jr, Software Developer",
+	"description": "Official Profile Landing Page for Gordon R Mullen Jr, Software Developer",
 	"version": "1.0.0",
 	"main": "dist/server.js",
 	"type": "module",

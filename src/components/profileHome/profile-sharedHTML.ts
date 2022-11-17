@@ -47,7 +47,7 @@ profile_sharedHTML.shell = /*html*/ `
                 Personal Goals:
                 Current-Best-Practices-Driven JavaScript Software Engineering combining a loosely coupled, modular design; with a focus on code reusability and maintainability.
                 Object-Oriented-Programming (OOP): using classes while seeking non-complexity though standardizing with Encapsulation, Abstraction, Polymorphism, and Inheritance; progressively favoring composition over inheritance.
-                Using Native Web Components dynamically for the entirety of the UI/Frontend Development Process. Applying constraints for maintaining a structured OOP/MVC paradigm and utilizing the ES6 module system: even within the Node.js Environment
+                Using Native Web Components dynamically for the entirety of the UI/Frontend Development Process. Applying constraints for maintaining a structured OOP/MVC paradigm including the Components "state", and utilizing the ES6 module system: even within the Node.js Environment
                 for consistency. Unit-Testing Front & Backend with the Testing frameworks of Jest, and Supertest. Always seeking to improve my programming skills and knowledge. Deep-Diving invariably into JavaScript/TypeScript so that if, hypothetically
                 I were cornered, then asked to describe my coding skills permitting only two words, I would impulsively reply without hesitation: 'JavaScript Professional'.
             </q>

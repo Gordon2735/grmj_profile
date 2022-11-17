@@ -45,6 +45,15 @@ profile_sharedStyles.global = /*css*/ `
         --grmj-text-shadow-2: 7px 5px 9px hsla(0, 0%, 0%, 0.69);
         --grmj-text-shadow-3: 2px 1px 3px hsla(0, 0%, 0%, 0.59);
 
+        /*Box Shadows*/
+        --grmj-box-shadow-0: 5px 4px 7px hsla(0, 0%, 0%, 0.79);
+
+        /*Filter: drop-shadow*/
+        --grmj-filter-dropShadow-0: drop-shadow(6px 5px 7px hsla(0, 0%, 0%, 0.72));
+        --grmj-filter-dropShadow-1: drop-shadow(3px 2px 2px rgba(0, 0, 0, 0.6));
+        --grmj-filter-dropShadow-2: drop-shadow(6px 4px 4px hsla(0, 0%, 0%, 0.6));
+
+
         /*Letter Spacing*/
         --grmj-letter-spacing-1: 0.1em;
         --grmj-letter-spacing-1a: 0.15em;
@@ -80,6 +89,9 @@ profile_sharedStyles.global = /*css*/ `
         --grmj-font-color-3: hsla(198, 53%, 87%, 0.99);
         --grmj-font-color-4: hsla(198, 23%, 59%, 0.99);
         --grmj-font-color-5: hsla(0, 0%, 0%, 0.99);
+
+        /*Borders*/
+        --grmj-border-0: 2.5px solid hsl(240, 81%, 12%);
         
     }
 
