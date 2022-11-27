@@ -18,7 +18,7 @@ const history: Router = router
 	.post('/history', async (req: Request, res: Response) => {
 		res.json(
 			await user.create(req.body).catch((error: any) => {
-				res.status(400),
+				res.status(404),
 					console.info(
 						`Whoops, seems there was a "Page Not Found Error" ${error}`
 					);

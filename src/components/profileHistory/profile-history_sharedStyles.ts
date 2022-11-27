@@ -50,7 +50,6 @@ profileHistory_sharedStyles.history = /*css*/ `
         --grmj-filter-dropShadow-1: drop-shadow(3px 2px 2px hsla(0, 0%, 0%, 0.6));
         --grmj-filter-dropShadow-2: drop-shadow(6px 4px 4px hsla(0, 0%, 0%, 0.6));
 
-
         /*Letter Spacing*/
         --grmj-letter-spacing-1: 0.1em;
         --grmj-letter-spacing-1a: 0.15em;
@@ -114,6 +113,25 @@ profileHistory_sharedStyles.history = /*css*/ `
         text-shadow: var(--grmj-text-shadow-1);
         letter-spacing: var(--grmj-letter-spacing-1a);
 	}
+
+    .early-years-section {
+        margin: 10em 5em 2em 0em;
+        width: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .early-years-para {
+        padding: 1em auto;
+        font-family: var(--grmj-font-family-1);
+        font-size: var(--grmj-font-size-5vw);
+        font-weight: var(--grmj-font-weight-4);
+        color: var(--grmj-font-color-3);
+        text-shadow: var(--grmj-text-shadow-1);
+    }
 
 
 `;

@@ -3,52 +3,50 @@
 import { SidePanelTemplate } from './side-panel_template.js';
 import { sidePanel_sharedStyles } from './side-panel_sharedStyles.js';
 import { sidePanel_sharedHTML } from './side-panel_sharedHTML.js';
-import ComponentRegistry, {
-	setAttributes
-} from '../componentTools/components_services.js';
+import ComponentRegistry from '../componentTools/components_services.js';
+
 export class SidePanel extends SidePanelTemplate {
-	// [x: string]: any;
-	// menu: Menu | undefined;
+	override noShadow: boolean;
+	override root: ShadowRoot | null = this.shadowRoot;
 	body: HTMLBodyElement | null | undefined;
-	root: any;
 	menu: any;
 	document: Document | null = this.ownerDocument;
 	historyAnchor: HTMLElement | null | undefined;
-	// setAAttributes: any;
+	resumeAnchor: HTMLElement | null | undefined;
+	projectsAnchor: HTMLElement | null | undefined;
+	goalsAnchor: HTMLElement | null | undefined;
+	codeExAnchor: HTMLElement | null | undefined;
 
-	constructor() {
+	constructor(body: HTMLBodyElement | null | undefined) {
 		super();
 
-		const body = document.querySelector('body');
 		this.body = body;
-
 		this.noShadow = true;
+		this.body = document.querySelector('body');
 	}
-
 	override connectedCallback() {
 		super.connectedCallback();
-		// const root: ShadowRoot | null = this.shadowRoot;
 
+		console.log('Side-Panel is Rendered :::: HooT™️ Webelistics®️ ');
 		class Menu {
-			body: HTMLBodyElement | null | undefined;
 			container: HTMLElement | null | undefined;
 			big3: HTMLElement | null | undefined;
 			vanilla: HTMLElement | null | undefined;
-			historyA: HTMLElement | null | undefined;
-			isMenuShown: any;
+			isMenuShown: boolean;
+			tsSymbol: HTMLElement | undefined | null;
+			jsSymbol: HTMLElement | undefined | null;
+			menuBody: HTMLBodyElement | null | undefined;
+			menuContainer: HTMLElement | null | undefined;
+			itemHTML: HTMLElement | string | undefined;
 
-			[x: string]: any;
-			setAttributeInput: undefined;
-
-			slide(): any {
-				this.body = document.querySelector('body');
+			slide(): void {
 				this.container = document.getElementById('container');
 				this.big3 = document.getElementById('big-3');
 				this.vanilla = document.getElementById('vanilla');
 				this.jsSymbol = document.getElementById('js-symbol');
 				this.tsSymbol = document.getElementById('ts-symbol');
 
-				!this.isMenuShown
+				!menu.isMenuShown
 					? ((this.container!.style.transform = 'translateX(0px)'),
 					  (this.big3!.style.transform = 'rotate(360deg)'),
 					  (this.big3!.style.animation = 'FadeIn 2s'),
@@ -56,7 +54,8 @@ export class SidePanel extends SidePanelTemplate {
 					  (this.jsSymbol!.style.animation = 'FadeIn 2s'),
 					  (this.tsSymbol!.style.transform = 'rotate(360deg)'),
 					  (this.tsSymbol!.style.animation = 'FadeIn 2s'),
-					  (this.vanilla!.style.animation = 'FadeIn 4s'))
+					  (this.vanilla!.style.animation = 'FadeIn 4s'),
+					  (this.isMenuShown = true))
 					: ((this.container!.style.transform = 'translateX(-210px)'),
 					  (this.big3!.style.transform = 'rotate(-360deg)'),
 					  (this.big3!.style.animation = 'FadeOut 500ms'),
@@ -64,26 +63,26 @@ export class SidePanel extends SidePanelTemplate {
 					  (this.jsSymbol!.style.animation = 'FadeOut 500ms'),
 					  (this.tsSymbol!.style.transform = 'rotate(-360deg)'),
 					  (this.tsSymbol!.style.animation = 'FadeOut 500ms'),
-					  (this.vanilla!.style.animation = 'FadeOut 1s'));
-				this.isMenuShown = !this.isMenuShown;
+					  (this.vanilla!.style.animation = 'FadeOut 1s'),
+					  (this.isMenuShown = false));
 			}
 
 			constructor() {
 				this.isMenuShown = false;
 
-				let bodi: HTMLElement | null | undefined =
+				let menuBody: HTMLBodyElement | null | undefined =
 					document.querySelector('body');
-				this.bodi = bodi;
+				let menuContainer: HTMLElement | null | undefined =
+					menuBody?.querySelector('#container');
 
-				// Résumé
-				let itemHTML: any = /*html*/ `
+				let itemHTML: HTMLElement | string | undefined = /*html*/ `
                     <div id="historyDiv" class="item" >&#127915;&nbsp;&nbsp;&nbsp;<a id="historyA" class="history-a" href="/history">Gordon's History</a></div>
-                    <div class="item">&#128203;&nbsp;&nbsp;&nbsp;Resume</div>
-                    <div  id:="boombox"  class="item">&#128230;&nbsp;&nbsp;&nbsp;<a id="boombox-input" class="boombox-input"
-                        type="button" value="stopped">Project Examples</a></div>
-                    <div  id:="player"  class="item">&#128211;&nbsp;&nbsp;&nbsp;<a id="player-input" class="player-input"
-                        type="button" value="start"> Gordon's Goals</a></div>
-                    <div class="item">&lambda;&nbsp;&nbsp;&nbsp;Code Examples &#160 <&#160|&#160></div>
+                    <div class="item">&#128203;&nbsp;&nbsp;&nbsp;<a id="resume" class="resume" href="/resume">Resume</a></div>
+                    <div  id:="projects"  class="item">&#128230;&nbsp;&nbsp;&nbsp;<a id="projectsAnchor" class="project-anchor"
+                        href="/projects">Projects</a></div>
+                    <div  id:="goals"  class="item">&#128211;&nbsp;&nbsp;&nbsp;<a id="goalsAnchor" class="goals-anchor"
+                        href="/goals">Gordon's Goals</a></div>
+                    <div class="item">&lambda;&nbsp;&nbsp;&nbsp;<a id="codeEx" class="code-ex">Code Examples &#160 <&#160|&#160></a></div>
 
                     <img id="big-3" src="/src/components/sidePanel/tools/images/html-js-css_transparent.png"
                         alt="big three languages image" class="big-3">
@@ -99,11 +98,11 @@ export class SidePanel extends SidePanelTemplate {
 
                     <h3 id="vanilla" class="vanilla">Vanilla is BEST!</h3>
                 `;
-				this.bodi.querySelector('.container').innerHTML = itemHTML;
+				menuContainer?.insertAdjacentHTML('afterbegin', itemHTML);
 			}
 		}
 
-		const menu = new Menu();
+		const menu: Menu = new Menu();
 		const ham: HTMLElement | null = document.getElementById('hamburger');
 		ham?.addEventListener(
 			'click',
@@ -112,37 +111,75 @@ export class SidePanel extends SidePanelTemplate {
 				stopPropagation: () => void;
 			}) => {
 				event.preventDefault();
-				menu.slide();
+
+				!menu.isMenuShown
+					? (menu.slide(), (menu.isMenuShown = true))
+					: (menu.slide(), (menu.isMenuShown = false));
+
 				event.stopPropagation();
 			}
 		);
 		document.addEventListener('click', event => {
 			event.preventDefault();
 
-			menu.isMenuShown === true ? menu.slide() : event.stopPropagation(),
-				console.info(
-					`Menu-Shown: ${
-						menu.isMenuShown
-					}, Menu-noShow: ${!menu.isMenuShown}`
-				);
-			// event.stopImmediatePropagation();
+			// menu.isMenuShown === true ? menu.slide() : menu.slide(),
+			menu.isMenuShown
+				? (menu.slide(),
+				  (menu.isMenuShown = false),
+				  event.stopPropagation())
+				: (event.stopPropagation(),
+				  console.info(`Menu-Shown: ${menu.isMenuShown}`));
+			event.stopImmediatePropagation();
 		});
 
+		// History Page
 		const historyAnchor: HTMLElement | null | undefined =
 			document.getElementById('historyA');
 
-		setAttributes(historyAnchor, {
-			href: '/history',
-			id: 'historyA',
-			class: 'history-a'
-		});
-		this.historyAnchor = historyAnchor;
-
-		this.historyAnchor?.addEventListener('click', event => {
+		historyAnchor?.addEventListener('click', event => {
 			event.preventDefault();
-			open('/history');
-			console.info('history clicked');
-			// event.stopPropagation();
+			window.location.href = '/history';
+			event.stopPropagation();
+		});
+
+		// Resume Page
+		const resumeAnchor: HTMLElement | null | undefined =
+			document.getElementById('resume');
+
+		resumeAnchor?.addEventListener('click', event => {
+			event.preventDefault();
+			window.location.href = '/resume';
+			event.stopPropagation();
+		});
+
+		// Projects Page
+		const projectsAnchor: HTMLElement | null | undefined =
+			document.getElementById('projectsAnchor');
+
+		projectsAnchor?.addEventListener('click', event => {
+			event.preventDefault();
+			window.location.href = '/projects';
+			event.stopPropagation();
+		});
+
+		// Goals Page
+		const goalsAnchor: HTMLElement | null | undefined =
+			document.getElementById('goalsAnchor');
+
+		goalsAnchor?.addEventListener('click', event => {
+			event.preventDefault();
+			window.location.href = '/goals';
+			event.stopPropagation();
+		});
+
+		// Code Examples Page
+		const codeExAnchor: HTMLElement | null | undefined =
+			document.getElementById('codeEx');
+
+		codeExAnchor?.addEventListener('click', event => {
+			event.preventDefault();
+			window.location.href = '/code_examples';
+			event.stopPropagation();
 		});
 	}
 	override get template() {
@@ -150,6 +187,20 @@ export class SidePanel extends SidePanelTemplate {
             <style>${sidePanel_sharedStyles.panel}</style>
             ${sidePanel_sharedHTML.panel} 
         `;
+	}
+	static get observedAttributes() {
+		return ['window.location.href'];
+	}
+	public attributeChangedCallback(
+		name: string,
+		_oldValue: string,
+		_newValue: string
+	) {
+		_oldValue !== _newValue
+			? console.info(`old location: ${_oldValue},
+				${name} has a new location of: ${_newValue}
+				which should be equal to: ${window.location} `)
+			: console.info(`old location: ${_oldValue}`);
 	}
 }
 ComponentRegistry('side-panel', SidePanel);

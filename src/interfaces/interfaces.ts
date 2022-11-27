@@ -1,32 +1,56 @@
 'use strict';
 
-interface profile_sharedStyles {
+export default interface profile_sharedStyles {
 	global: string;
 	home: string;
 }
 
-export interface profile_sharedHTML {
+interface profile_sharedHTML {
 	shell: string;
 	home: string;
 }
 
-export interface sidePanel_sharedStyles {
+interface sidePanel_sharedStyles {
 	global: string;
 	panel: string;
 }
 
-export interface sidePanel_sharedHTML {
+interface sidePanel_sharedHTML {
 	shell: string;
 	panel: string;
 }
 
-export interface profileHistory_sharedStyles {
+interface profileHistory_sharedStyles {
 	history: string;
 }
 
-export interface profileHistory_sharedHTML {
+interface profileHistory_sharedHTML {
 	history: string;
 }
 
-export default profile_sharedStyles;
-// export  profile_sharedHTML ;
+interface profileResume_sharedStyles {
+	shell: string;
+	resume: string;
+}
+
+interface profileResume_sharedHTML {
+	shell: string;
+	resume: string;
+}
+
+interface HistoryObject {
+	pageOpen: [string];
+	push(state: any): void;
+	pop(): void;
+}
+
+export {
+	profile_sharedHTML,
+	sidePanel_sharedStyles,
+	sidePanel_sharedHTML,
+	profileHistory_sharedStyles,
+	profileHistory_sharedHTML,
+	profileResume_sharedStyles,
+	profileResume_sharedHTML,
+	HistoryObject
+};

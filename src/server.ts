@@ -53,6 +53,7 @@ app.use(function (_req: Request, res: Response, next: NextFunction) {
 	next();
 });
 
+app.use(express.static('controller'));
 // Routes
 app.use('/', router);
 

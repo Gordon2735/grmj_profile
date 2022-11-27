@@ -2,7 +2,9 @@
 
 import { SidePanelTemplate } from './side-panel_template.js';
 import { sidePanel_sharedStyles } from './side-panel_sharedStyles.js';
-import { setAttributes } from './tools/ts/side-panel_utility.js';
+import ComponentRegistry, {
+	setAttributes
+} from '../componentTools/components_services.js';
 
 export class SidePanelShell extends SidePanelTemplate {
 	head: HTMLHeadElement | null;
@@ -37,4 +39,4 @@ export class SidePanelShell extends SidePanelTemplate {
         `;
 	}
 }
-customElements.define('side-panel_shell', SidePanelShell);
+ComponentRegistry('side-panel_shell', SidePanelShell);

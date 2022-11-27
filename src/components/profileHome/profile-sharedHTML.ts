@@ -10,9 +10,15 @@ const profile_sharedHTML = {
 };
 
 profile_sharedHTML.shell = /*html*/ ` 
-   
-    <main id="main" class="main">
 
+    <profile-home id="profileHome" class="profile-home"></profile-home> 
+    
+    `;
+
+profile_sharedHTML.home = /*html*/ `
+    
+    <main id="main" class="main">
+        <side-panel_shell id="sidePanelShell" class="side-panel"></side-panel_shell>  
         <div id="titleOfficial" class="title-official">The Official</div>  
 
         <h1 id="grmjProfileTitle" class="grmj-profile-title">Profile Landing Page</h1>
@@ -53,14 +59,7 @@ profile_sharedHTML.shell = /*html*/ `
             </q>
 
         </section>
-
-        
-
-
     </main>
-`;
-
-profile_sharedHTML.home = /*html*/ `
 
 `;
 

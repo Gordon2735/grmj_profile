@@ -162,8 +162,32 @@ sidePanel_sharedStyles.panel = /*css*/ `
         cursor: pointer;  
     }
 
-    .item .history-a {
+    .history-a {
 		color: var(--grmj-font-color-5);
+        text-decoration: none;
+        outline: none;
+    }
+
+    .resume {
+        color: var(--grmj-font-color-5);
+        text-decoration: none;
+        outline: none;
+    }
+ 
+    .project-anchor {
+        color: var(--grmj-font-color-5);
+        text-decoration: none;
+        outline: none;
+    }
+  
+    .goals-anchor {
+        color: var(--grmj-font-color-5);
+        text-decoration: none;
+        outline: none;
+    }
+
+    .code-ex {
+        color: var(--grmj-font-color-5);
         text-decoration: none;
         outline: none;
     }

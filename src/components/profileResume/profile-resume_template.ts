@@ -1,7 +1,7 @@
 'use strict';
-export class ProfileTemplate extends HTMLElement {
+
+export class ResumeTemplate extends HTMLElement {
 	noShadow: boolean = true;
-	root: ShadowRoot | null = this.shadowRoot;
 	private _template: any;
 	public get template(): any {
 		return this._template;
@@ -15,8 +15,10 @@ export class ProfileTemplate extends HTMLElement {
 			: this.render(this.template);
 	}
 	render(template: any) {
+		const root: ShadowRoot | null = this.shadowRoot;
+
 		!this.noShadow
-			? (this.root!.innerHTML = template || this.template)
+			? (root!.innerHTML = template || this.template)
 			: (this.innerHTML = template || this.template);
 		return;
 	}

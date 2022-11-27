@@ -1,45 +1,97 @@
 'use strict';
 
 async function init(): Promise<void> {
-	console.log('HooT™️ Webelistics®️ Rendered Here!!!');
-	console.log('HooT™️ NOW!!!');
 	function setAttributes(element: HTMLElement, attributes: any) {
 		for (var key in attributes) {
 			element.setAttribute(key, attributes[key]);
 		}
 	}
 
+	function appendChildren(
+		parent: HTMLElement | ShadowRoot | null,
+		children: any[]
+	): void {
+		children.map((child: any) => {
+			parent?.appendChild(child);
+		});
+	}
+
 	async function waitOnDOM(): Promise<void> {
-		const profile = true;
-		let window: any = globalThis;
-		let document: Document = window.document;
-		let head: HTMLHeadElement | null = document.getElementById('head');
+		const profile: boolean = true;
+		const head: HTMLHeadElement | null = document.getElementById('head');
+		const script: HTMLScriptElement = document.createElement('script');
+		const scriptSidePanelShell: HTMLScriptElement =
+			document.createElement('script');
+		const scriptHistory: HTMLScriptElement =
+			document.createElement('script');
+		const scriptResume: HTMLScriptElement =
+			document.createElement('script');
+		const scriptProjects: HTMLScriptElement =
+			document.createElement('script');
+		const scriptGoals: HTMLScriptElement = document.createElement('script');
+		const scriptCodeExamples: HTMLScriptElement =
+			document.createElement('script');
+
 		if (profile === true) {
 			console.log('HooT™️ Webelistics®️ Rendered Here!!!');
-			// console.log(document.readyState);
-			const script: HTMLScriptElement = document.createElement('script');
+
 			setAttributes(script, {
 				type: 'module',
 				content: 'text/javascript',
-				src: '/src/components/profileHome/profile-shell.js'
+				src: '/src/components/profileHome/profile-shell.js',
+				alt: 'Profile Main Shell Script'
 			});
-			head?.append(script);
+			head?.appendChild(script);
 
-			const script2: HTMLScriptElement = document.createElement('script');
-			setAttributes(script2, {
+			setAttributes(scriptSidePanelShell, {
 				type: 'module',
 				content: 'text/javascript',
-				src: '/src/components/sidePanel/side-panel_shell.js'
+				src: '../sidePanel/side-panel_shell.js',
+				alt: 'Side Panel Shell'
 			});
-			head?.append(script2);
-
-			const script3: HTMLScriptElement = document.createElement('script');
-			setAttributes(script3, {
+			setAttributes(scriptHistory, {
 				type: 'module',
 				content: 'text/javascript',
-				src: '/src/components/profileHistory/profile-history.js'
+				src: '../profileHistory/profile-history_shell.js',
+				alt: 'Profile History Shell'
 			});
-			head?.append(script3);
+			setAttributes(scriptResume, {
+				type: 'module',
+				content: 'text/javascript',
+				src: '/src/components/profileResume/profile-resume_shell.js',
+				alt: 'Profile Resume Shell'
+			});
+			setAttributes(scriptProjects, {
+				type: 'module',
+				content: 'text/javascript',
+				src: '../profileProjects/profile-projects_shell.js',
+				alt: 'Profile Projects Shell'
+			});
+			setAttributes(scriptGoals, {
+				type: 'module',
+				content: 'text/javascript',
+				src: '../profileGoals/profile-goals_shell.js',
+				alt: 'Profile Goals Shell'
+			});
+			setAttributes(scriptCodeExamples, {
+				type: 'module',
+				content: 'text/javascript',
+				src: '../profileCodeExamples/profile-code-examples_shell.js',
+				alt: 'Profile Code Examples Shell'
+			});
+
+			const loadScripts = async (): Promise<void> => {
+				appendChildren(head, [
+					scriptSidePanelShell,
+					scriptHistory,
+					scriptResume,
+					scriptProjects,
+					scriptGoals,
+					scriptCodeExamples
+				]);
+				return;
+			};
+			loadScripts();
 		} else {
 			waitOnDOM();
 		}

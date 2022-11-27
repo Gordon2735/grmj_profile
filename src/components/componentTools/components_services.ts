@@ -17,9 +17,12 @@ function setAttributes(tag: any, attribute: string | object | any): void {
 	});
 }
 
-function appendChildren(parent: HTMLElement, children: any[]) {
+function appendChildren(
+	parent: HTMLElement | ShadowRoot | null,
+	children: any[]
+): void {
 	children.map((child: any) => {
-		parent.appendChild(child);
+		parent?.appendChild(child);
 	});
 }
 

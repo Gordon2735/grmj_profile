@@ -14,12 +14,12 @@ let user: any;
 const home: Router = router
 	.get('/', (_req: Request, res: Response) => {
 		res.set('Content-Type', 'text/html');
-		res.render('home');
+		res.render('home', { layout: 'main' });
 	})
 	.post('/', async (req: Request, res: Response) => {
 		res.json(
 			await user.create(req.body).catch((error: any) => {
-				res.status(400),
+				res.status(404),
 					console.info(
 						`Whoops, seems there was a "Page Not Found Error" ${error}`
 					);

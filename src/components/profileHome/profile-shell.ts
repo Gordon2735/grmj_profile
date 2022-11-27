@@ -3,28 +3,42 @@
 import { ProfileTemplate } from './profile-template.js';
 import { profile_sharedStyles } from './profile-sharedStyles.js';
 import { profile_sharedHTML } from './profile-sharedHTML.js';
-import ComponentRegistry from '../componentTools/components_services.js';
+import ComponentRegistry, {
+	setAttributes
+} from '../componentTools/components_services.js';
 
 export class ProfileShell extends ProfileTemplate {
+	override noShadow: boolean;
+	head: HTMLHeadElement | null;
+	scriptHome: HTMLScriptElement;
+
 	constructor() {
 		super();
 
 		this.noShadow = true;
+
+		this.head = document.getElementById('head');
+		this.scriptHome = document.createElement('script');
+
+		setAttributes(this.scriptHome, {
+			type: 'module',
+			content: 'text/javascript',
+			src: '/src/components/profileHome/profile-home.js',
+			alt: 'Profile Home Script'
+		});
 	}
 	override connectedCallback() {
 		super.connectedCallback();
+
+		this.head?.appendChild(this.scriptHome);
 	}
 	override get template() {
 		return /*html*/ `
-            <profile-home id="profileHome" class="profile-home"></profile-home>
-			
-            <style>
-				${profile_sharedStyles.global}
-            </style>
 
 			${profile_sharedHTML.shell}
 			
-			<side-panel_shell id="sidePanelShell" class="side-panel"></side-panel_shell>
+            <style>${profile_sharedStyles.global}</style>
+			
         `;
 	}
 }
