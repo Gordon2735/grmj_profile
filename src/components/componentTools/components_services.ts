@@ -11,9 +11,13 @@ function RegisterComponent(
 	return;
 }
 
-function setAttributes(tag: any, attribute: string | object | any): void {
+function setAttributes(
+	tag: HTMLElement,
+	attribute: string | object | any
+): void {
 	Object.keys(attribute).map(function (keys: any): void {
 		tag.setAttribute(keys, attribute[keys]);
+		return;
 	});
 }
 

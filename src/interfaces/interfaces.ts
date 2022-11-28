@@ -21,6 +21,7 @@ interface sidePanel_sharedHTML {
 }
 
 interface profileHistory_sharedStyles {
+	shell: string;
 	history: string;
 }
 
@@ -38,6 +39,16 @@ interface profileResume_sharedHTML {
 	resume: string;
 }
 
+interface profileProjects_sharedStyles {
+	shell: string;
+	projects: string;
+}
+
+interface profileProjects_sharedHTML {
+	shell: string;
+	projects: string;
+}
+
 interface HistoryObject {
 	pageOpen: [string];
 	push(state: any): void;
@@ -52,5 +63,7 @@ export {
 	profileHistory_sharedHTML,
 	profileResume_sharedStyles,
 	profileResume_sharedHTML,
+	profileProjects_sharedStyles,
+	profileProjects_sharedHTML,
 	HistoryObject
 };

@@ -57,17 +57,6 @@ app.use(express.static('controller'));
 // Routes
 app.use('/', router);
 
-app.get('/', (_req: Request, res: Response) => {
-	res.send('Hello World!');
-});
-
-// router.use('/history', (_req: Request, res: Response) => {
-// 	res.render('history', {
-// 		title: 'history',
-// 		layout: 'main'
-// 	});
-// });
-
 router.use((_req: Request, res: Response, next: NextFunction) => {
 	if (!res.locals.partials) res.locals.partials = {};
 	next();

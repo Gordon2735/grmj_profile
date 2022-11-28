@@ -1,16 +1,16 @@
 'use strict';
 
-import profileHistory_sharedStyles from '../../interfaces/interfaces.js';
+import { profileProjects_sharedStyles } from '../../interfaces/interfaces.js';
 
-const profileHistory_sharedStyles = {
+const profileProjects_sharedStyles = {
 	shell: ``,
-	history: ``
+	projects: ``
 };
 
-profileHistory_sharedStyles.shell = /*css*/ `
+profileProjects_sharedStyles.shell = /*css*/ `
 
-	@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,400;0,600;0,700;0,900;1,200;1,600;1,700;1,900&display=swap');
-	/*font-family: 'Source Sans Pro', sans-serif;*/
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,400;0,600;0,700;0,900;1,200;1,600;1,700;1,900&display=swap');
+/*font-family: 'Source Sans Pro', sans-serif;*/
     :root {
 
         /* Backgrounds */
@@ -48,8 +48,9 @@ profileHistory_sharedStyles.shell = /*css*/ `
 
         /*Filter: drop-shadow*/
         --grmj-filter-dropShadow-0: drop-shadow(6px 5px 7px hsla(0, 0%, 0%, 0.72));
-        --grmj-filter-dropShadow-1: drop-shadow(3px 2px 2px hsla(0, 0%, 0%, 0.6));
+        --grmj-filter-dropShadow-1: drop-shadow(3px 2px 2px rgba(0, 0, 0, 0.6));
         --grmj-filter-dropShadow-2: drop-shadow(6px 4px 4px hsla(0, 0%, 0%, 0.6));
+
 
         /*Letter Spacing*/
         --grmj-letter-spacing-1: 0.1em;
@@ -86,9 +87,13 @@ profileHistory_sharedStyles.shell = /*css*/ `
         --grmj-font-color-3: hsla(198, 53%, 87%, 0.99);
         --grmj-font-color-4: hsla(198, 23%, 59%, 0.99);
         --grmj-font-color-5: hsla(0, 0%, 0%, 0.99);
+        --grmj-font-color-6: hsla(212, 62%, 49%, 0.99);
+        --grmj-font-color-7: hsla(210, 95%, 62%, 0.99);
+        --grmj-font-color-8: hsla(208, 42%, 77%, 0.99);
 
         /*Borders*/
-        --grmj-border-0: 2.5px solid hsl(240, 81%, 12%);        
+        --grmj-border-0: 2.5px solid hsl(240, 81%, 12%);
+        
     }
 
     * {
@@ -100,44 +105,48 @@ profileHistory_sharedStyles.shell = /*css*/ `
     body {
         width: 100%;
         background: var(--grmj-profile-background);
-        font-family: var(--grmj-font-family-1);
     }
-`;
+    
+    
+    `;
 
-profileHistory_sharedStyles.history = /*css*/ `
+profileProjects_sharedStyles.projects = /*css*/ `
 
-    .title {
-        margin: 2em auto 1em auto;	
-        left: 3em;	
-        position: relative;
-        font-family: var(--grmj-font-family-1);
-        font-size: var(--grmj-font-size-11vw);
-        font-weight: var(--grmj-font-weight-7);
-        color: var(--grmj-font-color-2);
-        text-shadow: var(--grmj-text-shadow-1);
-        letter-spacing: var(--grmj-letter-spacing-1a);
-    }
-
-    .early-years-section {
-        margin: 10em 5em 2em 0em;
-        width: auto;
+    .profile-projects__container {
+        margin: 3em auto 1em auto;
+        width: 50%;
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
     }
-
-    .early-years-para {
-        margin: -1.5em 2em 2em 3em;
-        padding: 0em 2em;
+    
+    .profile-projects__title {
+        padding: 1em;
+        display: flex;
         font-family: var(--grmj-font-family-1);
-        font-size: var(--grmj-font-size-5vw);
-        font-weight: var(--grmj-font-weight-4);
-        color: var(--grmj-font-color-3);
-        text-shadow: var(--grmj-text-shadow-1);
-        text-align: justify;
+        font-size: var(--grmj-font-size-15vw);
+        font-weight: var(--grmj-font-weight-7);
+        color: var(--grmj-font-color-8);
+        text-shadow: var(--grmj-text-shadow-0);
+        letter-spacing: var(--grmj-letter-spacing-1);
+        text-align: center;
     }
 
+    .section {
+        margin: 2em auto 1em auto;
+        top: 20em;
+        left: 25em;
+        display: flex;
+        position: absolute;
+    }
+
+    .ts-image {
+        margin: 2em auto 1em auto;
+        display: flex;
+        position: relative;
+        width: 280px;
+        text-align: center;
+        filter: drop-shadow(0 0.2rem 0.25rem rgba(0, 0, 0, 0.9));
+        aspect-ratio: 413 / 535;
+    }
 `;
 
-export { profileHistory_sharedStyles };
+export { profileProjects_sharedStyles };

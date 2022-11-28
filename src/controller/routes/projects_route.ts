@@ -10,6 +10,9 @@ const projects: Router = router
 	.get('/projects', (_req: Request, res: Response) => {
 		res.set('Content-Type', 'text/html');
 		res.render('projects', { layout: 'main' });
+		// res.render(
+		// 	'/src/components/profileProjects/tools/images/typescript2.png'
+		// );
 	})
 	.post('/projects', async (req: Request, res: Response) => {
 		res.json(

@@ -27,7 +27,6 @@ export class SidePanel extends SidePanelTemplate {
 	override connectedCallback() {
 		super.connectedCallback();
 
-		console.log('Side-Panel is Rendered :::: HooT™️ Webelistics®️ ');
 		class Menu {
 			container: HTMLElement | null | undefined;
 			big3: HTMLElement | null | undefined;
@@ -104,6 +103,13 @@ export class SidePanel extends SidePanelTemplate {
 
 		const menu: Menu = new Menu();
 		const ham: HTMLElement | null = document.getElementById('hamburger');
+		function conLog(): void {
+			const conLogging: void = console.log(
+				'Side-Panel is Rendered :::: HooT™️ Webelistics®️ '
+			);
+			return conLogging;
+		}
+
 		ham?.addEventListener(
 			'click',
 			(event: {
@@ -113,7 +119,7 @@ export class SidePanel extends SidePanelTemplate {
 				event.preventDefault();
 
 				!menu.isMenuShown
-					? (menu.slide(), (menu.isMenuShown = true))
+					? (menu.slide(), conLog(), (menu.isMenuShown = true))
 					: (menu.slide(), (menu.isMenuShown = false));
 
 				event.stopPropagation();
@@ -139,6 +145,7 @@ export class SidePanel extends SidePanelTemplate {
 		historyAnchor?.addEventListener('click', event => {
 			event.preventDefault();
 			window.location.href = '/history';
+			menu.slide(), (menu.isMenuShown = false);
 			event.stopPropagation();
 		});
 
@@ -149,6 +156,7 @@ export class SidePanel extends SidePanelTemplate {
 		resumeAnchor?.addEventListener('click', event => {
 			event.preventDefault();
 			window.location.href = '/resume';
+			menu.slide(), (menu.isMenuShown = false);
 			event.stopPropagation();
 		});
 
@@ -159,6 +167,7 @@ export class SidePanel extends SidePanelTemplate {
 		projectsAnchor?.addEventListener('click', event => {
 			event.preventDefault();
 			window.location.href = '/projects';
+			menu.slide(), (menu.isMenuShown = false);
 			event.stopPropagation();
 		});
 
@@ -169,6 +178,7 @@ export class SidePanel extends SidePanelTemplate {
 		goalsAnchor?.addEventListener('click', event => {
 			event.preventDefault();
 			window.location.href = '/goals';
+			menu.slide(), (menu.isMenuShown = false);
 			event.stopPropagation();
 		});
 
@@ -179,6 +189,7 @@ export class SidePanel extends SidePanelTemplate {
 		codeExAnchor?.addEventListener('click', event => {
 			event.preventDefault();
 			window.location.href = '/code_examples';
+			menu.slide(), (menu.isMenuShown = false);
 			event.stopPropagation();
 		});
 	}

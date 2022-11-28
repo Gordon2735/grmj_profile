@@ -1,0 +1,126 @@
+'use strict';
+
+import { ProjectsTemplate } from './profile-projects_template.js';
+import { profileProjects_sharedHTML } from './profile-projects_sharedHTML.js';
+import { profileProjects_sharedStyles } from './profile-projects_sharedStyles.js';
+import RegisterComponent, {
+	setAttributes,
+	appendChildren
+} from '../componentTools/components_services.js';
+import historyStack from '../../controller/state/profileState.js';
+import { HistoryObject } from '../../interfaces/interfaces.js';
+
+export class ProfileProjects extends ProjectsTemplate {
+	override noShadow: boolean = true;
+	body: HTMLBodyElement | null;
+	section: HTMLElement | null;
+	tsImage: HTMLImageElement;
+	spaceInvader(): void {}
+	dynamicRender(): Promise<void> {
+		return new Promise(resolve => {
+			resolve();
+		});
+	}
+	setAttributes:
+		| ((tag: HTMLElement, attribute: string | object | any) => void)
+		| undefined;
+	appendChildren:
+		| ((parent: HTMLElement | ShadowRoot | null, children: any[]) => void)
+		| undefined;
+	State: any;
+	historyStack: import('d:/grmj_profile/src/interfaces/interfaces').HistoryObject;
+
+	constructor() {
+		super();
+
+		this.noShadow = true;
+
+		const body: HTMLBodyElement | null = document.querySelector('body');
+		const section: HTMLElement | null = document.createElement('section');
+		const tsImage: HTMLImageElement = document.createElement('img');
+
+		this.body = body;
+		this.section = section;
+		this.tsImage = tsImage;
+		const thiz: this = this;
+
+		this.State = { pageOpen: '/projects' };
+		this.historyStack = historyStack;
+
+		window.history.pushState(this.State, 'projects', '/projects');
+		this.historyStack.push(history.state);
+
+		window.onpopstate = event => {
+			event.state
+				? ((this.State = event.state), this.historyStack.pop())
+				: this.historyStack.pop();
+		};
+		console.log(this.State.pageOpen);
+		console.log(history.state);
+		console.log(this.historyStack);
+
+		try {
+			!this.body
+				? setAttributes(this.section, {
+						id: 'section',
+						class: 'section',
+						alt: 'Profile Projects Section'
+				  })
+				: null;
+		} catch (error) {
+			console.log(error);
+		}
+
+		try {
+			setAttributes(this.tsImage, {
+				id: 'tsImage',
+				class: 'ts-image',
+				src: '/src/components/profileProjects/tools/images/typescript.png',
+				alt: 'Typescript Image'
+			});
+		} catch (error) {
+			console.log(error);
+		}
+
+		async function dynamicRender(): Promise<void> {
+			try {
+				thiz.section?.appendChild(thiz.tsImage);
+				appendChildren(thiz.body, [thiz.section]);
+			} catch (error) {
+				console.log(error);
+			}
+			return;
+		}
+		this.dynamicRender = dynamicRender;
+	}
+	override connectedCallback(): void {
+		super.connectedCallback();
+
+		this.dynamicRender();
+	}
+	override get template(): string {
+		return /*html*/ `
+        
+            <style>${profileProjects_sharedStyles.projects}</style>
+            ${profileProjects_sharedHTML.projects}
+        `;
+	}
+	static get observedAttributes(): string[] {
+		return ['this.historyStack.pageOpen'];
+	}
+	public attributeChangedCallback(
+		name: string,
+		_oldValue: string,
+		_newValue: string
+	) {
+		const currentLocation: HistoryObject = this.historyStack;
+		console.log(currentLocation);
+
+		_oldValue !== _newValue
+			? console.info(`old location: ${_oldValue},
+				${name} has a new location of: ${_newValue}
+				which should be equal to: ${currentLocation} `)
+			: console.info(`old location: ${_oldValue}`);
+	}
+}
+RegisterComponent('profile-projects', ProfileProjects);

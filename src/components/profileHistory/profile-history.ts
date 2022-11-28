@@ -69,7 +69,7 @@ export class ProfileHistory extends ProfileHistoryTemplate {
 		});
 		this.earlyYearsPara = earlyYearsPara;
 
-		const earlyYearsText: string = 'Early Years';
+		const earlyYearsText: string = "Gordon's Early Years";
 		this.earlyYearsText = earlyYearsText;
 	}
 
