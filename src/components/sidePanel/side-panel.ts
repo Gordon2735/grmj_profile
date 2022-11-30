@@ -9,7 +9,6 @@ export class SidePanel extends SidePanelTemplate {
 	override noShadow: boolean;
 	override root: ShadowRoot | null = this.shadowRoot;
 	body: HTMLBodyElement | null | undefined;
-	menu: any;
 	document: Document | null = this.ownerDocument;
 	historyAnchor: HTMLElement | null | undefined;
 	resumeAnchor: HTMLElement | null | undefined;

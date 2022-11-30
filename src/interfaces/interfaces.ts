@@ -42,11 +42,13 @@ interface profileResume_sharedHTML {
 interface profileProjects_sharedStyles {
 	shell: string;
 	projects: string;
+	slide: string;
 }
 
 interface profileProjects_sharedHTML {
 	shell: string;
 	projects: string;
+	slide: string;
 }
 
 interface HistoryObject {

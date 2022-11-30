@@ -11,7 +11,13 @@ import RegisterComponent, {
 export class ProfileProjectsShell extends ProjectsTemplate {
 	override noShadow: boolean = true;
 	head: HTMLHeadElement | null;
-	script: HTMLScriptElement | null;
+	scriptProjects: HTMLScriptElement | null;
+	scriptSlides: HTMLScriptElement | null;
+	renderScripts(): Promise<void> {
+		return new Promise(resolve => {
+			resolve();
+		});
+	}
 
 	constructor() {
 		super();
@@ -19,27 +25,39 @@ export class ProfileProjectsShell extends ProjectsTemplate {
 		this.noShadow = true;
 
 		const head: HTMLHeadElement | null = document.getElementById('head');
-		const script: HTMLScriptElement = document.createElement('script');
+
+		const scriptProjects: HTMLScriptElement =
+			document.createElement('script');
+
+		const scriptSlides: HTMLScriptElement =
+			document.createElement('script');
 
 		this.head = head;
-		this.script = script;
+		this.scriptProjects = scriptProjects;
+		this.scriptSlides = scriptSlides;
 
-		setAttributes(this.script, {
+		setAttributes(this.scriptProjects, {
 			type: 'module',
 			content: 'text/javascript',
 			src: '/src/components/profileProjects/profile-projects.js',
+			alt: 'Profile Projects Script'
+		});
+		setAttributes(this.scriptSlides, {
+			type: 'module',
+			content: 'text/javascript',
+			src: '/src/components/profileProjects/slide-projects.js',
 			alt: 'Profile Projects Script'
 		});
 	}
 	override connectedCallback() {
 		super.connectedCallback();
 
-		appendChildren(this.head, [this.script]);
+		appendChildren(this.head, [this.scriptProjects, this.scriptSlides]);
 	}
 	override get template() {
 		return /*html*/ `
-        
-            <style>${profileProjects_sharedStyles.shell}</style>
+		            
+			<style>${profileProjects_sharedStyles.shell}</style>
             ${profileProjects_sharedHTML.shell}
         `;
 	}
