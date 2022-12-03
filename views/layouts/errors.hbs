@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon" />
+    <link rel="stylesheet" src="/src/css/errors.css" type="text/css" crossorigin="anonymous" />
+
+    <title>ERROR</title>
+</head>
+
+<body>
+
+    {{{body}}}
+    
+    <h1 id="error404">ERROR 404</h1>
+    <h2>{{message}}</h2>
+    <h3>{{error.status}}</h3>
+    <h3>{{error.stack}}</h3>
+
+    <style>
+
+        body {
+            padding-top: 1em;
+            background-color: rgb(211, 146, 146);
+        }
+
+        #error404 {
+            filter: drop-shadow(0px 0px 5px #000);
+            text-shadow: 3px 3px 5px #000;
+        }
+
+        h1 {
+            margin: 1em auto 1.35em auto;
+            padding: 20px;
+            background-color: #333;
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 100px;
+            font-weight: 900;
+            color: red;
+            letter-spacing: 0.2em;
+            filter: drop-shadow(0px 0px 5px #000);
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .error-div {
+            margin: 1.60em auto 0em auto;
+            padding: 20px;
+            background-color: #333;
+            text-align: center;
+            filter: drop-shadow(0px 0px 5px #000);
+            border-radius: 10px;
+        }
+
+        .error-text {
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 45px;
+            font-weight: 900;
+            filter: drop-shadow(0px 0px 5px #000);
+            color: red;
+            letter-spacing: 0.4em;
+            text-align: center;       
+        }
+
+        .not-found {
+            margin: 1.25em auto 0em auto;
+            padding: 20px;
+            background-color: #333;
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 35px;
+            font-weight: 900;
+            text-shadow: 3px 3px 5px #000;
+            filter: drop-shadow(0px 0px 5px #000);
+            color: red;
+            letter-spacing: 0.4em;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+    </style>
+
+    <script type="module" content="text/javascript">
+        import init from '/src/ts/errors.js';
+        init();
+    </script>
+    
+</body>
+
+
+</html>

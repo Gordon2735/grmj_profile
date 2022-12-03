@@ -54,8 +54,18 @@ app.use(function (_req: Request, res: Response, next: NextFunction) {
 });
 
 app.use(express.static('controller'));
+
 // Routes
 app.use('/', router);
+
+// Errors
+app.use((_req: Request, res: Response, _next: NextFunction) => {
+	res.render('404', { layout: 'errors' });
+});
+
+app.use((_req: Request, res: Response, _next: NextFunction) => {
+	res.render('500', { layout: 'errors500' });
+});
 
 router.use((_req: Request, res: Response, next: NextFunction) => {
 	if (!res.locals.partials) res.locals.partials = {};
