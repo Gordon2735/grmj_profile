@@ -88,7 +88,14 @@ profileHistory_sharedStyles.shell = /*css*/ `
         --grmj-font-color-5: hsla(0, 0%, 0%, 0.99);
 
         /*Borders*/
-        --grmj-border-0: 2.5px solid hsl(240, 81%, 12%);        
+        --grmj-border-0: 2.5px solid hsl(240, 81%, 12%);
+        
+        /*Scrollbar Colors*/
+        --grmj_profile_scrollbar-background:  hsla(201, 11%, 53%, 0.99);
+        --grmj_profile_scrollbar-thumb: hsla(210, 2%, 74%, 0.99); 
+        --grmj_profile_scrollbar-thumb_hover: hsla(213, 62%, 45%, 0.99);
+        --grmj_profile_scrollbar-border: hsla(201, 11%, 53%, 0.99);
+        --grmj_profile_scrollbar-box-shadow: inset 0 0 6px hsla(0, 0%, 0%, 0.6);
     }
 
     * {
@@ -101,6 +108,25 @@ profileHistory_sharedStyles.shell = /*css*/ `
         width: 100%;
         background: var(--grmj-profile-background);
         font-family: var(--grmj-font-family-1);
+    }
+
+    body::-webkit-scrollbar {
+        width: 0.75em;
+    }
+
+    body::-webkit-scrollbar-track {
+        -webkit-box-shadow: var(--grmj_profile_scrollbar-box-shadow);
+        background: var(--grmj_profile_scrollbar-background);
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background: var(--grmj_profile_scrollbar-thumb);
+        border-radius: 0.35em;
+        border: 0.18em solid var(--grmj_profile_scrollbar-border);
+    }
+
+    body::-webkit-scrollbar-thumb:hover {
+        background: var(--grmj_profile_scrollbar-thumb_hover);
     }
 `;
 

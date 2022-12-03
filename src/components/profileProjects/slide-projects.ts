@@ -63,7 +63,7 @@ export class SlideProjects extends ProjectsTemplate {
 				this.container = document.getElementById('container');
 				this.webBig3 = document.getElementById('webBig3');
 				this.blueVanilla = document.getElementById('blueVanilla');
-				this.vanilla = document.getElementById('vanilla');
+				this.vanilla = document.getElementById('yellowVanilla');
 				this.tsSymbol = document.getElementById('tsSymbol');
 				this.jsSymbol = document.getElementById('jsSymbol');
 
@@ -131,7 +131,7 @@ export class SlideProjects extends ProjectsTemplate {
 					
 					<hr id="line3" class="line3" />
 					
-					<h3 id="vanilla" class="vanilla">Vanilla: JavaScript's BEST Flavor!</h3>
+					<h3 id="yellowVanilla" class="vanilla">Vanilla: JavaScript's BEST Flavor!</h3>
 					
 				`;
 				menuContainer?.insertAdjacentHTML('afterbegin', itemHTML);

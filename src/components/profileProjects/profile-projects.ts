@@ -3,30 +3,27 @@
 import { ProjectsTemplate } from './profile-projects_template.js';
 import { profileProjects_sharedHTML } from './profile-projects_sharedHTML.js';
 import { profileProjects_sharedStyles } from './profile-projects_sharedStyles.js';
-import RegisterComponent, {
-	setAttributes,
-	appendChildren
-} from '../componentTools/components_services.js';
+import RegisterComponent from '../componentTools/components_services.js'; // appendChildren // setAttributes
 import historyStack from '../../controller/state/profileState.js';
 import { HistoryObject } from '../../interfaces/interfaces.js';
 
 export class ProfileProjects extends ProjectsTemplate {
 	override noShadow: boolean = true;
 	body: HTMLBodyElement | null;
-	section: HTMLElement | null;
-	tsImage: HTMLImageElement;
+	// gordonProjectsDiv: HTMLElement | null;
+	// tsImage: HTMLImageElement;
 	spaceInvader(): void {}
-	dynamicRender(): Promise<void> {
-		return new Promise(resolve => {
-			resolve();
-		});
-	}
-	setAttributes:
-		| ((tag: HTMLElement, attribute: string | object | any) => void)
-		| undefined;
-	appendChildren:
-		| ((parent: HTMLElement | ShadowRoot | null, children: any[]) => void)
-		| undefined;
+	// dynamicRender(): Promise<void> {
+	// 	return new Promise(resolve => {
+	// 		resolve();
+	// 	});
+	// }
+	// setAttributes:
+	// 	| ((tag: HTMLElement, attribute: string | object | any) => void)
+	// 	| undefined;
+	// appendChildren:
+	// 	| ((parent: HTMLElement | ShadowRoot | null, children: any[]) => void)
+	// 	| undefined;
 	State: any;
 	historyStack: import('d:/grmj_profile/src/interfaces/interfaces').HistoryObject;
 
@@ -36,13 +33,14 @@ export class ProfileProjects extends ProjectsTemplate {
 		this.noShadow = true;
 
 		const body: HTMLBodyElement | null = document.querySelector('body');
-		const section: HTMLElement | null = document.createElement('section');
-		const tsImage: HTMLImageElement = document.createElement('img');
+		// const gordonProjectsDiv: HTMLElement | null =
+		// 	document.querySelector('.gordon-projects');
+		// const tsImage: HTMLImageElement = document.createElement('img');
 
 		this.body = body;
-		this.section = section;
-		this.tsImage = tsImage;
-		const thiz: this = this;
+		// this.gordonProjectsDiv = gordonProjectsDiv;
+		// this.tsImage = tsImage;
+		// const thiz: this = this;
 
 		this.State = { pageOpen: '/projects' };
 		this.historyStack = historyStack;
@@ -59,44 +57,22 @@ export class ProfileProjects extends ProjectsTemplate {
 		console.log(history.state);
 		console.log(this.historyStack);
 
-		try {
-			!this.body
-				? setAttributes(this.section, {
-						id: 'section',
-						class: 'section',
-						alt: 'Profile Projects Section'
-				  })
-				: null;
-		} catch (error) {
-			console.log(error);
-		}
+		// async function dynamicRender(): Promise<void> {
+		// 	try {
+		// 		thiz.gordonProjectsDiv?.append(thiz.tsImage);
 
-		try {
-			setAttributes(this.tsImage, {
-				id: 'tsImage',
-				class: 'ts-image',
-				src: '/src/components/profileProjects/tools/images/typescript.png',
-				alt: 'Typescript Image'
-			});
-		} catch (error) {
-			console.log(error);
-		}
-
-		async function dynamicRender(): Promise<void> {
-			try {
-				thiz.section?.appendChild(thiz.tsImage);
-				appendChildren(thiz.body, [thiz.section]);
-			} catch (error) {
-				console.log(error);
-			}
-			return;
-		}
-		this.dynamicRender = dynamicRender;
+		// 		// appendChildren(thiz.body, [thiz.gordonProjectsDiv]);
+		// 	} catch (error) {
+		// 		console.log(error);
+		// 	}
+		// 	return;
+		// }
+		// this.dynamicRender = dynamicRender;
 	}
 	override connectedCallback(): void {
 		super.connectedCallback();
 
-		this.dynamicRender();
+		// this.dynamicRender();
 	}
 	override get template(): string {
 		return /*html*/ `

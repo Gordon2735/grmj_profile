@@ -14,5 +14,17 @@
     --grmj-color8: hsla(240, 1%, 68%, 0.39);
     --grmj-color9: hsla(0, 0%, 0%, 0.72);
     --grmj-color10: hsla(0, 0%, 0%, 0.6);
+    --grmj-color11: hsla(0, 0%, 27%, 0.99);
+    --grmj-color12: hsla(0, 0%, 100%, 0.99);
+    --grmj-color13: hsla(52, 74%, 49%, 0.99);
+    --grmj-color14: hsla(0, 0%, 0%, 0.6);
+    --grmj-color15: hsla(0, 98%, 50%, 0.9);
+    --grmj-color16: hsla(0, 1%, 56%, 0.99);
+    --grmj-color17: hsla(201, 11%, 53%, 0.99);
+    --grmj-color18: hsla(213, 62%, 45%, 0.99);
+    --grmj-color19: hsla(213, 37%, 59%, 0.99);
+    --grmj-color20: hsla(210, 2%, 74%, 0.99);
+    --grmj-color21: hsla(0, 0%, 0%, 0.3);
     --grmj-text-shadow: 5px 3px 5px hsla(0, 0%, 0%, 0.99);
+    --grmj-profile-background: hsla(0, 0%, 80%, 0.99);
 }

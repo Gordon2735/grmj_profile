@@ -50,6 +50,40 @@ interface profileProjects_sharedHTML {
 	projects: string;
 	slide: string;
 }
+interface profileGoals_sharedStyles {
+	shell: string;
+	goals: string;
+	slide: string;
+}
+
+interface profileGoals_sharedHTML {
+	shell: string;
+	goals: string;
+	slide: string;
+}
+
+interface profileCodeEx_sharedStyles {
+	shell: string;
+	codeEx: string;
+	slide: string;
+}
+
+interface profileCodeEx_sharedHTML {
+	shell: string;
+	codeEx: string;
+	slide: string;
+}
+interface profileHdr_sharedStyles {
+	shell: string;
+	hdr: string;
+	slide: string;
+}
+
+interface profileHdr_sharedHTML {
+	shell: string;
+	hdr: string;
+	slide: string;
+}
 
 interface HistoryObject {
 	pageOpen: [string];
@@ -67,5 +101,11 @@ export {
 	profileResume_sharedHTML,
 	profileProjects_sharedStyles,
 	profileProjects_sharedHTML,
+	profileGoals_sharedHTML,
+	profileGoals_sharedStyles,
+	profileCodeEx_sharedHTML,
+	profileCodeEx_sharedStyles,
+	profileHdr_sharedStyles,
+	profileHdr_sharedHTML,
 	HistoryObject
 };
