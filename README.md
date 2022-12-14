@@ -1,8 +1,12 @@
 # Copyright (c) 2022 HOOT Webelistics®, LLC
 
-# Copyright (c) 2022 Webelistics® CodeOperate©️ Software Development || Profile Landing Page for Gordon R Mullen Jr
+<br/>
 
-## Principle Software Utilized || Fullstack
+# **Copyright (c) 2022 Webelistics® CodeOperate©️ Software Development || Profile Landing Page for** _Gordon R Mullen Jr_
+
+<br/>
+
+## **Principle Software Utilized || Fullstack**
 
 1. TypeScript/JavaScript/HTML/CSS
 2. Node.js
@@ -13,7 +17,9 @@
 7. Github/Version Control/Repository
 8. Markdown/Documentation
 
-### Development Convention Utilized
+<br/>
+
+## **Development Convention Utilized**
 
 1. MVC Architecture for Server
 2. Native Web Component Architecture for UI Dynamic
@@ -22,7 +28,11 @@
 5. Persistency with MongoDB/Mongoose for Database Dynamic
 6. Jest for Unit Testing / Partial TDD (Test Driven Development)
 
-#### Development Strategy
+<br/>
+
+## Development Strategy
+
+<br/>
 
 1.  Engineering a loosely coupled, modular design, with a focus on code reusability and maintainability.
 2.  Object-Oriented-Programming (OOP); using classes, inheritance, and encapsulation, but favoring composition over inheritance.
@@ -37,11 +47,16 @@
 11. A desired goal in this combination of technologies is to achieve a 100% score on the Lighthouse Audit done aggressively with a regular cadence and continuance reporting within Google's Lighthouse Environment using Puppeteer for the PDF Documentation of the Lighthouse Audit.
 12. Considering a total integration of these software development technologies, we realize the natural tendency of gravitating toward complexity. Therefore with determination, our attitude toward this development project will strive for the least possible complexity; and endeavour reaching determined goals with the modest possible simplicity. This is the goal of the project's development strategy.
 
-> npm set init-author-email "example-user@example.com"
-> npm set init-author-name "example_user"
-> npm set init-license "MIT"
+    -   _npm set init-author-email "example-user@example.com"_
+    -   _npm set init-author-name "example_user"_
+    -   _npm set init-license "MIT"_
 
-13. NPM installs: npm i -g typescript, npm i express-handlebars,
+<br/>
+
+## **NPM installs: npm i -g typescript, npm i express-handlebars**
+
+---
+
     npm i express, npm i -D typescript, npm i ts-node, npm i nodemon, npm i @types/node, npm i @types/express, npm i serve-favicon -D, npm i path date-fns uuid morgan -D, npm i cors body-parser, npm i -D dotenv,
     npm i -G eslint-plugin-jest, npm install --save-dev npmignore, npm i mongoose, npm i -D cross-env, npm i -D @types/cors @types/morgan, npm i @types/node, npm i -D open, npm i @types/uuid, @types/handlebars, @types/handlebars-helpers
 
@@ -50,12 +65,13 @@
     npm i @types/serve-favicon
     npm i -D ts-jest @types/jest
 
-14. app open
+  <br/>
 
-        Type: string | string[]
+**Type: string | string[]**
 
-        Specify the app to open the target with, or an array with the app and app arguments.
+**_Specify the app to open the target with, or an array with the app and app arguments._**
 
+<!--
     ,
     "exclude": [
     "./logs/*.*",
@@ -63,4 +79,34 @@
     "./dist/*.*",
     "./src/typings/*.*"
     ],
-    "include": ["./views/*.*/*.*"]
+    "include": ["./views/*.*/*.*"] -->
+
+<!--
+	"ts-node": {
+		"transpileOnly": false,
+		"files": true,
+		"compilerOptions": {
+			"module": "ESNext"
+		}
+	}, -->
+
+<!-- "ts": "ts-node --require ts-node/register" -->
+
+<!-- 	"execMap": {
+		"ts": "ts-node --files ./src/server.ts"
+	}, -->
+
+<!-- "ignore": [".git", "node_modules/**/node_modules"],  -->
+
+<!-- "env": {
+		"NODE_ENV": "development"
+	}, -->
+<!--
+     	"execMap": {
+    	"ts": "ts-node --require ts-node/register"
+    },
+ -->
+
+<!--
+	<profile-footer id="profileFooter" class="profile-footer"></profile-footer>
+  -->

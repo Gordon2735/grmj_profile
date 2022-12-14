@@ -16,6 +16,7 @@ profileGoals_sharedHTML.shell = /*html*/ `
 
 profileGoals_sharedHTML.goals = /*html*/ `
 
+	<drop-down_shell id="dropDownShell" class="drop-down-shell"></drop-down_shell>
 
 `;
 

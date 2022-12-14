@@ -1,0 +1,7 @@
+{
+	"watch": ["src", "src/images"],
+	"ext": ".ts, .js, .json",
+	"ignore": [".git", "node_modules/**/node_modules"],
+	"restartable": "rs",
+	"exec": "ts-node --files ./src/server.ts"
+}

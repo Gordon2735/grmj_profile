@@ -127,7 +127,6 @@ export class SidePanel extends SidePanelTemplate {
 		document.addEventListener('click', event => {
 			event.preventDefault();
 
-			// menu.isMenuShown === true ? menu.slide() : menu.slide(),
 			menu.isMenuShown
 				? (menu.slide(),
 				  (menu.isMenuShown = false),

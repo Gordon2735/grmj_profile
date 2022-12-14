@@ -8,6 +8,8 @@ import RegisterComponent from '../componentTools/components_services.js';
 export class ProfileResume extends ResumeTemplate {
 	constructor() {
 		super();
+
+		this.noShadow = true;
 	}
 	override connectedCallback() {
 		super.connectedCallback();

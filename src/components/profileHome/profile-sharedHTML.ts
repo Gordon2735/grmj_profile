@@ -6,17 +6,54 @@ import profile_sharedHTML from '../../interfaces/interfaces';
 
 const profile_sharedHTML = {
 	shell: ``,
-	home: ``
+	home: ``,
+	panel: ``,
+	dropdown: ``
 };
 
 profile_sharedHTML.shell = /*html*/ ` 
 
-    <profile-home id="profileHome" class="profile-home"></profile-home> 
-    
-    `;
+    <drop-down_shell id="dropDownShell" class="drop-down-shell"></drop-down_shell>
+    <profile-footer id="profileFooter" class="profile-footer"></profile-footer>
+
+`;
 
 profile_sharedHTML.home = /*html*/ `
+
+    <profile-home id="profileHome" class="profile-home"></profile-home>
+
+`;
+
+profile_sharedHTML.panel = /*html*/ ` 
+
+    <main id="main" class="main">
+
+        <side-panel_shell id="sidePanelShell" class="side-panel"></side-panel_shell>
+
+        <div id="titleOfficial" class="title-official">The Official</div>  
+
+        <h1 id="grmjProfileTitle" class="grmj-profile-title">Profile Landing Page</h1>
+        <div id="titleOf" class="title-of">-of-</div>
+
+        <br />
+
+        <h2 id="grmjProfile_subTitle" class="grmj-profile-subtitle">
+            Gordon R Mullen Jr
+        </h2>     
+        
+        <figure id="grmjPersFig" class="grmj-pers-fig"> 
+            <img src="/src/components/profileHome/tools/images/01_grmj_personal.png" alt="Gordon's personal picture" id="grmjPic" class="grmj-pic" />
+            <figcaption id="grmjPersFigCap" class="grmj-pers-fig-cap" size="20">Gordon R Mullen Jr</figcaption>
+        </figure>
+
+
+
+    </main>    
     
+`;
+
+profile_sharedHTML.dropdown = /*html*/ ` 
+
     <main id="main" class="main">
         <side-panel_shell id="sidePanelShell" class="side-panel"></side-panel_shell>  
         <div id="titleOfficial" class="title-official">The Official</div>  
@@ -33,7 +70,7 @@ profile_sharedHTML.home = /*html*/ `
         <h3 id="grmjProfile_subTitle2" class="grmj-profile-subtitle2">
             Software Developer || Internet Application Developer || Front & Back End Developer || Desktop Developer
         </h3>
-        
+
         <h4 id="grmjProfile_subTitle3" class="grmj-profile-subtitle3">
             Languages: Vanilla JavaScript, Microsoft's TypeScript, Node.js, HTML5, CSS3, Native Web Components            
             <br />
@@ -41,9 +78,9 @@ profile_sharedHTML.home = /*html*/ `
             <br />
             Desktop Frameworks: Electron, Native Web Components, JavaScript, TypeScript
         </h4>
-        
+
         <figure id="grmjPersFig" class="grmj-pers-fig"> 
-            <img src="/src/images/01_grmj_personal.png" alt="Gordon's personal picture" id="grmjPic" class="grmj-pic" />
+            <img src="/src/components/profileHome/tools/images/01_grmj_personal.png" alt="Gordon's personal picture" id="grmjPic" class="grmj-pic" />
             <figcaption id="grmjPersFigCap" class="grmj-pers-fig-cap" size="20">Gordon R Mullen Jr</figcaption>
         </figure>
 
@@ -57,8 +94,8 @@ profile_sharedHTML.home = /*html*/ `
             </q>
 
         </section>
-    </main>
-
+    </main>   
+    
 `;
 
 export { profile_sharedHTML };

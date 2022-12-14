@@ -3,14 +3,20 @@
 import { ProfileTemplate } from './profile-template.js';
 import { profile_sharedStyles } from './profile-sharedStyles.js';
 import { profile_sharedHTML } from './profile-sharedHTML.js';
-import ComponentRegistry, {
-	setAttributes
+import RegisterComponent, {
+	setAttributes,
+	appendChildren
 } from '../componentTools/components_services.js';
 
 export class ProfileShell extends ProfileTemplate {
 	override noShadow: boolean;
 	head: HTMLHeadElement | null;
 	scriptHome: HTMLScriptElement;
+	appendChildren(
+		_parent: HTMLElement | ShadowRoot | null,
+		_attribute: string | object | any
+	): void {}
+	setAttributes(_tag: HTMLElement, _attribute: string | object | any): void {}
 
 	constructor() {
 		super();
@@ -30,16 +36,16 @@ export class ProfileShell extends ProfileTemplate {
 	override connectedCallback() {
 		super.connectedCallback();
 
-		this.head?.appendChild(this.scriptHome);
+		appendChildren(this.head, [this.scriptHome]);
 	}
 	override get template() {
 		return /*html*/ `
 
 			${profile_sharedHTML.shell}
-			
-            <style>${profile_sharedStyles.global}</style>
+			${profile_sharedHTML.home}			
+			<style>${profile_sharedStyles.global}</style>
 			
         `;
 	}
 }
-ComponentRegistry('profile-shell', ProfileShell);
+RegisterComponent('profile-shell', ProfileShell);

@@ -42,6 +42,7 @@ export class ProfileProjectsShell extends ProjectsTemplate {
 			src: '/src/components/profileProjects/profile-projects.js',
 			alt: 'Profile Projects Script'
 		});
+
 		setAttributes(this.scriptSlides, {
 			type: 'module',
 			content: 'text/javascript',
@@ -57,8 +58,9 @@ export class ProfileProjectsShell extends ProjectsTemplate {
 	override get template() {
 		return /*html*/ `
 		            
+			${profileProjects_sharedHTML.shell}
 			<style>${profileProjects_sharedStyles.shell}</style>
-            ${profileProjects_sharedHTML.shell}
+			
         `;
 	}
 }

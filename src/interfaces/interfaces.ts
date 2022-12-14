@@ -8,11 +8,15 @@ export default interface profile_sharedStyles {
 interface profile_sharedHTML {
 	shell: string;
 	home: string;
+	panel: string;
+	dropdown: string;
 }
 
 interface sidePanel_sharedStyles {
 	global: string;
 	panel: string;
+	home: string;
+	dropdown: string;
 }
 
 interface sidePanel_sharedHTML {
@@ -43,12 +47,16 @@ interface profileProjects_sharedStyles {
 	shell: string;
 	projects: string;
 	slide: string;
+	footer: string;
+	footerMod: string;
 }
 
 interface profileProjects_sharedHTML {
 	shell: string;
 	projects: string;
 	slide: string;
+	footerWC: string;
+	footer: string;
 }
 interface profileGoals_sharedStyles {
 	shell: string;
@@ -73,16 +81,37 @@ interface profileCodeEx_sharedHTML {
 	codeEx: string;
 	slide: string;
 }
-interface profileHdr_sharedStyles {
+
+interface dropDown_sharedHTML {
 	shell: string;
-	hdr: string;
-	slide: string;
+	dropdown: string;
+	dynadrop: string;
+}
+interface dropDown_sharedStyles {
+	shell: string;
+	dropdown: string;
+	dynadrop: string;
 }
 
 interface profileHdr_sharedHTML {
 	shell: string;
 	hdr: string;
 	slide: string;
+}
+interface profileHdr_sharedStyles {
+	shell: string;
+	hdr: string;
+	slide: string;
+}
+
+interface profileFooter_sharedHTML {
+	footer: string;
+	jumps: string;
+}
+interface profileFooter_sharedStyles {
+	footer: string;
+	footerMod: string;
+	jumps: string;
 }
 
 interface HistoryObject {
@@ -105,7 +134,11 @@ export {
 	profileGoals_sharedStyles,
 	profileCodeEx_sharedHTML,
 	profileCodeEx_sharedStyles,
+	dropDown_sharedHTML,
+	dropDown_sharedStyles,
 	profileHdr_sharedStyles,
 	profileHdr_sharedHTML,
+	profileFooter_sharedHTML,
+	profileFooter_sharedStyles,
 	HistoryObject
 };

@@ -16,6 +16,7 @@ profileHistory_sharedHTML.shell = /*html*/ `
 
 profileHistory_sharedHTML.history = /*html*/ `
 
+	<drop-down_shell id="dropDownShell" class="drop-down-shell"></drop-down_shell>
 	
 `;
 

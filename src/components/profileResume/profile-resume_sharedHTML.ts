@@ -15,6 +15,8 @@ profileResume_sharedHTML.shell = /*html*/ `
 
 profileResume_sharedHTML.resume = /*html*/ `
 
+	<drop-down_shell id="dropDownShell" class="drop-down-shell"></drop-down_shell>
+
 	<h1 id="resumeTitle" class="resume-title">Gordon's Resume</h1>
 `;
 

@@ -3,20 +3,28 @@
 import { ProfileTemplate } from './profile-template.js';
 import { profile_sharedStyles } from './profile-sharedStyles.js';
 import { profile_sharedHTML } from './profile-sharedHTML.js';
-import ComponentRegistry from '../componentTools/components_services.js'; // setAttributes
+import RegisterComponent from '../componentTools/components_services.js'; // setAttributes // appendChildren, // setAttributes
 import historyStack from '../../controller/state/profileState.js';
 
 export class ProfileHome extends ProfileTemplate {
+	override noShadow: boolean;
 	State: any | undefined;
 	historyStack: import('d:/grmj_profile/src/interfaces/interfaces').HistoryObject;
+	head: HTMLHeadElement | null;
 
 	constructor() {
 		super();
+
+		this.noShadow = true;
 
 		let State: any | undefined;
 		this.State = State;
 		this.State = { pageOpen: '/' };
 		this.historyStack = historyStack;
+
+		const head: HTMLHeadElement | null = document.querySelector('head');
+
+		this.head = head;
 
 		window.history.replaceState(this.State, 'home', '');
 		this.historyStack.push(history.state);
@@ -38,8 +46,8 @@ export class ProfileHome extends ProfileTemplate {
 	override get template() {
 		return /*html*/ `            
 			
-			${profile_sharedHTML.home}			
 			<style>${profile_sharedStyles.home}</style>
+			${profile_sharedHTML.panel}		
 
 		`;
 	}
@@ -58,4 +66,4 @@ export class ProfileHome extends ProfileTemplate {
 			: console.info(`old location: ${_oldValue}`);
 	}
 }
-ComponentRegistry('profile-home', ProfileHome);
+RegisterComponent('profile-home', ProfileHome);

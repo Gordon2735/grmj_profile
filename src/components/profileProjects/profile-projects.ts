@@ -11,7 +11,6 @@ export class ProfileProjects extends ProjectsTemplate {
 	override noShadow: boolean = true;
 	body: HTMLBodyElement | null;
 	// gordonProjectsDiv: HTMLElement | null;
-	// tsImage: HTMLImageElement;
 	spaceInvader(): void {}
 	// dynamicRender(): Promise<void> {
 	// 	return new Promise(resolve => {
@@ -77,9 +76,12 @@ export class ProfileProjects extends ProjectsTemplate {
 	override get template(): string {
 		return /*html*/ `
         
+			${profileProjects_sharedHTML.projects}
             <style>${profileProjects_sharedStyles.projects}</style>
-            ${profileProjects_sharedHTML.projects}
-        `;
+			${profileProjects_sharedHTML.footer}
+            <style>${profileProjects_sharedStyles.footerMod}</style>
+
+		`;
 	}
 	static get observedAttributes(): string[] {
 		return ['this.historyStack.pageOpen'];

@@ -26,6 +26,9 @@ export class SlideProjects extends ProjectsTemplate {
 
 		this.noShadow = true;
 
+		const root = this.shadowRoot;
+		this.root = root;
+
 		this.body = body;
 		this.body = document.querySelector('body');
 
@@ -48,24 +51,31 @@ export class SlideProjects extends ProjectsTemplate {
 		super.connectedCallback();
 
 		class Menu {
-			container: HTMLElement | null | undefined;
+			noShadow: boolean = false;
+			container: HTMLDivElement | null | undefined;
 			webBig3: HTMLElement | null | undefined;
 			blueVanilla: HTMLElement | null | undefined;
 			vanilla: HTMLElement | null | undefined;
-			isMenuShown: boolean;
+			isMenuShown: boolean = false;
 			tsSymbol: HTMLElement | null | undefined;
 			jsSymbol: HTMLElement | null | undefined;
 			menuBody: HTMLBodyElement | null | undefined;
-			menuContainer: HTMLElement | null | undefined;
+			menuContainer: HTMLDivElement | null | undefined;
 			itemHTML: HTMLElement | string | undefined;
+			root: ShadowRoot | undefined;
+			shadowRoot: ShadowRoot | undefined;
 
 			slide(): void {
-				this.container = document.getElementById('container');
+				const container = document.querySelector(
+					'.container'
+				) as HTMLDivElement;
+				this.container = container;
 				this.webBig3 = document.getElementById('webBig3');
 				this.blueVanilla = document.getElementById('blueVanilla');
 				this.vanilla = document.getElementById('yellowVanilla');
 				this.tsSymbol = document.getElementById('tsSymbol');
 				this.jsSymbol = document.getElementById('jsSymbol');
+				// this.root = this.shadowRoot;
 
 				!menu.isMenuShown
 					? ((this.container!.style.transform = 'translateX(0px)'),
@@ -77,7 +87,7 @@ export class SlideProjects extends ProjectsTemplate {
 					  (this.tsSymbol!.style.animation = 'FadeIn 2s'),
 					  (this.blueVanilla!.style.animation = 'FadeIn 4s'),
 					  (this.vanilla!.style.animation = 'FadeIn 4s'),
-					  (this.isMenuShown = true))
+					  (menu.isMenuShown = true))
 					: ((this.container!.style.transform = 'translateX(-210px'),
 					  (this.webBig3!.style.transform = 'rotate(-360deg)'),
 					  (this.webBig3!.style.animation = 'FadeOut 500ms'),
@@ -87,16 +97,14 @@ export class SlideProjects extends ProjectsTemplate {
 					  (this.tsSymbol!.style.animation = 'FadeOut 500ms'),
 					  (this.blueVanilla!.style.animation = 'FadeOut 1s'),
 					  (this.vanilla!.style.animation = 'FadeOut 1s'),
-					  (this.isMenuShown = false));
+					  (menu.isMenuShown = false));
 			}
 
 			constructor() {
-				this.isMenuShown = false;
-
 				let menuBody: HTMLBodyElement | null | undefined =
 					document.querySelector('body');
-				let menuContainer: HTMLElement | null | undefined =
-					menuBody?.querySelector('#container');
+				let menuContainer: HTMLDivElement | null | undefined =
+					menuBody?.querySelector('.container');
 
 				let itemHTML: HTMLElement | string | undefined = /*html*/ `					
 					<div id="spaceInvadersDiv" class="item">&#127915;&nbsp;&nbsp;&nbsp;
@@ -139,7 +147,7 @@ export class SlideProjects extends ProjectsTemplate {
 		}
 
 		const menu: Menu = new Menu();
-		const hamburgerMenu: HTMLElement | null =
+		const hamburgerMenu: HTMLElement | null | undefined =
 			document.getElementById('hamburgerMenu');
 
 		function connectionLog(): void {
@@ -155,7 +163,7 @@ export class SlideProjects extends ProjectsTemplate {
 				stopPropagation: () => void;
 			}) => {
 				event.preventDefault();
-
+				console.log(menu.isMenuShown, menu.isMenuShown);
 				!menu.isMenuShown
 					? (menu.slide(), connectionLog(), (menu.isMenuShown = true))
 					: (menu.slide(), (menu.isMenuShown = false));
@@ -236,7 +244,7 @@ export class SlideProjects extends ProjectsTemplate {
 			${profileProjects_sharedHTML.slide}
 		`;
 	}
-	static get observedAttributes() {
+	get observedAttributes() {
 		return ['window.location.href'];
 	}
 	public attributeChangedCallback(

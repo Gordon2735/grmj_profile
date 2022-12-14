@@ -6,7 +6,6 @@ async function init(): Promise<void> {
 			element.setAttribute(key, attributes[key]);
 		}
 	}
-
 	function appendChildren(
 		parent: HTMLElement | ShadowRoot | null,
 		children: any[]
@@ -31,6 +30,10 @@ async function init(): Promise<void> {
 		const scriptGoals: HTMLScriptElement = document.createElement('script');
 		const scriptCodeExamples: HTMLScriptElement =
 			document.createElement('script');
+		const scriptDropDown: HTMLScriptElement =
+			document.createElement('script');
+		const scriptFooter: HTMLScriptElement | null =
+			document.createElement('script');
 
 		if (profile === true) {
 			console.log('HooT™️ Webelistics®️ Rendered Here!!!');
@@ -38,7 +41,7 @@ async function init(): Promise<void> {
 			setAttributes(script, {
 				type: 'module',
 				content: 'text/javascript',
-				src: '/src/components/profileHome/profile-shell.js',
+				src: '../profileHome/profile-shell.js',
 				alt: 'Profile Main Shell Script'
 			});
 			head?.appendChild(script);
@@ -58,7 +61,7 @@ async function init(): Promise<void> {
 			setAttributes(scriptResume, {
 				type: 'module',
 				content: 'text/javascript',
-				src: '/src/components/profileResume/profile-resume_shell.js',
+				src: '../profileResume/profile-resume_shell.js',
 				alt: 'Profile Resume Shell'
 			});
 			setAttributes(scriptProjects, {
@@ -79,6 +82,18 @@ async function init(): Promise<void> {
 				src: '../profileCodeExamples/profile-code-examples_shell.js',
 				alt: 'Profile Code Examples Shell'
 			});
+			setAttributes(scriptDropDown, {
+				type: 'module',
+				content: 'text/javascript',
+				src: '../dropDown/drop-down_shell.js',
+				alt: 'Drop Down Menu Script'
+			});
+			setAttributes(scriptFooter, {
+				type: 'module',
+				content: 'text/javascript',
+				src: '/src/components/profileFooter/profile-footer.js',
+				alt: 'Profile Footer Element'
+			});
 
 			const loadScripts = async (): Promise<void> => {
 				appendChildren(head, [
@@ -87,7 +102,9 @@ async function init(): Promise<void> {
 					scriptResume,
 					scriptProjects,
 					scriptGoals,
-					scriptCodeExamples
+					scriptCodeExamples,
+					scriptDropDown,
+					scriptFooter
 				]);
 				return;
 			};
