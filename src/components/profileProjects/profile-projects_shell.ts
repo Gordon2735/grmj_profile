@@ -12,7 +12,6 @@ export class ProfileProjectsShell extends ProjectsTemplate {
 	override noShadow: boolean = true;
 	head: HTMLHeadElement | null;
 	scriptProjects: HTMLScriptElement | null;
-	scriptSlides: HTMLScriptElement | null;
 	renderScripts(): Promise<void> {
 		return new Promise(resolve => {
 			resolve();
@@ -29,12 +28,8 @@ export class ProfileProjectsShell extends ProjectsTemplate {
 		const scriptProjects: HTMLScriptElement =
 			document.createElement('script');
 
-		const scriptSlides: HTMLScriptElement =
-			document.createElement('script');
-
 		this.head = head;
 		this.scriptProjects = scriptProjects;
-		this.scriptSlides = scriptSlides;
 
 		setAttributes(this.scriptProjects, {
 			type: 'module',
@@ -42,18 +37,11 @@ export class ProfileProjectsShell extends ProjectsTemplate {
 			src: '/src/components/profileProjects/profile-projects.js',
 			alt: 'Profile Projects Script'
 		});
-
-		setAttributes(this.scriptSlides, {
-			type: 'module',
-			content: 'text/javascript',
-			src: '/src/components/profileProjects/slide-projects.js',
-			alt: 'Profile Projects Script'
-		});
 	}
 	override connectedCallback() {
 		super.connectedCallback();
 
-		appendChildren(this.head, [this.scriptProjects, this.scriptSlides]);
+		appendChildren(this.head, [this.scriptProjects]);
 	}
 	override get template() {
 		return /*html*/ `

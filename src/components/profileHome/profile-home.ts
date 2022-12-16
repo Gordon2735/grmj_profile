@@ -36,7 +36,7 @@ export class ProfileHome extends ProfileTemplate {
 			console.log(this.State.pageOpen);
 		};
 		console.log(history.state);
-		console.log(this.historyStack);
+		console.log(this.historyStack, window.location.href);
 	}
 	override connectedCallback() {
 		super.connectedCallback();
@@ -47,7 +47,8 @@ export class ProfileHome extends ProfileTemplate {
 		return /*html*/ `            
 			
 			<style>${profile_sharedStyles.home}</style>
-			${profile_sharedHTML.panel}		
+			${profile_sharedHTML.home}	
+			<style>${profile_sharedStyles.dropdown}</style>	
 
 		`;
 	}

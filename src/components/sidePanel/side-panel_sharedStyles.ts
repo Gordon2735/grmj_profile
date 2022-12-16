@@ -38,6 +38,7 @@ sidePanel_sharedStyles.panel = /*css*/ `
         border: var(--grmj-border-0);
         border-radius: 0px 8px 8px 0px;
         font-Family: var(--grmj-font-family-1);
+        opacity: 0.6;
         z-index: 999;
     }
 

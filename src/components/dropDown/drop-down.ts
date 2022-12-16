@@ -2,7 +2,6 @@
 
 import { DropDownTemplate } from './drop-down_template.js';
 import { dropDown_sharedHTML } from './drop-down_sharedHTML.js';
-import { dropDown_sharedStyles } from './drop-down_sharedStyles.js';
 import RegisterComponent from '../componentTools/components_services.js'; // appendChildren // setAttributes,
 // import historyStack from '../../controller/state/profileState.js';
 
@@ -26,40 +25,22 @@ export class DropDown extends DropDownTemplate {
 		this.dd1 = dd1;
 		this.dd2 = dd2;
 
-		// let State: any | undefined;
-		// this.State = State;
-		// this.State = { pageOpen: '/' };
-		// this.historyStack = historyStack;
-
 		const head: HTMLHeadElement | null = document.querySelector('head');
-
 		this.head = head;
-		const root = this.shadowRoot;
-		this.root = root;
-
-		// window.history.replaceState(this.State, 'home', '');
-		// this.historyStack.push(history.state);
-
-		// window.onpopstate = event => {
-		// 	event.state
-		// 		? ((this.State = event.state), this.historyStack.pop())
-		// 		: (this.State = { pageOpen: '/' });
-		// 	console.log(this.State.pageOpen);
-		// };
-		// console.log(history.state);
-		// console.log(this.historyStack);
 	}
 	override get template() {
 		return /*html*/ `
-        
-            ${dropDown_sharedHTML.dropdown}
-            <style>${dropDown_sharedStyles.dropdown}</style>        
-        `;
+
+			${dropDown_sharedHTML.dropdown}
+		`;
 	}
 	override connectedCallback(): void {
 		super.connectedCallback();
 
-		console.log('DropDown Menu is Rendered :::: HooT™️ Webelistics®️ ');
+		console.log(
+			`%cDropDown Menu is Rendered :::: HooT™️ Webelistics®️`,
+			'color: orange; font-size: 0.7rem;'
+		);
 
 		function DropDownMenu(
 			this: any,
@@ -254,35 +235,61 @@ export class DropDown extends DropDownTemplate {
 
 		this.dd2 = new (DropDownMenu as any)({
 			id: 'dd2',
-			val: 'rabbit',
+			val: 'Library',
 			data: [
-				'cat',
-				'dog',
-				'mouse',
-				'horse',
-				'rabbit',
-				'lion',
-				'bear',
-				'tiger'
+				'Web Components',
+				'Web Components I',
+				'Web Components II',
+				'Web Components III',
+				'Errors',
+				'Research & Development',
+				'HooT Web Components'
 			],
 			cb: function (_newval: any) {
-				// { { !--alert(newval); --} }
+				switch (_newval) {
+					case 'Library':
+						window.location.href = '/';
+						break;
+					case 'Web Components I':
+						window.location.href = '/web_components_1';
+						break;
+					case 'Web Components II':
+						window.location.href = '/web_component_2';
+						break;
+					case 'Web Components III':
+						window.location.href = '/web_components_3';
+						break;
+					case 'Errors':
+						window.location.href = '/errors';
+						break;
+					case 'Blog':
+						window.location.href = '/blog';
+						break;
+					case 'Research & Development':
+						window.location.href = '/r_n_d';
+						break;
+					case 'HooT Web Components':
+						window.location.href = '/hoot';
+						break;
+					default:
+						window.location.href = '/';
+				}
 			}
 		});
 	}
-	// static get observedAttributes() {
-	// 	return ['window.location.href'];
-	// }
-	// public attributeChangedCallback(
-	// 	name: string,
-	// 	_oldValue: string,
-	// 	_newValue: string
-	// ) {
-	// 	_oldValue !== _newValue
-	// 		? console.info(`old location: ${_oldValue},
-	// 			${name} has a new location of: ${_newValue}
-	// 			which should be equal to: ${window.location} `)
-	// 		: console.info(`old location: ${_oldValue}`);
-	// }
+	static get observedAttributes() {
+		return ['window.location.href'];
+	}
+	public attributeChangedCallback(
+		name: string,
+		_oldValue: string,
+		_newValue: string
+	) {
+		_oldValue !== _newValue
+			? console.info(`old location: ${_oldValue},
+				${name} has a new location of: ${_newValue}
+				which should be equal to: ${window.location} `)
+			: console.info(`old location: ${_oldValue}`);
+	}
 }
 RegisterComponent('drop-down', DropDown);

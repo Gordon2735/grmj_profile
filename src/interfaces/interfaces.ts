@@ -3,12 +3,12 @@
 export default interface profile_sharedStyles {
 	global: string;
 	home: string;
+	dropdown: string;
 }
 
 interface profile_sharedHTML {
 	shell: string;
 	home: string;
-	panel: string;
 	dropdown: string;
 }
 
@@ -91,6 +91,7 @@ interface dropDown_sharedStyles {
 	shell: string;
 	dropdown: string;
 	dynadrop: string;
+	home: string;
 }
 
 interface profileHdr_sharedHTML {
@@ -112,6 +113,7 @@ interface profileFooter_sharedStyles {
 	footer: string;
 	footerMod: string;
 	jumps: string;
+	home: string;
 }
 
 interface HistoryObject {

@@ -44,6 +44,7 @@ export class ProfileShell extends ProfileTemplate {
 			${profile_sharedHTML.shell}
 			${profile_sharedHTML.home}			
 			<style>${profile_sharedStyles.global}</style>
+
 			
         `;
 	}

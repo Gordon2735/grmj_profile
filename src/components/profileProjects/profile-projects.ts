@@ -10,13 +10,7 @@ import { HistoryObject } from '../../interfaces/interfaces.js';
 export class ProfileProjects extends ProjectsTemplate {
 	override noShadow: boolean = true;
 	body: HTMLBodyElement | null;
-	// gordonProjectsDiv: HTMLElement | null;
 	spaceInvader(): void {}
-	// dynamicRender(): Promise<void> {
-	// 	return new Promise(resolve => {
-	// 		resolve();
-	// 	});
-	// }
 	// setAttributes:
 	// 	| ((tag: HTMLElement, attribute: string | object | any) => void)
 	// 	| undefined;
@@ -32,14 +26,8 @@ export class ProfileProjects extends ProjectsTemplate {
 		this.noShadow = true;
 
 		const body: HTMLBodyElement | null = document.querySelector('body');
-		// const gordonProjectsDiv: HTMLElement | null =
-		// 	document.querySelector('.gordon-projects');
-		// const tsImage: HTMLImageElement = document.createElement('img');
 
 		this.body = body;
-		// this.gordonProjectsDiv = gordonProjectsDiv;
-		// this.tsImage = tsImage;
-		// const thiz: this = this;
 
 		this.State = { pageOpen: '/projects' };
 		this.historyStack = historyStack;
@@ -52,26 +40,9 @@ export class ProfileProjects extends ProjectsTemplate {
 				? ((this.State = event.state), this.historyStack.pop())
 				: this.historyStack.pop();
 		};
-		console.log(this.State.pageOpen);
-		console.log(history.state);
-		console.log(this.historyStack);
-
-		// async function dynamicRender(): Promise<void> {
-		// 	try {
-		// 		thiz.gordonProjectsDiv?.append(thiz.tsImage);
-
-		// 		// appendChildren(thiz.body, [thiz.gordonProjectsDiv]);
-		// 	} catch (error) {
-		// 		console.log(error);
-		// 	}
-		// 	return;
-		// }
-		// this.dynamicRender = dynamicRender;
 	}
 	override connectedCallback(): void {
 		super.connectedCallback();
-
-		// this.dynamicRender();
 	}
 	override get template(): string {
 		return /*html*/ `

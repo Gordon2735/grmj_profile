@@ -12,14 +12,8 @@ const profileProjects_sharedHTML = {
 
 profileProjects_sharedHTML.shell = /*html*/ `
 
-	<drop-down_shell id="dropDownShell" class="drop-down-shell"></drop-down_shell>	
-
-	<profile-footer id="profileFooter" class="profile-footer"></profile-footer>
-
 	<profile-projects id="profileProjects" class="profile-projects"></profile-projects>
 		
-	<slide-projects id="slideProjects" class="slide-projects"></slide-projects>
-
 	
 `;
 
@@ -74,10 +68,6 @@ profileProjects_sharedHTML.projects = /*html*/ `
 
 profileProjects_sharedHTML.slide = /*html*/ `
 	
-		<div id="hamburgerMenu" class="hamburger-menu">&#9776;</div>
-	
-		<div id="container" class="container">
-		</div>
 
 `;
 

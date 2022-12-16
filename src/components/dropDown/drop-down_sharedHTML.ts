@@ -8,9 +8,8 @@ const dropDown_sharedHTML = {
 	dynadrop: ``
 };
 
-dropDown_sharedHTML.shell = /*html*/ `
+dropDown_sharedHTML.shell = /*html*/ `	
 
-    <drop-down id="dropDown" class="drop-down"></drop-down>    
 
 `;
 
@@ -22,6 +21,7 @@ dropDown_sharedHTML.dropdown = /*html*/ `
 
 dropDown_sharedHTML.dynadrop = /*html*/ `
 
+	<drop-down id="dropDown" class="drop-down"></drop-down>
 
 
 `;

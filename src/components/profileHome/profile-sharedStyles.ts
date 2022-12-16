@@ -1,13 +1,12 @@
 'use strict';
 
-import profile_sharedStyles from '../../interfaces/interfaces';
+import profile_sharedStyles from '../../interfaces/interfaces.js';
 
 // will have to create an interface for this
 
 const profile_sharedStyles = {
 	global: ``,
 	home: ``,
-	panel: ``,
 	dropdown: ``
 };
 
@@ -26,7 +25,9 @@ profile_sharedStyles.global = /*css*/ `
 profile_sharedStyles.home = /*css*/ `
 
     .main {
-        margin-top: 0em;
+        margin: 0;
+        padding: 0;
+        position: absolute;
         width: 100%;
     }
 
@@ -37,7 +38,7 @@ profile_sharedStyles.home = /*css*/ `
     }
 
     .title-official {
-        margin: 0.32em auto 0em 6.8em;
+        margin: 1.2em auto -0.4em 4.4em;
         font-size: var(--grmj-font-size-8vw);
         font-weight: var(--grmj-font-weight-2);
         color: var(--grmj-font-color-2);
@@ -46,7 +47,7 @@ profile_sharedStyles.home = /*css*/ `
     }
 
     .grmj-profile-title {
-        margin: 0em auto 0.3em 3em;
+        margin: 0.3em auto 0em 1.5em;
         font-size: max(min(7vw, 1.5em), 4vw);
         font-weight: var(--grmj-font-weight-7);
         color: var(--grmj-font-color-2);
@@ -55,20 +56,11 @@ profile_sharedStyles.home = /*css*/ `
     }   
 
     .title-of {
-        margin: 0em auto 0em 15.5em;
+        margin: 0em auto 2em 6.75em;
         font-size: var(--grmj-font-size-8vw);
         font-weight: var(--grmj-font-weight-2);
         color: var(--grmj-font-color-2);
         font-style:var(--grmj-italic);
-        letter-spacing: var(--grmj-letter-spacing-1a);
-    }
-
-    .grmj-profile-subtitle {
-        margin: -0.03em auto 1em 14.002em;
-        font-size: var(--grmj-font-size-11vw);
-        font-weight: var(--grmj-font-weight-5);
-        color: var(--grmj-font-color-2);
-        text-shadow: var(--grmj-text-shadow-1);
         letter-spacing: var(--grmj-letter-spacing-1a);
     }
 
@@ -91,10 +83,10 @@ profile_sharedStyles.home = /*css*/ `
     }
 
     .grmj-pers-fig {
-        top: 10.5em;
-        left: 1.5em;
-        margin: 2em 0em 1em 4em;
+        margin: 2em 0em 1em 7em;
         padding: 0.5em 0.5em;
+        top: 13.5em;
+        left: 6.5em;
         width: max(min(18vw, 12.5em), 16vw);
         height: auto;
         position: absolute;
@@ -109,11 +101,13 @@ profile_sharedStyles.home = /*css*/ `
     }  
 
     .grmj-pers-fig .grmj-pers-fig-cap {
-        margin-left: 1.2em;
-        font-size: var(--grmj-font-size-2vw);
-        color: var(--grmj-font-color-1);
+        margin-left: 1.7em;
         position: relative;
-        text-shadow: var(--grmj-text-shadow-0);
+        font-size: var(--grmj-font-size-2vw);
+        font-weight: var(--grmj-font-weight-6);
+        color: var(--grmj-font-color-7a);
+        text-shadow: var(--grmj-text-shadow-3);
+        letter-spacing: var(--grmj-letter-spacing-1);
     }
 
     .grmj-profile-section {
@@ -232,17 +226,4 @@ profile_sharedStyles.home = /*css*/ `
 
 
 `;
-
-profile_sharedStyles.panel = /*css*/ `
-
-
-
-`;
-
-profile_sharedStyles.dropdown = /*css*/ `
-
-
-
-`;
-
 export { profile_sharedStyles };

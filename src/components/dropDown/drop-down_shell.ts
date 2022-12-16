@@ -12,12 +12,18 @@ export class DropDownShell extends DropDownTemplate {
 	override noShadow: boolean;
 	head: HTMLHeadElement | null;
 	scriptDropDown: HTMLScriptElement;
+
 	appendChildren(
 		_parent: HTMLElement | ShadowRoot | null,
 		_attributes: string | object | any
 	): void {}
 	setAttributes(_tag: HTMLElement, _attribute: string | object | any): void {}
 
+	override get template() {
+		return /*html*/ `
+			${dropDown_sharedHTML.shell}			
+        `;
+	}
 	constructor() {
 		super();
 
@@ -37,14 +43,21 @@ export class DropDownShell extends DropDownTemplate {
 		super.connectedCallback();
 
 		appendChildren(this.head, [this.scriptDropDown]);
+		this.homePageStyleMod();
+		`${dropDown_sharedHTML.dynadrop}`;
+
+		return;
 	}
-	override get template() {
-		return /*html*/ `
-        
-            ${dropDown_sharedHTML.shell}
-            <style>${dropDown_sharedStyles.shell}</style>
-        
-        `;
+	override homePageStyleMod() {
+		super.homePageStyleMod(
+			(this.locationHREF = window.location.href),
+			(this.checkLocation = 'http://127.0.0.1:9080/'),
+			(this.dropShell = document.getElementById('dropDownShell')),
+			(this.styleSheetMod = `${dropDown_sharedStyles.home}`),
+			(this.styleSheetFlat = `${dropDown_sharedStyles.dropdown}`)
+		);
+		return;
 	}
+	override render() {}
 }
 RegisterComponent('drop-down_shell', DropDownShell);
