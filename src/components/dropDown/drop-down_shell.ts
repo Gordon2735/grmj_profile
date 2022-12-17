@@ -21,7 +21,9 @@ export class DropDownShell extends DropDownTemplate {
 
 	override get template() {
 		return /*html*/ `
-			${dropDown_sharedHTML.shell}			
+			${dropDown_sharedHTML.shell}
+			${dropDown_sharedHTML.dynadrop}
+
         `;
 	}
 	constructor() {
@@ -44,7 +46,6 @@ export class DropDownShell extends DropDownTemplate {
 
 		appendChildren(this.head, [this.scriptDropDown]);
 		this.homePageStyleMod();
-		`${dropDown_sharedHTML.dynadrop}`;
 
 		return;
 	}

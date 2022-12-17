@@ -47,8 +47,9 @@ export class DropDown extends DropDownTemplate {
 			o: {
 				id: string;
 				val: string;
+				val2: string;
 				data: string[];
-				cb: ((newval: any) => void) | ((newval: any) => void);
+				cb: ((newval: any) => void) | ((newval2: any) => void);
 			}
 		): any {
 			this.options = o;
@@ -93,10 +94,60 @@ export class DropDown extends DropDownTemplate {
 						break;
 					case 'http://127.0.0.1:9080/library':
 						val = this.options.val = 'Library';
+					case 'http://127.0.0.1:9080/projects':
+						val = this.options.val = 'Projects';
+						break;
+					case 'http://127.0.0.1:9080/history':
+						val = this.options.val = 'History';
+						break;
+					case 'http://127.0.0.1:9080/resume':
+						val = this.options.val = 'Resume';
+						break;
+					case 'http://127.0.0.1:9080/goals':
+						val = this.options.val = 'Goals';
+						break;
+					case 'http://127.0.0.1:9080/code_examples':
+						val = this.options.val = 'Code Examples';
+						break;
+					case 'http://127.0.0.1:9080/contact':
+						val = this.options.val = 'Contact';
+						break;
+					case 'http://127.0.0.1:9080/library':
+						val = this.options.val = 'Library';
 						break;
 					default:
 						val = this.options.val = 'Home';
 				}
+
+				// let val2: any;
+				// switch (window.location.href) {
+				// 	case 'http://127.0.0.1:9080/':
+				// 		val2 = this.options.val2 = 'Home';
+				// 		break;
+				// 	case 'http://127.0.0.1:9080/projects':
+				// 		val2 = this.options.val2 = 'Projects';
+				// 		break;
+				// 	case 'http://127.0.0.1:9080/history':
+				// 		val2 = this.options.val2 = 'History';
+				// 		break;
+				// 	case 'http://127.0.0.1:9080/resume':
+				// 		val2 = this.options.val2 = 'Resume';
+				// 		break;
+				// 	case 'http://127.0.0.1:9080/goals':
+				// 		val2 = this.options.val2 = 'Goals';
+				// 		break;
+				// 	case 'http://127.0.0.1:9080/code_examples':
+				// 		val2 = this.options.val2 = 'Code Examples';
+				// 		break;
+				// 	case 'http://127.0.0.1:9080/contact':
+				// 		val2 = this.options.val2 = 'Contact';
+				// 		break;
+				// 	case 'http://127.0.0.1:9080/library':
+				// 		val2 = this.options.val2 = 'Library';
+				// 		break;
+				// 	default:
+				// 		val2 = this.options.val2 = 'Home';
+				// }
 
 				let HTML: string = /*html*/ `
 					<div id:="dropdown" class="dropdown">
@@ -105,7 +156,7 @@ export class DropDown extends DropDownTemplate {
 						<div   class="dropdown_panel">
 							<div id:="dd1s"  class="dropdown_items scrollbar"></div>
 						</div>
-					</div> 
+					</div> 				 
                 `;
 
 				this.elem.innerHTML = HTML;
@@ -235,7 +286,7 @@ export class DropDown extends DropDownTemplate {
 
 		this.dd2 = new (DropDownMenu as any)({
 			id: 'dd2',
-			val: 'Library',
+			val2: 'Library',
 			data: [
 				'Web Components',
 				'Web Components I',
@@ -245,10 +296,10 @@ export class DropDown extends DropDownTemplate {
 				'Research & Development',
 				'HooT Web Components'
 			],
-			cb: function (_newval: any) {
-				switch (_newval) {
+			cb: function (_newval2: any) {
+				switch (_newval2) {
 					case 'Library':
-						window.location.href = '/';
+						window.location.href = '/Library';
 						break;
 					case 'Web Components I':
 						window.location.href = '/web_components_1';

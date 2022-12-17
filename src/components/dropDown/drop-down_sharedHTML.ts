@@ -15,18 +15,15 @@ dropDown_sharedHTML.shell = /*html*/ `
 
 dropDown_sharedHTML.dropdown = /*html*/ `
 
-					               
-	<section id="ddSection" class="dd-section"></section>
-
-
-    <div id="dd1"></div><div id="dd2"></div>
+	<section id="ddSection" class="dd-section">
+   		<div id="dd1"></div><div id="dd2"></div>
+	</section>
 
 `;
 
 dropDown_sharedHTML.dynadrop = /*html*/ `
 
 	<drop-down id="dropDown" class="drop-down"></drop-down>
-
 
 `;
 

@@ -11,6 +11,9 @@ export class ProfileHome extends ProfileTemplate {
 	State: any | undefined;
 	historyStack: import('d:/grmj_profile/src/interfaces/interfaces').HistoryObject;
 	head: HTMLHeadElement | null;
+	detailsDev: HTMLDetailsElement;
+	detailsSoftware: HTMLDetailsElement;
+	detailsQuote: HTMLDetailsElement;
 
 	constructor() {
 		super();
@@ -23,8 +26,20 @@ export class ProfileHome extends ProfileTemplate {
 		this.historyStack = historyStack;
 
 		const head: HTMLHeadElement | null = document.querySelector('head');
+		const detailsDev = document.getElementById(
+			'detailsDev'
+		) as HTMLDetailsElement;
+		const detailsSoftware = document.getElementById(
+			'detailsDev'
+		) as HTMLDetailsElement;
+		const detailsQuote = document.getElementById(
+			'detailsDev'
+		) as HTMLDetailsElement;
 
 		this.head = head;
+		this.detailsDev = detailsDev;
+		this.detailsSoftware = detailsSoftware;
+		this.detailsQuote = detailsQuote;
 
 		window.history.replaceState(this.State, 'home', '');
 		this.historyStack.push(history.state);
@@ -42,6 +57,55 @@ export class ProfileHome extends ProfileTemplate {
 		super.connectedCallback();
 
 		console.log('Home-Page is Rendered :::: HooT™️ Webelistics®️ ');
+
+		this.detailsDev.addEventListener('toggle', (event: Event) => {
+			event.defaultPrevented;
+
+			this.detailsDev.open
+				? (this.detailsDev.ontoggle,
+				  console.log(
+						'%cDevelopment Type Menu was closed',
+						'color: yellow;'
+				  ))
+				: (this.detailsDev.ontoggle,
+				  console.log(
+						'%cDevelopment Type Menu was opened',
+						'color: yellow;'
+				  ));
+			event.stopPropagation;
+		});
+		this.detailsSoftware.addEventListener('toggle', (event: Event) => {
+			event.defaultPrevented;
+
+			this.detailsSoftware.open
+				? (this.detailsSoftware.ontoggle,
+				  console.log(
+						'%cSoftware Practices Menu was closed',
+						'color: yellow;'
+				  ))
+				: (this.detailsSoftware.ontoggle,
+				  console.log(
+						'%cSoftware Practices Menu was opened',
+						'color: yellow;'
+				  ));
+			event.stopPropagation;
+		});
+		this.detailsQuote.addEventListener('toggle', (event: Event) => {
+			event.defaultPrevented;
+
+			this.detailsQuote.open
+				? (this.detailsQuote.ontoggle,
+				  console.log(
+						'%cPersonal Goals Menu was closed',
+						'color: yellow;'
+				  ))
+				: (this.detailsQuote.ontoggle,
+				  console.log(
+						'%cPersonal Goals Menu was opened',
+						'color: yellow;'
+				  ));
+			event.stopPropagation;
+		});
 	}
 	override get template() {
 		return /*html*/ `            

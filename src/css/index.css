@@ -3,8 +3,11 @@
 /* Global CSS main index file */
 
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,400;0,600;0,700;0,900;1,200;1,600;1,700;1,900&display=swap');
-
 /*font-family: 'Source Sans Pro', sans-serif;*/
+
+@import url('https://fonts.googleapis.com/css2?family=Chango&display=swap');
+/* font-family: 'Chango', cursive; */
+
 :root {
 
     /* Backgrounds */
@@ -18,8 +21,9 @@
     --grmj-profile-background_5: hsla(198, 53%, 87%, 0.09);
     --grmj-profile-background_6: hsla(0, 0%, 75%, 0.15);
     --grmj-profile-background_7: hsla(0, 0%, 80%, 0.66);
-    --grmj-profile-background_8: hsla(212, 62%, 49%, 0.99);
-
+    --grmj-profile-background_8: hsla(212, 62%, 49%, 0.14);
+    --grmj-profile-background_9: hsla(209, 59%, 48%, 0.99);
+    --grmj-profile-background_10: hsla(195, 53%, 79%, 0.99);
     /* Background Image */
     --grmj-profile-background_image_00: url('/src/components/profileHome/tools/images/005___profile__BACKGROUND.jpg');
     --grmj-profile-background_image_0: url('/src/components/profileProjects/tools/images/005___profile__BACKGROUND.jpg');
@@ -30,6 +34,7 @@
 
 
     /*Font Family*/
+    --grmj-font-family-0: 'Chango', cursive;
     --grmj-font-family-1: 'Source Sans Pro', sans-serif;
     --grmj-font-family-2: 'Impact, Haettenschweiler', 'Arial Narrow Bold', sans-serif;
     --grmj-font-family-3: 'Arial, Helvetica, sans-serif';
@@ -54,8 +59,9 @@
     --grmj-text-shadow-1: 5px 3px 5px hsla(0, 0%, 0%, 0.99);
     --grmj-text-shadow-1x: 4px 2px 4px hsla(0, 0%, 0%, 0.99);
     --grmj-text-shadow-2: 7px 5px 9px hsla(0, 0%, 0%, 0.69);
-    --grmj-text-shadow-3: 2px 1px 3px hsla(0, 0%, 0%, 0.59);
+    --grmj-text-shadow-3: 2px 1px 1px hsla(0, 0%, 0%, 0.25);
     --grmj-text-shadow-4: 3px 2px 3px hsla(0, 0%, 0%, 0.6);
+    --grmj-text-shadow-5: 2px 1px 2px hsla(0, 0%, 0%, 0.4);
 
     /*Box Shadows*/
     --grmj-box-shadow-0: 5px 4px 7px hsla(0, 0%, 0%, 0.79);
@@ -67,8 +73,9 @@
     --grmj-filter-dropShadow-0: drop-shadow(6px 5px 7px hsla(0, 0%, 0%, 0.72));
     --grmj-filter-dropShadow-1: drop-shadow(3px 2px 2px hsla(0, 0%, 0%, 0.6));
     --grmj-filter-dropShadow-2: drop-shadow(6px 4px 4px hsla(0, 0%, 0%, 0.6));
-    --grmj-filter-dropShadow-3: drop-Shadow(0px 0px 0.65rem hsla(198, 53%, 87%, 0.89));
-    --grmj-filter-dropShadow-4: drop-shadow(0 0.2rem 0.25rem rgba(0, 0, 0, 0.9));
+    --grmj-filter-dropShadow-3: drop-Shadow(0px 0.2rem 0.65rem hsla(198, 53%, 87%, 0.89));
+    --grmj-filter-dropShadow-4: drop-shadow(0 0.2rem 0.25rem rgba(0, 0, 0, 0.99));
+    --grmj-filter-dropShadow-4a: drop-shadow(0 0.03rem 0.03rem rgba(0, 0, 0, 0.12));
     --grmj-filter-dropShadow-5: drop-shadow(0 0.2rem 0.25rem hsla(198, 86%, 92%, 0.99));
 
     /*Letter Spacing*/
@@ -139,13 +146,15 @@
     --grmj-font-color-13: hsla(212, 62%, 49%, 0.99);
     --grmj-font-color-14: hsla(52, 97%, 58%, 0.99);
     --grmj-font-color-15: hsla(198, 53%, 87%, 0.19);
+    --grmj-font-color-16: hsla(39, 99%, 45%, 0.99);
 
     /*Borders*/
     --grmj-border-0: 2.5px solid hsla(240, 81%, 12%, 0.99);
-    border:
+    --grmj-border-1: 1.25px solid hsla(240, 81%, 12%, 0.99);
+    --grmj-border-2: 2.25px solid hsla(212, 62%, 49%, 0.99);
 
-        /*Scrollbar Colors*/
-        --grmj_profile_scrollbar-background: hsla(201, 11%, 53%, 0.99);
+    /*Scrollbar Colors*/
+    --grmj_profile_scrollbar-background: hsla(201, 11%, 53%, 0.99);
     --grmj_profile_scrollbar-thumb: hsla(210, 2%, 74%, 0.99);
     --grmj_profile_scrollbar-thumb_hover: hsla(213, 62%, 45%, 0.99);
     --grmj_profile_scrollbar-border: hsla(201, 11%, 53%, 0.99);

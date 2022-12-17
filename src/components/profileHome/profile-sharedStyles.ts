@@ -40,7 +40,7 @@ profile_sharedStyles.home = /*css*/ `
     .title-official {
         margin: 1.2em auto -0.4em 4.4em;
         font-size: var(--grmj-font-size-8vw);
-        font-weight: var(--grmj-font-weight-2);
+        font-weight: var(--grmj-font-weight-4);
         color: var(--grmj-font-color-2);
         font-style: var(--grmj-italic);
         letter-spacing: var(--grmj-letter-spacing-1a);
@@ -56,9 +56,9 @@ profile_sharedStyles.home = /*css*/ `
     }   
 
     .title-of {
-        margin: 0em auto 2em 6.75em;
+        margin: 0em auto 2em 8.75em;
         font-size: var(--grmj-font-size-8vw);
-        font-weight: var(--grmj-font-weight-2);
+        font-weight: var(--grmj-font-weight-4);
         color: var(--grmj-font-color-2);
         font-style:var(--grmj-italic);
         letter-spacing: var(--grmj-letter-spacing-1a);
@@ -123,6 +123,27 @@ profile_sharedStyles.home = /*css*/ `
         color: var(--grmj-font-color-2);
         text-align: center;
         text-justify: inter-word;
+    }
+
+    .details-dev {
+        margin: -2.5em 0em 0em 0em;
+        position: absolute;
+        pointer-events: all;  
+        left: 35%;
+        z-index: 999;
+    }
+
+
+    .details-software {
+        margin: 3.5em 0em 0em 0em;
+        position: absolute;
+        left: 35%;
+    }
+
+    .details-quote {
+        margin: 9.5em 0em 0em 0em;
+        position: absolute;
+        left: 35%;
     }
 
     @media screen and (max-width: 600px) {
@@ -227,3 +248,12 @@ profile_sharedStyles.home = /*css*/ `
 
 `;
 export { profile_sharedStyles };
+
+// .details-dev[open] {
+//     margin: -2.5em 0em 0em 0em;
+//     position: absolute;
+//     pointer-events: all;
+//     opacity: 0.5;
+//     left: 35%;
+//     z-index: 999;
+// }
