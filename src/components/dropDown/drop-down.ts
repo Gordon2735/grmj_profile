@@ -99,13 +99,13 @@ export class DropDown extends DropDownTemplate {
 				}
 
 				let HTML: string = /*html*/ `
-                    <div id:="dropdown" class="dropdown">
-                        <div class="dropdown_value">${val}</div>
-                        <div class="dropdown_arrow">▾</div>
-                        <div   class="dropdown_panel">
-                            <div id:="dd1s"  class="dropdown_items scrollbar"></div>
-                        </div>
-                    </div>                
+					<div id:="dropdown" class="dropdown">
+						<div class="dropdown_value">${val}</div>
+						<div class="dropdown_arrow">▾</div>
+						<div   class="dropdown_panel">
+							<div id:="dd1s"  class="dropdown_items scrollbar"></div>
+						</div>
+					</div> 
                 `;
 
 				this.elem.innerHTML = HTML;

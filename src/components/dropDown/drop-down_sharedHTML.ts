@@ -15,6 +15,10 @@ dropDown_sharedHTML.shell = /*html*/ `
 
 dropDown_sharedHTML.dropdown = /*html*/ `
 
+					               
+	<section id="ddSection" class="dd-section"></section>
+
+
     <div id="dd1"></div><div id="dd2"></div>
 
 `;

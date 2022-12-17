@@ -23,6 +23,20 @@ dropDown_sharedStyles.dropdown = /*css*/ `
         right: 2em;
     } 
 
+    
+    .dd-section {
+        margin: 0em 0 2em 2em;
+        position: sticky;
+        top: 0em;
+        padding: 0.4em;
+        position: absolute;
+        width: 550px;
+        height: 75px;
+        background: var(--grmj-profile-background_8);
+        opacity: 0.6;
+        border:
+    }
+
     .dropdown {
         margin: 0em 0 2em 2em;
         position: sticky;

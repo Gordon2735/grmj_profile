@@ -42,7 +42,7 @@ profile_sharedStyles.home = /*css*/ `
         font-size: var(--grmj-font-size-8vw);
         font-weight: var(--grmj-font-weight-2);
         color: var(--grmj-font-color-2);
-        font-style:var(--grmj-italic);
+        font-style: var(--grmj-italic);
         letter-spacing: var(--grmj-letter-spacing-1a);
     }
 
