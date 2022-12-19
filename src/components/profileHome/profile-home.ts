@@ -58,54 +58,54 @@ export class ProfileHome extends ProfileTemplate {
 
 		console.log('Home-Page is Rendered :::: HooT™️ Webelistics®️ ');
 
-		this.detailsDev.addEventListener('toggle', (event: Event) => {
-			event.defaultPrevented;
+		// this.detailsDev.addEventListener('toggle', (event: Event) => {
+		// 	event.defaultPrevented;
 
-			this.detailsDev.open
-				? (this.detailsDev.ontoggle,
-				  console.log(
-						'%cDevelopment Type Menu was closed',
-						'color: yellow;'
-				  ))
-				: (this.detailsDev.ontoggle,
-				  console.log(
-						'%cDevelopment Type Menu was opened',
-						'color: yellow;'
-				  ));
-			event.stopPropagation;
-		});
-		this.detailsSoftware.addEventListener('toggle', (event: Event) => {
-			event.defaultPrevented;
+		// 	this.detailsDev.open
+		// 		? (this.detailsDev.ontoggle,
+		// 		  console.log(
+		// 				'%cDevelopment Type Menu was closed',
+		// 				'color: yellow;'
+		// 		  ))
+		// 		: (this.detailsDev.ontoggle,
+		// 		  console.log(
+		// 				'%cDevelopment Type Menu was opened',
+		// 				'color: yellow;'
+		// 		  ));
+		// 	event.stopPropagation;
+		// });
+		// this.detailsSoftware.addEventListener('toggle', (event: Event) => {
+		// 	event.defaultPrevented;
 
-			this.detailsSoftware.open
-				? (this.detailsSoftware.ontoggle,
-				  console.log(
-						'%cSoftware Practices Menu was closed',
-						'color: yellow;'
-				  ))
-				: (this.detailsSoftware.ontoggle,
-				  console.log(
-						'%cSoftware Practices Menu was opened',
-						'color: yellow;'
-				  ));
-			event.stopPropagation;
-		});
-		this.detailsQuote.addEventListener('toggle', (event: Event) => {
-			event.defaultPrevented;
+		// 	this.detailsSoftware.open
+		// 		? (this.detailsSoftware.ontoggle,
+		// 		  console.log(
+		// 				'%cSoftware Practices Menu was closed',
+		// 				'color: yellow;'
+		// 		  ))
+		// 		: (this.detailsSoftware.ontoggle,
+		// 		  console.log(
+		// 				'%cSoftware Practices Menu was opened',
+		// 				'color: yellow;'
+		// 		  ));
+		// 	event.stopPropagation;
+		// });
+		// this.detailsQuote.addEventListener('toggle', (event: Event) => {
+		// 	event.defaultPrevented;
 
-			this.detailsQuote.open
-				? (this.detailsQuote.ontoggle,
-				  console.log(
-						'%cPersonal Goals Menu was closed',
-						'color: yellow;'
-				  ))
-				: (this.detailsQuote.ontoggle,
-				  console.log(
-						'%cPersonal Goals Menu was opened',
-						'color: yellow;'
-				  ));
-			event.stopPropagation;
-		});
+		// 	this.detailsQuote.open
+		// 		? (this.detailsQuote.ontoggle,
+		// 		  console.log(
+		// 				'%cPersonal Goals Menu was closed',
+		// 				'color: yellow;'
+		// 		  ))
+		// 		: (this.detailsQuote.ontoggle,
+		// 		  console.log(
+		// 				'%cPersonal Goals Menu was opened',
+		// 				'color: yellow;'
+		// 		  ));
+		// 	event.stopPropagation;
+		// });
 	}
 	override get template() {
 		return /*html*/ `            

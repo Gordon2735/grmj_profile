@@ -248,12 +248,12 @@ dropDown_sharedStyles.home = /*css*/ `
 
 
     .drop-down-shell {
-        margin: 3.5em 0 2em 2em;
+        margin: 1.45em 0 2em 2em;
         position: absolute;
         top: 0em;
         left: 60%;
         width: 600px;
-        height: 185px;
+        height: 135px;
     }
 
     .drop-down {
@@ -269,7 +269,7 @@ dropDown_sharedStyles.home = /*css*/ `
         position: absolute;
         display: inline-flex;
         width: 515px;
-        height: 95px;
+        height: 75px;
         background: var(--grmj-profile-background_8);
         border: var(--grmj-border-2);
         border-radius: 0.75em;

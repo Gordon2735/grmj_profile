@@ -105,7 +105,7 @@ profileFooter_sharedStyles.home = /*css*/ `
         position: absolute;
         display: inline-flex;
         width: 779px;
-        height: 105px;
+        height: 115px;
         background: var(--grmj-profile-background_8);
         border: var(--grmj-border-2);
         border-radius: 0.75em;
@@ -166,6 +166,36 @@ profileFooter_sharedStyles.home = /*css*/ `
     .entity-symbol.hoot-rotate {
         font-size: var(--grmj-font-size-1avw);
         transform: rotate(-10deg);
+    }
+
+    .footer-span {
+        margin: 4em auto 0em auto;
+        position: absolute;
+        display: inline-block;
+        width: 225px;
+        height: 26px;
+        background: var(--grmj-profile-background_11);        
+        border: var(--grmj-border-2);
+        border-radius: 0.35em;
+        filter: var(--grmj-filter-dropShadow-4a);
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-span > .footer-link {
+        margin: 0em auto 0em auto;
+        font-family: var(--grmj-font-family-0);
+        font-size: var(--grmj-font-size-1zwx);
+        font-weight: var(--grmj-font-weight-4);
+        color: var(--grmj-font-color-1);
+        text-align: center;
+        text-decoration: none;
+        letter-spacing: var(--grmj-letter-spacing-1a);
+    }
+
+    .footer-link:hover {
+        color: var(--grmj-font-color-16);
+        font-weight: var(--grmj-font-weight-9);
     }
 
     @media screen and (max-width: 1100px) {

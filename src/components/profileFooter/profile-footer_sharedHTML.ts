@@ -19,6 +19,12 @@ profileFooter_sharedHTML.footer = /*html*/ `
             Webelistics<sup id="registerMark" class="entity-symbol">&#174;</sup>
             Software Development, LLC
         </h1>
+        <br>
+        <span id="footerSpan" class="footer-span">
+            <a id="footerLink" class="footer-link" href="https://www.webelistics.com" target="_blank">
+                Webelistics.com
+            </a>
+        </span>
     </footer>
 
 `;

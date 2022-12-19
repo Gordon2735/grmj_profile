@@ -74,6 +74,9 @@ export class DropDown extends DropDownTemplate {
 					case 'http://127.0.0.1:9080/':
 						val = this.options.val = 'Home';
 						break;
+					case 'http://127.0.0.1:9080/cover_letter':
+						val = this.options.val = 'Cover Letter';
+						break;
 					case 'http://127.0.0.1:9080/projects':
 						val = this.options.val = 'Projects';
 						break;
@@ -118,36 +121,6 @@ export class DropDown extends DropDownTemplate {
 					default:
 						val = this.options.val = 'Home';
 				}
-
-				// let val2: any;
-				// switch (window.location.href) {
-				// 	case 'http://127.0.0.1:9080/':
-				// 		val2 = this.options.val2 = 'Home';
-				// 		break;
-				// 	case 'http://127.0.0.1:9080/projects':
-				// 		val2 = this.options.val2 = 'Projects';
-				// 		break;
-				// 	case 'http://127.0.0.1:9080/history':
-				// 		val2 = this.options.val2 = 'History';
-				// 		break;
-				// 	case 'http://127.0.0.1:9080/resume':
-				// 		val2 = this.options.val2 = 'Resume';
-				// 		break;
-				// 	case 'http://127.0.0.1:9080/goals':
-				// 		val2 = this.options.val2 = 'Goals';
-				// 		break;
-				// 	case 'http://127.0.0.1:9080/code_examples':
-				// 		val2 = this.options.val2 = 'Code Examples';
-				// 		break;
-				// 	case 'http://127.0.0.1:9080/contact':
-				// 		val2 = this.options.val2 = 'Contact';
-				// 		break;
-				// 	case 'http://127.0.0.1:9080/library':
-				// 		val2 = this.options.val2 = 'Library';
-				// 		break;
-				// 	default:
-				// 		val2 = this.options.val2 = 'Home';
-				// }
 
 				let HTML: string = /*html*/ `
 					<div id:="dropdown" class="dropdown">
@@ -243,6 +216,7 @@ export class DropDown extends DropDownTemplate {
 			val: 'Home',
 			data: [
 				'Home',
+				'Cover Letter',
 				'Projects',
 				'History',
 				'Resume',
@@ -255,6 +229,9 @@ export class DropDown extends DropDownTemplate {
 				switch (_newval) {
 					case 'Home':
 						window.location.href = '/';
+						break;
+					case 'Cover Letter':
+						window.location.href = '/cover_letter';
 						break;
 					case 'Projects':
 						window.location.href = '/projects';

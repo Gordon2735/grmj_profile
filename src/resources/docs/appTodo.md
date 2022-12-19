@@ -15,6 +15,37 @@
 
 <br />
 
+### **Make a Dark/Light Theme Switcher**
+
+        -  Create a "Theme" Module
+        -  Inject the "Theme" Module into the "App" Module
+        -  Render Theme Switcher Control on each U/I.
+
+<br />
+
+### **Create a Portfolio Cover Letter**
+
+        - Create a "Cover Letter" Component
+        - Create Routing for the "Cover Letter" Component
+        - Configure Page for dynamic viewing of Cover Letter
+
+<br />
+
+### **Create a "Contact" Component**
+
+        - Create a "Contact" Component
+        - Create Routing for the "Contact" Component
+        - Configure Page for dynamic viewing of Contact Information
+
+<br />
+
+### **Research and write Logic and Presentation for Viewing MarkUP(.md)**
+
+        - Research and write Logic and Presentation for Viewing MarkUP(.md)
+        - Create a "MarkUP" Component
+        - Create Routing for the "MarkUP" Component
+        - Configure Page for dynamic viewing of MarkUP(.md)
+
 ### **Guidelines to Extensibility**
 
 ---
