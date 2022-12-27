@@ -3,9 +3,9 @@
 import { profileCodeEx_sharedHTML } from '../../interfaces/interfaces.js';
 
 const profileCodeEx_sharedHTML = {
-	shell: ``,
-	codeEx: ``,
-	slide: ``
+  shell: ``,
+  codeEx: ``,
+  slide: ``,
 };
 
 profileCodeEx_sharedHTML.shell = /*html*/ `

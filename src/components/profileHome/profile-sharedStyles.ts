@@ -5,9 +5,9 @@ import profile_sharedStyles from '../../interfaces/interfaces.js';
 // will have to create an interface for this
 
 const profile_sharedStyles = {
-	global: ``,
-	home: ``,
-	dropdown: ``
+  global: ``,
+  home: ``,
+  dropdown: ``,
 };
 
 profile_sharedStyles.global = /*css*/ ` 
@@ -251,12 +251,3 @@ profile_sharedStyles.home = /*css*/ `
 
 `;
 export { profile_sharedStyles };
-
-// .details-dev[open] {
-//     margin: -2.5em 0em 0em 0em;
-//     position: absolute;
-//     pointer-events: all;
-//     opacity: 0.5;
-//     left: 35%;
-//     z-index: 999;
-// }

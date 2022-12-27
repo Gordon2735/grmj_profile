@@ -8,44 +8,44 @@ import historyStack from '../../controller/state/profileState.js';
 import { HistoryObject } from '../../interfaces/interfaces.js';
 
 export class ProfileProjects extends ProjectsTemplate {
-	override noShadow: boolean = true;
-	body: HTMLBodyElement | null;
-	spaceInvader(): void {}
-	// setAttributes:
-	// 	| ((tag: HTMLElement, attribute: string | object | any) => void)
-	// 	| undefined;
-	// appendChildren:
-	// 	| ((parent: HTMLElement | ShadowRoot | null, children: any[]) => void)
-	// 	| undefined;
-	State: any;
-	historyStack: import('d:/grmj_profile/src/interfaces/interfaces').HistoryObject;
+  override noShadow = true;
+  body: HTMLBodyElement | null;
+  spaceInvader(): void {}
+  // setAttributes:
+  // 	| ((tag: HTMLElement, attribute: string | object | any) => void)
+  // 	| undefined;
+  // appendChildren:
+  // 	| ((parent: HTMLElement | ShadowRoot | null, children: any[]) => void)
+  // 	| undefined;
+  State: any;
+  historyStack: import('d:/grmj_profile/src/interfaces/interfaces').HistoryObject;
 
-	constructor() {
-		super();
+  constructor() {
+    super();
 
-		this.noShadow = true;
+    this.noShadow = true;
 
-		const body: HTMLBodyElement | null = document.querySelector('body');
+    const body: HTMLBodyElement | null = document.querySelector('body');
 
-		this.body = body;
+    this.body = body;
 
-		this.State = { pageOpen: '/projects' };
-		this.historyStack = historyStack;
+    this.State = { pageOpen: '/projects' };
+    this.historyStack = historyStack;
 
-		window.history.pushState(this.State, 'projects', '/projects');
-		this.historyStack.push(history.state);
+    window.history.pushState(this.State, 'projects', '/projects');
+    this.historyStack.push(history.state);
 
-		window.onpopstate = event => {
-			event.state
-				? ((this.State = event.state), this.historyStack.pop())
-				: this.historyStack.pop();
-		};
-	}
-	override connectedCallback(): void {
-		super.connectedCallback();
-	}
-	override get template(): string {
-		return /*html*/ `
+    window.onpopstate = (event) => {
+      event.state
+        ? ((this.State = event.state), this.historyStack.pop())
+        : this.historyStack.pop();
+    };
+  }
+  override connectedCallback(): void {
+    super.connectedCallback();
+  }
+  override get template(): string {
+    return /*html*/ `
         
 			${profileProjects_sharedHTML.projects}
             <style>${profileProjects_sharedStyles.projects}</style>
@@ -53,23 +53,23 @@ export class ProfileProjects extends ProjectsTemplate {
             <style>${profileProjects_sharedStyles.footerMod}</style>
 
 		`;
-	}
-	static get observedAttributes(): string[] {
-		return ['this.historyStack.pageOpen'];
-	}
-	public attributeChangedCallback(
-		name: string,
-		_oldValue: string,
-		_newValue: string
-	) {
-		const currentLocation: HistoryObject = this.historyStack;
-		console.log(currentLocation);
+  }
+  static get observedAttributes(): string[] {
+    return ['this.historyStack.pageOpen'];
+  }
+  public attributeChangedCallback(
+    name: string,
+    _oldValue: string,
+    _newValue: string
+  ) {
+    const currentLocation: HistoryObject = this.historyStack;
+    console.log(currentLocation);
 
-		_oldValue !== _newValue
-			? console.info(`old location: ${_oldValue},
+    _oldValue !== _newValue
+      ? console.info(`old location: ${_oldValue},
 				${name} has a new location of: ${_newValue}
 				which should be equal to: ${currentLocation} `)
-			: console.info(`old location: ${_oldValue}`);
-	}
+      : console.info(`old location: ${_oldValue}`);
+  }
 }
 RegisterComponent('profile-projects', ProfileProjects);

@@ -8,105 +8,104 @@ import historyStack from '../../controller/state/profileState.js';
 import { HistoryObject } from '../../interfaces/interfaces.js';
 
 export class SlideProjects extends ProjectsTemplate {
-	override noShadow: boolean;
-	override root: ShadowRoot | null = this.shadowRoot;
-	body: HTMLBodyElement | null | undefined;
-	document: Document | null = this.ownerDocument;
-	State: any;
-	historyStack: import('d:/grmj_profile/src/interfaces/interfaces').HistoryObject;
-	setAttributes:
-		| ((tag: HTMLElement, attribute: string | object | any) => void)
-		| undefined;
-	appendChildren:
-		| ((parent: HTMLElement | ShadowRoot | null, children: any[]) => void)
-		| undefined;
+  override noShadow: boolean;
+  override root: ShadowRoot | null = this.shadowRoot;
+  body: HTMLBodyElement | null | any;
+  State: any;
+  historyStack: import('d:/grmj_profile/src/interfaces/interfaces').HistoryObject;
+  setAttributes:
+    | ((tag: HTMLElement, attribute: string | object | any) => void)
+    | undefined;
+  appendChildren:
+    | ((parent: HTMLElement | ShadowRoot | null, children: any[]) => void)
+    | undefined;
 
-	constructor(body: HTMLBodyElement | null | undefined) {
-		super();
+  constructor(body: HTMLBodyElement | null | undefined) {
+    super();
 
-		this.noShadow = true;
+    this.noShadow = true;
 
-		const root = this.shadowRoot;
-		this.root = root;
+    const root = this.shadowRoot;
+    this.root = root;
 
-		this.body = body;
-		this.body = document.querySelector('body');
+    this.body = body;
+    this.body = document.querySelector('body');
 
-		this.State = { pageOpen: '/projects' };
-		this.historyStack = historyStack;
+    this.State = { pageOpen: '/projects' };
+    this.historyStack = historyStack;
 
-		window.history.pushState(this.State, 'slide', '/projects');
-		this.historyStack.push(history.state);
+    window.history.pushState(this.State, 'slide', '/projects');
+    this.historyStack.push(history.state);
 
-		window.onpopstate = event => {
-			event.state
-				? ((this.State = event.state), this.historyStack.pop())
-				: this.historyStack.pop();
-		};
-		console.log(this.State.pageOpen);
-		console.log(history.state);
-		console.log(this.historyStack);
-	}
-	override connectedCallback() {
-		super.connectedCallback();
+    window.onpopstate = (event) => {
+      event.state
+        ? ((this.State = event.state), this.historyStack.pop())
+        : this.historyStack.pop();
+    };
+    console.log(this.State.pageOpen);
+    console.log(history.state);
+    console.log(this.historyStack);
+  }
+  override connectedCallback() {
+    super.connectedCallback();
 
-		class Menu {
-			noShadow: boolean = false;
-			container: HTMLDivElement | null | undefined;
-			webBig3: HTMLElement | null | undefined;
-			blueVanilla: HTMLElement | null | undefined;
-			vanilla: HTMLElement | null | undefined;
-			isMenuShown: boolean = false;
-			tsSymbol: HTMLElement | null | undefined;
-			jsSymbol: HTMLElement | null | undefined;
-			menuBody: HTMLBodyElement | null | undefined;
-			menuContainer: HTMLDivElement | null | undefined;
-			itemHTML: HTMLElement | string | undefined;
-			root: ShadowRoot | undefined;
-			shadowRoot: ShadowRoot | undefined;
+    class Menu {
+      noShadow = false;
+      container: HTMLDivElement | null | undefined;
+      webBig3: HTMLElement | null | undefined;
+      blueVanilla: HTMLElement | null | undefined;
+      vanilla: HTMLElement | null | undefined;
+      isMenuShown = false;
+      tsSymbol: HTMLElement | null | undefined;
+      jsSymbol: HTMLElement | null | undefined;
+      menuBody: HTMLBodyElement | null | undefined;
+      menuContainer: HTMLDivElement | null | undefined;
+      itemHTML: HTMLElement | string | undefined;
+      root: ShadowRoot | undefined;
+      shadowRoot: ShadowRoot | undefined;
 
-			slide(): void {
-				const container = document.querySelector(
-					'.container'
-				) as HTMLDivElement;
-				this.container = container;
-				this.webBig3 = document.getElementById('webBig3');
-				this.blueVanilla = document.getElementById('blueVanilla');
-				this.vanilla = document.getElementById('yellowVanilla');
-				this.tsSymbol = document.getElementById('tsSymbol');
-				this.jsSymbol = document.getElementById('jsSymbol');
-				// this.root = this.shadowRoot;
+      slide(): void {
+        const container = document.querySelector(
+          '.container'
+        ) as HTMLDivElement;
+        this.container = container;
+        this.webBig3 = document.getElementById('webBig3');
+        this.blueVanilla = document.getElementById('blueVanilla');
+        this.vanilla = document.getElementById('yellowVanilla');
+        this.tsSymbol = document.getElementById('tsSymbol');
+        this.jsSymbol = document.getElementById('jsSymbol');
+        // this.root = this.shadowRoot;
 
-				!menu.isMenuShown
-					? ((this.container!.style.transform = 'translateX(0px)'),
-					  (this.webBig3!.style.transform = 'rotate(360deg)'),
-					  (this.webBig3!.style.animation = 'FadeIn 2s'),
-					  (this.jsSymbol!.style.transform = 'rotate(360deg'),
-					  (this.jsSymbol!.style.animation = 'FadeIn 2s'),
-					  (this.tsSymbol!.style.transform = 'rotate(360deg'),
-					  (this.tsSymbol!.style.animation = 'FadeIn 2s'),
-					  (this.blueVanilla!.style.animation = 'FadeIn 4s'),
-					  (this.vanilla!.style.animation = 'FadeIn 4s'),
-					  (menu.isMenuShown = true))
-					: ((this.container!.style.transform = 'translateX(-210px'),
-					  (this.webBig3!.style.transform = 'rotate(-360deg)'),
-					  (this.webBig3!.style.animation = 'FadeOut 500ms'),
-					  (this.jsSymbol!.style.transform = 'rotate(-360deg'),
-					  (this.jsSymbol!.style.animation = 'FadeOut 500ms'),
-					  (this.tsSymbol!.style.transform = 'rotate(-360deg'),
-					  (this.tsSymbol!.style.animation = 'FadeOut 500ms'),
-					  (this.blueVanilla!.style.animation = 'FadeOut 1s'),
-					  (this.vanilla!.style.animation = 'FadeOut 1s'),
-					  (menu.isMenuShown = false));
-			}
+        !menu.isMenuShown
+          ? ((this.container!.style.transform = 'translateX(0px)'),
+            (this.webBig3!.style.transform = 'rotate(360deg)'),
+            (this.webBig3!.style.animation = 'FadeIn 2s'),
+            (this.jsSymbol!.style.transform = 'rotate(360deg'),
+            (this.jsSymbol!.style.animation = 'FadeIn 2s'),
+            (this.tsSymbol!.style.transform = 'rotate(360deg'),
+            (this.tsSymbol!.style.animation = 'FadeIn 2s'),
+            (this.blueVanilla!.style.animation = 'FadeIn 4s'),
+            (this.vanilla!.style.animation = 'FadeIn 4s'),
+            (menu.isMenuShown = true))
+          : ((this.container!.style.transform = 'translateX(-210px'),
+            (this.webBig3!.style.transform = 'rotate(-360deg)'),
+            (this.webBig3!.style.animation = 'FadeOut 500ms'),
+            (this.jsSymbol!.style.transform = 'rotate(-360deg'),
+            (this.jsSymbol!.style.animation = 'FadeOut 500ms'),
+            (this.tsSymbol!.style.transform = 'rotate(-360deg'),
+            (this.tsSymbol!.style.animation = 'FadeOut 500ms'),
+            (this.blueVanilla!.style.animation = 'FadeOut 1s'),
+            (this.vanilla!.style.animation = 'FadeOut 1s'),
+            (menu.isMenuShown = false));
+      }
 
-			constructor() {
-				let menuBody: HTMLBodyElement | null | undefined =
-					document.querySelector('body');
-				let menuContainer: HTMLDivElement | null | undefined =
-					menuBody?.querySelector('.container');
+      constructor() {
+        const menuBody: HTMLBodyElement | null | undefined =
+          document.querySelector('body');
+        const menuContainer: HTMLDivElement | null | undefined =
+          menuBody?.querySelector('.container');
 
-				let itemHTML: HTMLElement | string | undefined = /*html*/ `					
+        const itemHTML: HTMLElement | string | undefined = /*html*/ `					
 					<div id="spaceInvadersDiv" class="item">&#127915;&nbsp;&nbsp;&nbsp;
 						<a id="spaceInvadersAnchor" class="space-invaders-anchor" href="/projects/space_invaders">Space Invaders App</a>
 					</div>
@@ -142,123 +141,118 @@ export class SlideProjects extends ProjectsTemplate {
 					<h3 id="yellowVanilla" class="vanilla">Vanilla: JavaScript's BEST Flavor!</h3>
 					
 				`;
-				menuContainer?.insertAdjacentHTML('afterbegin', itemHTML);
-			}
-		}
+        menuContainer?.insertAdjacentHTML('afterbegin', itemHTML);
+      }
+    }
 
-		const menu: Menu = new Menu();
-		const hamburgerMenu: HTMLElement | null | undefined =
-			document.getElementById('hamburgerMenu');
+    const menu: Menu = new Menu();
+    const hamburgerMenu: HTMLElement | null | undefined =
+      document.getElementById('hamburgerMenu');
 
-		function connectionLog(): void {
-			const conLogging: void = console.log(
-				'Slide Projects Menu Panel is Rendered :::: HooT™️ Webelistics®️'
-			);
-			return conLogging;
-		}
-		hamburgerMenu?.addEventListener(
-			'click',
-			(event: {
-				preventDefault: () => void;
-				stopPropagation: () => void;
-			}) => {
-				event.preventDefault();
-				console.log(menu.isMenuShown, menu.isMenuShown);
-				!menu.isMenuShown
-					? (menu.slide(), connectionLog(), (menu.isMenuShown = true))
-					: (menu.slide(), (menu.isMenuShown = false));
+    function connectionLog(): void {
+      const conLogging: void = console.log(
+        'Slide Projects Menu Panel is Rendered :::: HooT™️ Webelistics®️'
+      );
+      return conLogging;
+    }
+    hamburgerMenu?.addEventListener(
+      'click',
+      (event: { preventDefault: () => void; stopPropagation: () => void }) => {
+        event.preventDefault();
+        console.log(menu.isMenuShown, menu.isMenuShown);
+        !menu.isMenuShown
+          ? (menu.slide(), connectionLog(), (menu.isMenuShown = true))
+          : (menu.slide(), (menu.isMenuShown = false));
 
-				event?.stopPropagation();
-			}
-		);
-		document.addEventListener('click', event => {
-			event.preventDefault();
+        event?.stopPropagation();
+      }
+    );
+    document.addEventListener('click', (event) => {
+      event.preventDefault();
 
-			menu.isMenuShown
-				? (menu.slide(),
-				  (menu.isMenuShown = false),
-				  event.stopPropagation())
-				: (event.stopPropagation(),
-				  console.info(`Menu-Shown: ${menu.isMenuShown}`));
-			event.stopImmediatePropagation();
-		});
-		//Space Invaders App
-		const spaceInvaderAnchor: HTMLElement | null | undefined =
-			document.getElementById('spaceInvadersAnchor');
+      menu.isMenuShown
+        ? (menu.slide(), (menu.isMenuShown = false), event.stopPropagation())
+        : (event.stopPropagation(),
+          console.info(`Menu-Shown: ${menu.isMenuShown}`));
+      event.stopImmediatePropagation();
+    });
+    //Space Invaders App
+    const spaceInvaderAnchor: HTMLElement | null | undefined =
+      document.getElementById('spaceInvadersAnchor');
 
-		spaceInvaderAnchor?.addEventListener('click', event => {
-			event.preventDefault();
-			window.location.href = '/projects/space_invaders';
-			menu.slide(), (menu.isMenuShown = false);
-			event.stopPropagation();
-		});
+    spaceInvaderAnchor?.addEventListener('click', (event) => {
+      event.preventDefault();
+      window.location.href = '/projects/space_invaders';
+      menu.slide(), (menu.isMenuShown = false);
+      event.stopPropagation();
+    });
 
-		// SpaceX Flight App
-		const spaceXAnchor: HTMLElement | null | undefined =
-			document.getElementById('spaceXAnchor');
+    // SpaceX Flight App
+    const spaceXAnchor: HTMLElement | null | undefined =
+      document.getElementById('spaceXAnchor');
 
-		spaceXAnchor?.addEventListener('click', event => {
-			event.preventDefault();
-			window.location.href = '/projects/spaceX';
-			menu.slide(), (menu.isMenuShown = false);
-			event.stopPropagation();
-		});
+    spaceXAnchor?.addEventListener('click', (event) => {
+      event.preventDefault();
+      window.location.href = '/projects/spaceX';
+      menu.slide(), (menu.isMenuShown = false);
+      event.stopPropagation();
+    });
 
-		// Stock Exchange Spread App
-		const stockAnchor: HTMLElement | null | undefined =
-			document.getElementById('stockAnchor');
+    // Stock Exchange Spread App
+    const stockAnchor: HTMLElement | null | undefined =
+      document.getElementById('stockAnchor');
 
-		stockAnchor?.addEventListener('click', event => {
-			event.preventDefault();
-			window.location.href = '/projects/stock';
-			menu.slide(), (menu.isMenuShown = false);
-			event.stopPropagation();
-		});
+    stockAnchor?.addEventListener('click', (event) => {
+      event.preventDefault();
+      window.location.href = '/projects/stock';
+      menu.slide(), (menu.isMenuShown = false);
+      event.stopPropagation();
+    });
 
-		// HooT™️ BLOG Webelistics®️
-		const blogAnchor: HTMLElement | null | undefined =
-			document.getElementById('blogAnchor');
+    // HooT™️ BLOG Webelistics®️
+    const blogAnchor: HTMLElement | null | undefined =
+      document.getElementById('blogAnchor');
 
-		blogAnchor?.addEventListener('click', event => {
-			event.preventDefault();
-			window.location.href = '/projects/blog';
-			menu.slide(), (menu.isMenuShown = false);
-			event.stopPropagation();
-		});
+    blogAnchor?.addEventListener('click', (event) => {
+      event.preventDefault();
+      window.location.href = '/projects/blog';
+      menu.slide(), (menu.isMenuShown = false);
+      event.stopPropagation();
+    });
 
-		// What? 'I Own This' App
-		const iOwnAnchor: HTMLElement | null | undefined =
-			document.getElementById('iOwn');
+    // What? 'I Own This' App
+    const iOwnAnchor: HTMLElement | null | undefined =
+      document.getElementById('iOwn');
 
-		iOwnAnchor?.addEventListener('click', event => {
-			event.preventDefault();
-			window.location.href = '/projects/iOwn';
-			menu.slide(), (menu.isMenuShown = false);
-			event.stopPropagation();
-		});
-	}
-	override get template() {
-		return /*html*/ `
+    iOwnAnchor?.addEventListener('click', (event) => {
+      event.preventDefault();
+      window.location.href = '/projects/iOwn';
+      menu.slide(), (menu.isMenuShown = false);
+      event.stopPropagation();
+    });
+  }
+  override get template() {
+    return /*html*/ `
 
 			<style>${profileProjects_sharedStyles.slide}</style>
 			${profileProjects_sharedHTML.slide}
 		`;
-	}
-	get observedAttributes() {
-		return ['window.location.href'];
-	}
-	public attributeChangedCallback(
-		name: string,
-		_oldValue: string,
-		_newValue: string
-	) {
-		const currentLocation: HistoryObject = this.historyStack;
-		console.log(currentLocation);
-		_oldValue !== _newValue
-			? console.info(`old location: ${_oldValue},
+  }
+  get observedAttributes() {
+    return ['window.location.href'];
+  }
+  public attributeChangedCallback(
+    name: string,
+    _oldValue: string,
+    _newValue: string
+  ) {
+    const currentLocation: HistoryObject = this.historyStack;
+    console.log(currentLocation);
+    _oldValue !== _newValue
+      ? console.info(`old location: ${_oldValue},
 				${name} has a new location of: ${_newValue}
 				which should be equal to: ${window.location} `)
-			: console.info(`old location: ${_oldValue}`);
-	}
+      : console.info(`old location: ${_oldValue}`);
+  }
 }
 RegisterComponent('slide-projects', SlideProjects);

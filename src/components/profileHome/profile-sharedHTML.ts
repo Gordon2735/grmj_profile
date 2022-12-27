@@ -5,9 +5,9 @@ import profile_sharedHTML from '../../interfaces/interfaces.js';
 // will have to create an interface for this
 
 const profile_sharedHTML = {
-	shell: ``,
-	home: ``,
-	dropdown: ``
+  shell: ``,
+  home: ``,
+  dropdown: ``,
 };
 
 profile_sharedHTML.shell = /*html*/ ` 
@@ -17,7 +17,7 @@ profile_sharedHTML.shell = /*html*/ `
 `;
 
 profile_sharedHTML.home = /*html*/ `
-
+    
     <main id="main" class="main">
 
         <div id="titleOfficial" class="title-official">The Official</div>  
@@ -31,7 +31,7 @@ profile_sharedHTML.home = /*html*/ `
             <img src="/src/components/profileHome/tools/images/01_grmj_personal.png" alt="Gordon's personal picture" id="grmjPic" class="grmj-pic" />
             <figcaption id="grmjPersFigCap" class="grmj-pers-fig-cap" size="20">Gordon R Mullen Jr</figcaption>
         </figure>
-        
+
         <details id="detailsDev" class="details details-dev">
             <summary>Development Types</summary>
             <p id="paraDev" class=" paragraph para-dev">
@@ -66,10 +66,9 @@ profile_sharedHTML.home = /*html*/ `
             </p>
         </details>
 
-        
-
-
     </main> 
+
+
 
 `;
 
@@ -154,6 +153,22 @@ profile_sharedHTML.dropdown = /*html*/ `
 `;
 
 export { profile_sharedHTML };
+
+// <main id="main" class="main">
+
+// <div id="titleOfficial" class="title-official">The Official</div>
+
+// <h1 id="grmjProfileTitle" class="grmj-profile-title">Profile & Portfolio Landing Page</h1>
+// <div id="titleOf" class="title-of">-of-</div>
+
+// <br />
+
+// <figure id="grmjPersFig" class="grmj-pers-fig">
+//     <img src="/src/components/profileHome/tools/images/01_grmj_personal.png" alt="Gordon's personal picture" id="grmjPic" class="grmj-pic" />
+//     <figcaption id="grmjPersFigCap" class="grmj-pers-fig-cap" size="20">Gordon R Mullen Jr</figcaption>
+// </figure>
+
+// </main>
 
 // <menu id="menuInfo" class="menu-info">
 // <ul id="ulHome" class="ul-home">

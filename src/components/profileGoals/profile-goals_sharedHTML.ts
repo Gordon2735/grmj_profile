@@ -3,9 +3,9 @@
 import { profileGoals_sharedHTML } from '../../interfaces/interfaces.js';
 
 const profileGoals_sharedHTML = {
-	shell: ``,
-	goals: ``,
-	slide: ``
+  shell: ``,
+  goals: ``,
+  slide: ``,
 };
 
 profileGoals_sharedHTML.shell = /*html*/ `

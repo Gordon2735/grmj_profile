@@ -3,11 +3,11 @@
 import { profileProjects_sharedStyles } from '../../interfaces/interfaces.js';
 
 const profileProjects_sharedStyles = {
-	shell: ``,
-	projects: ``,
-	slide: ``,
-	footer: ``,
-	footerMod: ``
+  shell: ``,
+  projects: ``,
+  slide: ``,
+  footer: ``,
+  footerMod: ``,
 };
 
 profileProjects_sharedStyles.shell = /*css*/ `

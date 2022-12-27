@@ -3,9 +3,9 @@
 import profileHdr_sharedStyles from '../../interfaces/interfaces.js';
 
 const profileHdr_sharedStyles = {
-	shell: ``,
-	hdr: ``,
-	slide: ``
+  shell: ``,
+  hdr: ``,
+  slide: ``,
 };
 
 profileHdr_sharedStyles.shell = /*css*/ `

@@ -3,10 +3,10 @@
 import { profileFooter_sharedStyles } from '../../interfaces/interfaces';
 
 const profileFooter_sharedStyles = {
-	footer: ``,
-	footerMod: ``,
-	home: ``,
-	jumps: ``
+  footer: ``,
+  footerMod: ``,
+  home: ``,
+  jumps: ``,
 };
 
 profileFooter_sharedStyles.footer = /*css*/ `
@@ -33,7 +33,6 @@ profileFooter_sharedStyles.footer = /*css*/ `
         align-items: left;
         transform: rotate(-10deg);
         aspect-ratio: 5 / 4;
-        border-radius: 4em;
     }
 
     .footer-title-h1 {

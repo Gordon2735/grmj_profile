@@ -47,9 +47,9 @@
 11. A desired goal in this combination of technologies is to achieve a 100% score on the Lighthouse Audit done aggressively with a regular cadence and continuance reporting within Google's Lighthouse Environment using Puppeteer for the PDF Documentation of the Lighthouse Audit.
 12. Considering a total integration of these software development technologies, we realize the natural tendency of gravitating toward complexity. Therefore with determination, our attitude toward this development project will strive for the least possible complexity; and endeavour reaching determined goals with the modest possible simplicity. This is the goal of the project's development strategy.
 
-    -   _npm set init-author-email "example-user@example.com"_
-    -   _npm set init-author-name "example_user"_
-    -   _npm set init-license "MIT"_
+    - _npm set init-author-email "example-user@example.com"_
+    - _npm set init-author-name "example_user"_
+    - _npm set init-license "MIT"_
 
 <br/>
 
@@ -61,9 +61,15 @@
     npm i -G eslint-plugin-jest, npm install --save-dev npmignore, npm i mongoose, npm i -D cross-env, npm i -D @types/cors @types/morgan, npm i @types/node, npm i -D open, npm i @types/uuid, @types/handlebars, @types/handlebars-helpers
 
     npm install -D concurrently nodemon
-    npm i -D tslint
     npm i @types/serve-favicon
     npm i -D ts-jest @types/jest
+    npm i -D eslint
+    npm install --save-dev @typescript-eslint/parser @typescript-eslint/eslint-plugin
+    npm install --save-dev prettier
+    npm install --save-dev eslint-config-prettier eslint-plugin-prettier
+    npm i -D gitignore node
+    npm install --save-dev @tsconfig/node16
+    npm i -D concurrently
 
   <br/>
 
@@ -77,7 +83,7 @@
     "./logs/*.*",
     "./node_modules/*.*",
     "./dist/*.*",
-    "./src/typings/*.*"
+    "./src/types/*.*"
     ],
     "include": ["./views/*.*/*.*"] -->
 

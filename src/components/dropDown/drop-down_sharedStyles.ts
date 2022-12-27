@@ -3,10 +3,10 @@
 import { dropDown_sharedStyles } from '../../interfaces/interfaces.js';
 
 const dropDown_sharedStyles = {
-	shell: ``,
-	dropdown: ``,
-	dynadrop: ``,
-	home: ``
+  shell: ``,
+  dropdown: ``,
+  dynadrop: ``,
+  home: ``,
 };
 
 dropDown_sharedStyles.shell = /*css*/ ` 

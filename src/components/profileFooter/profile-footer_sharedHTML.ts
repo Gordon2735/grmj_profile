@@ -3,8 +3,8 @@
 import { profileFooter_sharedHTML } from '../../interfaces/interfaces';
 
 const profileFooter_sharedHTML = {
-	footer: ``,
-	jumps: ``
+  footer: ``,
+  jumps: ``,
 };
 
 profileFooter_sharedHTML.footer = /*html*/ `

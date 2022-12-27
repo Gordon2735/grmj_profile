@@ -3,8 +3,8 @@
 import { profileResume_sharedHTML } from '../../interfaces/interfaces.js';
 
 const profileResume_sharedHTML = {
-	shell: ``,
-	resume: ``
+  shell: ``,
+  resume: ``,
 };
 
 profileResume_sharedHTML.shell = /*html*/ `

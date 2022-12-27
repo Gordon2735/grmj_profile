@@ -3,8 +3,8 @@
 import { profileHistory_sharedHTML } from '../../interfaces/interfaces.js';
 
 const profileHistory_sharedHTML = {
-	shell: ``,
-	history: ``
+  shell: ``,
+  history: ``,
 };
 
 profileHistory_sharedHTML.shell = /*html*/ `

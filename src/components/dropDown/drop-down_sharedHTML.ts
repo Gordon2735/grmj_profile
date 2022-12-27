@@ -3,9 +3,9 @@
 import { dropDown_sharedHTML } from '../../interfaces/interfaces.js';
 
 const dropDown_sharedHTML = {
-	shell: ``,
-	dropdown: ``,
-	dynadrop: ``
+  shell: ``,
+  dropdown: ``,
+  dynadrop: ``,
 };
 
 dropDown_sharedHTML.shell = /*html*/ `	

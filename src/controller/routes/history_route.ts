@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use strict';
 
 import express, { Router, Request, Response } from 'express';
@@ -11,18 +12,18 @@ router.use(express.static('../../views'));
 let user: any;
 // : { create: (arg0: any) => Promise<any> };
 const history: Router = router
-	.get('/history', (_req: Request, res: Response) => {
-		res.set('Content-Type', 'text/html');
-		res.render('history', { layout: 'main' });
-	})
-	.post('/history', async (req: Request, res: Response) => {
-		res.json(
-			await user.create(req.body).catch((error: any) => {
-				res.status(404),
-					console.info(
-						`Whoops, seems there was a "Page Not Found Error" ${error}`
-					);
-			})
-		);
-	});
+  .get('/history', (_req: Request, res: Response) => {
+    res.set('Content-Type', 'text/html');
+    res.render('history', { layout: 'main' });
+  })
+  .post('/history', async (req: Request, res: Response) => {
+    res.json(
+      await user.create(req.body).catch((error: unknown) => {
+        res.status(404),
+          console.info(
+            `Whoops, seems there was a "Page Not Found Error" ${error}`
+          );
+      })
+    );
+  });
 export default history;

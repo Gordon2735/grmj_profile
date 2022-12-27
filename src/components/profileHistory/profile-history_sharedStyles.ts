@@ -3,8 +3,8 @@
 import profileHistory_sharedStyles from '../../interfaces/interfaces.js';
 
 const profileHistory_sharedStyles = {
-	shell: ``,
-	history: ``
+  shell: ``,
+  history: ``,
 };
 
 profileHistory_sharedStyles.shell = /*css*/ `

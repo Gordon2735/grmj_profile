@@ -3,8 +3,8 @@
 import sidePanel_sharedStyles from '../../interfaces/interfaces';
 
 const sidePanel_sharedStyles = {
-	global: ``,
-	panel: ``
+  global: ``,
+  panel: ``,
 };
 
 sidePanel_sharedStyles.global = /*css*/ `

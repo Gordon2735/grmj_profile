@@ -3,9 +3,9 @@
 import { profileHdr_sharedHTML } from '../../interfaces/interfaces.js';
 
 const profileHdr_sharedHTML = {
-	shell: ``,
-	hdr: ``,
-	slide: ``
+  shell: ``,
+  hdr: ``,
+  slide: ``,
 };
 
 profileHdr_sharedHTML.shell = /*html*/ `

@@ -3,9 +3,9 @@
 import profileGoals_sharedStyles from '../../interfaces/interfaces.js';
 
 const profileGoals_sharedStyles = {
-	shell: ``,
-	goals: ``,
-	slide: ``
+  shell: ``,
+  goals: ``,
+  slide: ``,
 };
 
 profileGoals_sharedStyles.shell = /*css*/ `

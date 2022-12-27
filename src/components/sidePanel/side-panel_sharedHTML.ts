@@ -3,8 +3,8 @@
 import sidePanel_sharedHTML from '../../interfaces/interfaces';
 
 const sidePanel_sharedHTML = {
-	shell: ``,
-	panel: ``
+  shell: ``,
+  panel: ``,
 };
 
 sidePanel_sharedHTML.shell = /*html*/ `
