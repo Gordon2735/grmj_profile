@@ -70,12 +70,61 @@
     npm i -D gitignore node
     npm install --save-dev @tsconfig/node16
     npm i -D concurrently
+     npm install typescript-cp -D
+    npm install copyfiles -g
+    npm install onchange -g
 
   <br/>
 
 **Type: string | string[]**
 
 **_Specify the app to open the target with, or an array with the app and app arguments._**
+
+\*\*Typescript-cp
+
+npm version dependencies Status devDependencies Status peerDependencies Status
+
+Copy non-typescript files to outDir
+Installation
+
+$ npm install typescript-cp -D
+CLI
+
+# Copy
+
+$ tscp
+
+# Copy for TS project references
+
+$ tscp -b
+
+# Watcher
+
+$ tscp -w
+
+# Watcher for TS project references
+
+$ tscp -b -w
+
+# Custom compiler settings
+
+$ tscp -p tsconfig.production.json
+
+# Help
+
+$ tscp -h
+
+Example
+
+package.json
+
+{
+//...
+"scripts": {
+"start": "tsc -w & tscp -w",
+"build": "tsc && tscp"
+},
+//...
 
 <!--
     ,
@@ -116,3 +165,13 @@
 <!--
 	<profile-footer id="profileFooter" class="profile-footer"></profile-footer>
   -->
+
+    npm install --save-dev copyfiles
+
+    Modify your package.json so it includes a new script:
+
+    "postbundle": "copyfiles -u 1 src/**/*.template dist/"
+
+    Add or update your bundle script so it matches:
+
+    "bundle": "tsc"

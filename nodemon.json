@@ -1,9 +1,8 @@
 {
-  "watch": ["src"],
-  "ext": ".ts",
-  "ignore": [],
-  "exec": "ts-node --files ./src/server.ts",
+  "watch": ["src/**/**/*"],
   "env": {
     "NODE_ENV": "development"
-  }
+  },
+  "ext": ".ts, .js, .json, css",
+  "ignore": [".git", "node_modules/**/node_modules", "/views/**/*.hbs"]
 }

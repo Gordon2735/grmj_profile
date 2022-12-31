@@ -1,6 +1,6 @@
 'use strict';
 
-import sidePanel_sharedStyles from '../../interfaces/interfaces';
+import sidePanel_sharedStyles from '../../interfaces/interfaces.js';
 
 const sidePanel_sharedStyles = {
   global: ``,
@@ -8,12 +8,10 @@ const sidePanel_sharedStyles = {
 };
 
 sidePanel_sharedStyles.global = /*css*/ `
-
     :root {
 	    --bg-sythColor-primary: rgb(6, 6, 56);
         
     }
-
     :host {
         
         
@@ -22,7 +20,6 @@ sidePanel_sharedStyles.global = /*css*/ `
 `;
 
 sidePanel_sharedStyles.panel = /*css*/ `
-
     #container {
         margin-bottom: 20px;
         position: absolute;
@@ -38,10 +35,9 @@ sidePanel_sharedStyles.panel = /*css*/ `
         border: var(--grmj-border-0);
         border-radius: 0px 8px 8px 0px;
         font-Family: var(--grmj-font-family-1);
-        opacity: 0.6;
+        opacity: 0.84;
         z-index: 999;
     }
-
     #big-3 {
         margin: 27px 0px 15px 0px;
         left: 15px;
@@ -55,12 +51,10 @@ sidePanel_sharedStyles.panel = /*css*/ `
         aspect-ratio: 160 / 61;
         z-index: 1000;
     }
-
     #line {
         margin: 110px 0px 20px 0px;
         left: 15px;
     }
-
     #js-symbol {
         margin: -14px 0px 0.5px 0px;
         left: 37px;
@@ -88,12 +82,10 @@ sidePanel_sharedStyles.panel = /*css*/ `
         aspect-ratio: 1 / 1;
         z-index: 1000;
     }
-
     #line2 {
         margin: 190px 0px 20px 0px;
         left: 15px;
     }
-
     #vanilla {
         margin: 7px 0px 3px 0px;
         padding: 0.3em;
@@ -112,27 +104,22 @@ sidePanel_sharedStyles.panel = /*css*/ `
         box-shadow: 2px 2px 20px 4px rgba(0, 0, 0, 0.5);
         z-index: 1000;
     }
-
     @keyframes FadeIn {
         0% {
             opacity: 0;
         }
-
         100% {
             opacity: 1;
         }
     }
-
     @keyframes FadeOut {
         0% {
             opacity: 1;
         }
-
         100% {
             opacity: 0;
         }
     }
-
     .hamburger {
         margin: 39px 0px 3px 15px;
         position: absolute;
@@ -142,17 +129,14 @@ sidePanel_sharedStyles.panel = /*css*/ `
         color: var(240, 81%, 12%, 0.99);
         filter: drop-shadow(3px 2px 2px rgba(0, 0, 0, 0.6));
     }
-
     .hamburger:hover {
         color: hsl(52, 77%, 53%);
     }
-
     .hamburger:active {
         color: rgb(252, 4, 4);
         transform: rotate(180deg);
         transition: all .5s;
     }
-
     .item {
         padding: 20px 0 20px 10px;
         width: 200px;
@@ -162,13 +146,11 @@ sidePanel_sharedStyles.panel = /*css*/ `
         font-size: 12px; 
         cursor: pointer;  
     }
-
     .history-a {
 		color: var(--grmj-font-color-5);
         text-decoration: none;
         outline: none;
     }
-
     .resume {
         color: var(--grmj-font-color-5);
         text-decoration: none;
@@ -186,7 +168,6 @@ sidePanel_sharedStyles.panel = /*css*/ `
         text-decoration: none;
         outline: none;
     }
-
     .code-ex {
         color: var(--grmj-font-color-5);
         text-decoration: none;

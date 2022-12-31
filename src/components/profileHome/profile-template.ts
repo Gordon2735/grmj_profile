@@ -1,6 +1,6 @@
+'use strict';
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-'use strict';
 export class ProfileTemplate extends HTMLElement {
   noShadow = true;
   root: ShadowRoot | null = this.shadowRoot;

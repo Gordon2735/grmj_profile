@@ -8,16 +8,12 @@ const profileHistory_sharedStyles = {
 };
 
 profileHistory_sharedStyles.shell = /*css*/ `
-
     body {
         background-image: var(--grmj-profile-background_image_3);
-
     }
-
 `;
 
 profileHistory_sharedStyles.history = /*css*/ `
-
     .title {
         margin: 2em auto 1em auto;	
         left: 3em;	
@@ -29,7 +25,6 @@ profileHistory_sharedStyles.history = /*css*/ `
         text-shadow: var(--grmj-text-shadow-1);
         letter-spacing: var(--grmj-letter-spacing-1a);
     }
-
     .early-years-section {
         margin: 10em 5em 2em 0em;
         width: auto;
@@ -38,7 +33,6 @@ profileHistory_sharedStyles.history = /*css*/ `
         flex-wrap: wrap;
         justify-content: space-between;
     }
-
     .early-years-para {
         margin: -1.5em 2em 2em 3em;
         padding: 0em 2em;
@@ -49,7 +43,6 @@ profileHistory_sharedStyles.history = /*css*/ `
         text-shadow: var(--grmj-text-shadow-1);
         text-align: justify;
     }
-
 `;
 
 export { profileHistory_sharedStyles };

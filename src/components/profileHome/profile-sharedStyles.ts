@@ -1,5 +1,3 @@
-'use strict';
-
 import profile_sharedStyles from '../../interfaces/interfaces.js';
 
 // will have to create an interface for this
@@ -247,7 +245,8 @@ profile_sharedStyles.home = /*css*/ `
         }
 
     }
-
-
 `;
+
+profile_sharedStyles.dropdown = /*css*/ ``;
+
 export { profile_sharedStyles };

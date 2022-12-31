@@ -1,5 +1,3 @@
-'use strict';
-
 import { profileCodeEx_sharedStyles } from '../../interfaces/interfaces.js';
 
 const profileCodeEx_sharedStyles = {

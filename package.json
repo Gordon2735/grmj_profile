@@ -2,7 +2,8 @@
   "name": "grmj_profile",
   "description": "Official Profile Landing Page for Gordon R Mullen Jr, Software Developer",
   "version": "1.1.2",
-  "main": "server.js",
+  "main": "./dist/src/server.js",
+  "type": "module",
   "keywords": [
     "Gordon R Mullen Jr",
     "TypeScript",
@@ -35,7 +36,8 @@
   "scripts": {
     "test": "jest",
     "build": "npx tsc -p .",
-    "start": "nodemon",
+    "comp_static": "copyfiles -u 1 ./src/componentTools/**/**/*.* ./dist/componentTools",
+    "start": "tsc & nodemon",
     "dev": "cross-env NODE_ENV=development npm start",
     "temp": "cross-env NODE_ENV=development npm start",
     "prod": "cross-env NODE_ENV=production node ./dist/server.js",
@@ -46,13 +48,14 @@
   "dependencies": {
     "@types/uuid": "^8.3.4",
     "@types/vscode": "^1.74.0",
+    "body-parser": "^1.20.1",
     "concurrently": "^7.6.0",
     "cors": "^2.8.5",
     "date-fns": "^2.29.3",
     "eslint-plugin-jest": "^27.1.3",
     "express": "^4.18.2",
     "express-handlebars": "^6.0.6",
-    "mongoose": "^6.7.0",
+    "mongoose": "^6.8.2",
     "node": "^19.3.0",
     "node-cache": "^5.1.2",
     "nodemon": "^2.0.20",
@@ -73,6 +76,7 @@
     "@types/serve-favicon": "^2.5.3",
     "@typescript-eslint/eslint-plugin": "^5.47.0",
     "@typescript-eslint/parser": "^5.47.0",
+    "copyfiles": "^2.4.1",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.3",
     "eslint": "^8.30.0",
@@ -84,7 +88,6 @@
     "open": "^8.4.0",
     "prettier": "^2.8.1",
     "ts-jest": "^29.0.3",
-    "ts-node": "^10.9.1",
     "tslib": "^2.4.1"
   }
 }

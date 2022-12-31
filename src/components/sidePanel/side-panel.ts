@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 'use strict';
 
 import { SidePanelTemplate } from './side-panel_template.js';
@@ -81,19 +82,14 @@ export class SidePanel extends SidePanelTemplate {
                     <div  id:="goals"  class="item">&#128211;&nbsp;&nbsp;&nbsp;<a id="goalsAnchor" class="goals-anchor"
                         href="/goals">Gordon's Goals</a></div>
                     <div class="item">&lambda;&nbsp;&nbsp;&nbsp;<a id="codeEx" class="code-ex">Code Examples &#160 <&#160|&#160></a></div>
-
-                    <img id="big-3" src="/src/components/sidePanel/tools/images/html-js-css_transparent.png"
+                    <img id="big-3" src="/src/components/componentTools/resources/images/html-js-css_transparent.png"
                         alt="big three languages image" class="big-3">
-
                     <hr id="line" class="line">
-
-                    <img id="js-symbol" src="/src/components/sidePanel/tools/images/javascript-transparent.png"
+                    <img id="js-symbol" src="/src/components/componentTools/resources/images/javascript-transparent.png"
                         alt="big three languages image" class="js-symbol">
-                    <img id="ts-symbol" src="/src/components/sidePanel/tools/images/typescript-transparent_tall.png"
+                    <img id="ts-symbol" src="/src/components/componentTools/resources/images/typescript-transparent_tall.png"
                         alt="big three languages image" class="ts-symbol">
-
                     <hr id="line2" class="line2">
-
                     <h3 id="vanilla" class="vanilla">Vanilla is BEST!</h3>
                 `;
         menuContainer?.insertAdjacentHTML('afterbegin', itemHTML);

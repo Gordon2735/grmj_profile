@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 'use strict';
 
 import { DropDownTemplate } from './drop-down_template.js';
@@ -13,17 +14,16 @@ export class DropDownShell extends DropDownTemplate {
   head: HTMLHeadElement | null;
   scriptDropDown: HTMLScriptElement;
 
-  appendChildren(
-    _parent: HTMLElement | ShadowRoot | null,
-    _attributes: string | object | any
-  ): void {}
-  setAttributes(_tag: HTMLElement, _attribute: string | object | any): void {}
+  // appendChildren(
+  //   _parent: HTMLElement | ShadowRoot | null,
+  //   _attributes: string | object | any
+  // ): void {}
+  // setAttributes(_tag: HTMLElement, _attribute: string | object | any): void {}
 
   override get template() {
     return /*html*/ `
 			${dropDown_sharedHTML.shell}
 			${dropDown_sharedHTML.dynadrop}
-
         `;
   }
   constructor() {

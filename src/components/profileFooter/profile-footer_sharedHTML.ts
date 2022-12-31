@@ -1,6 +1,6 @@
 'use strict';
 
-import { profileFooter_sharedHTML } from '../../interfaces/interfaces';
+import { profileFooter_sharedHTML } from '../../interfaces/interfaces.js';
 
 const profileFooter_sharedHTML = {
   footer: ``,
@@ -8,9 +8,8 @@ const profileFooter_sharedHTML = {
 };
 
 profileFooter_sharedHTML.footer = /*html*/ `
-
     <footer id="footer" class="footer" alt="Page Footer Area">
-        <img id="logo" class="logo" src="/src/components/profileFooter/tools/images/head-only-2.svg" />
+        <img id="logo" class="logo" src="/src/components/componentTools/resources/images/head-only-2.svg" />
         &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
         <h1 id="footerTitleH1" class="footer-title-h1 hoot">
             HooT<sup id="trademark" class="entity-symbol hoot-rotate">&#8482;</sup>
@@ -26,13 +25,10 @@ profileFooter_sharedHTML.footer = /*html*/ `
             </a>
         </span>
     </footer>
-
 `;
 
 profileFooter_sharedHTML.jumps = /*html*/ `
-
     
-
 `;
 
 export { profileFooter_sharedHTML };

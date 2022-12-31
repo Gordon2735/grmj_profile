@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-empty-function */
 'use strict';
 
 import { ProjectsTemplate } from './profile-projects_template.js';
@@ -18,7 +20,7 @@ export class ProfileProjects extends ProjectsTemplate {
   // 	| ((parent: HTMLElement | ShadowRoot | null, children: any[]) => void)
   // 	| undefined;
   State: any;
-  historyStack: import('d:/grmj_profile/src/interfaces/interfaces').HistoryObject;
+  historyStack: import('d:/grmj_profile/src/interfaces/interfaces.js').HistoryObject;
 
   constructor() {
     super();
@@ -51,7 +53,6 @@ export class ProfileProjects extends ProjectsTemplate {
             <style>${profileProjects_sharedStyles.projects}</style>
 			${profileProjects_sharedHTML.footer}
             <style>${profileProjects_sharedStyles.footerMod}</style>
-
 		`;
   }
   static get observedAttributes(): string[] {

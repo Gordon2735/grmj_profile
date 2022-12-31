@@ -18,7 +18,6 @@ export class ProfileResume extends ResumeTemplate {
   }
   override get template() {
     return /*html*/ `
-
             ${profileResume_sharedHTML.resume}
             <style>${profileResume_sharedStyles.resume}</style>
         `;

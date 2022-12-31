@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-'use strict';
 
 import { HistoryObject } from '../../interfaces/interfaces.js';
 

@@ -1,6 +1,6 @@
 'use strict';
 
-import sidePanel_sharedHTML from '../../interfaces/interfaces';
+import sidePanel_sharedHTML from '../../interfaces/interfaces.js';
 
 const sidePanel_sharedHTML = {
   shell: ``,
@@ -8,14 +8,10 @@ const sidePanel_sharedHTML = {
 };
 
 sidePanel_sharedHTML.shell = /*html*/ `
-
-
-
 `;
 
 sidePanel_sharedHTML.panel = /*html*/ `
     <div id="hamburger" class="hamburger">&#9776;</div>
-
     <div id="container" class="container">
     </div>
 `;

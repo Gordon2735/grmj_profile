@@ -2,13 +2,13 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 'use strict';
 
-import { ProfileTemplate } from './profile-template';
-import { profile_sharedStyles } from './profile-sharedStyles';
-import { profile_sharedHTML } from './profile-sharedHTML';
+import { ProfileTemplate } from './profile-template.js';
+import { profile_sharedStyles } from './profile-sharedStyles.js';
+import { profile_sharedHTML } from './profile-sharedHTML.js';
 import RegisterComponent, {
   setAttributes,
   appendChildren,
-} from '../componentTools/components_services';
+} from '../componentTools/components_services.js';
 
 export class ProfileShell extends ProfileTemplate {
   override noShadow: boolean;
@@ -26,7 +26,7 @@ export class ProfileShell extends ProfileTemplate {
     setAttributes(this.scriptHome, {
       type: 'module',
       content: 'text/javascript',
-      src: '/src/components/profileHome/profile-home.ts',
+      src: '/src/components/profileHome/profile-home.js',
       alt: 'Profile Home Script',
     });
   }
@@ -37,10 +37,8 @@ export class ProfileShell extends ProfileTemplate {
   }
   override get template() {
     return /*html*/ `
-
 			${profile_sharedHTML.shell}
 			<style>${profile_sharedStyles.global}</style>
-
     `;
   }
 }

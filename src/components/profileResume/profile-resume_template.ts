@@ -1,7 +1,9 @@
-'use strict';
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 export class ResumeTemplate extends HTMLElement {
   noShadow = true;
+  root: ShadowRoot | null = this.shadowRoot;
   private _template: any;
   public get template(): any {
     return this._template;
@@ -14,12 +16,12 @@ export class ResumeTemplate extends HTMLElement {
       ? this.attachShadow({ mode: 'open' }) && this.render(this.template)
       : this.render(this.template);
   }
-  render(template: any) {
-    const root: ShadowRoot | null = this.shadowRoot;
-
-    !this.noShadow
-      ? (root!.innerHTML = template || this.template)
-      : (this.innerHTML = template || this.template);
-    return;
+  render(template: undefined) {
+    if (this.noShadow) {
+      this.innerHTML = template || this.template;
+      return;
+    } else {
+      this.root!.innerHTML = template || this.template;
+    }
   }
 }

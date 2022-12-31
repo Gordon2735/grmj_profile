@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use strict';
 
 import { ProfileHistoryTemplate } from './profile-history_template.js';
@@ -24,7 +25,7 @@ export class ProfileHistory extends ProfileHistoryTemplate {
   earlyYearsText: string;
   earlyYearsSection: HTMLElement;
   State: any;
-  historyStack: import('d:/grmj_profile/src/interfaces/interfaces').HistoryObject;
+  historyStack: import('d:/grmj_profile/src/interfaces/interfaces.js').HistoryObject;
 
   constructor(body: HTMLBodyElement | null, State: any) {
     super();
@@ -82,9 +83,7 @@ export class ProfileHistory extends ProfileHistoryTemplate {
   }
   override get template() {
     return /*html*/ `
-
             ${profileHistory_sharedHTML.history}
-
             <style>
                 ${profileHistory_sharedStyles.history}
             </style>

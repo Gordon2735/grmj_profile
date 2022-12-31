@@ -1,5 +1,3 @@
-'use strict';
-
 import profileHdr_sharedStyles from '../../interfaces/interfaces.js';
 
 const profileHdr_sharedStyles = {

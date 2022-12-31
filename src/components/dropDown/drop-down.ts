@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-this-alias */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use strict';
 
 import { DropDownTemplate } from './drop-down_template.js';
@@ -12,11 +14,11 @@ export class DropDown extends DropDownTemplate {
   head: HTMLHeadElement | null;
   dd1: any;
   dd2: any;
-  appendChildren(
-    _parent: HTMLElement | ShadowRoot | null,
-    _attribute: string | object | any
-  ): void {}
-  setAttributes(_tag: HTMLElement, _attribute: string | object | any): void {}
+  // appendChildren(
+  //   _parent: HTMLElement | ShadowRoot | null,
+  //   _attribute: string | object | any
+  // ): void {}
+  // setAttributes(_tag: HTMLElement, _attribute: string | object | any): void {}
 
   constructor(dd1: any, dd2: any) {
     super();
@@ -30,7 +32,6 @@ export class DropDown extends DropDownTemplate {
   }
   override get template() {
     return /*html*/ `
-
 			${dropDown_sharedHTML.dropdown}
 		`;
   }
@@ -97,26 +98,6 @@ export class DropDown extends DropDownTemplate {
             break;
           case 'http://127.0.0.1:9080/library':
             val = this.options.val = 'Library';
-          case 'http://127.0.0.1:9080/projects':
-            val = this.options.val = 'Projects';
-            break;
-          case 'http://127.0.0.1:9080/history':
-            val = this.options.val = 'History';
-            break;
-          case 'http://127.0.0.1:9080/resume':
-            val = this.options.val = 'Resume';
-            break;
-          case 'http://127.0.0.1:9080/goals':
-            val = this.options.val = 'Goals';
-            break;
-          case 'http://127.0.0.1:9080/code_examples':
-            val = this.options.val = 'Code Examples';
-            break;
-          case 'http://127.0.0.1:9080/contact':
-            val = this.options.val = 'Contact';
-            break;
-          case 'http://127.0.0.1:9080/library':
-            val = this.options.val = 'Library';
             break;
           default:
             val = this.options.val = 'Home';
@@ -149,8 +130,8 @@ export class DropDown extends DropDownTemplate {
         HTML = '';
         data.forEach(function (elem: any) {
           HTML += /*html*/ `
-                        <div class="dropdown_item" onmousedown="var self = getdd(this); self.clicked(this)">${elem}</div>
-                    `;
+              <div class="dropdown_item" onmousedown="var self = getdd(this); self.clicked(this)">${elem}</div>
+          `;
         });
         this.items.innerHTML = HTML;
 

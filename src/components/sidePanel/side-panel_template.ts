@@ -1,6 +1,6 @@
-'use strict';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 
-'use strict';
 export class SidePanelTemplate extends HTMLElement {
   noShadow = true;
   root: ShadowRoot | null = this.shadowRoot;
@@ -17,10 +17,12 @@ export class SidePanelTemplate extends HTMLElement {
       ? this.attachShadow({ mode: 'open' }) && this.render(this.template)
       : this.render(this.template);
   }
-  render(template: any) {
-    !this.noShadow
-      ? (this.root!.innerHTML = template || this.template)
-      : (this.innerHTML = template || this.template);
-    return;
+  render(template: undefined) {
+    if (this.noShadow) {
+      this.innerHTML = template || this.template;
+      return;
+    } else {
+      this.root!.innerHTML = template || this.template;
+    }
   }
 }

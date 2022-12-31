@@ -1,5 +1,3 @@
-'use strict';
-
 import { profileHdr_sharedHTML } from '../../interfaces/interfaces.js';
 
 const profileHdr_sharedHTML = {
@@ -14,7 +12,6 @@ profileHdr_sharedHTML.shell = /*html*/ `
 
 profileHdr_sharedHTML.hdr = /*html*/ `
 
-	<drop-down_shell id="dropDownShell" class="drop-down-shell"></drop-down_shell>
 
 `;
 

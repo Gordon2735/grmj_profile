@@ -1,7 +1,9 @@
-'use strict';
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 export class ProfileHistoryTemplate extends HTMLElement {
   noShadow: any;
+  root: ShadowRoot | null = this.shadowRoot;
   private _template: any;
   public get template(): any {
     return this._template;
@@ -10,13 +12,12 @@ export class ProfileHistoryTemplate extends HTMLElement {
     if (!this.noShadow) this.attachShadow({ mode: 'open' });
     this.render(this.template);
   }
-  render(template: any) {
-    const root: any | null = this.shadowRoot;
+  render(template: undefined) {
     if (this.noShadow) {
       this.innerHTML = template || this.template;
       return;
     } else {
-      root.innerHTML = template || this.template;
+      this.root!.innerHTML = template || this.template;
     }
   }
 }

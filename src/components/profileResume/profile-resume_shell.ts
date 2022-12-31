@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 'use strict';
 
 import { ResumeTemplate } from './profile-resume_template.js';

@@ -5,22 +5,22 @@ import dotenv from 'dotenv';
 import express from 'express';
 import { Application, Request, Response, NextFunction } from 'express';
 import { create, ExpressHandlebars } from 'express-handlebars';
-import path, { PlatformPath } from 'path';
+import path from 'path';
 import fs from 'fs';
 import morgan from 'morgan';
 import cors from 'cors';
 import { EventEmitter } from 'events';
+import { fileURLToPath } from 'url';
 import open from 'open';
 import favicon from 'serve-favicon';
-import logEvents, { date } from './logEvents';
-import router from './controller/router';
+import logEvents, { date } from './logEvents.js';
+import router from './controller/router.js';
 
 // Load Environment Variables
 dotenv.config({ path: './config/config.env' });
 
 // Create Instance of Express App
 const app: Application = express();
-const paths: PlatformPath = path;
 
 // Logging Middleware
 if (process.env.NODE_ENV === 'development') {
@@ -31,33 +31,29 @@ if (process.env.NODE_ENV === 'development') {
 app.use(express.json());
 app.use(cors());
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 // Handlebars Mapping
 const handlebars: ExpressHandlebars = create({
   extname: '.hbs',
   defaultLayout: 'main',
-  layoutsDir: paths.join(__dirname, '..', 'views', 'layouts'),
-  partialsDir: paths.join(__dirname, '..', 'views', 'partials'),
+  layoutsDir: path.join(__dirname, '..', '..', 'views', 'layouts'),
+  partialsDir: path.join(__dirname, '..', '..', 'views', 'partials'),
   helpers: {},
 });
 
-// Crank Up the Handlebars Engine
+// Crank Up the Handlebars Engine & Configurations
 app.set('view engine', '.hbs');
-// app.set('/', paths.join(__dirname, '/views'));
-app.set('views', './views');
+app.set('views', path.join(__dirname, '..', '..', 'views'));
 app.engine('.hbs', handlebars.engine);
-// app.enable('view cache');
-
-// Favicon
-app.use(favicon(paths.join(__dirname, '..', '/src/images', '/favicon.ico')));
+app.enable('view cache');
 
 // static folders
-app.use(express.static('dist/'));
-app.use(express.static('controller'));
-app.use('/', express.static(paths.join(__dirname, '..', '/')));
-// ! Have these three temporarily in long-hand to zero in on index.ts rendering issues
-app.use(express.static('/src/ts'));
-app.use(express.static('/src/css'));
-app.use(express.static('/images'));
+app.use(express.static(path.join(__dirname, '../../dist')));
+
+// Favicon
+app.use(favicon(path.join(__dirname, '/images', '/favicon.ico')));
 
 // set Global Variables
 app.use(function (_req: Request, res: Response, next: NextFunction) {
@@ -68,13 +64,13 @@ app.use(function (_req: Request, res: Response, next: NextFunction) {
 // Integrate Routes
 app.use('/', router);
 
+// ! Research Error and 404 Handling || when server is cranking and not
 // Render Errors when they occur
-// ! Research Error and 404 Handling
 app.use((_req: Request, res: Response, next: NextFunction) => {
   res.render('404', { layout: 'errors' });
   next();
 });
-// ! Research Error and 500 Handling
+// ! Research Error and 500 Handling || 500 Handling || maybe pure HTML?
 app.use((_req: Request, res: Response, next: NextFunction) => {
   res.render('500', { layout: 'errors500' });
   next();
@@ -84,7 +80,7 @@ app.use((_req: Request, res: Response, next: NextFunction) => {
 const PORT: string | 9080 = process.env.PORT || 9080;
 const HOST: string = process.env.HOST || `127.0.0.1`;
 
-// Launch Server & Event Logger
+// Launch Server & Create Event Logger
 createServer();
 eventLogger();
 
@@ -150,8 +146,8 @@ async function eventLogger(): Promise<void> {
     });
   }
 
+  // Create a write stream (in append mode)(morgan)
   try {
-    // Create a write stream (in append mode)(morgan)
     const accessLogStream: fs.WriteStream = fs.createWriteStream(
       path.join('./logs', 'access.log'),
       { flags: 'a' }

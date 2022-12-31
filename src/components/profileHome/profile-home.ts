@@ -10,12 +10,20 @@ import historyStack from '../../controller/state/profileState.js';
 export class ProfileHome extends ProfileTemplate {
   override noShadow: boolean;
   State: any | undefined;
-  historyStack: import('d:/grmj_profile/src/interfaces/interfaces').HistoryObject;
+  historyStack: import('d:/grmj_profile/src/interfaces/interfaces.js').HistoryObject;
   head: HTMLHeadElement | null;
   body: HTMLBodyElement | any | null;
-  detailsDev: HTMLDetailsElement;
-  detailsSoftware: HTMLDetailsElement;
-  detailsQuote: HTMLDetailsElement;
+  // detailsDev: HTMLDetailsElement;
+  // detailsSoftware: HTMLDetailsElement;
+  // detailsQuote: HTMLDetailsElement;
+
+  override get template() {
+    return /*html*/ `            
+			
+			<style>${profile_sharedStyles.home}</style>
+			${profile_sharedHTML.home}	
+		`;
+  }
 
   constructor() {
     super();
@@ -29,21 +37,12 @@ export class ProfileHome extends ProfileTemplate {
 
     const head: HTMLHeadElement | null = document.querySelector('head');
     const body: HTMLBodyElement | any | null = document.querySelector('body');
-    const detailsDev = document.getElementById(
-      'detailsDev'
-    ) as HTMLDetailsElement;
-    const detailsSoftware = document.getElementById(
-      'detailsDev'
-    ) as HTMLDetailsElement;
-    const detailsQuote = document.getElementById(
-      'detailsDev'
-    ) as HTMLDetailsElement;
 
     this.head = head;
     this.body = body;
-    this.detailsDev = detailsDev;
-    this.detailsSoftware = detailsSoftware;
-    this.detailsQuote = detailsQuote;
+    // this.detailsDev = detailsDev;
+    // this.detailsSoftware = detailsSoftware;
+    // this.detailsQuote = detailsQuote;
 
     window.history.replaceState(this.State, 'home', '');
     this.historyStack.push(history.state);
@@ -60,59 +59,59 @@ export class ProfileHome extends ProfileTemplate {
   override connectedCallback() {
     super.connectedCallback();
 
-    this.body !== null
-      ? this.body.insertAdjacentHTML(
-          'beforeend',
-          /*html*/ `
-
-				`
-        )
-      : null;
+    // this.body !== null
+    //   ? this.body.insertAdjacentHTML(
+    //       'beforeend',
+    //       /*html*/ `
+    // 		`
+    //     )
+    //   : null;
 
     console.log('Home-Page is Rendered :::: HooT™️ Webelistics®️ ');
 
-    this.detailsDev.addEventListener('toggle', (event: Event) => {
+    const detailsDev = document.getElementById(
+      'detailsDev'
+    ) as HTMLDetailsElement;
+    const detailsSoftware = document.getElementById(
+      'detailsDev'
+    ) as HTMLDetailsElement;
+    const detailsQuote = document.getElementById(
+      'detailsDev'
+    ) as HTMLDetailsElement;
+
+    detailsDev.addEventListener('toggle', (event: Event) => {
       event.defaultPrevented;
 
-      this.detailsDev.open
-        ? (this.detailsDev.ontoggle,
+      detailsDev.open
+        ? (detailsDev.ontoggle,
           console.log('%cDevelopment Type Menu was closed', 'color: yellow;'))
-        : (this.detailsDev.ontoggle,
+        : (detailsDev.ontoggle,
           console.log('%cDevelopment Type Menu was opened', 'color: yellow;'));
       event.stopPropagation;
     });
-    this.detailsSoftware.addEventListener('toggle', (event: Event) => {
+    detailsSoftware.addEventListener('toggle', (event: Event) => {
       event.defaultPrevented;
 
-      this.detailsSoftware.open
-        ? (this.detailsSoftware.ontoggle,
+      detailsSoftware.open
+        ? (detailsSoftware.ontoggle,
           console.log('%cSoftware Practices Menu was closed', 'color: yellow;'))
-        : (this.detailsSoftware.ontoggle,
+        : (detailsSoftware.ontoggle,
           console.log(
             '%cSoftware Practices Menu was opened',
             'color: yellow;'
           ));
       event.stopPropagation;
     });
-    this.detailsQuote.addEventListener('toggle', (event: Event) => {
+    detailsQuote.addEventListener('toggle', (event: Event) => {
       event.defaultPrevented;
 
-      this.detailsQuote.open
-        ? (this.detailsQuote.ontoggle,
+      detailsQuote.open
+        ? (detailsQuote.ontoggle,
           console.log('%cPersonal Goals Menu was closed', 'color: yellow;'))
-        : (this.detailsQuote.ontoggle,
+        : (detailsQuote.ontoggle,
           console.log('%cPersonal Goals Menu was opened', 'color: yellow;'));
       event.stopPropagation;
     });
-  }
-  override get template() {
-    return /*html*/ `            
-			
-			<style>${profile_sharedStyles.home}</style>
-			<style>${profile_sharedStyles.dropdown}</style>	
-			${profile_sharedHTML.home}	
-
-		`;
   }
   static get observedAttributes() {
     return ['window.location.href'];

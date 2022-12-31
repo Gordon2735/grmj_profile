@@ -10,12 +10,9 @@ const dropDown_sharedStyles = {
 };
 
 dropDown_sharedStyles.shell = /*css*/ ` 
-
-
 `;
 
 dropDown_sharedStyles.dropdown = /*css*/ `
-
     .drop-down-shell {
         margin: 0em 0 2em 2em;
         position: absolute;
@@ -24,14 +21,11 @@ dropDown_sharedStyles.dropdown = /*css*/ `
         right: 2em;
         width: 600px;
         height: 185px;
-
     } 
-
     .drop-down {
         width: 575px;
         height: 155px;
     }
-
     .dd-section {
         margin: 3em 0 2em 2em;
         position: absolute;
@@ -44,7 +38,6 @@ dropDown_sharedStyles.dropdown = /*css*/ `
         justify-content: center;
         z-index: 50;
     }
-
     .dropdown {
         margin: 0em 0 2em 2em;
         position: sticky;
@@ -64,12 +57,10 @@ dropDown_sharedStyles.dropdown = /*css*/ `
         font-family: Arial, Helvetica, sans-serif;
         
     }
-
     .dropdown_value {
         display: inline-block;
         padding-left: 5px;
     }
-
     .dropdown_arrow {
         position: absolute;
         right: 5px;
@@ -78,7 +69,6 @@ dropDown_sharedStyles.dropdown = /*css*/ `
         font-size: 25px;
         transition: all 0.3s ease;
     }
-
     .dropdown_panel {
         position: absolute;
         background: transparent;
@@ -90,30 +80,22 @@ dropDown_sharedStyles.dropdown = /*css*/ `
         overflow: hidden;
         pointer-events: none;
     }
-
     .dropdown ::-webkit-scrollbar {
         width: 0.4em;
         background-color: hsla(0, 1%, 66%, 0.9);
     }
-
     .dropdown ::-webkit-scrollbar:hover {
         width: 0.5em;
         background-color: hsla(0, 1%, 34%, 0.9);
     }
-
-
     .dropdown ::-webkit-scrollbar-thumb {
         width: 0.5em;
         background-color: hsl(224, 42%, 40%);
         border-radius: 0.5em;
     }
-
-
     .dropdown ::-webkit-scrollbar-thumb:hover {
         background-color: hsla(224, 25%, 73%, 0.993);
     }
-
-
     .dropdown_items {
         position: absolute;
         pointer-events: all;
@@ -129,15 +111,12 @@ dropDown_sharedStyles.dropdown = /*css*/ `
         transform: translate(0px, -200px);
         transition: 0.3s all ease-out;
     }
-
     .dropdown_item {
         padding: 5px;
     }
-
     .dropdown_item:hover {
         background: #eee;
     }
-
 `;
 
 dropDown_sharedStyles.dynadrop = /*css*/ `
@@ -148,7 +127,6 @@ dropDown_sharedStyles.dynadrop = /*css*/ `
         top: 0em;
         right: 2em;
     } 
-
     .dropdown {
         margin: 0em 0 2em 2em;
         position: sticky;
@@ -168,12 +146,10 @@ dropDown_sharedStyles.dynadrop = /*css*/ `
         font-family: Arial, Helvetica, sans-serif;
         letter-spacing: var(--grmj-letter-spacing-1a);
     }
-
     .dropdown_value {
         display: inline-block;
         padding-left: 5px;
     }
-
     .dropdown_arrow {
         position: absolute;
         right: 5px;
@@ -182,7 +158,6 @@ dropDown_sharedStyles.dynadrop = /*css*/ `
         font-size: 25px;
         transition: all 0.3s ease;
     }
-
     .dropdown_panel {
         position: absolute;
         background: transparent;
@@ -194,30 +169,22 @@ dropDown_sharedStyles.dynadrop = /*css*/ `
         overflow: hidden;
         pointer-events: none;
     }
-
     .dropdown ::-webkit-scrollbar {
         width: 0.4em;
         background-color: hsla(0, 1%, 66%, 0.9);
     }
-
     .dropdown ::-webkit-scrollbar:hover {
         width: 0.5em;
         background-color: hsla(0, 1%, 34%, 0.9);
     }
-
-
     .dropdown ::-webkit-scrollbar-thumb {
         width: 0.5em;
         background-color: hsl(224, 42%, 40%);
         border-radius: 0.5em;
     }
-
-
     .dropdown ::-webkit-scrollbar-thumb:hover {
         background-color: hsla(224, 25%, 73%, 0.993);
     }
-
-
     .dropdown_items {
         position: absolute;
         pointer-events: all;
@@ -233,20 +200,15 @@ dropDown_sharedStyles.dynadrop = /*css*/ `
         transform: translate(0px, -200px);
         transition: 0.3s all ease-out;
     }
-
     .dropdown_item {
         padding: 5px;
     }
-
     .dropdown_item:hover {
         background: #eee;
     }
-
 `;
 
 dropDown_sharedStyles.home = /*css*/ `
-
-
     .drop-down-shell {
         margin: 1.45em 0 2em 2em;
         position: absolute;
@@ -255,7 +217,6 @@ dropDown_sharedStyles.home = /*css*/ `
         width: 600px;
         height: 135px;
     }
-
     .drop-down {
         margin: 0;
         position: absolute;
@@ -263,7 +224,6 @@ dropDown_sharedStyles.home = /*css*/ `
         width: 575px;
         height: 155px;
     }
-
     .dd-section {
         margin: 0em 0 0em 0em;
         position: absolute;
@@ -299,12 +259,10 @@ dropDown_sharedStyles.home = /*css*/ `
         justify-content: space-between;
         letter-spacing: var(--grmj-letter-spacing-1);
     }
-
     .dropdown_value {
         display: inline-block;
         padding-left: 5px;
     }
-
     .dropdown_arrow {
         position: absolute;
         right: 5px;
@@ -313,7 +271,6 @@ dropDown_sharedStyles.home = /*css*/ `
         font-size: 25px;
         transition: all 0.3s ease;
     }
-
     .dropdown_panel {
         position: absolute;
         background: transparent;
@@ -325,30 +282,22 @@ dropDown_sharedStyles.home = /*css*/ `
         overflow: hidden;
         pointer-events: none;
     }
-
     .dropdown ::-webkit-scrollbar {
         width: 0.4em;
         background-color: hsla(0, 1%, 66%, 0.9);
     }
-
     .dropdown ::-webkit-scrollbar:hover {
         width: 0.5em;
         background-color: hsla(0, 1%, 34%, 0.9);
     }
-
-
     .dropdown ::-webkit-scrollbar-thumb {
         width: 0.5em;
         background-color: hsl(224, 42%, 40%);
         border-radius: 0.5em;
     }
-
-
     .dropdown ::-webkit-scrollbar-thumb:hover {
         background-color: hsla(224, 25%, 73%, 0.993);
     }
-
-
     .dropdown_items {
         position: absolute;
         pointer-events: all;
@@ -365,16 +314,13 @@ dropDown_sharedStyles.home = /*css*/ `
         transform: translate(0px, -200px);
         transition: 0.3s all ease-out;
     }
-
     .dropdown_item {
         padding: 5px;
     }
-
     .dropdown_item:hover {
         background: var(--grmj-profile-background_9);
         color: var(--grmj-font-color-1);
     }
-
 `;
 
 export { dropDown_sharedStyles };

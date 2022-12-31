@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-'use strict';
 
 function RegisterComponent(
   name: string,
@@ -169,8 +168,9 @@ function newDomTag(
   return element;
 }
 
+export default RegisterComponent;
+
 export {
-  RegisterComponent as default,
   setAttributes,
   appendChildren,
   removeChildren,

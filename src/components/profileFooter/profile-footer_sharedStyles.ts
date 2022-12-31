@@ -1,6 +1,6 @@
 'use strict';
 
-import { profileFooter_sharedStyles } from '../../interfaces/interfaces';
+import { profileFooter_sharedStyles } from '../../interfaces/interfaces.js';
 
 const profileFooter_sharedStyles = {
   footer: ``,
@@ -10,7 +10,6 @@ const profileFooter_sharedStyles = {
 };
 
 profileFooter_sharedStyles.footer = /*css*/ `
-
     .footer {
         margin: 0em auto 0.5em auto;
         bottom: 3em;
@@ -19,7 +18,6 @@ profileFooter_sharedStyles.footer = /*css*/ `
         text-align: center;        
     }
     /*width: max(min(300px, 0.5em), 60vw);*/
-
     .logo {
         margin: 0em 1.2em -1.5em 0em;
         padding: 0.21em;
@@ -34,7 +32,6 @@ profileFooter_sharedStyles.footer = /*css*/ `
         transform: rotate(-10deg);
         aspect-ratio: 5 / 4;
     }
-
     .footer-title-h1 {
         font-family: var(--grmj-font-family-2);
         font-size: var(--grmj-font-size-1yvw);
@@ -43,7 +40,6 @@ profileFooter_sharedStyles.footer = /*css*/ `
         text-shadow: var(--grmj-text-shadow-0);        
         filter: var(--grmj-filter-dropShadow-4);
     }
-
     .entity-symbol {
         font-family: var(--grmj-font-family-3);
         font-size: var(--grmj-font-size-1zwy);
@@ -52,51 +48,37 @@ profileFooter_sharedStyles.footer = /*css*/ `
         text-shadow: none;
         filter: none;
     } 
-
     @media screen and (max-width: 1100px) {
         
         .footer-title-h1 {
             font-size: var(--grmj-font-size-4vw);
         }
     }
-
     @media screen and (max-width: 600px) {
-
         .footer {
             width: 250px;
         }
-
         .footer-title-h1 {
             font-size: var(--grmj-font-size-11vw);
         }
-
         .entity-symbol {
             font-size: var(--grmj-font-size-04vw);
             color: var(--grmj-font-color-6);
         }
-
     }
-
 `;
 
 profileFooter_sharedStyles.footerMod = /*css*/ `
-
     .footer {
-
         margin: 0em auto 0em auto; 
     }
-
 `;
 
 profileFooter_sharedStyles.jumps = /*css*/ `
-
-
-
 `;
 
 // refactor for DRY!
 profileFooter_sharedStyles.home = /*css*/ `
-
     .footer {
         margin: 2em auto 0em auto;
         bottom: 2em;
@@ -114,7 +96,6 @@ profileFooter_sharedStyles.home = /*css*/ `
         text-align: center;
     }
     /*width: max(min(300px, 0.5em), 60vw);*/
-
     .logo {
         margin: 0em 1.2em 0em 1em;
         width: 78px;
@@ -128,7 +109,6 @@ profileFooter_sharedStyles.home = /*css*/ `
         border-radius: 4.65em;
         z-index: 50;   
     }
-
     
     .footer-title-h1 {
         margin: 0em auto 0em auto;
@@ -141,7 +121,6 @@ profileFooter_sharedStyles.home = /*css*/ `
         filter: var(--grmj-filter-dropShadow-4a);
         letter-spacing: var(--grmj-letter-spacing-1);
     }
-
     .footer-title-h1.hoot {
         margin: 0em -2.2em 0em 3.2em;
         left: 2%;  
@@ -151,7 +130,6 @@ profileFooter_sharedStyles.home = /*css*/ `
         color: var(--grmj-font-color-16); 
         transform: rotate(-10deg);    
     }
-
     .entity-symbol {
         margin: 0em auto 0em auto;
         font-family: var(--grmj-font-family-3);
@@ -166,7 +144,6 @@ profileFooter_sharedStyles.home = /*css*/ `
         font-size: var(--grmj-font-size-1avw);
         transform: rotate(-10deg);
     }
-
     .footer-span {
         margin: 4em auto 0em auto;
         position: absolute;
@@ -180,7 +157,6 @@ profileFooter_sharedStyles.home = /*css*/ `
         align-items: center;
         text-align: center;
     }
-
     .footer-span > .footer-link {
         margin: 0em auto 0em auto;
         font-family: var(--grmj-font-family-0);
@@ -191,36 +167,28 @@ profileFooter_sharedStyles.home = /*css*/ `
         text-decoration: none;
         letter-spacing: var(--grmj-letter-spacing-1a);
     }
-
     .footer-link:hover {
         color: var(--grmj-font-color-16);
         font-weight: var(--grmj-font-weight-9);
     }
-
     @media screen and (max-width: 1100px) {
         
         .footer-title-h1 {
             font-size: var(--grmj-font-size-4vw);
         }
     }
-
     @media screen and (max-width: 600px) {
-
         .footer {
             width: 250px;
         }
-
         .footer-title-h1 {
             font-size: var(--grmj-font-size-11vw);
         }
-
         .entity-symbol {
             font-size: var(--grmj-font-size-04vw);
             color: var(--grmj-font-color-6);
         }
-
     }
-
 `;
 
 export { profileFooter_sharedStyles };

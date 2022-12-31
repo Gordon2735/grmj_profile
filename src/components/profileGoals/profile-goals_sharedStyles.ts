@@ -1,5 +1,3 @@
-'use strict';
-
 import profileGoals_sharedStyles from '../../interfaces/interfaces.js';
 
 const profileGoals_sharedStyles = {

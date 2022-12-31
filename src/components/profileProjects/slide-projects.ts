@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use strict';
 
 import { ProjectsTemplate } from './profile-projects_template.js';
@@ -12,7 +14,7 @@ export class SlideProjects extends ProjectsTemplate {
   override root: ShadowRoot | null = this.shadowRoot;
   body: HTMLBodyElement | null | any;
   State: any;
-  historyStack: import('d:/grmj_profile/src/interfaces/interfaces').HistoryObject;
+  historyStack: import('d:/grmj_profile/src/interfaces/interfaces.js').HistoryObject;
   setAttributes:
     | ((tag: HTMLElement, attribute: string | object | any) => void)
     | undefined;
@@ -122,14 +124,14 @@ export class SlideProjects extends ProjectsTemplate {
 						<a id="iOwn" class="i-own">What? 'I Own This' App</a>
 					</div>
 	
-					<img id="webBig3" src="/src/components/sidePanel/tools/images/html-js-css_transparent.png"
+					<img id="webBig3" src="/src/components/componentsTools/resources/images/html-js-css_transparent.png"
 						alt="big three languages image" class="web-big-3" />
 	
 					<hr id="line" class="line" />
 	
-					<img id="jsSymbol" src="/src/components/sidePanel/tools/images/javascript-transparent.png"
+					<img id="jsSymbol" src="/src/components/componentsTools/resources/images/javascript-transparent.png"
 						alt="big three languages image" class="js-symbol" />
-					<img id="tsSymbol" src="/src/components/sidePanel/tools/images/typescript-transparent_tall.png"
+					<img id="tsSymbol" src="/src/components/componentsTools/resources/images/typescript-transparent_tall.png"
 						alt="big three languages image" class="ts-symbol" />
 	
 					<hr id="line2" class="line2" />
@@ -233,7 +235,6 @@ export class SlideProjects extends ProjectsTemplate {
   }
   override get template() {
     return /*html*/ `
-
 			<style>${profileProjects_sharedStyles.slide}</style>
 			${profileProjects_sharedHTML.slide}
 		`;

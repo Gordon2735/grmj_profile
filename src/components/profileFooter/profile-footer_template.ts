@@ -1,4 +1,5 @@
-'use strict';
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export class ProfileFooterTemplate extends HTMLElement {
   noShadow = true;
   root: ShadowRoot | null = this.shadowRoot;
@@ -6,6 +7,7 @@ export class ProfileFooterTemplate extends HTMLElement {
   public get template(): any {
     return this._template;
   }
+
   public set template(value: any) {
     this._template = value;
   }
@@ -19,7 +21,7 @@ export class ProfileFooterTemplate extends HTMLElement {
       this.innerHTML = template || this.template;
       return;
     } else {
-      this.shadowRoot!.innerHTML = template || this.template;
+      this.root!.innerHTML = template || this.template;
     }
   }
 }

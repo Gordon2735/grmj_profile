@@ -8,12 +8,9 @@ const profileResume_sharedStyles = {
 };
 
 profileResume_sharedStyles.shell = /*css*/ `
-
-
 `;
 
 profileResume_sharedStyles.resume = /*css*/ `
-
 	.resume-title {
 		margin: 5em auto 0em auto;
 		font-family: var(--grmj-font-family-1);

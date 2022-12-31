@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+'use strict';
 import { ProfileFooterTemplate } from './profile-footer_template.js';
 import { profileFooter_sharedHTML } from './profile-footer_sharedHTML.js';
 import { profileFooter_sharedStyles } from './profile-footer_sharedStyles.js';
@@ -64,7 +67,6 @@ export class ProfileFooter extends ProfileFooterTemplate {
     return /*html*/ `        
 	
 			${profileFooter_sharedHTML.footer}
-
         `;
   }
 }

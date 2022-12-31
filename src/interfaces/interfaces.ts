@@ -1,5 +1,3 @@
-'use strict';
-
 export default interface profile_sharedStyles {
   global: string;
   home: string;
@@ -82,6 +80,18 @@ interface profileCodeEx_sharedHTML {
   slide: string;
 }
 
+interface profileCover_sharedStyles {
+  shell: string;
+  cover: string;
+  slide: string;
+}
+
+interface profileCover_sharedHTML {
+  shell: string;
+  cover: string;
+  slide: string;
+}
+
 interface dropDown_sharedHTML {
   shell: string;
   dropdown: string;
@@ -118,7 +128,7 @@ interface profileFooter_sharedStyles {
 
 interface HistoryObject {
   pageOpen: [string];
-  push(state: any): void;
+  push(state: unknown): void;
   pop(): void;
 }
 
@@ -136,6 +146,8 @@ export {
   profileGoals_sharedStyles,
   profileCodeEx_sharedHTML,
   profileCodeEx_sharedStyles,
+  profileCover_sharedHTML,
+  profileCover_sharedStyles,
   dropDown_sharedHTML,
   dropDown_sharedStyles,
   profileHdr_sharedStyles,

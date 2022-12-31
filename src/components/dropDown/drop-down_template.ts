@@ -1,7 +1,9 @@
-'use strict';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 
 export class DropDownTemplate extends HTMLElement {
   noShadow = true;
+  root: ShadowRoot | null = this.shadowRoot;
   locationHREF: string | undefined;
   checkLocation: string | undefined;
   dropShell: HTMLElement | null | undefined;
@@ -27,7 +29,7 @@ export class DropDownTemplate extends HTMLElement {
       this.innerHTML = template || this.template;
       return;
     } else {
-      this.shadowRoot!.innerHTML = template || this.template;
+      this.root!.innerHTML = template || this.template;
     }
   }
   public homePageStyleMod(

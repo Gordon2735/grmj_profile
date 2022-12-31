@@ -1,4 +1,5 @@
-'use strict';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 
 export class ProjectsTemplate extends HTMLElement {
   noShadow = true;
@@ -21,7 +22,7 @@ export class ProjectsTemplate extends HTMLElement {
       this.innerHTML = template || this.template;
       return;
     } else {
-      this.shadowRoot!.innerHTML = template || this.template;
+      this.root!.innerHTML = template || this.template;
     }
   }
 }
