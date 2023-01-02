@@ -1,15 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import express, { Router, Request, Response } from 'express';
-import bodyParser from 'body-parser';
-// import init from '../../ts/index.js';
 
-const app = express();
 const router: Router = express.Router();
-
-//Here we are configuring express to use body-parser as middle-ware.
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
 router.use(express.static('../../views'));
 

@@ -10,11 +10,24 @@ const profileCover_sharedStyles = {
 
 profileCover_sharedStyles.shell = /*css*/ `
 
+    body {
+      margin-top: 0em;
+      padding: 0;
+      width: 100%;
+      background-image: var(--grmj-profile-background_image_01);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
 
 `;
 
 profileCover_sharedStyles.cover = /*css*/ `
 
+    .h1-cover {
+      font-size: 3em;
+      font-weight: 700;
+      color: var(--grmj-profile-color_01);
+    }
 
 `;
 

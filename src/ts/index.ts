@@ -37,7 +37,7 @@ async function init(): Promise<void> {
       const scriptGoals: HTMLScriptElement = document.createElement('script');
       const scriptCodeExamples: HTMLScriptElement =
         document.createElement('script');
-      const scriptCover: HTMLScriptElement = document.createElement('script');
+      const scriptCoverShell: HTMLScriptElement = document.createElement('script');
       const scriptDropDown: HTMLScriptElement =
         document.createElement('script');
       const scriptFooter: HTMLScriptElement | null =
@@ -90,7 +90,7 @@ async function init(): Promise<void> {
         src: '/src/components/profileCodeExamples/profile-code-examples_shell.js',
         alt: 'Profile Code Examples Shell',
       });
-      setAttributes(scriptCover, {
+      setAttributes(scriptCoverShell, {
         type: 'module',
         content: 'text/javascript',
         src: '/src/components/profileCover/profile-cover_shell.js',
@@ -117,7 +117,7 @@ async function init(): Promise<void> {
           scriptProjects,
           scriptGoals,
           scriptCodeExamples,
-          scriptCover,
+          scriptCoverShell,
           scriptDropDown,
           scriptFooter,
         ]);

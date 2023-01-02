@@ -10,9 +10,13 @@ const profileCover_sharedHTML = {
 
 profileCover_sharedHTML.shell = /*html*/ `
 
+    <profile-cover id="profileCover" class="profile-cover"></profile-cover>
+
 `;
 
 profileCover_sharedHTML.cover = /*html*/ `
+
+    <h1 class="h1-cover">Gordon made it Work</h1>
 
 `;
 

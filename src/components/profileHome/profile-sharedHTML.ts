@@ -17,8 +17,8 @@ profile_sharedHTML.shell = /*html*/ `
 profile_sharedHTML.home = /*html*/ `
     
     <main id="main" class="main">
-        <div id="titleOfficial" class="title-official">The Official</div>  
-        <h1 id="grmjProfileTitle" class="grmj-profile-title">Profile & Portfolio Landing Page</h1>
+        <div id="titleOfficial" class="title-official">The Equivocal</div>  
+        <h1 id="grmjProfileTitle" class="grmj-profile-title">Profile Landing Page</h1>
         <div id="titleOf" class="title-of">-of-</div>
         <br />
         <figure id="grmjPersFig" class="grmj-pers-fig"> 
