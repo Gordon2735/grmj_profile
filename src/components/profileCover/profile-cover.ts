@@ -15,7 +15,7 @@ export class ProfileCover extends ProfileCoverTemplate {
     super.connectedCallback();
   }
   override get template() {
-    return /*html*/ `
+    return /*html*/ ` 
 
             ${profileCover_sharedHTML.cover}
             <style>${profileCover_sharedStyles.cover}</style>

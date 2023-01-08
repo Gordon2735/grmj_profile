@@ -6,7 +6,7 @@
     "plugin:prettier/recommended"
   ],
   "plugins": ["@typescript-eslint"],
-  "parserOptions": { "ecmaVersion": 2020, "sourceType": "module" },
+  "parserOptions": { "ecmaVersion": 2018, "sourceType": "module" },
   "printWidth": 80,
   "singleQuote": true,
   "trailingComma": "es5",
