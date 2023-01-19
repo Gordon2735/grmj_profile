@@ -1,5 +1,13 @@
 // <reference types="handlebars" />
 
+export {};
+
+declare global {
+  interface Window {
+    lettext: any;
+  }
+}
+
 export interface UnknownObject {
   [index: string]: unknown;
 }

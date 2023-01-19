@@ -3,6 +3,6 @@
   "env": {
     "NODE_ENV": "development"
   },
-  "ext": ".ts, .json, css",
+  "ext": ".ts, .js, .json, css",
   "ignore": [".git", "node_modules/**/node_modules", "/views/**/*.hbs"]
 }

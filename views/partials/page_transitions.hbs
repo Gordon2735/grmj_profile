@@ -1,0 +1,46 @@
+    <script type="module" content="text/javascript">
+      function page_1() {
+          const load = document.getElement
+          const page1 = document.getElementById('secCover1');
+          const page2 = document.getElementById('secCover2');
+          const page3 = document.getElementById('secCover3');
+          load.style.left = '0';
+          setTimeout(() => {
+            load.style.left = '100%';
+            page1.style.display = 'block';
+            page2.style.display = 'none';
+            page3.style.display = 'none';
+          }, 1500);
+          return;
+        }
+
+      function page_2() {
+          const load = document.getElement
+          const page1 = document.getElementById('secCover1');
+          const page2 = document.getElementById('secCover2');
+          const page3 = document.getElementById('secCover3');
+          load.style.left = '0';
+          setTimeout(() => {
+            load.style.left = '100%';
+            page1.style.display = 'none';
+            page2.style.display = 'block';
+            page3.style.display = 'none';
+          }, 1500);
+          return;
+        }
+
+        async function page_3() {
+          const load = document.getElementById('loader');
+          const page1 = document.getElementById('secCover1');
+          const page2 = document.getElementById('secCover2');
+          const page3 = document.getElementById('secCover3');
+          load.style.left = '0';
+          setTimeout(() => {
+            load.style.left = '100%';
+            page1.style.display = 'none';
+            page2.style.display = 'none';
+            page3.style.display = 'block';
+          }, 1500);
+          return;
+        }
+  </script>

@@ -69,49 +69,49 @@ export class ProfileHome extends ProfileTemplate {
 
     console.log('Home-Page is Rendered :::: HooT™️ Webelistics®️ ');
 
-    const detailsDev = document.getElementById(
-      'detailsDev'
-    ) as HTMLDetailsElement;
-    const detailsSoftware = document.getElementById(
-      'detailsDev'
-    ) as HTMLDetailsElement;
-    const detailsQuote = document.getElementById(
-      'detailsDev'
-    ) as HTMLDetailsElement;
+    // const detailsDev = document.getElementById(
+    //   'detailsDev'
+    // ) as HTMLDetailsElement;
+    // const detailsSoftware = document.getElementById(
+    //   'detailsDev'
+    // ) as HTMLDetailsElement;
+    // const detailsQuote = document.getElementById(
+    //   'detailsDev'
+    // ) as HTMLDetailsElement;
 
-    detailsDev.addEventListener('toggle', (event: Event) => {
-      event.defaultPrevented;
+    // detailsDev.addEventListener('toggle', (event: Event) => {
+    //   event.defaultPrevented;
 
-      detailsDev.open
-        ? (detailsDev.ontoggle,
-          console.log('%cDevelopment Type Menu was closed', 'color: yellow;'))
-        : (detailsDev.ontoggle,
-          console.log('%cDevelopment Type Menu was opened', 'color: yellow;'));
-      event.stopPropagation;
-    });
-    detailsSoftware.addEventListener('toggle', (event: Event) => {
-      event.defaultPrevented;
+    //   detailsDev.open
+    //     ? (detailsDev.ontoggle,
+    //       console.log('%cDevelopment Type Menu was closed', 'color: yellow;'))
+    //     : (detailsDev.ontoggle,
+    //       console.log('%cDevelopment Type Menu was opened', 'color: yellow;'));
+    //   event.stopPropagation;
+    // });
+    // detailsSoftware.addEventListener('toggle', (event: Event) => {
+    //   event.defaultPrevented;
 
-      detailsSoftware.open
-        ? (detailsSoftware.ontoggle,
-          console.log('%cSoftware Practices Menu was closed', 'color: yellow;'))
-        : (detailsSoftware.ontoggle,
-          console.log(
-            '%cSoftware Practices Menu was opened',
-            'color: yellow;'
-          ));
-      event.stopPropagation;
-    });
-    detailsQuote.addEventListener('toggle', (event: Event) => {
-      event.defaultPrevented;
+    //   detailsSoftware.open
+    //     ? (detailsSoftware.ontoggle,
+    //       console.log('%cSoftware Practices Menu was closed', 'color: yellow;'))
+    //     : (detailsSoftware.ontoggle,
+    //       console.log(
+    //         '%cSoftware Practices Menu was opened',
+    //         'color: yellow;'
+    //       ));
+    //   event.stopPropagation;
+    // });
+    // detailsQuote.addEventListener('toggle', (event: Event) => {
+    //   event.defaultPrevented;
 
-      detailsQuote.open
-        ? (detailsQuote.ontoggle,
-          console.log('%cPersonal Goals Menu was closed', 'color: yellow;'))
-        : (detailsQuote.ontoggle,
-          console.log('%cPersonal Goals Menu was opened', 'color: yellow;'));
-      event.stopPropagation;
-    });
+    //   detailsQuote.open
+    //     ? (detailsQuote.ontoggle,
+    //       console.log('%cPersonal Goals Menu was closed', 'color: yellow;'))
+    //     : (detailsQuote.ontoggle,
+    //       console.log('%cPersonal Goals Menu was opened', 'color: yellow;'));
+    //   event.stopPropagation;
+    // });
   }
   static get observedAttributes() {
     return ['window.location.href'];

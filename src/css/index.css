@@ -17,7 +17,7 @@
     --grmj-profile-background_7: hsla(0, 0%, 80%, 0.66);
     --grmj-profile-background_8: hsla(212, 62%, 49%, 0.14);
     --grmj-profile-background_9: hsla(209, 59%, 48%, 0.99);
-    --grmj-profile-background_10: hsla(195, 53%, 79%, 0.99);
+    --grmj-profile-background_10: hsla(195, 53%, 79%, 0.19);
     --grmj-profile-background_11: hsla(209, 59%, 48%, 0.29);
 
     /* Background Image */
@@ -167,6 +167,7 @@ body {
     padding: 0em;
     width: 100%;
     font-family: var(--grmj-font-family-1);
+
 }
 
 body::-webkit-scrollbar {

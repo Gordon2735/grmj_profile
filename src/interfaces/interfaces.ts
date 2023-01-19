@@ -83,12 +83,14 @@ interface profileCodeEx_sharedHTML {
 interface profileCover_sharedStyles {
   shell: string;
   cover: string;
+  transition: string;
   slide: string;
 }
 
 interface profileCover_sharedHTML {
   shell: string;
   cover: string;
+  transition: string;
   slide: string;
 }
 

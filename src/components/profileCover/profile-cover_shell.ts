@@ -15,10 +15,14 @@ export class ProfileCoverShell extends ProfileCoverTemplate {
   constructor() {
     super();
 
+    this.noShadow = true;
+
     const head: HTMLHeadElement | null | undefined =
       document.getElementById('head');
     const script: HTMLScriptElement | null | undefined =
       document.createElement('script');
+    // const coverScript: HTMLScriptElement | null | undefined =
+    // document.createElement('script');
     this.head = head;
     this.script = script;
 
@@ -29,6 +33,14 @@ export class ProfileCoverShell extends ProfileCoverTemplate {
       src: '/src/components/profileCover/profile-cover.js',
     });
     this.head?.appendChild(script);
+
+    // setAttributes(coverScript, {
+    //   type: 'module',
+    //   content: 'text/javascript',
+    //   alt: 'profile-cover script',
+    //   src: '/src/components/profileCover/cover_pages.js',
+    // });
+    // this.head?.appendChild(coverScript);
   }
   override connectedCallback() {
     super.connectedCallback();
