@@ -69,7 +69,6 @@ export class ProfileCover extends ProfileCoverTemplate {
       grabCoverComponent?.setAttribute('letter', 'page0');
       return event.target, event.stopPropagation();
     });
-
     async function page_0(this: any): Promise<any> {
       try {
         const load = document.getElementById('loader') as HTMLDivElement;
@@ -78,6 +77,7 @@ export class ProfileCover extends ProfileCoverTemplate {
         const page2 = document.getElementById('secCover2') as HTMLElement;
         const page3 = document.getElementById('secCover3') as HTMLElement;
         load!.style.left = '0';
+        page3.style.animation = 'offLoading 4.5s ease-out';
         setTimeout(() => {
           load.style.left = '-100%';
           page0.dataset.active = 'true';
@@ -113,7 +113,6 @@ export class ProfileCover extends ProfileCoverTemplate {
         );
       }
     }
-
     async function page_1(this: any): Promise<any> {
       try {
         const load = document.getElementById('loader') as HTMLDivElement;
@@ -124,6 +123,7 @@ export class ProfileCover extends ProfileCoverTemplate {
         load!.style.left = '0';
         setTimeout(() => {
           load.style.left = '-100%';
+          page1.style.animation = 'loading 1.5s ease-in';
           page0.dataset.active = 'false';
           page0.style.display = 'none';
           page0.style.visibility = 'hidden';
@@ -157,7 +157,6 @@ export class ProfileCover extends ProfileCoverTemplate {
         );
       }
     }
-
     async function page_2(this: any): Promise<any> {
       try {
         const load = document.getElementById('loader') as HTMLDivElement;
@@ -166,6 +165,7 @@ export class ProfileCover extends ProfileCoverTemplate {
         const page2 = document.getElementById('secCover2') as HTMLElement;
         const page3 = document.getElementById('secCover3') as HTMLElement;
         load!.style.left = '0';
+        page1.style.animation = 'offLoading 4.5s ease-out';
         setTimeout(() => {
           load.style.left = '-100%';
           page0.dataset.active = 'false';
@@ -174,6 +174,7 @@ export class ProfileCover extends ProfileCoverTemplate {
           page1.dataset.active = 'false';
           page1.style.display = 'none';
           page1.style.visibility = 'hidden';
+          page2.style.animation = 'loading 1.5s ease-in';
           page2.dataset.active = 'true';
           page2.style.display = 'block';
           page2.style.visibility = 'visible';
@@ -201,7 +202,6 @@ export class ProfileCover extends ProfileCoverTemplate {
         );
       }
     }
-
     async function page_3(this: any): Promise<any> {
       try {
         const load = document.getElementById('loader') as HTMLDivElement;
@@ -210,6 +210,7 @@ export class ProfileCover extends ProfileCoverTemplate {
         const page2 = document.getElementById('secCover2') as HTMLElement;
         const page3 = document.getElementById('secCover3') as HTMLElement;
         load!.style.left = '0';
+        page2.style.animation = 'offLoading 4.5s ease-out';
         setTimeout(() => {
           load.style.left = '-100%';
           page0.dataset.active = 'false';
@@ -221,6 +222,7 @@ export class ProfileCover extends ProfileCoverTemplate {
           page2.dataset.active = 'false';
           page2.style.display = 'none';
           page2.style.visibility = 'hidden';
+          page3.style.animation = 'loading 1.5s ease-in';
           page3.dataset.active = 'true';
           page3.style.display = 'block';
           page3.style.visibility = 'visible';
@@ -260,7 +262,7 @@ export class ProfileCover extends ProfileCoverTemplate {
         ${oldValue} is the old value.`,
         'color: orange; font-size: 1rem; font-weight: bold;'
       );
-    }, 3500);
+    }, 100);
   }
   disconnectedCallback(): any {
     console.info(
@@ -269,6 +271,18 @@ export class ProfileCover extends ProfileCoverTemplate {
     );
 
     // Remove any event listeners you added in connectedCallback.
+    this.anchor0?.removeEventListener('click', (event: MouseEvent) => {
+      return event.target, event.stopPropagation();
+    });
+    this.anchor1?.removeEventListener('click', (event: MouseEvent) => {
+      return event.target, event.stopPropagation();
+    });
+    this.anchor2?.removeEventListener('click', (event: MouseEvent) => {
+      return event.target, event.stopPropagation();
+    });
+    this.anchor3?.removeEventListener('click', (event: MouseEvent) => {
+      return event.target, event.stopPropagation();
+    });
 
     // Remove any children you added in connectedCallback.
 

@@ -17,7 +17,7 @@
     --grmj-profile-background_7: hsla(0, 0%, 80%, 0.66);
     --grmj-profile-background_8: hsla(212, 62%, 49%, 0.14);
     --grmj-profile-background_9: hsla(209, 59%, 48%, 0.99);
-    --grmj-profile-background_10: hsla(195, 53%, 79%, 0.19);
+    --grmj-profile-background_10: hsla(195, 53%, 79%, 0.09);
     --grmj-profile-background_11: hsla(209, 59%, 48%, 0.29);
 
     /* Background Image */
@@ -142,6 +142,7 @@
     --grmj-font-color-14: hsla(52, 97%, 58%, 0.99);
     --grmj-font-color-15: hsla(198, 53%, 87%, 0.19);
     --grmj-font-color-16: hsla(39, 99%, 45%, 0.99);
+    --grmj-font-color-17: hsla(43, 74%, 49%, 0.99);
 
     /*Borders*/
     --grmj-border-0: 2.5px solid hsla(240, 81%, 12%, 0.99);

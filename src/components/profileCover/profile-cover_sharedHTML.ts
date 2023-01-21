@@ -36,55 +36,55 @@ profileCover_sharedHTML.transition = /*html*/ `
 
       </section>
       <section id="secCover1" class="layer page1 one" data-active="false">
-        <h3 id="h3Cover1" class="h3-cover-1">Gordon's Cover Letter<br>
-          <a id="anchor1" class="anc1 cover-anchors">Next</a>
+        <h3 id="h3Cover1" class="h3-cover-1">Gordon's Cover Letter I<br>
         </h3>
         <p id="pCover1" class="p-cover-1">
-          Current-Best-Practices-Driven JavaScript Software Engineering combining a loosely coupled, modular design;
-          with a focus on code reusability and maintainability. Object-Oriented-Programming (OOP): using classes while
-          seeking non-complexity though standardizing with Encapsulation, Abstraction, Polymorphism, and Inheritance;
-          progressively favoring composition over inheritance. Using Native Web Components dynamically for the
-          entirety of the UI/Frontend Development Process. Applying constraints for maintaining a structured OOP/MVC
-          paradigm including the Components "state", and utilizing the ES6 module system: even within the Node.js
-          Environment for consistency. Unit-Testing Front & Backend with the Testing frameworks of Jest, and
-          Supertest. Always seeking to improve my programming skills and knowledge. Deep-Diving invariably into
-          JavaScript/TypeScript so that if, hypothetically I were cornered, then asked to describe my coding skills
-          permitting only two words, I would impulsively reply without hesitation: 'JavaScript Professional'.
+        Current-Best-Practices-Driven JavaScript Software Engineering combining a loosely coupled, modular design;
+        with a focus on code reusability and maintainability. Object-Oriented-Programming (OOP): using classes while
+        seeking non-complexity though standardizing with Encapsulation, Abstraction, Polymorphism, and Inheritance;
+        progressively favoring composition over inheritance. Using Native Web Components dynamically for the
+        entirety of the UI/Frontend Development Process. Applying constraints for maintaining a structured OOP/MVC
+        paradigm including the Components "state", and utilizing the ES6 module system: even within the Node.js
+        Environment for consistency. Unit-Testing Front & Backend with the Testing frameworks of Jest, and
+        Supertest. Always seeking to improve my programming skills and knowledge. Deep-Diving invariably into
+        JavaScript/TypeScript so that if, hypothetically I were cornered, then asked to describe my coding skills
+        permitting only two words, I would impulsively reply without hesitation: 'JavaScript Professional'.
         </p>
+        <a id="anchor1" class="anc1 cover-anchors">Next</a>
       </section>
       <section id="secCover2" class="layer page2 two" data-active="false">
-        <h3 id="h3Cover2" class="h3-cover-2">Gordon's Cover Letter<br>
-          <a id="anchor2" class="anc2 cover-anchors">Next</a>
+        <h3 id="h3Cover2" class="h3-cover-2">Gordon's Cover Letter II<br>
         </h3>
         <p id="pCover2" class="p-cover-2">
-          Current-Best-Practices-Driven JavaScript Software Engineering combining a loosely coupled, modular design;
-          with a focus on code reusability and maintainability. Object-Oriented-Programming (OOP): using classes while
-          seeking non-complexity though standardizing with Encapsulation, Abstraction, Polymorphism, and Inheritance;
-          progressively favoring composition over inheritance. Using Native Web Components dynamically for the
-          entirety of the UI/Frontend Development Process. Applying constraints for maintaining a structured OOP/MVC
-          paradigm including the Components "state", and utilizing the ES6 module system: even within the Node.js
-          Environment for consistency. Unit-Testing Front & Backend with the Testing frameworks of Jest, and
-          Supertest. Always seeking to improve my programming skills and knowledge. Deep-Diving invariably into
-          JavaScript/TypeScript so that if, hypothetically I were cornered, then asked to describe my coding skills
-          permitting only two words, I would impulsively reply without hesitation: 'JavaScript Professional'.
+        Current-Best-Practices-Driven JavaScript Software Engineering combining a loosely coupled, modular design;
+        with a focus on code reusability and maintainability. Object-Oriented-Programming (OOP): using classes while
+        seeking non-complexity though standardizing with Encapsulation, Abstraction, Polymorphism, and Inheritance;
+        progressively favoring composition over inheritance. Using Native Web Components dynamically for the
+        entirety of the UI/Frontend Development Process. Applying constraints for maintaining a structured OOP/MVC
+        paradigm including the Components "state", and utilizing the ES6 module system: even within the Node.js
+        Environment for consistency. Unit-Testing Front & Backend with the Testing frameworks of Jest, and
+        Supertest. Always seeking to improve my programming skills and knowledge. Deep-Diving invariably into
+        JavaScript/TypeScript so that if, hypothetically I were cornered, then asked to describe my coding skills
+        permitting only two words, I would impulsively reply without hesitation: 'JavaScript Professional'.
         </p>
+        <a id="anchor2" class="anc2 cover-anchors">Next</a>
       </section>
       <section id="secCover3" class="layer page3 three" data-active="false">
-        <h3 id="h3Cover3" class="h3-cover-3">Gordon's Cover Letter<br>
-          <a id="anchor3" class="anc3 cover-anchors">Next</a>
+        <h3 id="h3Cover3" class="h3-cover-3">Gordon's Cover Letter III<br>
         </h3>
         <p id="pCover3" class="p-cover-3">
-          Current-Best-Practices-Driven JavaScript Software Engineering combining a loosely coupled, modular design;
-          with a focus on code reusability and maintainability. Object-Oriented-Programming (OOP): using classes while
-          seeking non-complexity though standardizing with Encapsulation, Abstraction, Polymorphism, and Inheritance;
-          progressively favoring composition over inheritance. Using Native Web Components dynamically for the
-          entirety of the UI/Frontend Development Process. Applying constraints for maintaining a structured OOP/MVC
-          paradigm including the Components "state", and utilizing the ES6 module system: even within the Node.js
-          Environment for consistency. Unit-Testing Front & Backend with the Testing frameworks of Jest, and
-          Supertest. Always seeking to improve my programming skills and knowledge. Deep-Diving invariably into
-          JavaScript/TypeScript so that if, hypothetically I were cornered, then asked to describe my coding skills
-          permitting only two words, I would impulsively reply without hesitation: 'JavaScript Professional'.
+        Current-Best-Practices-Driven JavaScript Software Engineering combining a loosely coupled, modular design;
+        with a focus on code reusability and maintainability. Object-Oriented-Programming (OOP): using classes while
+        seeking non-complexity though standardizing with Encapsulation, Abstraction, Polymorphism, and Inheritance;
+        progressively favoring composition over inheritance. Using Native Web Components dynamically for the
+        entirety of the UI/Frontend Development Process. Applying constraints for maintaining a structured OOP/MVC
+        paradigm including the Components "state", and utilizing the ES6 module system: even within the Node.js
+        Environment for consistency. Unit-Testing Front & Backend with the Testing frameworks of Jest, and
+        Supertest. Always seeking to improve my programming skills and knowledge. Deep-Diving invariably into
+        JavaScript/TypeScript so that if, hypothetically I were cornered, then asked to describe my coding skills
+        permitting only two words, I would impulsively reply without hesitation: 'JavaScript Professional'.
         </p>
+        <a id="anchor3" class="anc3 cover-anchors">Next</a>
       </section>
     
     `;
