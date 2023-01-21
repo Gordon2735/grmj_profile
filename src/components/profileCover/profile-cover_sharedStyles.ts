@@ -292,18 +292,33 @@ profileCover_sharedStyles.transition = /*css*/ `
     @keyframes offLoading {
       0% {
         opacity: 1;
+        width: 460px;
+        height: 60vh;
+        font-size: 1em;
       }
       25% {
         opacity: 0.75;
+        width: 345px;
+        height: 45vh;
+        font-size: 0.75em;
       }
       50% {
         opacity: 0.5;
+        width: 230px;
+        height: 30vh;
+        font-size: 0.50em;
       }
       75% {
         opacity: 0.25;
+        width: 115px;
+        height: 15vh;
+        font-size: 0.25em;
       }
       100% {
         opacity: 0;
+        width: 0px;
+        height: 0vh;
+        font-size: 0em;
       }
     }
 
