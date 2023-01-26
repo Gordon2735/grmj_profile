@@ -18,7 +18,7 @@ dropDown_sharedHTML.dropdown = /*html*/ `
 `;
 
 dropDown_sharedHTML.dynadrop = /*html*/ `
-	<drop-down id="dropDown" class="drop-down"></drop-down>
+	<drop-down id="dropDown" class="drop-down" operations="new"></drop-down>
 `;
 
 export { dropDown_sharedHTML };

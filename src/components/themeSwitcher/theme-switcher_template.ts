@@ -1,9 +1,5 @@
-'use strict';
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-export class ProfileTemplate extends HTMLElement {
-  noShadow = true;
-  root: ShadowRoot | null = this.shadowRoot;
+export class ThemeSwitcherTemplate extends HTMLElement {
+  noShadow: boolean = true;
 
   public get template(): any {
     return this.template;
@@ -11,11 +7,13 @@ export class ProfileTemplate extends HTMLElement {
   public set template(value: any) {
     this.template = value;
   }
+
   connectedCallback() {
     if (!this.noShadow) this.attachShadow({ mode: 'open' });
     this.render(this.template);
   }
-  render(template: undefined) {
+
+  render(template: any) {
     if (this.noShadow) {
       this.innerHTML = template || this.template;
       return;

@@ -1,16 +1,15 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import express, { Router, Request, Response } from 'express';
 
 const router: Router = express.Router();
 
 router.use(express.static('../../views'));
 
-//%  /Cover Letter page Route
+//%  /Library page Route
 let user: any;
-const cover: Router = router
-  .get('/cover_letter', (_req: Request, res: Response) => {
+const library: Router = router
+  .get('/library', (_req: Request, res: Response) => {
     res.set('Content-Type', 'text/html');
-    res.render('cover_letter', { layout: 'main' });
+    res.render('library', { layout: 'main' });
   })
   .post('/', async (req: Request, res: Response) => {
     res.json(
@@ -22,4 +21,4 @@ const cover: Router = router
       })
     );
   });
-export default cover;
+export default library;

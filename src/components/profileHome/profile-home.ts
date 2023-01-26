@@ -6,6 +6,7 @@ import { profile_sharedStyles } from './profile-sharedStyles.js';
 import { profile_sharedHTML } from './profile-sharedHTML.js';
 import RegisterComponent from '../componentTools/components_services.js'; // setAttributes // appendChildren, // setAttributes
 import historyStack from '../../controller/state/profileState.js';
+// import prettier from 'd:/grmj_profile/node_modules/@types/prettier/standalone';
 
 export class ProfileHome extends ProfileTemplate {
   override noShadow: boolean;
@@ -58,6 +59,9 @@ export class ProfileHome extends ProfileTemplate {
   }
   override connectedCallback() {
     super.connectedCallback();
+
+    // const ckPrettier = prettier.check(this.innerHTML, { parser: 'html' });
+    // console.log(ckPrettier);
 
     // this.body !== null
     //   ? this.body.insertAdjacentHTML(

@@ -117,7 +117,9 @@ export class SidePanel extends SidePanelTemplate {
         event.stopPropagation();
       }
     );
-    document.addEventListener('click', (event) => {
+    const sliderContainer: HTMLElement | null | undefined =
+      document.getElementById('container');
+    sliderContainer?.addEventListener('click', (event) => {
       event.preventDefault();
 
       menu.isMenuShown

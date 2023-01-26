@@ -7,6 +7,7 @@ const profileCover_sharedStyles = {
   cover: ``,
   transition: ``,
   slide: ``,
+  dropdown: ``,
 };
 
 profileCover_sharedStyles.shell = /*css*/ `
@@ -109,7 +110,8 @@ profileCover_sharedStyles.transition = /*css*/ `
       width: 360px;
       border-radius: 0.5em;
       text-align: center;  
-      visibility: hidden;
+      display: block;
+      visibility: visible;
     }
 
     .page0 a {
@@ -327,6 +329,12 @@ profileCover_sharedStyles.slide = /*css*/ `
 
 
 `;
+
+profileCover_sharedStyles.dropdown = /*css*/ `
+
+
+`;
+
 export { profileCover_sharedStyles };
 
 // * {

@@ -85,6 +85,7 @@ interface profileCover_sharedStyles {
   cover: string;
   transition: string;
   slide: string;
+  dropdown: string;
 }
 
 interface profileCover_sharedHTML {
@@ -104,8 +105,38 @@ interface dropDown_sharedStyles {
   dropdown: string;
   dynadrop: string;
   home: string;
+  letter: string;
+  about: string;
+  projects: string;
+  history: string;
+  resume: string;
+  codeEx: string;
+  goals: string;
+  contact: string;
+  library: string;
 }
 
+interface themeSwitcher_sharedHTML {
+  shell: string;
+  switcher: string;
+  switcherBtn: string;
+}
+
+interface themeSwitcher_sharedStyles {
+  shell: string;
+  switcher: string;
+  switcherBtn: string;
+  home: string;
+  letter: string;
+  about: string;
+  projects: string;
+  history: string;
+  resume: string;
+  codeEx: string;
+  goals: string;
+  contact: string;
+  library: string;
+}
 interface profileHdr_sharedHTML {
   shell: string;
   hdr: string;
@@ -152,6 +183,8 @@ export {
   profileCover_sharedStyles,
   dropDown_sharedHTML,
   dropDown_sharedStyles,
+  themeSwitcher_sharedHTML,
+  themeSwitcher_sharedStyles,
   profileHdr_sharedStyles,
   profileHdr_sharedHTML,
   profileFooter_sharedHTML,

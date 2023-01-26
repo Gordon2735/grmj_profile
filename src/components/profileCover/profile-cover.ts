@@ -35,214 +35,184 @@ export class ProfileCover extends ProfileCoverTemplate {
     super.connectedCallback();
 
     const sectionCheckSet = document.querySelector('#secCover0') as HTMLElement;
-
-    sectionCheckSet.dataset.active === 'true' ? page_0() : null;
+    sectionCheckSet.dataset.active !== 'true' ? switchLetterPage() : null;
 
     this.anchor0 = document.querySelector('.anc0') as HTMLAnchorElement;
     this.anchor1 = document.querySelector('.anc1') as HTMLAnchorElement;
     this.anchor2 = document.querySelector('.anc2') as HTMLAnchorElement;
     this.anchor3 = document.querySelector('.anc3') as HTMLAnchorElement;
+
     const grabCoverComponent: HTMLElement | null =
       document.body.querySelector('#profileCover');
 
     this.anchor0.addEventListener('click', (event: MouseEvent) => {
       event.preventDefault();
-      page_1();
       grabCoverComponent?.setAttribute('letter', 'page1');
+      switchLetterPage();
       return event.target, event.stopPropagation();
     });
     this.anchor1.addEventListener('click', (event: MouseEvent) => {
       event.preventDefault();
-      page_2();
       grabCoverComponent?.setAttribute('letter', 'page2');
+      switchLetterPage();
       return event.target, event.stopPropagation();
     });
     this.anchor2.addEventListener('click', (event: MouseEvent) => {
       event.preventDefault();
-      page_3();
       grabCoverComponent?.setAttribute('letter', 'page3');
+      switchLetterPage();
       return event.target, event.stopPropagation();
     });
     this.anchor3.addEventListener('click', (event: MouseEvent) => {
       event.preventDefault();
-      page_0();
       grabCoverComponent?.setAttribute('letter', 'page0');
+      const page3 = document.getElementById('secCover3') as HTMLElement;
+      page3.style.animation = 'offLoading 4.5s ease-out';
+      switchLetterPage();
       return event.target, event.stopPropagation();
     });
-    async function page_0(this: any): Promise<any> {
+
+    async function switchLetterPage(this: any): Promise<any> {
       try {
         const load = document.getElementById('loader') as HTMLDivElement;
         const page0 = document.getElementById('secCover0') as HTMLElement;
         const page1 = document.getElementById('secCover1') as HTMLElement;
         const page2 = document.getElementById('secCover2') as HTMLElement;
         const page3 = document.getElementById('secCover3') as HTMLElement;
+
+        const grabbingCoverComponent: HTMLElement | null =
+          document.body.querySelector('#profileCover');
+        const componentLetterAttribute: string | undefined | null =
+          grabbingCoverComponent?.getAttribute('letter');
         load!.style.left = '0';
-        page3.style.animation = 'offLoading 4.5s ease-out';
-        setTimeout(() => {
-          load.style.left = '-100%';
-          page0.dataset.active = 'true';
-          page0.style.display = 'block';
-          page0.style.visibility = 'visible';
-          page1.dataset.active = 'false';
-          page1.style.display = 'none';
-          page1.style.visibility = 'hidden';
-          page2.dataset.active = 'false';
-          page2.style.display = 'none';
-          page2.style.visibility = 'hidden';
-          page3.dataset.active = 'false';
-          page3.style.display = 'none';
-          page3.style.visibility = 'hidden';
-        }, 1500);
-        console.info(
-          '%cCurrent Page is || page_0',
-          'color: chartreuse; font-size: 0.75rem; font-weight: bold;'
-        );
-        return setTimeout(() => {
-          console.info(
-            `%cDataset value for Page 0 is: ${page0.dataset.active}`,
-            'color: violet; font-size: 1rem; font-weight: bold;'
-          );
-        }, 1500);
+
+        switch (componentLetterAttribute) {
+          case 'page0':
+            setTimeout(() => {
+              load.style.left = '-100%';
+              page0.dataset.active = 'true';
+              page0.style.display = 'block';
+              page0.style.visibility = 'visible';
+              page1.dataset.active = 'false';
+              page1.style.display = 'none';
+              page1.style.visibility = 'hidden';
+              page2.dataset.active = 'false';
+              page2.style.display = 'none';
+              page2.style.visibility = 'hidden';
+              page3.dataset.active = 'false';
+              page3.style.display = 'none';
+              page3.style.visibility = 'hidden';
+            }, 1500);
+            console.info(
+              '%cCurrent Page is || page_0',
+              'color: chartreuse; font-size: 0.75rem; font-weight: bold;'
+            );
+            setTimeout(() => {
+              console.info(
+                `%cDataset value for Page 0 is: ${page0.dataset.active}`,
+                'color: violet; font-size: 1rem; font-weight: bold;'
+              );
+            }, 1500);
+            break;
+          case 'page1':
+            setTimeout(() => {
+              load.style.left = '-100%';
+              page1.style.animation = 'loading 1.5s ease-in';
+              page0.dataset.active = 'false';
+              page0.style.display = 'none';
+              page0.style.visibility = 'hidden';
+              page1.dataset.active = 'true';
+              page1.style.display = 'block';
+              page1.style.visibility = 'visible';
+              page2.dataset.active = 'false';
+              page2.style.display = 'none';
+              page2.style.visibility = 'hidden';
+              page3.dataset.active = 'false';
+              page3.style.display = 'none';
+              page3.style.visibility = 'hidden';
+            }, 1500);
+            console.info(
+              '%cCurrent Page is || page_1',
+              'color: chartreuse; font-size: 0.75rem; font-weight: bold;'
+            );
+            setTimeout(() => {
+              console.info(
+                `%cDataset value for Page 1 is: ${page1.dataset.active}`,
+                'color: violet; font-size: 1rem; font-weight: bold;'
+              );
+            }, 1500);
+            break;
+          case 'page2':
+            page1.style.animation = 'offLoading 4.5s ease-out';
+            setTimeout(() => {
+              load.style.left = '-100%';
+              page0.dataset.active = 'false';
+              page0.style.display = 'none';
+              page0.style.visibility = 'hidden';
+              page1.dataset.active = 'false';
+              page1.style.display = 'none';
+              page1.style.visibility = 'hidden';
+              page2.style.animation = 'loading 1.5s ease-in';
+              page2.dataset.active = 'true';
+              page2.style.display = 'block';
+              page2.style.visibility = 'visible';
+              page3.dataset.active = 'false';
+              page3.style.display = 'none';
+              page3.style.visibility = 'hidden';
+            }, 1500);
+            console.info(
+              '%cCurrent Page is || page_2',
+              'color: chartreuse; font-size: 0.75rem; font-weight: bold;'
+            );
+            setTimeout(() => {
+              console.info(
+                `%cDataset value for Page 2 is: ${page2.dataset.active}`,
+                'color: violet; font-size: 1rem; font-weight: bold;'
+              );
+            }, 1500);
+            break;
+          case 'page3':
+            page2.style.animation = 'offLoading 4.5s ease-out';
+            setTimeout(() => {
+              load.style.left = '-100%';
+              page0.dataset.active = 'false';
+              page0.style.display = 'none';
+              page0.style.visibility = 'hidden';
+              page1.dataset.active = 'false';
+              page1.style.display = 'none';
+              page1.style.visibility = 'hidden';
+              page2.dataset.active = 'false';
+              page2.style.display = 'none';
+              page2.style.visibility = 'hidden';
+              page3.style.animation = 'loading 1.5s ease-in';
+              page3.dataset.active = 'true';
+              page3.style.display = 'block';
+              page3.style.visibility = 'visible';
+            }, 1500);
+            console.info(
+              '%cCurrent Page is || page_3',
+              'color: chartreuse; font-size: 0.75rem; font-weight: bold;'
+            );
+            setTimeout(() => {
+              console.info(
+                `%cDataset value for Page 3 is: ${page3.dataset.active}`,
+                'color: violet; font-size: 1rem; font-weight: bold;'
+              );
+            }, 1500);
+            break;
+          default:
+            console.info(
+              `%c${componentLetterAttribute} was the Letter Attribute @ DEFAULT of Switch Statement!`,
+              'color: red; font-size: 1rem; font-weight: bold;'
+            );
+            break;
+        }
       } catch (error: unknown) {
         alert(`**Warning** || Sorry, but there has been an Error invoking function page_0. 
           || ****  ${error}  ****`);
         console.error(
           `%c**Warning** || Sorry, but there has been an Error invoking function page_0. 
             || ****  ${error}  ****`,
-          'color: red; font-size: 0.5rem; font-weight: bold;'
-        );
-      }
-    }
-    async function page_1(this: any): Promise<any> {
-      try {
-        const load = document.getElementById('loader') as HTMLDivElement;
-        const page0 = document.getElementById('secCover0') as HTMLElement;
-        const page1 = document.getElementById('secCover1') as HTMLElement;
-        const page2 = document.getElementById('secCover2') as HTMLElement;
-        const page3 = document.getElementById('secCover3') as HTMLElement;
-        load!.style.left = '0';
-        setTimeout(() => {
-          load.style.left = '-100%';
-          page1.style.animation = 'loading 1.5s ease-in';
-          page0.dataset.active = 'false';
-          page0.style.display = 'none';
-          page0.style.visibility = 'hidden';
-          page1.dataset.active = 'true';
-          page1.style.display = 'block';
-          page1.style.visibility = 'visible';
-          page2.dataset.active = 'false';
-          page2.style.display = 'none';
-          page2.style.visibility = 'hidden';
-          page3.dataset.active = 'false';
-          page3.style.display = 'none';
-          page3.style.visibility = 'hidden';
-        }, 1500);
-        console.info(
-          '%cCurrent Page is || page_1',
-          'color: chartreuse; font-size: 0.75rem; font-weight: bold;'
-        );
-        return setTimeout(() => {
-          console.info(
-            `%cDataset value for Page 1 is: ${page1.dataset.active}`,
-            'color: violet; font-size: 1rem; font-weight: bold;'
-          );
-        }, 1500);
-      } catch (error: unknown) {
-        alert(`**Warning** || Sorry, but there has been an Error invoking function page_1. 
-        || ****  ${error}  ****`);
-        console.error(
-          `%c**Warning** || Sorry, but there has been an Error invoking function page_1. 
-          || ****  ${error}  ****`,
-          'color: red; font-size: 0.5rem; font-weight: bold;'
-        );
-      }
-    }
-    async function page_2(this: any): Promise<any> {
-      try {
-        const load = document.getElementById('loader') as HTMLDivElement;
-        const page0 = document.getElementById('secCover0') as HTMLElement;
-        const page1 = document.getElementById('secCover1') as HTMLElement;
-        const page2 = document.getElementById('secCover2') as HTMLElement;
-        const page3 = document.getElementById('secCover3') as HTMLElement;
-        load!.style.left = '0';
-        page1.style.animation = 'offLoading 4.5s ease-out';
-        setTimeout(() => {
-          load.style.left = '-100%';
-          page0.dataset.active = 'false';
-          page0.style.display = 'none';
-          page0.style.visibility = 'hidden';
-          page1.dataset.active = 'false';
-          page1.style.display = 'none';
-          page1.style.visibility = 'hidden';
-          page2.style.animation = 'loading 1.5s ease-in';
-          page2.dataset.active = 'true';
-          page2.style.display = 'block';
-          page2.style.visibility = 'visible';
-          page3.dataset.active = 'false';
-          page3.style.display = 'none';
-          page3.style.visibility = 'hidden';
-        }, 1500);
-        console.info(
-          '%cCurrent Page is || page_2',
-          'color: chartreuse; font-size: 0.75rem; font-weight: bold;'
-        );
-        return setTimeout(() => {
-          console.info(
-            `%cDataset value for Page 2 is: ${page2.dataset.active}`,
-            'color: violet; font-size: 1rem; font-weight: bold;'
-          );
-        }, 1500);
-      } catch (error: unknown) {
-        alert(`**Warning** || Sorry, but there has been an Error invoking function page_2. 
-        || ****  ${error}  ****`);
-        console.error(
-          `%c**Warning** || Sorry, but there has been an Error invoking function page_2. 
-          || ****  ${error}  ****`,
-          'color: red; font-size: 0.5rem; font-weight: bold;'
-        );
-      }
-    }
-    async function page_3(this: any): Promise<any> {
-      try {
-        const load = document.getElementById('loader') as HTMLDivElement;
-        const page0 = document.getElementById('secCover0') as HTMLElement;
-        const page1 = document.getElementById('secCover1') as HTMLElement;
-        const page2 = document.getElementById('secCover2') as HTMLElement;
-        const page3 = document.getElementById('secCover3') as HTMLElement;
-        load!.style.left = '0';
-        page2.style.animation = 'offLoading 4.5s ease-out';
-        setTimeout(() => {
-          load.style.left = '-100%';
-          page0.dataset.active = 'false';
-          page0.style.display = 'none';
-          page0.style.visibility = 'hidden';
-          page1.dataset.active = 'false';
-          page1.style.display = 'none';
-          page1.style.visibility = 'hidden';
-          page2.dataset.active = 'false';
-          page2.style.display = 'none';
-          page2.style.visibility = 'hidden';
-          page3.style.animation = 'loading 1.5s ease-in';
-          page3.dataset.active = 'true';
-          page3.style.display = 'block';
-          page3.style.visibility = 'visible';
-        }, 1500);
-        console.info(
-          '%cCurrent Page is || page_3',
-          'color: chartreuse; font-size: 0.75rem; font-weight: bold;'
-        );
-        return setTimeout(() => {
-          console.info(
-            `%cDataset value for Page 3 is: ${page3.dataset.active}`,
-            'color: violet; font-size: 1rem; font-weight: bold;'
-          );
-        }, 1500);
-      } catch (error: unknown) {
-        alert(`**Warning** || Sorry, but there has been an Error invoking function page_3. 
-        || ****  ${error}  ****`);
-        console.error(
-          `%c**Warning** || Sorry, but there has been an Error invoking function page_3. 
-          || ****  ${error}  ****`,
           'color: red; font-size: 0.5rem; font-weight: bold;'
         );
       }

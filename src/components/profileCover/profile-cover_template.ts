@@ -4,13 +4,12 @@
 export class ProfileCoverTemplate extends HTMLElement {
   noShadow: boolean = true;
   root: ShadowRoot | null = this.shadowRoot;
-  private _template: any;
 
   public get template(): any {
-    return this._template;
+    return this.template;
   }
   public set template(value: any) {
-    this._template = value;
+    this.template = value;
   }
 
   connectedCallback() {

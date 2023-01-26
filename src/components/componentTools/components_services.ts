@@ -22,7 +22,7 @@ function setAttributes(
 }
 
 function appendChildren(
-  parent: HTMLElement | ShadowRoot | null,
+  parent: HTMLElement | null | undefined | ShadowRoot,
   children: any[]
 ): void {
   children.map((child: any) => {

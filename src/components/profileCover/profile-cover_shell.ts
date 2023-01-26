@@ -10,7 +10,7 @@ import { setAttributes } from '../componentTools/components_services.js';
 export class ProfileCoverShell extends ProfileCoverTemplate {
   head: HTMLHeadElement | null | undefined;
   script: HTMLScriptElement | null | undefined;
-  override noShadow = true;
+  override noShadow: boolean;
 
   constructor() {
     super();

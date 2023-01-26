@@ -36,7 +36,7 @@ sidePanel_sharedStyles.panel = /*css*/ `
         border-radius: 0px 8px 8px 0px;
         font-Family: var(--grmj-font-family-1);
         opacity: 0.84;
-        z-index: 999;
+        z-index: 500;
     }
     #big-3 {
         margin: 27px 0px 15px 0px;
@@ -49,7 +49,7 @@ sidePanel_sharedStyles.panel = /*css*/ `
         transform: rotate(-360deg);
         transition: all 2s;
         aspect-ratio: 160 / 61;
-        z-index: 1000;
+        z-index: 600;
     }
     #line {
         margin: 110px 0px 20px 0px;
@@ -66,7 +66,7 @@ sidePanel_sharedStyles.panel = /*css*/ `
         transform: rotate(-360deg);
         transition: all 2s;
         aspect-ratio: 1 / 1;
-        z-index: 1000;
+        z-index: 600;
     }
     
     #ts-symbol {
@@ -80,7 +80,7 @@ sidePanel_sharedStyles.panel = /*css*/ `
         transform: rotate(-360deg);
         transition: all 2s;
         aspect-ratio: 1 / 1;
-        z-index: 1000;
+        z-index: 600;
     }
     #line2 {
         margin: 190px 0px 20px 0px;
@@ -102,7 +102,7 @@ sidePanel_sharedStyles.panel = /*css*/ `
         border-top: 2px solid hsl(10, 66%, 51%);
         border-bottom: 2px solid hsl(213, 62%, 45%);
         box-shadow: 2px 2px 20px 4px rgba(0, 0, 0, 0.5);
-        z-index: 1000;
+        z-index: 600;
     }
     @keyframes FadeIn {
         0% {

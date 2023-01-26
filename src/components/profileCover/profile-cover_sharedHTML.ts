@@ -31,7 +31,7 @@ profileCover_sharedHTML.transition = /*html*/ `
       <div id="loader" class="loader">
         <img id="loaderImg" class="loader-image" src="src/components/componentTools/resources/images/images-temp/grmj.jpg" alt="Gordon's Cover GRMJ Image" />
         </div>
-      <section id="secCover0" class="layer page0 zero" data-active="true">
+      <section id="secCover0" class="layer page0 zero" data-active="false">
         <a id="anchor0" class="anc0 cover-anchors">Load Letter</a>
 
       </section>

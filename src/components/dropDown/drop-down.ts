@@ -35,6 +35,9 @@ export class DropDown extends DropDownTemplate {
 			${dropDown_sharedHTML.dropdown}
 		`;
   }
+  static get observedAttributes() {
+    return ['operations'];
+  }
   override connectedCallback(): void {
     super.connectedCallback();
 
@@ -69,38 +72,91 @@ export class DropDown extends DropDownTemplate {
 
       this.init = function (): void {
         this.elem = document.getElementById(this.options.id);
-
+        const grabComponent = document.body.querySelector('drop-down');
         let val: any;
-        switch (window.location.href) {
-          case 'http://127.0.0.1:9080/':
-            val = this.options.val = 'Home';
-            break;
-          case 'http://127.0.0.1:9080/cover_letter':
-            val = this.options.val = 'Cover Letter';
-            break;
-          case 'http://127.0.0.1:9080/projects':
-            val = this.options.val = 'Projects';
-            break;
-          case 'http://127.0.0.1:9080/history':
-            val = this.options.val = 'History';
-            break;
-          case 'http://127.0.0.1:9080/resume':
-            val = this.options.val = 'Resume';
-            break;
-          case 'http://127.0.0.1:9080/goals':
-            val = this.options.val = 'Goals';
-            break;
-          case 'http://127.0.0.1:9080/code_examples':
-            val = this.options.val = 'Code Examples';
-            break;
-          case 'http://127.0.0.1:9080/contact':
-            val = this.options.val = 'Contact';
-            break;
-          case 'http://127.0.0.1:9080/library':
-            val = this.options.val = 'Library';
-            break;
-          default:
-            val = this.options.val = 'Home';
+
+        try {
+          switch (window.location.href) {
+            case 'http://127.0.0.1:9080/':
+              val = this.options.val = 'Home';
+              setTimeout(() => {
+                grabComponent?.setAttribute('operations', 'home');
+              }, 100);
+              break;
+            case 'http://127.0.0.1:9080/cover_letter':
+              val = this.options.val = 'Cover Letter';
+              setTimeout(() => {
+                grabComponent?.setAttribute('operations', 'cover_letter');
+              }, 100);
+              break;
+            case 'http://127.0.0.1:9080/about':
+              val = this.options.val = 'about';
+              setTimeout(() => {
+                grabComponent?.setAttribute('operations', 'about');
+              }, 100);
+              break;
+            case 'http://127.0.0.1:9080/projects':
+              val = this.options.val = 'Projects';
+              setTimeout(() => {
+                grabComponent?.setAttribute('operations', 'projects');
+              }, 100);
+              break;
+            case 'http://127.0.0.1:9080/history':
+              val = this.options.val = 'History';
+              setTimeout(() => {
+                grabComponent?.setAttribute('operations', 'history');
+              }, 100);
+              break;
+            case 'http://127.0.0.1:9080/resume':
+              val = this.options.val = 'Resume';
+              setTimeout(() => {
+                grabComponent?.setAttribute('operations', 'resume');
+              }, 100);
+              break;
+            case 'http://127.0.0.1:9080/code_examples':
+              val = this.options.val = 'Code Examples';
+              setTimeout(() => {
+                grabComponent?.setAttribute('operations', 'code_examples');
+              }, 100);
+              break;
+            case 'http://127.0.0.1:9080/goals':
+              val = this.options.val = 'Goals';
+              setTimeout(() => {
+                grabComponent?.setAttribute('operations', 'goals');
+              }, 100);
+              break;
+            case 'http://127.0.0.1:9080/contact':
+              val = this.options.val = 'Contact';
+              setTimeout(() => {
+                grabComponent?.setAttribute('operations', 'contact');
+              }, 100);
+              break;
+            case 'http://127.0.0.1:9080/library':
+              val = this.options.val = 'Library';
+              setTimeout(() => {
+                grabComponent?.setAttribute('operations', 'library');
+              }, 100);
+              break;
+            default:
+              val = this.options.val = 'Home';
+              setTimeout(() => {
+                grabComponent?.setAttribute('operations', 'home');
+              }, 100);
+              break;
+          }
+          setTimeout(() => {
+            console.log(
+              `%cRedirection has been successful to ${grabComponent?.getAttribute(
+                'operations'
+              )}`,
+              'color: green; font-size: 1rem;'
+            );
+          }, 2500);
+        } catch (error: unknown) {
+          console.error(
+            `%cRedirection has failed to reroute and the following error iterated: **** ${error} ****`,
+            'color: red; font-size: 1rem;'
+          );
         }
 
         let HTML = /*html*/ `
@@ -189,6 +245,7 @@ export class DropDown extends DropDownTemplate {
       data: [
         'Home',
         'Cover Letter',
+        'About',
         'Projects',
         'History',
         'Resume',
@@ -198,40 +255,49 @@ export class DropDown extends DropDownTemplate {
         'Library',
       ],
       cb: function (_newval: any) {
-        switch (_newval) {
-          case 'Home':
-            window.location.href = '/';
-            break;
-          case 'Cover Letter':
-            window.location.href = '/cover_letter';
-            break;
-          case 'Projects':
-            window.location.href = '/projects';
-            break;
-          case 'History':
-            window.location.href = '/history';
-            break;
-          case 'Resume':
-            window.location.href = '/resume';
-            break;
-          case 'Goals':
-            window.location.href = '/goals';
-            break;
-          case 'Code Examples':
-            window.location.href = '/code_examples';
-            break;
-          case 'Contact':
-            window.location.href = '/contact';
-            break;
-          case 'Library':
-            window.location.href = '/library';
-            break;
-          default:
-            window.location.href = '/';
+        try {
+          switch (_newval) {
+            case 'Home':
+              window.location.href = '/';
+              break;
+            case 'Cover Letter':
+              window.location.href = '/cover_letter';
+              break;
+            case 'About':
+              window.location.href = '/about';
+              break;
+            case 'Projects':
+              window.location.href = '/projects';
+              break;
+            case 'History':
+              window.location.href = '/history';
+              break;
+            case 'Resume':
+              window.location.href = '/resume';
+              break;
+            case 'Goals':
+              window.location.href = '/goals';
+              break;
+            case 'Code Examples':
+              window.location.href = '/code_examples';
+              break;
+            case 'Contact':
+              window.location.href = '/contact';
+              break;
+            case 'Library':
+              window.location.href = '/library';
+              break;
+            default:
+              window.location.href = '/';
+          }
+        } catch (error: unknown) {
+          console.error(
+            `%cResetting Callback Function of Drop Down list FAILED: **** ${error} ****`,
+            'color: red; font-size: 1rem;'
+          );
         }
       },
     });
-    console.log(window.location.href);
 
     this.dd2 = new (DropDownMenu as any)({
       id: 'dd2',
@@ -277,19 +343,31 @@ export class DropDown extends DropDownTemplate {
       },
     });
   }
-  static get observedAttributes() {
-    return ['window.location.href'];
-  }
-  public attributeChangedCallback(
-    name: string,
-    _oldValue: string,
-    _newValue: string
-  ) {
-    _oldValue !== _newValue
-      ? console.info(`old location: ${_oldValue},
-				${name} has a new location of: ${_newValue}
-				which should be equal to: ${window.location} `)
-      : console.info(`old location: ${_oldValue}`);
+  attributeChangedCallback(name: string, oldValue: string, newValue: string) {
+    setTimeout(() => {
+      try {
+        switch (name) {
+          case null:
+            null;
+            break;
+          case 'operations':
+            console.info(`old location: ${oldValue},
+              ${name} has a new location of: ${newValue}
+              which should be equal to: ${window.location} `);
+            break;
+          default:
+            console.warn(`DEFAULT || old location: ${oldValue},
+              ${name} has a new location of: ${newValue}
+              which should be equal to: ${window.location} `);
+            break;
+        }
+      } catch (error: unknown) {
+        console.error(
+          `%c attributeChangedCallback FAILED: ${name} has old location of: ${oldValue}`,
+          'color: red; font-size: 1.15rem;'
+        );
+      }
+    }, 2500);
   }
 }
 RegisterComponent('drop-down', DropDown);

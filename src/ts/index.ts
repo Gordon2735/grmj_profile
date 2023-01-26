@@ -37,8 +37,11 @@ async function init(): Promise<void> {
       const scriptGoals: HTMLScriptElement = document.createElement('script');
       const scriptCodeExamples: HTMLScriptElement =
         document.createElement('script');
-      const scriptCoverShell: HTMLScriptElement = document.createElement('script');
+      const scriptCoverShell: HTMLScriptElement =
+        document.createElement('script');
       const scriptDropDown: HTMLScriptElement =
+        document.createElement('script');
+      const themeShellScript: HTMLScriptElement =
         document.createElement('script');
       const scriptFooter: HTMLScriptElement | null =
         document.createElement('script');
@@ -102,6 +105,12 @@ async function init(): Promise<void> {
         src: '/src/components/dropDown/drop-down_shell.js',
         alt: 'Drop Down Menu Script',
       });
+      setAttributes(themeShellScript, {
+        type: 'module',
+        content: 'text/javascript',
+        src: '/src/components/themeSwitcher/theme-switcher_shell.js',
+        alt: 'Theme Shell Script',
+      });
       setAttributes(scriptFooter, {
         type: 'module',
         content: 'text/javascript',
@@ -119,6 +128,7 @@ async function init(): Promise<void> {
           scriptCodeExamples,
           scriptCoverShell,
           scriptDropDown,
+          themeShellScript,
           scriptFooter,
         ]);
         return;

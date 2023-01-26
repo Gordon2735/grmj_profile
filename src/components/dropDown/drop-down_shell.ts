@@ -14,17 +14,12 @@ export class DropDownShell extends DropDownTemplate {
   head: HTMLHeadElement | null;
   scriptDropDown: HTMLScriptElement;
 
-  // appendChildren(
-  //   _parent: HTMLElement | ShadowRoot | null,
-  //   _attributes: string | object | any
-  // ): void {}
-  // setAttributes(_tag: HTMLElement, _attribute: string | object | any): void {}
-
   override get template() {
     return /*html*/ `
-			${dropDown_sharedHTML.shell}
+
 			${dropDown_sharedHTML.dynadrop}
-        `;
+        
+    `;
   }
   constructor() {
     super();
@@ -45,17 +40,25 @@ export class DropDownShell extends DropDownTemplate {
     super.connectedCallback();
 
     appendChildren(this.head, [this.scriptDropDown]);
-    this.homePageStyleMod();
+    this.dropDownStyleMod();
 
     return;
   }
-  override homePageStyleMod() {
-    super.homePageStyleMod(
+  override dropDownStyleMod() {
+    super.dropDownStyleMod(
       (this.locationHREF = window.location.href),
       (this.checkLocation = 'http://127.0.0.1:9080/'),
       (this.dropShell = document.getElementById('dropDownShell')),
-      (this.styleSheetMod = `${dropDown_sharedStyles.home}`),
-      (this.styleSheetFlat = `${dropDown_sharedStyles.dropdown}`)
+      (this.homeStartHREF = `${dropDown_sharedStyles.home}`),
+      (this.coverLetterHREF = `${dropDown_sharedStyles.letter}`),
+      (this.aboutHREF = `${dropDown_sharedStyles.about}`),
+      (this.projectsHREF = `${dropDown_sharedStyles.projects}`),
+      (this.historyHREF = `${dropDown_sharedStyles.history}`),
+      (this.resumeHREF = `${dropDown_sharedStyles.resume}`),
+      (this.codeExHREF = `${dropDown_sharedStyles.codeEx}`),
+      (this.goalsHREF = `${dropDown_sharedStyles.goals}`),
+      (this.contactHREF = `${dropDown_sharedStyles.contact}`),
+      (this.libraryHREF = `${dropDown_sharedStyles.library}`)
     );
     return;
   }
