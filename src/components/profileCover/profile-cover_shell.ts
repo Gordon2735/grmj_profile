@@ -12,6 +12,15 @@ export class ProfileCoverShell extends ProfileCoverTemplate {
   script: HTMLScriptElement | null | undefined;
   override noShadow: boolean;
 
+  override get template() {
+    return /*html*/ `
+
+            ${profileCover_sharedHTML.shell}
+            <style>${profileCover_sharedStyles.shell}</style>
+
+        `;
+  }
+
   constructor() {
     super();
 
@@ -46,14 +55,6 @@ export class ProfileCoverShell extends ProfileCoverTemplate {
     super.connectedCallback();
 
     // appendChildren(this.head!, [this.script]);
-  }
-  override get template() {
-    return /*html*/ `
-
-            ${profileCover_sharedHTML.shell}
-            <style>${profileCover_sharedStyles.shell}</style>
-
-        `;
   }
 }
 RegisterComponent('profile-cover_shell', ProfileCoverShell);

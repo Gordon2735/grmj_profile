@@ -44,33 +44,12 @@ export class ThemeSwitcherShell extends ThemeSwitcherTemplate {
   override get template(): any {
     return /* html */ `
 
-      <theme-switcher id="themeSwitcher" class="theme-switcher"></theme-switcher>
+      <theme-switcher id="themeSwitcher" class="theme-switcher" state="dark"></theme-switcher>
     
       ${themeSwitcher_sharedHTML.shell}
       <style>${themeSwitcher_sharedStyles.shell}</style>
     
     `;
   }
-  // disConnectedCallback(): void {}
-  // static get observedAttributes(): any {
-  //   return ['theme'];
-  // }
-  // attributeChangedCallback(
-  //   name: string,
-  //   oldValue: string,
-  //   newValue: string
-  // ): void {
-  //   if (oldValue !== newValue) {
-  //   }
-
-  //   switch (name) {
-  //     case 'theme':
-  //       this.render(this.template);
-  //       break;
-
-  //     default:
-  //       break;
-  //   }
-  // }
 }
 RegisterComponent('theme-switcher_shell', ThemeSwitcherShell);

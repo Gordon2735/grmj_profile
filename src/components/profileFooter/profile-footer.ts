@@ -12,11 +12,13 @@ export class ProfileFooter extends ProfileFooterTemplate {
   targetHREF: string;
   getElement: HTMLElement | undefined | null;
   getStyleMap: string;
+  coverHREF: string;
   styleModifier: (
     currentHREF: string,
     keyHREF: string,
     targetElement: HTMLElement,
-    targetStyleMap: string
+    targetStyleMap: string,
+    coverLetterHREF: string
   ) => Promise<void>;
 
   constructor() {
@@ -26,6 +28,7 @@ export class ProfileFooter extends ProfileFooterTemplate {
     this.getHREF = window.location.href;
     this.targetHREF = 'http://127.0.0.1:9080/';
     this.getElement = document.getElementById('profileFooter');
+    this.coverHREF = 'http://127.0.0.1:9080/cover_letter';
     this.getStyleMap = `${profileFooter_sharedStyles.home}`;
 
     async function styleModifier(
@@ -33,18 +36,30 @@ export class ProfileFooter extends ProfileFooterTemplate {
       currentHREF: string,
       keyHREF: string,
       targetElement: HTMLElement,
-      targetStyleMap: string
+      targetStyleMap: string,
+      coverLetterHREF: string
     ) {
       try {
-        currentHREF === keyHREF
-          ? targetElement.insertAdjacentHTML(
+        switch (currentHREF) {
+          case keyHREF:
+            targetElement.insertAdjacentHTML(
               'afterbegin',
               `<style>${targetStyleMap}</style>`
-            )
-          : this.getElement.insertAdjacentHTML(
+            );
+            break;
+          case coverLetterHREF:
+            this.getElement.insertAdjacentHTML(
+              'afterbegin',
+              `<style>${profileFooter_sharedStyles.letter}</style>`
+            );
+            break;
+          default:
+            this.getElement.insertAdjacentHTML(
               'afterbegin',
               `<style>${profileFooter_sharedStyles.footer}</style>`
             );
+            break;
+        }
       } catch (error: unknown) {
         console.log(`The Footer Style Modifying Function has
 					encountered an error of type: ${error}`);
@@ -60,7 +75,8 @@ export class ProfileFooter extends ProfileFooterTemplate {
       this.getHREF,
       this.targetHREF,
       this.getElement!,
-      this.getStyleMap
+      this.getStyleMap,
+      this.coverHREF
     );
   }
   override get template() {

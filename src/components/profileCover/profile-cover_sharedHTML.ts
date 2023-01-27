@@ -17,20 +17,22 @@ profileCover_sharedHTML.shell = /*html*/ `
 
 profileCover_sharedHTML.cover = /*html*/ `
 
-
-    <section id="sectionCover" class="section-cover">
-      <h1 class="h1-cover">Gordon's Cover Letter</h1>
-      <h2 class="h2-cover">the letter<span class="arrow-span">&#10169;</span></h2>
-      <img id="coverImage" class="cover-image" src="/src/components/componentTools/resources/images/images-temp/blue-white-folders.png" alt="Gordon's Cover Image" />
-      <img id="coverImageGrmj" class="cover-image-grmj" src="/src/components/componentTools/resources/images/images-temp/grmj.jpg" alt="Gordon's Cover GRMJ Image" />      
-    </section>
+    <main id="mainCover" class="main-cover">
+      <section id="sectionCover" class="section-cover">
+        <h1 class="h1-cover">Gordon's Cover Letter</h1>
+        <h2 class="h2-cover">the letter<span class="arrow-span">&#10169;</span></h2>
+        <img id="coverImage" class="cover-image light" src="/src/components/componentTools/resources/images/blue-white-folders-light.png" alt="Gordon's Cover Image" />
+        <img id="coverImageGrmj" class="cover-image-grmj" src="/src/components/componentTools/resources/images/images-temp/grmj.jpg" alt="Gordon's Cover GRMJ Image" />      
+      </section>
+    </main>
 `;
 
 profileCover_sharedHTML.transition = /*html*/ `
 
       <div id="loader" class="loader">
-        <img id="loaderImg" class="loader-image" src="src/components/componentTools/resources/images/images-temp/grmj.jpg" alt="Gordon's Cover GRMJ Image" />
-        </div>
+        <img id="stretchmanRight" class="cover-stretchman right" src="/src/components/componentTools/resources/images/stretchman/right-stretchman___running.png" alt="Stretchman Image running right" />      
+        <img id="stretchmanLeft" class="cover-stretchman left" src="/src/components/componentTools/resources/images/stretchman/left-stretchman___running.png" alt="Stretchman Image running left" /> 
+      </div>
       <section id="secCover0" class="layer page0 zero" data-active="false">
         <a id="anchor0" class="anc0 cover-anchors">Load Letter</a>
 

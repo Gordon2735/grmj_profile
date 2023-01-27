@@ -157,6 +157,7 @@ interface profileFooter_sharedStyles {
   footerMod: string;
   jumps: string;
   home: string;
+  letter: string;
 }
 
 interface HistoryObject {

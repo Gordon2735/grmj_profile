@@ -31,17 +31,3 @@ themeSwitcher_sharedHTML.switcherBtn = /* html */ `
 `;
 
 export { themeSwitcher_sharedHTML };
-
-// "typescript.tsdk": "{ C:/Users/gordo/AppData/Roaming/npm/node_modules }/typescript/lib",
-
-// "prettier.tabWidth": 4,
-// "prettier.useTabs": false,
-// "printWidth": 80,
-// "singleQuote": true,
-// "trailingComma": "es5",
-// "bracketSpacing": true,
-
-// "[javascript]": {
-//   "editor.defaultFormatter": "esbenp.prettier-vscode",
-//   "editor.formatOnSave": true
-// },

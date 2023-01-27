@@ -10,12 +10,21 @@ const profile_sharedStyles = {
 
 profile_sharedStyles.global = /*css*/ ` 
 
-    body {
-        margin-top: 0em;
-        padding: 0;
-        background-image: var(--grmj-profile-background_image_00);
-        background-repeat: no-repeat;
-        background-size: cover;
+
+    .theme-light {
+        --image-home: url('../../src/components/componentTools/resources/images/005___home-theme-light__BACKGROUND.jpg');
+        --color-primary: #0060df;
+        --color-secondary: #fbfbfe;
+        --color-accent: #fd6f53;
+        --font-color: #000000;
+    }
+    
+    .theme-dark {
+        --image-home: url('../../src/components/componentTools/resources/images/000___home-theme-dark__BACKGROUND.png');
+        --color-primary: #17ed90;
+        --color-secondary: #2a2c2d;
+        --color-accent: #12cdea;
+        --font-color: #ffffff;
     }
 
 `;
@@ -27,6 +36,10 @@ profile_sharedStyles.home = /*css*/ `
         padding: 0;
         position: absolute;
         width: 100%;
+        height: 100vh;
+        background-image: var(--image-home);
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 
     .profile-shell .drop-down-shell {

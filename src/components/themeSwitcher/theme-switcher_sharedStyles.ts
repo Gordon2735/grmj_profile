@@ -23,7 +23,7 @@ themeSwitcher_sharedStyles.shell = /* css */ `
         .theme-switcher-shell {
             position: absolute;
             top: 75%;
-            left: 75%;
+            left: 85%;
             z-index: 1100;
         }
 
@@ -31,35 +31,20 @@ themeSwitcher_sharedStyles.shell = /* css */ `
 
 themeSwitcher_sharedStyles.switcher = /* css */ `
 
-
-        .theme-light {
-            --color-primary: #0060df;
-            --color-secondary: #fbfbfe;
-            --color-accent: #fd6f53;
-            --font-color: #000000;
-        }
-
-        .theme-dark {
-            --color-primary: #17ed90;
-            --color-secondary: #2a2c2d;
-            --color-accent: #12cdea;
-            --font-color: #ffffff;
-        }
-
         .container-theme {
 
             display: flex;
             width: 240px;
-            background: var(--color-secondary);
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            z-index: 1200;
+            z-index: 1;
         }
 
         .container-theme .h1-theme {
+            font-size: 1em;
             color: var(--font-color);
-            font-family: sans-serif;
+            font-family: var(--grmj-font-family-1);
         }
 
         .container-theme button {
@@ -68,7 +53,7 @@ themeSwitcher_sharedStyles.switcher = /* css */ `
             padding: 10px 20px;
             border: 0;
             border-radius: 5px;
-            z-index: 1200;
+            z-index: 2;
         }
         
         /* The switch - the box around the slider */
@@ -77,7 +62,7 @@ themeSwitcher_sharedStyles.switcher = /* css */ `
             display: inline-block;
             width: 60px;
             height: 34px;
-            z-index: 1200;
+            z-index: 2;
         }
 
         /* Hide default HTML checkbox */
@@ -85,7 +70,7 @@ themeSwitcher_sharedStyles.switcher = /* css */ `
             opacity: 0;
             width: 0;
             height: 0;
-            z-index: 1200;
+            z-index: 2;
         }
 
         /* The slider */
@@ -99,7 +84,7 @@ themeSwitcher_sharedStyles.switcher = /* css */ `
             background-color: #ccc;
             -webkit-transition: 0.4s;
             transition: 0.4s;
-            z-index: 1200;
+            z-index: 2;
         }
 
         .span-slider::before {
@@ -118,7 +103,7 @@ themeSwitcher_sharedStyles.switcher = /* css */ `
             background: white url('https://i.ibb.co/FxzBYR9/night.png');
             background-repeat: no-repeat;
             background-position: center;
-            z-index: 1200;
+            z-index: 2;
         }
 
         .slider-checkbox:checked+.span-slider {
@@ -131,7 +116,7 @@ themeSwitcher_sharedStyles.switcher = /* css */ `
             z-index: 1200;
         }
 
-        .slider-checkbox:checked+.slider::before {
+        .slider-checkbox:checked+.span-slider::before {
             -webkit-transform: translateX(24px);
             -ms-transform: translateX(24px);
             transform: translateX(24px);
@@ -222,3 +207,19 @@ themeSwitcher_sharedStyles.library = /* css */ `
 `;
 
 export { themeSwitcher_sharedStyles };
+
+// .theme-light {
+//     --color-primary: #0060df;
+//     --color-secondary: #fbfbfe;
+//     --color-accent: #fd6f53;
+//     --font-color: #000000;
+// }
+
+// .theme-dark {
+//     --color-primary: #17ed90;
+//     --color-secondary: #2a2c2d;
+//     --color-accent: #12cdea;
+//     --font-color: #ffffff;
+// }
+
+// "typescript.tsdk": "{ C:/Users/gordo/AppData/Roaming/npm/node_modules }/typescript/lib",

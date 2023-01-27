@@ -6,8 +6,7 @@ import { themeSwitcher_sharedHTML } from './theme-switcher_sharedHTML.js';
 import { themeSwitcher_sharedStyles } from './theme-switcher_sharedStyles.js';
 
 export class ThemeSwitcher extends ThemeSwitcherTemplate {
-  // setTheme: (themeName: string) => Promise<void>;
-  // toggleTheme: () => Promise<void>;
+  themeInputSwitch: HTMLInputElement | undefined;
 
   override get template(): any {
     return /* html */ `
@@ -18,7 +17,7 @@ export class ThemeSwitcher extends ThemeSwitcherTemplate {
       `;
   }
   static get observedAttributes(): any {
-    return ['theme'];
+    return ['state'];
   }
   constructor() {
     super();
@@ -28,9 +27,9 @@ export class ThemeSwitcher extends ThemeSwitcherTemplate {
   override connectedCallback(): void {
     super.connectedCallback();
 
-    const themeInputSwitch = document.getElementById(
-      'sliderCheckbox'
-    ) as HTMLInputElement;
+    this.themeInputSwitch = document.getElementById('sliderCheckbox') as
+      | HTMLInputElement
+      | undefined;
 
     async function setTheme(themeName: string): Promise<void> {
       try {
@@ -47,10 +46,16 @@ export class ThemeSwitcher extends ThemeSwitcherTemplate {
     }
 
     async function toggleTheme(): Promise<void> {
+      const grabComponent = document.getElementById(
+        'themeSwitcher'
+      ) as HTMLElement;
+
       try {
         localStorage.getItem('theme') === 'theme-dark'
-          ? setTheme('theme-light')
-          : setTheme('theme-dark');
+          ? (setTheme('theme-light'),
+            grabComponent.setAttribute('state', 'light'))
+          : (setTheme('theme-dark'),
+            grabComponent.setAttribute('state', 'dark'));
       } catch (error: unknown) {
         console.error(
           `%cThe toggleTheme Function failed: ${error}`,
@@ -62,10 +67,18 @@ export class ThemeSwitcher extends ThemeSwitcherTemplate {
     }
 
     async function init(this: any): Promise<void> {
+      const grabComponent = document.getElementById(
+        'themeSwitcher'
+      ) as HTMLElement;
+
       try {
         localStorage.getItem('theme') === 'theme-dark'
-          ? (setTheme('theme-dark'), (themeInputSwitch.checked = false))
-          : (setTheme('theme-light'), (themeInputSwitch.checked = true));
+          ? (setTheme('theme-dark'),
+            (this.themeInputSwitch.checked = false),
+            grabComponent.setAttribute('state', 'dark'))
+          : (setTheme('theme-light'),
+            (this.themeInputSwitch.checked = true),
+            grabComponent.setAttribute('state', 'light'));
       } catch (error) {
         console.error(
           `%cThe init Function failed: ${error}`,
@@ -77,7 +90,7 @@ export class ThemeSwitcher extends ThemeSwitcherTemplate {
     }
     init();
 
-    themeInputSwitch?.addEventListener('click', (event: MouseEvent) => {
+    this.themeInputSwitch?.addEventListener('click', (event: MouseEvent) => {
       try {
         toggleTheme();
         event.stopPropagation();
@@ -90,7 +103,25 @@ export class ThemeSwitcher extends ThemeSwitcherTemplate {
     });
   }
 
-  disConnectedCallback(): void {}
-  attributeChangedCallback() {}
+  attributeChangedCallback(name: string, oldValue: string, newValue: string) {
+    name === 'state'
+      ? console.log(
+          `%cThe component's state (${name}) attribute changed from ${oldValue} to ${newValue}`,
+          'color: fuchsia; font-weight: bold;'
+        )
+      : console.error(
+          `%cThe component's state attribute failed to change from ${oldValue} to ${newValue}`,
+          'color: red; font-weight: bold;'
+        );
+  }
+  disConnectedCallback(): void {
+    this.themeInputSwitch?.removeEventListener('click', (event: MouseEvent) => {
+      console.log(
+        `%cThe Input-Listener was removed`,
+        'color: fuchsia; font-weight: bold;'
+      );
+      event.stopPropagation();
+    });
+  }
 }
 RegisterComponent('theme-switcher', ThemeSwitcher);

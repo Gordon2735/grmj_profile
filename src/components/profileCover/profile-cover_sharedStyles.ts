@@ -12,18 +12,39 @@ const profileCover_sharedStyles = {
 
 profileCover_sharedStyles.shell = /*css*/ `
 
-    body {
-      margin-top: 0em;
-      padding: 0;
-      width: 100%;
-      background-image: var(--grmj-profile-background_image_01);
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
+
+      .theme-light {
+        --image-home: url('../../src/components/componentTools/resources/images/005___home-theme-light__BACKGROUND.jpg');
+        --image-cover: url('../../src/components/componentTools/resources/images/006___cover-light__BACKGROUND.png');
+        --color-primary: #0060df;
+        --color-secondary: #fbfbfe;
+        --color-accent: #fd6f53;
+        --font-color: #000000;
+      }
+
+      .theme-dark {
+        --image-home: url('../../src/components/componentTools/resources/images/000___home-theme-dark__BACKGROUND.png');
+        --image-cover: url('../../src/components/componentTools/resources/images/006___cover-dark__BACKGROUND.png');
+        --color-primary: #17ed90;
+        --color-secondary: #2a2c2d;
+        --color-accent: #12cdea;
+        --font-color: #ffffff;
+      }
+
 
 `;
 
 profileCover_sharedStyles.cover = /*css*/ `
+
+     .main-cover {
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      width: 100%;
+      background-image: var(--image-cover);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
 
     .section-cover {
       margin: 1.75em 0em 0em 1em;
@@ -95,11 +116,57 @@ profileCover_sharedStyles.transition = /*css*/ `
       z-index: 1000;
     }
 
-    .loader .loader-image {
-      position: absolute;
-      left: 50%;
-      top: 50%;
+    .cover-stretchman {
+      width: 240px;
+    }
 
+    .loader .cover-stretchman.right {
+      position: absolute;
+      left: 0%;
+      top: 50%;
+      animation: stretchman-right_load 12s ease-in;
+      visibility: visible;
+    }
+
+    .loader .cover-stretchman.left {
+      position: absolute;
+      left: 100%;
+      top: 50%;
+      animation-delay: 8s;
+      animation: stretchman-left_load 8s ease-in;
+      visibility: hidden;
+    }
+
+    @keyframes stretchman-right_load {
+      0% {
+        transform: translateX(-0%);
+        opacity: 1;
+      }
+      50% {
+        transform: translateX(50%);
+        opacity: .5;
+      }
+      100% {
+        transform: translateX(100%);
+        opacity: .0;
+        visibility: hidden;
+      }
+    }
+
+    @keyframes stretchman-left_load {
+      0% {
+        transform: translateX(100%);
+        visibility: visible;
+        opacity: 0.25;
+      }
+      50% {
+        transform: translateX(50%);
+        opacity: .75;
+      }
+      100% {
+        transform: translateX(-0%);
+        opacity: 1;
+      }
     }
 
     .page0 {
