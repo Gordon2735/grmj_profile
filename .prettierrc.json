@@ -1,9 +1,9 @@
 {
-  "prettier.tabWidth": 4,
-  "prettier.useTabs": false,
-  "printWidth": 80,
-  "singleQuote": true,
-  "trailingComma": "es5",
-  "bracketSpacing": true,
-  "rules": {}
+    "tabWidth": 4,
+    "useTabs": false,
+    "printWidth": 80,
+    "singleQuote": true,
+    "trailingComma": "none",
+    "bracketSpacing": true,
+    "rules": {}
 }

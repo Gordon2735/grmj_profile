@@ -3,8 +3,8 @@
 import sidePanel_sharedStyles from '../../interfaces/interfaces.js';
 
 const sidePanel_sharedStyles = {
-  global: ``,
-  panel: ``,
+    global: ``,
+    panel: ``
 };
 
 sidePanel_sharedStyles.global = /*css*/ `
@@ -121,16 +121,17 @@ sidePanel_sharedStyles.panel = /*css*/ `
         }
     }
     .hamburger {
-        margin: 39px 0px 3px 15px;
+        margin: 8px 0px 1px 15px;
         position: absolute;
-        top: -10px;
+        top: -13px;
         cursor: pointer;
-        font-size: 40px;
-        color: var(240, 81%, 12%, 0.99);
+        font-size: 35px;
+        color: var(--grmj-font-color-5);
         filter: drop-shadow(3px 2px 2px rgba(0, 0, 0, 0.6));
+        z-index: 2;
     }
     .hamburger:hover {
-        color: hsl(52, 77%, 53%);
+        color: var(--grmj-font-color-17);
     }
     .hamburger:active {
         color: rgb(252, 4, 4);

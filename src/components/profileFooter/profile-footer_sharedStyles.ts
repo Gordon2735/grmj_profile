@@ -3,11 +3,11 @@
 import { profileFooter_sharedStyles } from '../../interfaces/interfaces.js';
 
 const profileFooter_sharedStyles = {
-  footer: ``,
-  footerMod: ``,
-  home: ``,
-  jumps: ``,
-  letter: ``,
+    footer: ``,
+    footerMod: ``,
+    home: ``,
+    jumps: ``,
+    letter: ``
 };
 
 profileFooter_sharedStyles.footer = /*css*/ `

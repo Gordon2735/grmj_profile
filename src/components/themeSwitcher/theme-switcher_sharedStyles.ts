@@ -3,28 +3,28 @@
 import { themeSwitcher_sharedStyles } from '../../interfaces/interfaces';
 
 const themeSwitcher_sharedStyles = {
-  shell: '',
-  switcher: '',
-  switcherBtn: '',
-  home: '',
-  letter: '',
-  about: '',
-  projects: '',
-  history: '',
-  resume: '',
-  codeEx: '',
-  goals: '',
-  contact: '',
-  library: '',
+    shell: '',
+    switcher: '',
+    switcherBtn: '',
+    home: '',
+    letter: '',
+    about: '',
+    projects: '',
+    history: '',
+    resume: '',
+    codeEx: '',
+    goals: '',
+    contact: '',
+    library: ''
 };
 
 themeSwitcher_sharedStyles.shell = /* css */ `
 
         .theme-switcher-shell {
             position: absolute;
-            top: 75%;
-            left: 85%;
-            z-index: 1100;
+            top: 0%;
+            left: 89%;
+            z-index: 3;
         }
 
 `;
@@ -32,27 +32,30 @@ themeSwitcher_sharedStyles.shell = /* css */ `
 themeSwitcher_sharedStyles.switcher = /* css */ `
 
         .container-theme {
-
+            margin-top: 0.5em;
             display: flex;
-            width: 240px;
-            flex-direction: column;
+            width: 210px;
+            flex-direction: row;
             justify-content: center;
             align-items: center;
             z-index: 1;
         }
 
         .container-theme .h1-theme {
-            font-size: 1em;
+            padding: 0.4em;
+            font-size: 0.7em;
             color: var(--font-color);
             font-family: var(--grmj-font-family-1);
+            letter-spacing: 0.15em;
         }
 
         .container-theme button {
+            margin-bottom: 0.3em;
             color: var(--font-color);
             background: var(--color-primary);
             padding: 10px 20px;
             border: 0;
-            border-radius: 5px;
+            border-radius: 4px;
             z-index: 2;
         }
         
@@ -60,8 +63,8 @@ themeSwitcher_sharedStyles.switcher = /* css */ `
         .label-switch {
             position: relative;
             display: inline-block;
-            width: 60px;
-            height: 34px;
+            width: 50px;
+            height: 18px;
             z-index: 2;
         }
 
@@ -90,8 +93,8 @@ themeSwitcher_sharedStyles.switcher = /* css */ `
         .span-slider::before {
             position: absolute;
             content: "";
-            height: 40px;
-            width: 40px;
+            height: 30px;
+            width: 30px;
             left: 0px;
             bottom: 4px;
             top: 0;

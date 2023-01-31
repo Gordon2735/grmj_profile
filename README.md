@@ -47,9 +47,9 @@
 11. A desired goal in this combination of technologies is to achieve a 100% score on the Lighthouse Audit done aggressively with a regular cadence and continuance reporting within Google's Lighthouse Environment using Puppeteer for the PDF Documentation of the Lighthouse Audit.
 12. Considering a total integration of these software development technologies, we realize the natural tendency of gravitating toward complexity. Therefore with determination, our attitude toward this development project will strive for the least possible complexity; and endeavour reaching determined goals with the modest possible simplicity. This is the goal of the project's development strategy.
 
-    - _npm set init-author-email "example-user@example.com"_
-    - _npm set init-author-name "example_user"_
-    - _npm set init-license "MIT"_
+    -   _npm set init-author-email "example-user@example.com"_
+    -   _npm set init-author-name "example_user"_
+    -   _npm set init-license "MIT"_
 
 <br/>
 
@@ -73,6 +73,7 @@
      npm install typescript-cp -D
     npm install copyfiles -g
     npm install onchange -g
+    npm install tsc-watch --save-dev
 
   <br/>
 

@@ -3,19 +3,19 @@
 import { dropDown_sharedStyles } from '../../interfaces/interfaces.js';
 
 const dropDown_sharedStyles = {
-  shell: ``,
-  dropdown: ``,
-  dynadrop: ``,
-  home: ``,
-  letter: ``,
-  about: ``,
-  projects: ``,
-  history: ``,
-  resume: ``,
-  goals: ``,
-  codeEx: ``,
-  contact: ``,
-  library: ``,
+    shell: ``,
+    dropdown: ``,
+    dynadrop: ``,
+    home: ``,
+    letter: ``,
+    about: ``,
+    projects: ``,
+    history: ``,
+    resume: ``,
+    goals: ``,
+    codeEx: ``,
+    contact: ``,
+    library: ``
 };
 
 dropDown_sharedStyles.shell = /*css*/ ` 
@@ -220,48 +220,31 @@ dropDown_sharedStyles.dynadrop = /*css*/ `
 
 dropDown_sharedStyles.home = /*css*/ `
     /* dropDown_sharedStyles.home  */
-    .drop-down-shell {
-        margin: 1.45em 0 2em 2em;
-        position: absolute;
-        top: 0em;
-        left: 60%;
-        width: 600px;
-        height: 135px;
-    }
+
     .drop-down {
-        margin: 0;
-        position: absolute;
-        display: inline-block;
-        width: 575px;
-        height: 155px;
-    }
+        top: 0;
+    }    
+    
     .dd-section {
         margin: 0em 0 0em 0em;
-        position: absolute;
-        display: inline-flex;
-        width: 515px;
-        height: 75px;
-        background: var(--grmj-profile-background_8);
-        border: var(--grmj-border-2);
-        border-radius: 0.75em;
+        position: sticky;
+        width: 100%;
+        height: 5vh;
+        background: var(--grmj-profile-background_3);
         filter: var(--grmj-filter-dropShadow-4);
-        justify-content: center;
-        align-items: center;
+        justify-content: space-between;
+        align-items: right;
         z-index: 50;
     }
     
     .dropdown {
-        margin: 0em auto 0em 0.8em;
-        position: sticky;
-        top: 0em;
-        width: 200px;
+        margin: 0.6em auto 0em 0.4em;
+        width: 175px;
         height: 30px;
         display: inline-block;
-        background: var(--grmj-profile-background_9);
-        border: 1px solid #aaa;
-        box-shadow: 2px 1px 4px hsla(0, 0%, 0%, 0.59);        
-        border-radius: 5px;
-        color: var(--grmj-font-color-1);
+        border-right: 2px ridge #aaa;
+        border-left: 2px ridge #aaa;
+        color: var(--grmj-font-color-5);
         line-height: 30px;
         user-select: none;
         cursor: pointer;
@@ -269,7 +252,19 @@ dropDown_sharedStyles.home = /*css*/ `
         font-family: Arial, Helvetica, sans-serif;
         justify-content: space-between;
         letter-spacing: var(--grmj-letter-spacing-1);
+        text-align: center;
     }
+
+    #dd1 {
+        position: sticky;
+        left: 65%;
+    }
+
+    #dd2 {
+        position: sticky;
+        left: 80%;
+    }
+
     .dropdown_value {
         display: inline-block;
         padding-left: 5px;
@@ -354,48 +349,30 @@ dropDown_sharedStyles.home = /*css*/ `
 `;
 dropDown_sharedStyles.letter = /*css*/ `
     /* dropDown_sharedStyles.letter  */
-    .drop-down-shell {
-        margin: 1.45em 0 2em 2em;
-        position: absolute;
-        top: 0em;
-        left: 60%;
-        width: 600px;
-        height: 135px;
-    }
     .drop-down {
-        margin: 0;
-        position: absolute;
-        display: inline-block;
-        width: 575px;
-        height: 155px;
-    }
+        top: 0;
+    }    
+    
     .dd-section {
         margin: 0em 0 0em 0em;
-        position: absolute;
-        display: inline-flex;
-        width: 515px;
-        height: 75px;
-        background: var(--grmj-profile-background_8);
-        border: var(--grmj-border-2);
-        border-radius: 0.75em;
+        position: sticky;
+        width: 100%;
+        height: 5vh;
+        background: var(--grmj-profile-background_3);
         filter: var(--grmj-filter-dropShadow-4);
-        justify-content: center;
-        align-items: center;
+        justify-content: space-between;
+        align-items: right;
         z-index: 50;
     }
     
     .dropdown {
-        margin: 0em auto 0em 0.8em;
-        position: sticky;
-        top: 0em;
-        width: 200px;
+        margin: 0.6em auto 0em 0.4em;
+        width: 175px;
         height: 30px;
         display: inline-block;
-        background: var(--grmj-profile-background_9);
-        border: 1px solid #aaa;
-        box-shadow: 2px 1px 4px hsla(0, 0%, 0%, 0.59);        
-        border-radius: 5px;
-        color: var(--grmj-font-color-1);
+        border-right: 2px ridge #aaa;
+        border-left: 2px ridge #aaa;
+        color: var(--grmj-font-color-5);
         line-height: 30px;
         user-select: none;
         cursor: pointer;
@@ -403,7 +380,19 @@ dropDown_sharedStyles.letter = /*css*/ `
         font-family: Arial, Helvetica, sans-serif;
         justify-content: space-between;
         letter-spacing: var(--grmj-letter-spacing-1);
+        text-align: center;
     }
+
+    #dd1 {
+        position: sticky;
+        left: 65%;
+    }
+
+    #dd2 {
+        position: sticky;
+        left: 80%;
+    }
+
     .dropdown_value {
         display: inline-block;
         padding-left: 5px;

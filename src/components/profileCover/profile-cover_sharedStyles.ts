@@ -3,21 +3,21 @@
 import { profileCover_sharedStyles } from '../../interfaces/interfaces.js';
 
 const profileCover_sharedStyles = {
-  shell: ``,
-  cover: ``,
-  transition: ``,
-  slide: ``,
-  dropdown: ``,
+    shell: ``,
+    cover: ``,
+    transition: ``,
+    slide: ``,
+    dropdown: ``
 };
 
 profileCover_sharedStyles.shell = /*css*/ `
 
-
       .theme-light {
         --image-home: url('../../src/components/componentTools/resources/images/005___home-theme-light__BACKGROUND.jpg');
         --image-cover: url('../../src/components/componentTools/resources/images/006___cover-light__BACKGROUND.png');
-        --color-primary: #0060df;
+        --color-primary: var(--grmj-font-color-6);
         --color-secondary: #fbfbfe;
+        --color-tertiary: var(--grmj-font-color-6);
         --color-accent: #fd6f53;
         --font-color: #000000;
       }
@@ -25,21 +25,38 @@ profileCover_sharedStyles.shell = /*css*/ `
       .theme-dark {
         --image-home: url('../../src/components/componentTools/resources/images/000___home-theme-dark__BACKGROUND.png');
         --image-cover: url('../../src/components/componentTools/resources/images/006___cover-dark__BACKGROUND.png');
-        --color-primary: #17ed90;
+        --color-primary: var(--grmj-font-color-2);
         --color-secondary: #2a2c2d;
+        --color-tertiary: var(--grmj-font-color-3);
         --color-accent: #12cdea;
         --font-color: #ffffff;
       }
 
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .drop-down-shell {
+      margin: 0;
+      padding: 0;
+      position: sticky;
+      top: 0em;
+      left: 60%;
+      width: 100%;
+      height: 10vh;
+      z-index: 1;
+  }
 
 `;
 
 profileCover_sharedStyles.cover = /*css*/ `
 
-     .main-cover {
+    .main-cover {
       margin: 0;
       padding: 0;
-      position: absolute;
+      position: relative;
       width: 100%;
       background-image: var(--image-cover);
       background-repeat: no-repeat;
@@ -118,28 +135,28 @@ profileCover_sharedStyles.transition = /*css*/ `
 
     .cover-stretchman {
       width: 240px;
+      left: -100%;
     }
 
-    .loader .cover-stretchman.right {
+    .cover-stretchman.right {
       position: absolute;
       left: 0%;
       top: 50%;
-      animation: stretchman-right_load 12s ease-in;
+      transition: stretchman-right_load 3s ease-in;
       visibility: visible;
     }
 
-    .loader .cover-stretchman.left {
+    .cover-stretchman.left {
       position: absolute;
       left: 100%;
       top: 50%;
-      animation-delay: 8s;
-      animation: stretchman-left_load 8s ease-in;
+      transition: stretchman-left_load 3s ease-in 8s;
       visibility: hidden;
     }
 
     @keyframes stretchman-right_load {
       0% {
-        transform: translateX(-0%);
+        transform: translateX(-100%);
         opacity: 1;
       }
       50% {

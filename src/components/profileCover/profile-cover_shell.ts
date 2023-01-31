@@ -8,53 +8,53 @@ import { setAttributes } from '../componentTools/components_services.js';
 // import { setAttributes, appendChildren } from '../componentTools/components_services.js';
 
 export class ProfileCoverShell extends ProfileCoverTemplate {
-  head: HTMLHeadElement | null | undefined;
-  script: HTMLScriptElement | null | undefined;
-  override noShadow: boolean;
+    head: HTMLHeadElement | null | undefined;
+    script: HTMLScriptElement | null | undefined;
+    override noShadow: boolean;
 
-  override get template() {
-    return /*html*/ `
+    override get template() {
+        return /*html*/ `
 
             ${profileCover_sharedHTML.shell}
             <style>${profileCover_sharedStyles.shell}</style>
 
         `;
-  }
+    }
 
-  constructor() {
-    super();
+    constructor() {
+        super();
 
-    this.noShadow = true;
+        this.noShadow = true;
 
-    const head: HTMLHeadElement | null | undefined =
-      document.getElementById('head');
-    const script: HTMLScriptElement | null | undefined =
-      document.createElement('script');
-    // const coverScript: HTMLScriptElement | null | undefined =
-    // document.createElement('script');
-    this.head = head;
-    this.script = script;
+        const head: HTMLHeadElement | null | undefined =
+            document.getElementById('head');
+        const script: HTMLScriptElement | null | undefined =
+            document.createElement('script');
+        // const coverScript: HTMLScriptElement | null | undefined =
+        // document.createElement('script');
+        this.head = head;
+        this.script = script;
 
-    setAttributes(script, {
-      type: 'module',
-      content: 'text/javascript',
-      alt: 'profile-cover script',
-      src: '/src/components/profileCover/profile-cover.js',
-    });
-    this.head?.appendChild(script);
+        setAttributes(script, {
+            type: 'module',
+            content: 'text/javascript',
+            alt: 'profile-cover script',
+            src: '/src/components/profileCover/profile-cover.js'
+        });
+        this.head?.appendChild(script);
 
-    // setAttributes(coverScript, {
-    //   type: 'module',
-    //   content: 'text/javascript',
-    //   alt: 'profile-cover script',
-    //   src: '/src/components/profileCover/cover_pages.js',
-    // });
-    // this.head?.appendChild(coverScript);
-  }
-  override connectedCallback() {
-    super.connectedCallback();
+        // setAttributes(coverScript, {
+        //   type: 'module',
+        //   content: 'text/javascript',
+        //   alt: 'profile-cover script',
+        //   src: '/src/components/profileCover/cover_pages.js',
+        // });
+        // this.head?.appendChild(coverScript);
+    }
+    override connectedCallback() {
+        super.connectedCallback();
 
-    // appendChildren(this.head!, [this.script]);
-  }
+        // appendChildren(this.head!, [this.script]);
+    }
 }
 RegisterComponent('profile-cover_shell', ProfileCoverShell);

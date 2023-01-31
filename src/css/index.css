@@ -70,8 +70,8 @@
     --grmj-filter-dropShadow-2: drop-shadow(6px 4px 4px hsla(0, 0%, 0%, 0.6));
     --grmj-filter-dropShadow-3: drop-Shadow(0px 0.2rem 0.65rem hsla(198, 53%, 87%, 0.89));
     --grmj-filter-dropShadow-4: drop-shadow(0 0.2rem 0.25rem rgba(0, 0, 0, 0.99));
-    --grmj-filter-dropShadow-4a: drop-shadow(0 0.03rem 0.03rem rgba(0, 0, 0, 0.12));
-    --grmj-filter-dropShadow-5: drop-shadow(0 0.2rem 0.25rem hsla(198, 86%, 92%, 0.99));
+    --filter-dropShadow-4a: drop-shadow(0 0.03rem 0.03rem rgba(0, 0, 0, 0.12));
+    --filter-dropShadow-5: drop-shadow(0 0.2rem 0.25rem hsla(198, 86%, 92%, 0.99));
 
     /*Letter Spacing*/
     --grmj-letter-spacing-1: 0.1em;
@@ -168,6 +168,7 @@
 body {
     margin: 0em;
     padding: 0;
+    overflow: hidden;
     width: 100%;
     font-family: var(--grmj-font-family-1);
 }

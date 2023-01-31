@@ -3,9 +3,9 @@ import profile_sharedStyles from '../../interfaces/interfaces.js';
 // will have to create an interface for this
 
 const profile_sharedStyles = {
-  global: ``,
-  home: ``,
-  dropdown: ``,
+    global: ``,
+    home: ``,
+    dropdown: ``
 };
 
 profile_sharedStyles.global = /*css*/ ` 
@@ -13,18 +13,36 @@ profile_sharedStyles.global = /*css*/ `
 
     .theme-light {
         --image-home: url('../../src/components/componentTools/resources/images/005___home-theme-light__BACKGROUND.jpg');
-        --color-primary: #0060df;
+        --color-primary: var(--grmj-font-color-6);
         --color-secondary: #fbfbfe;
+        --color-tertiary: var(--grmj-font-color-6);
         --color-accent: #fd6f53;
         --font-color: #000000;
     }
     
     .theme-dark {
         --image-home: url('../../src/components/componentTools/resources/images/000___home-theme-dark__BACKGROUND.png');
-        --color-primary: #17ed90;
+        --color-primary: var(--grmj-font-color-2);
         --color-secondary: #2a2c2d;
+        --color-tertiary: var(--grmj-font-color-3);
         --color-accent: #12cdea;
         --font-color: #ffffff;
+    }
+
+    .drop-down-shell {
+        margin: 0;
+        padding: 0;
+        position: sticky;
+        top: 0em;
+        width: 100%;
+        height: 10vh;
+        z-index: 1;
+    }
+
+    .profile-home-shell {
+        margin: 0;
+        padding: 0;
+        top: 0;
     }
 
 `;
@@ -34,7 +52,7 @@ profile_sharedStyles.home = /*css*/ `
     .main {
         margin: 0;
         padding: 0;
-        position: absolute;
+        position: relative;
         width: 100%;
         height: 100vh;
         background-image: var(--image-home);
@@ -42,17 +60,12 @@ profile_sharedStyles.home = /*css*/ `
         background-size: cover;
     }
 
-    .profile-shell .drop-down-shell {
-        margin: 0em 0em 0em 0em;
-        position: absolute;
-        right: 4em;
-    }
-
     .title-official {
-        margin: 1.2em auto -0.4em 4.4em;
+        margin: 0em 0em 0em 3.4em;
+        padding-top: 1.52em;
         font-size: var(--grmj-font-size-8vw);
         font-weight: var(--grmj-font-weight-4);
-        color: var(--grmj-font-color-13);
+        color: var(--color-primary);
         font-style: var(--grmj-italic);
         letter-spacing: var(--grmj-letter-spacing-1a);
     }
@@ -61,42 +74,24 @@ profile_sharedStyles.home = /*css*/ `
         margin: 0.3em auto 0em 1em;
         font-size: max(min(7vw, 1.5em), 4vw);
         font-weight: var(--grmj-font-weight-7);
-        color: var(--grmj-font-color-2);
+        color: var(--color-primary);
         text-shadow: var(--grmj-text-shadow-1z);
         letter-spacing: var(--grmj-letter-spacing-1a);
         filter: var(--grmj-filter-dropShadow-4);
     }   
 
     .title-of {
-        margin: 0em auto 2em 8.75em;
-        font-size: var(--grmj-font-size-8vw);
-        font-weight: var(--grmj-font-weight-4);
-        color: var(--grmj-font-color-13);
-        font-style:var(--grmj-italic);
-        letter-spacing: var(--grmj-letter-spacing-1a);
-    }
-
-    .grmj-profile-subtitle2 {
-        margin: 1em 0em 1em 20.4em;
+        margin: 0em auto 2em 16.75em;
         font-size: var(--grmj-font-size-3vw);
-        font-weight: var(--grmj-font-weight-6);
-        color: var(--grmj-font-color-3);
-        text-shadow: var(--grmj-text-shadow-1);
-    }
-
-    .grmj-profile-subtitle3 {
-        margin: 1em 0 1em 22.8em;
-        font-size: var(--grmj-font-size-2vw);
-        font-weight: var(--grmj-font-weight-7);
-        font-style: var(--grmj-italic);
-        color: var(--grmj-font-color-5);
-        text-shadow: var(--grmj-text-shadow-3);
+        font-weight: var(--grmj-font-weight-4);
+        color: var(--color-primary);
+        font-style:var(--grmj-italic);
         letter-spacing: var(--grmj-letter-spacing-1a);
     }
 
     .grmj-pers-fig {
         margin: 2em 0em 1em 7em;
-        padding: 0.5em 0.5em;
+        padding: 1.5em 0.5em;
         top: 13.5em;
         left: 6.5em;
         width: max(min(18vw, 12.5em), 16vw);
@@ -109,56 +104,21 @@ profile_sharedStyles.home = /*css*/ `
         width: 18vw;
         aspect-ratio: 111 / 122;
         border-radius: 2em;        
-        box-shadow: var(--grmj-profile-box-shadow-2);
-        filter: var(--grmj-filter-dropShadow-4);
+        filter: var(--filter-dropShadow-5);
     }  
 
     .grmj-pers-fig .grmj-pers-fig-cap {
         margin-top: 0.5em;
-        margin-left: 1.7em;
+        margin-left: 1.9em;
         position: relative;
-        font-size: var(--grmj-font-size-2vw);
+        font-size: var(--grmj-font-size-1avw);
         font-weight: var(--grmj-font-weight-7);
-        color: var(--grmj-font-color-13);
+        color: var(--color-tertiary);
         text-shadow: var(--grmj-text-shadow-3);
         letter-spacing: var(--grmj-letter-spacing-1);
     }
 
-    .grmj-profile-section {
-        margin: 10em auto 0.2em auto;
-        padding: auto, 2em;
-        width: 80%;
-        justify-content: center;
-    }
-
-    .grmj-profile-section > .grmj-profile-quote {
-        margin: 2em auto 1em auto;
-        font-size: var(--grmj-font-size-1vw);
-        color: var(--grmj-font-color-2);
-        text-align: center;
-        text-justify: inter-word;
-    }
-
-    .details-dev {
-        margin: -2.5em 0em 0em 0em;
-        position: absolute;
-        pointer-events: all;  
-        left: 35%;
-        z-index: 999;
-    }
-
-
-    .details-software {
-        margin: 3.5em 0em 0em 0em;
-        position: absolute;
-        left: 35%;
-    }
-
-    .details-quote {
-        margin: 9.5em 0em 0em 0em;
-        position: absolute;
-        left: 35%;
-    }
+    
 
     @media screen and (max-width: 600px) {
 
@@ -263,3 +223,65 @@ profile_sharedStyles.home = /*css*/ `
 profile_sharedStyles.dropdown = /*css*/ ``;
 
 export { profile_sharedStyles };
+
+// .menu-navbar-shell {
+//     margin: 0em 0em 1em 0em;
+//     padding: 0;
+//     position: absolute;
+//     width: 100%;
+//     top: 0;
+//     z-index: 1000;
+// }
+
+// .grmj-profile-section {
+//     margin: 10em auto 0.2em auto;
+//     padding: auto, 2em;
+//     width: 80%;
+//     justify-content: center;
+// }
+
+// .grmj-profile-section > .grmj-profile-quote {
+//     margin: 2em auto 1em auto;
+//     font-size: var(--grmj-font-size-1vw);
+//     color: var(--grmj-font-color-2);
+//     text-align: center;
+//     text-justify: inter-word;
+// }
+
+// .details-dev {
+//     margin: -2.5em 0em 0em 0em;
+//     position: absolute;
+//     pointer-events: all;
+//     left: 35%;
+//     z-index: 999;
+// }
+
+// .details-software {
+//     margin: 3.5em 0em 0em 0em;
+//     position: absolute;
+//     left: 35%;
+// }
+
+// .details-quote {
+//     margin: 9.5em 0em 0em 0em;
+//     position: absolute;
+//     left: 35%;
+// }
+
+// .grmj-profile-subtitle2 {
+//     margin: 1em 0em 1em 20.4em;
+//     font-size: var(--grmj-font-size-3vw);
+//     font-weight: var(--grmj-font-weight-6);
+//     color: var(--grmj-font-color-3);
+//     text-shadow: var(--grmj-text-shadow-1);
+// }
+
+// .grmj-profile-subtitle3 {
+//     margin: 1em 0 1em 22.8em;
+//     font-size: var(--grmj-font-size-2vw);
+//     font-weight: var(--grmj-font-weight-7);
+//     font-style: var(--grmj-italic);
+//     color: var(--grmj-font-color-5);
+//     text-shadow: var(--grmj-text-shadow-3);
+//     letter-spacing: var(--grmj-letter-spacing-1a);
+// }
