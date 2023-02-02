@@ -16,12 +16,12 @@ export class ProfileCover extends ProfileCoverTemplate {
     override get template() {
         return /*html*/ ` 
     
-      ${profileCover_sharedHTML.cover}
-      ${profileCover_sharedHTML.transition}
-      <style>${profileCover_sharedStyles.cover}</style>
-      <style>${profileCover_sharedStyles.transition}</style>
+            ${profileCover_sharedHTML.cover}
+            ${profileCover_sharedHTML.transition}
+            <style>${profileCover_sharedStyles.cover}</style>
+            <style>${profileCover_sharedStyles.transition}</style>
     
-    `;
+        `;
     }
     static get observedAttributes(): any {
         return ['letter'];
@@ -108,6 +108,7 @@ export class ProfileCover extends ProfileCoverTemplate {
                             page1.dataset.active = 'false';
                             page1.style.display = 'none';
                             page1.style.visibility = 'hidden';
+
                             page2.dataset.active = 'false';
                             page2.style.display = 'none';
                             page2.style.visibility = 'hidden';

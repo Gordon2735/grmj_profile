@@ -159,7 +159,8 @@ export class DropDownTemplate extends HTMLElement {
 
         this.dropShell!.insertAdjacentHTML(
             'afterbegin',
-            `<drop-down id="dropDown" class="drop-down"></drop-down>`
+            `<drop-down id="dropDown" class="drop-down" operations="startup" data-dd1_2="hiding">
+            </drop-down>`
         );
         this.render(this.dropShell);
         return;

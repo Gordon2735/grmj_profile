@@ -21,13 +21,13 @@ sidePanel_sharedStyles.global = /*css*/ `
 
 sidePanel_sharedStyles.panel = /*css*/ `
     #container {
-        margin-bottom: 20px;
+        margin-bottom: 30px;
         position: absolute;
-        top: 160px;
+        top: 80px;
         left: 0px;
         width: 200px;
-        height: calc(100% - 225px);
-        background: #ccc;
+        height: calc(100% - 255px);
+        background: hsla(0, 0%, 66%, 0.69);
         overflow: hidden;
         transform: translateX(-227px);
         transition: all 1s;
@@ -35,7 +35,6 @@ sidePanel_sharedStyles.panel = /*css*/ `
         border: var(--grmj-border-0);
         border-radius: 0px 8px 8px 0px;
         font-Family: var(--grmj-font-family-1);
-        opacity: 0.84;
         z-index: 500;
     }
     #big-3 {

@@ -12,8 +12,8 @@ export class DropDown extends DropDownTemplate {
     // State: any | undefined;
     // historyStack: import('d:/grmj_profile/src/interfaces/interfaces').HistoryObject;
     head: HTMLHeadElement | null;
-    dd1: any;
-    dd2: any;
+    dd1: Element;
+    dd2: Element;
     initOperations: () => Promise<void>;
     setOperations: () => Promise<void>;
 
@@ -24,7 +24,7 @@ export class DropDown extends DropDownTemplate {
         this.dd1 = dd1;
         this.dd2 = dd2;
 
-        const head: HTMLHeadElement | null = document.querySelector('head');
+        const head: HTMLHeadElement | null = document.querySelector('#head');
         this.head = head;
 
         async function initOperations(): Promise<void> {
@@ -53,7 +53,7 @@ export class DropDown extends DropDownTemplate {
                 const getComponent = document.getElementById(
                     'dropDown'
                 ) as HTMLElement;
-                const getCurrentOperations = window.location.href;
+                let getCurrentOperations = window.location.href;
 
                 switch (getCurrentOperations) {
                     case 'http://127.0.0.1:9080/':
@@ -110,7 +110,7 @@ export class DropDown extends DropDownTemplate {
 		`;
     }
     static get observedAttributes() {
-        return ['operations'];
+        return ['operations', 'dd1_2'];
     }
     override connectedCallback(): void {
         super.connectedCallback();
@@ -136,7 +136,6 @@ export class DropDown extends DropDownTemplate {
                 return;
             }
         }
-        initialRender();
 
         function DropDownMenu(
             this: any,
@@ -161,6 +160,8 @@ export class DropDown extends DropDownTemplate {
                 const id = elem.closest('.dropdown').parentElement.id;
                 return (<any>window).dropdowns[id];
             };
+
+            const thiz: any = this;
 
             this.init = function (): void {
                 this.elem = document.getElementById(this.options.id);
@@ -285,20 +286,24 @@ export class DropDown extends DropDownTemplate {
                 }
 
                 let HTML = /*html*/ `
-					<div id:="dropdown" class="dropdown">
-						<div class="dropdown_value">${val}</div>
-						<div class="dropdown_arrow">▾</div>
-						<div   class="dropdown_panel">
-							<div id:="dd1s"  class="dropdown_items scrollbar"></div>
-						</div>
-					</div> 				 
+
+                    <div id:="dropdown" class="dropdown">
+                        <div class="dropdown_value">${val}</div>
+                        <div class="dropdown_arrow">▾</div>
+                        <div   class="dropdown_panel">
+                            <div id="dd1s"  class="dropdown_items scrollbar"></div>
+                        </div>
+                    </div> 	
+
                 `;
 
+                const self: any = this;
                 this.elem.innerHTML = HTML;
-                const elem: any = this.elem;
+                let elem: any = this.elem;
 
                 // { { !--Make parent elem inline - block--; } }
                 this.elem.style.display = 'inline-block';
+                this.elem.style.zIndex = 4;
 
                 if (!(<any>window).dropdowns) (<any>window).dropdowns = {};
                 (<any>window).dropdowns[this.options.id] = this;
@@ -317,46 +322,144 @@ export class DropDown extends DropDownTemplate {
                 HTML = '';
                 data.forEach(function (elem: any) {
                     HTML += /*html*/ `
-              <div class="dropdown_item" onmousedown="var self = getdd(this); self.clicked(this)">${elem}</div>
-          `;
+                        <div class="dropdown_item" onmousedown="var self = getdd(this); self.clicked(this)">${elem}</div>
+                    `;
                 });
                 this.items.innerHTML = HTML;
 
-                const self: any = this;
+                async function dropdownView(): Promise<void> {
+                    try {
+                        const getDropdown = document.getElementById(
+                            'dropDown'
+                        ) as HTMLElement | undefined;
+                        let getDropdownState = getDropdown?.dataset.dd1_2 as
+                            | string
+                            | null
+                            | undefined;
 
-                document.addEventListener('mousedown', function () {
+                        console.log(getDropdownState);
+
+                        switch (getDropdownState) {
+                            case 'viewing':
+                                thiz.getDropdownState = 'hiding';
+                                break;
+                            case 'hiding':
+                                thiz.getDropdownState = 'viewing';
+                                break;
+                            case 'default':
+                                console.error(
+                                    `%c The Switch Statement has an ERROR!`,
+                                    'color: red; font-weight: 900;'
+                                );
+                                break;
+                        }
+                    } catch (error: unknown) {
+                        console.error(
+                            `%c The dropdownView Function was invoked and failed! ${error}`,
+                            'color: red; font-weight: 900;'
+                        );
+                    }
+                }
+                this.elem.addEventListener('mousedown', function () {
                     self.hide();
                 });
 
                 this.elem.addEventListener(
                     'mousedown',
-                    function (event: Event) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                        if (self.inVisible) self.hide();
-                        else self.show();
+                    function (event: Event): any {
+                        try {
+                            event.preventDefault();
+                            // console.log(thiz.elem.pointerId);
+
+                            const grabDropdown = document.getElementById(
+                                'dropDown'
+                            ) as HTMLElement | null | undefined;
+                            const currentStateOfDropdown = grabDropdown?.dataset
+                                .dd1_2 as string;
+                            const scrollbar = grabDropdown?.querySelector(
+                                '.scrollbar'
+                            ) as HTMLDivElement | undefined;
+                            console.log(currentStateOfDropdown);
+
+                            switch (currentStateOfDropdown) {
+                                case 'hiding':
+                                    scrollbar!.style.background =
+                                        'var(--grmj-profile-background_3)';
+                                    self.show();
+                                    dropdownView();
+                                    // probably can only remove the listener from the disconnectedCallback
+                                    // method. connectedCallback is only called once. This is causing my switch statement
+                                    // not to iterate properly?
+                                    thiz.elem.removeEventListener(
+                                        'mousedown',
+                                        () => {
+                                            event.stopPropagation();
+                                        }
+                                    );
+                                    thiz.elem.addEventListener(
+                                        'mousedown',
+                                        () => {
+                                            self.hide();
+                                        }
+                                    );
+                                    thiz.elem.removeEventListener(
+                                        'mousedown',
+                                        () => {
+                                            event.stopPropagation();
+                                        }
+                                    );
+                                    break;
+                                case 'viewing':
+                                    scrollbar!.style.background =
+                                        'var(--grmj-profile-background_3)';
+                                    self.hide();
+                                    dropdownView();
+                                    thiz.elem.removeEventListener(
+                                        'mousedown',
+                                        () => {
+                                            event.stopPropagation();
+                                        }
+                                    );
+                                    break;
+                                default:
+                                    console.error(
+                                        `%c The Dropdown Menu Switch Statement had an ERROR and failed!`,
+                                        'color: red; font-weight: 900;'
+                                    );
+                                    break;
+                            }
+                        } catch (error: unknown) {
+                            console.error(
+                                `%c The Try/Catch of the Listener has an ERROR and failed! ${error}`,
+                                'color: red; font-weight: 900;'
+                            );
+                        }
                     }
                 );
             };
 
-            this.clicked = function (elem: { innerHTML: any }) {
+            this.clicked = function (elem: any) {
                 let event: Event | undefined;
                 event?.stopPropagation();
+
                 this.hide();
 
-                const _newval: any = elem.innerHTML;
-                this.value.innerHTML = _newval;
+                let newval: any = elem.innerHTML;
+                this.value.innerHTML = newval;
 
-                if (this.options.cb) this.options.cb(_newval);
+                if (this.options.cb) {
+                    this.options.cb(newval);
+                }
             };
 
             this.show = function (): void {
                 // { { !--close all dropdowns--; } }
-                for (const dd in (<any>window).dropdowns)
+                for (let dd in (<any>window).dropdowns)
                     (<any>window).dropdowns[dd].hide();
 
                 this.inVisible = true;
                 this.items.style.transform = 'translate(0px, 0px)';
+                this.items.style.zIndex = '101';
                 this.arrow.style.transform = 'rotate(180deg)';
             };
 
@@ -365,16 +468,17 @@ export class DropDown extends DropDownTemplate {
 
                 this.inVisible = false;
                 this.items.style.transform = 'translate(0px, -255px)';
+                this.items.style.zIndex = '101';
                 this.arrow.style.transform = 'rotate(0deg)';
             };
-
-            this.init();
-
-            return this;
+            thiz.init();
+            initialRender();
+            return thiz;
         }
 
         this.dd1 = new (DropDownMenu as any)({
             id: 'dd1',
+            class: 'dd-1-2',
             val: 'Home',
             data: [
                 'Home',
@@ -436,6 +540,7 @@ export class DropDown extends DropDownTemplate {
 
         this.dd2 = new (DropDownMenu as any)({
             id: 'dd2',
+            class: 'dd-1-2',
             val2: 'Library',
             data: [
                 'Web Components',

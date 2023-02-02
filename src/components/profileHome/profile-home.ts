@@ -6,7 +6,6 @@ import { profile_sharedStyles } from './profile-sharedStyles.js';
 import { profile_sharedHTML } from './profile-sharedHTML.js';
 import RegisterComponent from '../componentTools/components_services.js'; // setAttributes // appendChildren, // setAttributes
 import historyStack from '../../controller/state/profileState.js';
-// import prettier from 'd:/grmj_profile/node_modules/@types/prettier/standalone';
 
 export class ProfileHome extends ProfileTemplate {
     override noShadow: boolean;
@@ -14,9 +13,6 @@ export class ProfileHome extends ProfileTemplate {
     historyStack: import('d:/grmj_profile/src/interfaces/interfaces.js').HistoryObject;
     head: HTMLHeadElement | null;
     body: HTMLBodyElement | any | null;
-    // detailsDev: HTMLDetailsElement;
-    // detailsSoftware: HTMLDetailsElement;
-    // detailsQuote: HTMLDetailsElement;
 
     override get template() {
         return /*html*/ `            
@@ -42,9 +38,6 @@ export class ProfileHome extends ProfileTemplate {
 
         this.head = head;
         this.body = body;
-        // this.detailsDev = detailsDev;
-        // this.detailsSoftware = detailsSoftware;
-        // this.detailsQuote = detailsQuote;
 
         window.history.replaceState(this.State, 'home', '');
         this.historyStack.push(history.state);
@@ -60,63 +53,6 @@ export class ProfileHome extends ProfileTemplate {
     }
     override connectedCallback() {
         super.connectedCallback();
-
-        // const ckPrettier = prettier.check(this.innerHTML, { parser: 'html' });
-        // console.log(ckPrettier);
-
-        // this.body !== null
-        //   ? this.body.insertAdjacentHTML(
-        //       'beforeend',
-        //       /*html*/ `
-        // 		`
-        //     )
-        //   : null;
-
-        console.log('Home-Page is Rendered :::: HooT™️ Webelistics®️ ');
-
-        // const detailsDev = document.getElementById(
-        //   'detailsDev'
-        // ) as HTMLDetailsElement;
-        // const detailsSoftware = document.getElementById(
-        //   'detailsDev'
-        // ) as HTMLDetailsElement;
-        // const detailsQuote = document.getElementById(
-        //   'detailsDev'
-        // ) as HTMLDetailsElement;
-
-        // detailsDev.addEventListener('toggle', (event: Event) => {
-        //   event.defaultPrevented;
-
-        //   detailsDev.open
-        //     ? (detailsDev.ontoggle,
-        //       console.log('%cDevelopment Type Menu was closed', 'color: yellow;'))
-        //     : (detailsDev.ontoggle,
-        //       console.log('%cDevelopment Type Menu was opened', 'color: yellow;'));
-        //   event.stopPropagation;
-        // });
-        // detailsSoftware.addEventListener('toggle', (event: Event) => {
-        //   event.defaultPrevented;
-
-        //   detailsSoftware.open
-        //     ? (detailsSoftware.ontoggle,
-        //       console.log('%cSoftware Practices Menu was closed', 'color: yellow;'))
-        //     : (detailsSoftware.ontoggle,
-        //       console.log(
-        //         '%cSoftware Practices Menu was opened',
-        //         'color: yellow;'
-        //       ));
-        //   event.stopPropagation;
-        // });
-        // detailsQuote.addEventListener('toggle', (event: Event) => {
-        //   event.defaultPrevented;
-
-        //   detailsQuote.open
-        //     ? (detailsQuote.ontoggle,
-        //       console.log('%cPersonal Goals Menu was closed', 'color: yellow;'))
-        //     : (detailsQuote.ontoggle,
-        //       console.log('%cPersonal Goals Menu was opened', 'color: yellow;'));
-        //   event.stopPropagation;
-        // });
     }
     static get observedAttributes() {
         return ['window.location.href'];
