@@ -74,8 +74,14 @@
     npm install copyfiles -g
     npm install onchange -g
     npm install tsc-watch --save-dev
+    npm init playwright@latest
 
-  <br/>
+# NPM UNINSTALLS
+
+-   npm uninstall ts-jest
+-   npm uninstall @types/jest
+-   npm uninstall eslint-plugin-jest
+-   <br/>
 
 **Type: string | string[]**
 

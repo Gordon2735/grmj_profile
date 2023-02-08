@@ -148,6 +148,17 @@ interface themeSwitcher_sharedStyles {
     contact: string;
     library: string;
 }
+
+interface checkSwitch_sharedHTML {
+    shell: string;
+    switcher: string;
+}
+
+interface checkSwitch_sharedStyles {
+    shell: string;
+    switcher: string;
+    home: string;
+}
 interface profileHdr_sharedHTML {
     shell: string;
     hdr: string;
@@ -199,9 +210,11 @@ export {
     dropDown_sharedStyles,
     themeSwitcher_sharedHTML,
     themeSwitcher_sharedStyles,
+    checkSwitch_sharedHTML,
+    checkSwitch_sharedStyles,
     profileHdr_sharedStyles,
     profileHdr_sharedHTML,
     profileFooter_sharedHTML,
     profileFooter_sharedStyles,
-    HistoryObject,
+    HistoryObject
 };

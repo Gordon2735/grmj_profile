@@ -49,6 +49,14 @@ profileCover_sharedStyles.shell = /*css*/ `
       z-index: 1;
   }
 
+  .check-switch-shell {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 78%;
+    left: 42%;
+}
+
 `;
 
 profileCover_sharedStyles.cover = /*css*/ `

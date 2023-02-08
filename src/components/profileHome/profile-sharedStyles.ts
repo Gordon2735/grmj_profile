@@ -45,6 +45,14 @@ profile_sharedStyles.global = /*css*/ `
         top: 0;
     }
 
+    .check-switch-shell {
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        top: 95%;
+        left: 85%;
+    }
+
 `;
 
 profile_sharedStyles.home = /*css*/ `

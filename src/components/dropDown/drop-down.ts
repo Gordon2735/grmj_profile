@@ -12,6 +12,7 @@ export class DropDown extends DropDownTemplate {
     // State: any | undefined;
     // historyStack: import('d:/grmj_profile/src/interfaces/interfaces').HistoryObject;
     head: HTMLHeadElement | null;
+    elem: any;
     dd1: Element;
     dd2: Element;
     initOperations: () => Promise<void>;
@@ -114,6 +115,8 @@ export class DropDown extends DropDownTemplate {
     }
     override connectedCallback(): void {
         super.connectedCallback();
+
+        initialRender();
 
         const thiz = this;
 
@@ -297,7 +300,7 @@ export class DropDown extends DropDownTemplate {
 
                 `;
 
-                const self: any = this;
+                // const self: any = this;
                 this.elem.innerHTML = HTML;
                 let elem: any = this.elem;
 
@@ -328,23 +331,27 @@ export class DropDown extends DropDownTemplate {
                 this.items.innerHTML = HTML;
 
                 async function dropdownView(): Promise<void> {
+                    const getDropdown = document.getElementById('dropDown') as
+                        | HTMLElement
+                        | undefined;
+                    let getDropdownState = getDropdown?.dataset.dd1_2 as
+                        | string
+                        | null
+                        | undefined;
                     try {
-                        const getDropdown = document.getElementById(
-                            'dropDown'
-                        ) as HTMLElement | undefined;
-                        let getDropdownState = getDropdown?.dataset.dd1_2 as
-                            | string
-                            | null
-                            | undefined;
-
-                        console.log(getDropdownState);
+                        const viewing = (): void => {
+                            getDropdown?.setAttribute('data-dd1_2', 'viewing');
+                        };
+                        const hiding = (): void => {
+                            getDropdown?.setAttribute('data-dd1_2', 'hiding');
+                        };
 
                         switch (getDropdownState) {
                             case 'viewing':
-                                thiz.getDropdownState = 'hiding';
+                                hiding();
                                 break;
                             case 'hiding':
-                                thiz.getDropdownState = 'viewing';
+                                viewing();
                                 break;
                             case 'default':
                                 console.error(
@@ -359,9 +366,13 @@ export class DropDown extends DropDownTemplate {
                             'color: red; font-weight: 900;'
                         );
                     }
+                    setTimeout(() => {
+                        console.log(getDropdown?.dataset.dd1_2);
+                    }, 100);
                 }
+
                 this.elem.addEventListener('mousedown', function () {
-                    self.hide();
+                    thiz.hide();
                 });
 
                 this.elem.addEventListener(
@@ -374,52 +385,30 @@ export class DropDown extends DropDownTemplate {
                             const grabDropdown = document.getElementById(
                                 'dropDown'
                             ) as HTMLElement | null | undefined;
-                            const currentStateOfDropdown = grabDropdown?.dataset
+                            let currentStateOfDropdown = grabDropdown?.dataset
                                 .dd1_2 as string;
                             const scrollbar = grabDropdown?.querySelector(
                                 '.scrollbar'
                             ) as HTMLDivElement | undefined;
-                            console.log(currentStateOfDropdown);
+                            // console.log(currentStateOfDropdown);
 
                             switch (currentStateOfDropdown) {
                                 case 'hiding':
                                     scrollbar!.style.background =
                                         'var(--grmj-profile-background_3)';
-                                    self.show();
+                                    thiz.show();
                                     dropdownView();
                                     // probably can only remove the listener from the disconnectedCallback
                                     // method. connectedCallback is only called once. This is causing my switch statement
                                     // not to iterate properly?
-                                    thiz.elem.removeEventListener(
-                                        'mousedown',
-                                        () => {
-                                            event.stopPropagation();
-                                        }
-                                    );
-                                    thiz.elem.addEventListener(
-                                        'mousedown',
-                                        () => {
-                                            self.hide();
-                                        }
-                                    );
-                                    thiz.elem.removeEventListener(
-                                        'mousedown',
-                                        () => {
-                                            event.stopPropagation();
-                                        }
-                                    );
+                                    event.stopPropagation();
                                     break;
                                 case 'viewing':
                                     scrollbar!.style.background =
                                         'var(--grmj-profile-background_3)';
-                                    self.hide();
+                                    thiz.hide();
                                     dropdownView();
-                                    thiz.elem.removeEventListener(
-                                        'mousedown',
-                                        () => {
-                                            event.stopPropagation();
-                                        }
-                                    );
+                                    event.stopPropagation();
                                     break;
                                 default:
                                     console.error(
@@ -472,8 +461,7 @@ export class DropDown extends DropDownTemplate {
                 this.arrow.style.transform = 'rotate(0deg)';
             };
             thiz.init();
-            initialRender();
-            return thiz;
+            return this;
         }
 
         this.dd1 = new (DropDownMenu as any)({
@@ -600,6 +588,9 @@ export class DropDown extends DropDownTemplate {
                 );
             }
         }, 500);
+    }
+    disconnectedCallback() {
+        this.elem.removeEventListener('mousedown', () => {});
     }
 }
 RegisterComponent('drop-down', DropDown);

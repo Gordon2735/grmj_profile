@@ -49,6 +49,8 @@ async function init(): Promise<void> {
                 document.createElement('script');
             const themeShellScript: HTMLScriptElement =
                 document.createElement('script');
+            const scriptCheckSwitch: HTMLScriptElement =
+                document.createElement('script');
             const scriptFooter: HTMLScriptElement | null =
                 document.createElement('script');
 
@@ -123,6 +125,12 @@ async function init(): Promise<void> {
                 src: '/src/components/themeSwitcher/theme-switcher_shell.js',
                 alt: 'Theme Shell Script'
             });
+            setAttributes(scriptCheckSwitch, {
+                type: 'module',
+                content: 'text/javascript',
+                src: '/src/components/checkSwitch/check-switch_shell.js',
+                alt: 'Check Switch Shell Script'
+            });
             setAttributes(scriptFooter, {
                 type: 'module',
                 content: 'text/javascript',
@@ -141,6 +149,7 @@ async function init(): Promise<void> {
                     scriptCoverShell,
                     scriptMenuNavbarShell,
                     scriptDropDown,
+                    scriptCheckSwitch,
                     themeShellScript,
                     scriptFooter
                 ]);
