@@ -9,18 +9,21 @@ router.use(express.static('../../views'));
 //%  /Home page Route
 let user: any;
 const home: Router = router
-  .get('/', (_req: Request, res: Response) => {
-    res.set('Content-Type', 'text/html');
-    res.render('home', { layout: 'main' });
-  })
-  .post('/', async (req: Request, res: Response) => {
-    res.json(
-      await user.create(req.body).catch((error: unknown) => {
-        res.status(404),
-          console.info(
-            `Whoops, seems there was a "Page Not Found Error" ${error}`
-          );
-      })
-    );
-  });
+    .get('/', (_req: Request, res: Response) => {
+        res.set('Content-Type', 'text/html');
+        res.render('home', {
+            layout: 'main',
+            title: 'Home-Profile'
+        });
+    })
+    .post('/', async (req: Request, res: Response) => {
+        res.json(
+            await user.create(req.body).catch((error: unknown) => {
+                res.status(404),
+                    console.info(
+                        `Whoops, seems there was a "Page Not Found Error" ${error}`
+                    );
+            })
+        );
+    });
 export default home;
