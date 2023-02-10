@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-this-alias */
 'use strict';
 
 import { ThemeSwitcherTemplate } from './theme-switcher_template.js';
@@ -9,7 +10,7 @@ export class ThemeSwitcher extends ThemeSwitcherTemplate {
     themeInputSwitch: HTMLInputElement | undefined;
     grabComponent: HTMLElement | undefined;
 
-    override get template(): any {
+    override get template(): string {
         return /* html */ `
       
 		${themeSwitcher_sharedHTML.switcher}
@@ -17,7 +18,7 @@ export class ThemeSwitcher extends ThemeSwitcherTemplate {
       
       `;
     }
-    static get observedAttributes(): any {
+    static get observedAttributes(): string[] {
         return ['state'];
     }
     constructor() {
@@ -44,12 +45,12 @@ export class ThemeSwitcher extends ThemeSwitcherTemplate {
             try {
                 localStorage.setItem('theme', themeName);
                 document.documentElement.className = themeName;
+                return;
             } catch (error) {
                 console.error(
                     `%cThe setTheme Function failed: ${error}`,
                     'color: fuchsia; font-weight: bold;'
                 );
-            } finally {
                 return;
             }
         }
@@ -61,16 +62,17 @@ export class ThemeSwitcher extends ThemeSwitcherTemplate {
                       thiz.grabComponent?.setAttribute('state', 'light'))
                     : (setTheme('theme-dark'),
                       thiz.grabComponent?.setAttribute('state', 'dark'));
+                return;
             } catch (error: unknown) {
                 console.error(
                     `%cThe toggleTheme Function failed: ${error}`,
                     'color: fuchsia; font-weight: bold;'
                 );
-            } finally {
                 return;
             }
         }
 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         async function init(this: any): Promise<void> {
             try {
                 setTimeout(() => {
@@ -79,12 +81,12 @@ export class ThemeSwitcher extends ThemeSwitcherTemplate {
                           this.grabComponent.setAttribute('state', 'dark'))
                         : null;
                 }, 500);
+                return;
             } catch (error) {
                 console.error(
                     `%cThe init Function failed: ${error}`,
                     'color: fuchsia; font-weight: bold;'
                 );
-            } finally {
                 return;
             }
         }
@@ -95,11 +97,13 @@ export class ThemeSwitcher extends ThemeSwitcherTemplate {
                 try {
                     toggleTheme();
                     event.stopPropagation();
+                    return;
                 } catch (error: unknown) {
                     console.error(
                         `%cThe Input-Listener failed to invoke the toggleTheme Function: ${error}`,
                         'color: fuchsia; font-weight: bold;'
                     );
+                    return;
                 }
             }
         );
@@ -133,6 +137,7 @@ export class ThemeSwitcher extends ThemeSwitcherTemplate {
                 `%cThe component's state attribute failed to change from ${oldValue} to ${newValue}`,
                 'color: red; font-weight: bold;'
             );
+            return;
         }
     }
     disConnectedCallback(): void {
@@ -146,6 +151,7 @@ export class ThemeSwitcher extends ThemeSwitcherTemplate {
                 event.stopPropagation();
             }
         );
+        return;
     }
 }
 RegisterComponent('theme-switcher', ThemeSwitcher);

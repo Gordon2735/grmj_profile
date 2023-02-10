@@ -9,7 +9,7 @@ import RegisterComponent, {
 } from '../componentTools/components_services.js';
 
 export class CheckSwitchShell extends CheckSwitchTemplate {
-    override activateShadowDOM: Boolean | undefined;
+    override activateShadowDOM: boolean | undefined;
     checkSwitchScript: HTMLScriptElement;
     head: HTMLHeadElement;
     linkChango: HTMLLinkElement;
@@ -47,7 +47,7 @@ export class CheckSwitchShell extends CheckSwitchTemplate {
     observedAttributes() {
         return [];
     }
-    override get template() {
+    override get template(): string {
         return /*html*/ `
 
             ${checkSwitch_sharedHTML.shell}
@@ -61,11 +61,6 @@ export class CheckSwitchShell extends CheckSwitchTemplate {
 
         appendChildren(this.head, [this.linkChango, this.checkSwitchScript]);
     }
-
-    disconnectedCallback() {}
-
-    adoptedCallback() {}
-
     attributeChangedCallback(name: string, oldValue: string, newValue: string) {
         console.info(
             `attributeChangedCallback, ${name}, ${oldValue}, ${newValue}`

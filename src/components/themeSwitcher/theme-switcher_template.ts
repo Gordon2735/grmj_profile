@@ -1,24 +1,25 @@
 export class ThemeSwitcherTemplate extends HTMLElement {
-  noShadow: boolean = true;
+    noShadow = true;
 
-  public get template(): any {
-    return this.template;
-  }
-  public set template(value: any) {
-    this.template = value;
-  }
-
-  connectedCallback() {
-    if (!this.noShadow) this.attachShadow({ mode: 'open' });
-    this.render(this.template);
-  }
-
-  render(template: any) {
-    if (this.noShadow) {
-      this.innerHTML = template || this.template;
-      return;
-    } else {
-      this.shadowRoot!.innerHTML = template || this.template;
+    public get template(): string {
+        return this.template;
     }
-  }
+    public set template(value: string) {
+        this.template = value;
+    }
+
+    connectedCallback() {
+        if (!this.noShadow) this.attachShadow({ mode: 'open' });
+        this.render(this.template);
+    }
+
+    render(template: string) {
+        if (this.noShadow) {
+            this.innerHTML = template || this.template;
+            return;
+        } else {
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            this.shadowRoot!.innerHTML = template || this.template;
+        }
+    }
 }

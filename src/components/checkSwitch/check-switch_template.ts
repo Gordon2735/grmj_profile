@@ -1,13 +1,13 @@
 'use strict';
 
 export class CheckSwitchTemplate extends HTMLElement {
-    activateShadowDOM: Boolean | undefined = false;
+    activateShadowDOM: boolean | undefined = false;
 
-    set template(value: any) {
+    set template(value: string) {
         this.template = value;
     }
 
-    get template(): any {
+    get template(): string {
         return this.template;
     }
 
@@ -16,8 +16,9 @@ export class CheckSwitchTemplate extends HTMLElement {
         this.render(this.template);
     }
 
-    render(template: any): void {
+    render(template: string): void {
         if (this.activateShadowDOM) {
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             this.shadowRoot!.innerHTML = template || this.template;
             return;
         } else {

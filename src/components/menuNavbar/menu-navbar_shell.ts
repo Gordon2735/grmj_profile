@@ -12,7 +12,7 @@ export class MenuNavbarShell extends MenuNavbarTemplate {
     head: HTMLHeadElement | null | undefined;
     menuNavbarScript: HTMLScriptElement;
 
-    override get template(): any {
+    override get template(): string {
         return /* html */ `
 
             ${menuNavbar_sharedHTML.shell}

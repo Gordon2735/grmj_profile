@@ -5,6 +5,7 @@ const router: Router = express.Router();
 router.use(express.static('../../views'));
 
 //%  /Library page Route
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 let user: any;
 const library: Router = router
     .get('/library', (_req: Request, res: Response) => {

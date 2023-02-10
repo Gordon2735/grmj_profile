@@ -5,6 +5,7 @@ const router = express.Router();
 router.use(express.static('../../views'));
 
 //%  /Contact page Route
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 let user: any;
 const contact: Router = router
     .get('/contact', (_req: Request, res: Response) => {

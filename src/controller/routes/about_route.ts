@@ -5,6 +5,7 @@ const router = express.Router();
 router.use(express.static('../../views'));
 
 //%  /About page Route
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 let user: any;
 const about: Router = router
     .get('/about', (_req: Request, res: Response) => {

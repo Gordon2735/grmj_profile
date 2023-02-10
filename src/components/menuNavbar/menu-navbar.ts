@@ -11,7 +11,7 @@ export class MenuNavbar extends MenuNavbarTemplate {
     clickToggle: HTMLAnchorElement | null | undefined;
     clickNavbarLinks: HTMLDivElement | null | undefined;
 
-    override get template(): any {
+    override get template(): string {
         return /* html */ `
 
             ${menuNavbar_sharedHTML.navbar}
@@ -27,11 +27,11 @@ export class MenuNavbar extends MenuNavbarTemplate {
 
         this.initializeShadowDOM = false;
 
-        let menuNav = document.getElementById('menuNavbar');
-        let clickToggle = menuNav?.querySelector(
+        const menuNav = document.getElementById('menuNavbar');
+        const clickToggle = menuNav?.querySelector(
             '.toggle-button'
         ) as HTMLAnchorElement;
-        let clickNavbarLinks = menuNav?.querySelector(
+        const clickNavbarLinks = menuNav?.querySelector(
             '.navbar-links'
         ) as HTMLDivElement;
 
@@ -42,19 +42,27 @@ export class MenuNavbar extends MenuNavbarTemplate {
     override connectedCallback(): void {
         super.connectedCallback();
 
-        let viewportWidth: number = 0;
+        let viewportWidth = 0;
+        // eslint-disable-next-line @typescript-eslint/no-this-alias
         const thiz = this;
 
         async function getViewportWidth(): Promise<number | void> {
             try {
-                return new Promise((resolve: any | undefined) => {
-                    resolve(
-                        (viewportWidth =
-                            window.innerWidth ||
-                            document.documentElement.clientWidth)
-                    );
-                });
-            } catch (error) {
+                new Promise(
+                    (
+                        resolve
+                    ): ((
+                        value: number | void | PromiseLike<number | void>
+                    ) => void) => {
+                        resolve(
+                            (viewportWidth =
+                                window.innerWidth ||
+                                document.documentElement.clientWidth)
+                        );
+                        return resolve;
+                    }
+                );
+            } catch (error: unknown) {
                 console.error(
                     `%cError with the getViewportWidth function: **** ${error} ****`,
                     'color: red; font-weight: bold;'
@@ -63,7 +71,7 @@ export class MenuNavbar extends MenuNavbarTemplate {
             }
         }
 
-        function currentWidth(): Promise<any> | void {
+        function currentWidth(): Promise<number> | void {
             try {
                 const currentState = thiz.menuNav?.getAttribute('state');
                 if (viewportWidth >= 140 && viewportWidth <= 399) {
@@ -80,7 +88,7 @@ export class MenuNavbar extends MenuNavbarTemplate {
                         : null;
                 }
                 return;
-            } catch (error) {
+            } catch (error: unknown) {
                 console.error(
                     `%cError with the current Width function: **** ${error} ****`,
                     'color: red; font-weight: bold;'
@@ -92,7 +100,7 @@ export class MenuNavbar extends MenuNavbarTemplate {
         thiz.clickToggle?.addEventListener('click', (event: MouseEvent) => {
             try {
                 thiz.clickNavbarLinks?.classList.toggle('active');
-            } catch (error) {
+            } catch (error: unknown) {
                 console.error(
                     `%cError with the click-toggle event listener: **** ${error} ****`,
                     'color: red; font-weight: bold;'
@@ -113,7 +121,7 @@ export class MenuNavbar extends MenuNavbarTemplate {
                         `%c The Current Status of component State:  ${getState}`,
                         'color: chartreuse font-weight: bold;'
                     );
-                } catch (error) {
+                } catch (error: unknown) {
                     console.error(
                         `%cError with the window resize event listener: **** ${error} ****`,
                         'color: red; font-weight: bold;'
@@ -126,7 +134,7 @@ export class MenuNavbar extends MenuNavbarTemplate {
             try {
                 await getViewportWidth();
                 currentWidth();
-            } catch (error) {
+            } catch (error: unknown) {
                 console.error(
                     `%cError with the init function: **** ${error} ****`,
                     'color: red; font-weight: bold;'
@@ -173,7 +181,7 @@ export class MenuNavbar extends MenuNavbarTemplate {
                     );
                     break;
             }
-        } catch (error) {
+        } catch (error: unknown) {
             console.error(
                 `%c attributeChangedCallback:  **** Switch Error || Warning ****,
                     **** ${error} ****`,
@@ -183,9 +191,17 @@ export class MenuNavbar extends MenuNavbarTemplate {
     }
     disconnectedCallback(): void {
         try {
-            this.clickToggle?.removeEventListener('click', () => {});
-            window.removeEventListener('resize', () => {});
-        } catch (error) {
+            this.clickToggle?.removeEventListener(
+                'click',
+                (event: MouseEvent) => {
+                    this.clickNavbarLinks?.classList.toggle('active');
+                    event.stopPropagation();
+                }
+            );
+            window.removeEventListener('resize', (event: UIEvent) => {
+                event.stopPropagation();
+            });
+        } catch (error: unknown) {
             console.error(
                 `%c disconnectedCallback:  **** Error || Warning ****,
                     **** ${error} ****`,

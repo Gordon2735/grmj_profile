@@ -7,14 +7,14 @@
 window.lettext = function(container: any) {
 
     // Activated when the current layer changes
-    let changed: any = new this.lettext.Signal();
+    const changed: any = new this.lettext.Signal();
 
     // Layers in this instance of lettext
     let layers = Array.prototype.slice.call(container.querySelectorAll('.layer'));
     
     // Flag if browser is capable of handling transitions
 
-    let capable = 'WebkitPerspective' in document.body.style ||
+    const capable = 'WebkitPerspective' in document.body.style ||
                   'MozPerspective' in document.body.style ||
                   'msPerspective' in document.body.style ||
                   'OPerspective' in document.body.style ||
@@ -73,7 +73,7 @@ window.lettext = function(container: any) {
     }
       //show previous layer
       function previous(): any {
-        let index = getIndex(0) - 1;
+        const index = getIndex(0) - 1;
         show(index >= 0 ? index : layers.length + index, 'left');
       }
 
@@ -132,27 +132,27 @@ window.lettext.Signal.prototype.add = function(callback: any) {
 }
 
 window.lettext.Signal.prototype.remove = function( callback: any ) {
-	var i = this.listeners.indexOf( callback );
+	const i = this.listeners.indexOf( callback );
 
 	if( i >= 0 ) this.listeners.splice( i, 1 );
 }
 
 window.lettext.Signal.prototype.dispatch = function() {
-	var args = Array.prototype.slice.call( arguments );
+	const args = Array.prototype.slice.call( arguments );
 	this.listeners.forEach( function( func: { apply: (arg0: null, arg1: any[]) => void; }, _idx: any ) {
 		func.apply( null, args );
 	} );
 } 
 
 // Create a new instance of lettext
-var k = window.lettext( document.querySelector( '.let-text' ) );
+const k = window.lettext( document.querySelector( '.let-text' ) );
 
 // Demo page JS
-var navigationContainer: HTMLElement | null = document.body.querySelector( '.navigation' );
+const navigationContainer: HTMLElement | null = document.body.querySelector( '.navigation' );
 
 // Create one bullet per layer
-for( var i = 0, len = k.getTotal(); i < len; i++ ) {
-	var navigation = document.createElement( 'li' );
+for( let i = 0, len = k.getTotal(); i < len; i++ ) {
+	const navigation = document.createElement( 'li' );
 	navigation.className = i === 0 ? 'active' : '';
 	navigation.setAttribute( 'index', `${i}` );
 	navigation.onclick = function( event: any ) { 
@@ -166,8 +166,8 @@ for( var i = 0, len = k.getTotal(); i < len; i++ ) {
 
 // Update the navigation when the layer changes
 k.changed.add( function( _layer: any, index: number ) {
-	var navigation = document.body.querySelectorAll( '.navigation li' );
-	for( var i = 0, len = navigation.length; i < len; i++ ) {
+	const navigation = document.body.querySelectorAll( '.navigation li' );
+	for( let i = 0, len = navigation.length; i < len; i++ ) {
 		navigation[i].className = i === index ? 'active' : '';
 	}
 } );

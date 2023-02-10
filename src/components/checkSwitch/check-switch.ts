@@ -6,7 +6,7 @@ import { checkSwitch_sharedStyles } from './check-switch_sharedStyles.js';
 import RegisterComponent from '../componentTools/components_services.js';
 
 export class CheckSwitch extends CheckSwitchTemplate {
-    override activateShadowDOM: Boolean | undefined;
+    override activateShadowDOM: boolean | undefined;
 
     constructor() {
         super();
@@ -16,7 +16,7 @@ export class CheckSwitch extends CheckSwitchTemplate {
     observedAttributes() {
         return [];
     }
-    override get template() {
+    override get template(): string {
         return /*html*/ `
 
             ${checkSwitch_sharedHTML.switcher}
@@ -34,9 +34,5 @@ export class CheckSwitch extends CheckSwitchTemplate {
             `attributeChangedCallback, ${name}, ${oldValue}, ${newValue}`
         );
     }
-
-    disconnectedCallback() {}
-
-    adoptedCallback() {}
 }
 RegisterComponent('check-switch', CheckSwitch);

@@ -6,11 +6,12 @@ import { profileCover_sharedHTML } from './profile-cover_sharedHTML.js';
 import { profileCover_sharedStyles } from './profile-cover_sharedStyles.js';
 
 export class ProfileCover extends ProfileCoverTemplate {
-    override noShadow: boolean = true;
+    override noShadow = true;
     anchor0: HTMLAnchorElement | undefined;
     anchor1: HTMLAnchorElement | undefined;
     anchor2: HTMLAnchorElement | undefined;
     anchor3: HTMLAnchorElement | undefined;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     static dataset: any;
 
     override get template() {
@@ -23,7 +24,7 @@ export class ProfileCover extends ProfileCoverTemplate {
     
         `;
     }
-    static get observedAttributes(): any {
+    static get observedAttributes(): string[] {
         return ['letter'];
     }
     constructor() {
@@ -74,6 +75,7 @@ export class ProfileCover extends ProfileCoverTemplate {
             return event.target, event.stopPropagation();
         });
 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         async function switchLetterPage(this: any): Promise<any> {
             try {
                 const load = document.getElementById(
@@ -96,6 +98,7 @@ export class ProfileCover extends ProfileCoverTemplate {
                     document.body.querySelector('#profileCover');
                 const componentLetterAttribute: string | undefined | null =
                     grabbingCoverComponent?.getAttribute('letter');
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                 load!.style.left = '0';
 
                 switch (componentLetterAttribute) {
@@ -232,12 +235,13 @@ export class ProfileCover extends ProfileCoverTemplate {
         }
     }
     attributeChangedCallback(
-        name: string | undefined,
+        name: string | undefined | null,
         oldValue: string | undefined,
         newValue: string
-    ): any {
+    ): void {
         setTimeout(() => {
-            let currentName: any = this.getAttribute('letter');
+            const currentName: string | undefined | null =
+                this.getAttribute('letter');
             console.info(
                 `%c${currentName} is the current component's letter attribute:
         ${name} is the name of the attribute.
@@ -247,7 +251,7 @@ export class ProfileCover extends ProfileCoverTemplate {
             );
         }, 100);
     }
-    disconnectedCallback(): any {
+    disconnectedCallback(): void {
         console.info(
             '%cThe Component "ProfileCover" has been removed from the DOM.',
             'color: goldenrod;  font-size: 0.5rem; font-weight: bold;'

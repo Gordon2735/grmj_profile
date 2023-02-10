@@ -54,7 +54,7 @@ export class DropDown extends DropDownTemplate {
                 const getComponent = document.getElementById(
                     'dropDown'
                 ) as HTMLElement;
-                let getCurrentOperations = window.location.href;
+                const getCurrentOperations = window.location.href;
 
                 switch (getCurrentOperations) {
                     case 'http://127.0.0.1:9080/':
@@ -105,12 +105,12 @@ export class DropDown extends DropDownTemplate {
         }
         this.setOperations = setOperations;
     }
-    override get template() {
+    override get template(): string {
         return /*html*/ `
 			${dropDown_sharedHTML.dropdown}
 		`;
     }
-    static get observedAttributes() {
+    static get observedAttributes(): string[] {
         return ['operations', 'dd1_2'];
     }
     override connectedCallback(): void {
@@ -302,7 +302,7 @@ export class DropDown extends DropDownTemplate {
 
                 // const self: any = this;
                 this.elem.innerHTML = HTML;
-                let elem: any = this.elem;
+                const elem: any = this.elem;
 
                 // { { !--Make parent elem inline - block--; } }
                 this.elem.style.display = 'inline-block';
@@ -334,7 +334,7 @@ export class DropDown extends DropDownTemplate {
                     const getDropdown = document.getElementById('dropDown') as
                         | HTMLElement
                         | undefined;
-                    let getDropdownState = getDropdown?.dataset.dd1_2 as
+                    const getDropdownState = getDropdown?.dataset.dd1_2 as
                         | string
                         | null
                         | undefined;
@@ -385,15 +385,16 @@ export class DropDown extends DropDownTemplate {
                             const grabDropdown = document.getElementById(
                                 'dropDown'
                             ) as HTMLElement | null | undefined;
-                            let currentStateOfDropdown = grabDropdown?.dataset
+                            const currentStateOfDropdown = grabDropdown?.dataset
                                 .dd1_2 as string;
                             const scrollbar = grabDropdown?.querySelector(
                                 '.scrollbar'
-                            ) as HTMLDivElement | undefined;
+                            ) as HTMLDivElement | undefined | null;
                             // console.log(currentStateOfDropdown);
 
                             switch (currentStateOfDropdown) {
                                 case 'hiding':
+                                    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                                     scrollbar!.style.background =
                                         'var(--grmj-profile-background_3)';
                                     thiz.show();
@@ -404,6 +405,7 @@ export class DropDown extends DropDownTemplate {
                                     event.stopPropagation();
                                     break;
                                 case 'viewing':
+                                    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                                     scrollbar!.style.background =
                                         'var(--grmj-profile-background_3)';
                                     thiz.hide();
@@ -433,7 +435,7 @@ export class DropDown extends DropDownTemplate {
 
                 this.hide();
 
-                let newval: any = elem.innerHTML;
+                const newval: any = elem.innerHTML;
                 this.value.innerHTML = newval;
 
                 if (this.options.cb) {
@@ -443,7 +445,7 @@ export class DropDown extends DropDownTemplate {
 
             this.show = function (): void {
                 // { { !--close all dropdowns--; } }
-                for (let dd in (<any>window).dropdowns)
+                for (const dd in (<any>window).dropdowns)
                     (<any>window).dropdowns[dd].hide();
 
                 this.inVisible = true;
@@ -590,7 +592,9 @@ export class DropDown extends DropDownTemplate {
         }, 500);
     }
     disconnectedCallback() {
-        this.elem.removeEventListener('mousedown', () => {});
+        this.elem.removeEventListener('mousedown', (event: MouseEvent) => {
+            event.stopPropagation();
+        });
     }
 }
 RegisterComponent('drop-down', DropDown);
