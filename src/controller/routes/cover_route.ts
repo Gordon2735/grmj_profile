@@ -12,7 +12,7 @@ const cover: Router = router
         res.set('Content-Type', 'text/html');
         res.render('cover_letter', {
             layout: 'main',
-            title: 'Cover Letter-Profile'
+            title: 'Cover-Letter-Profile'
         });
     })
     .post('/', async (req: Request, res: Response) => {

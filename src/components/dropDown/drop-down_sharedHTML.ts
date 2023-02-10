@@ -12,7 +12,7 @@ dropDown_sharedHTML.shell = /*html*/ `
 `;
 
 dropDown_sharedHTML.dropdown = /*html*/ `
-	<section id="ddSection" class="dd-section">
+	<section id="ddSection" class="dd-section" data-testid="dropdowntestid" name="ddsection">
    		<div id="dd1"></div><div id="dd2"></div>
 	</section>
 `;
