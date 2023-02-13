@@ -49,13 +49,13 @@ profileCover_sharedStyles.shell = /*css*/ `
       z-index: 1;
   }
 
-  .check-switch-shell {
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    top: 78%;
-    left: 42%;
-}
+    .check-switch-shell {
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top: 78%;
+      left: 42%;
+  }
 
 `;
 
@@ -107,7 +107,7 @@ profileCover_sharedStyles.cover = /*css*/ `
     .arrow-span {
       position: absolute;
       top: 1.8em;
-      left: 44%;
+      left: 51%;
       font-size: 1.75em;
       font-weight: var(--grmj-font-weight-9);
       color: hsla(144, 56%, 37%, 0.9); 
@@ -197,7 +197,7 @@ profileCover_sharedStyles.transition = /*css*/ `
     .page0 {
       padding: 0.5em;
       position: absolute;
-      top: 30%;
+      top: 33%;
       left: 20%;
       width: 360px;
       border-radius: 0.5em;
@@ -220,7 +220,7 @@ profileCover_sharedStyles.transition = /*css*/ `
     .page0 a:active {
       color: var(--grmj-font-color-17);
       transition: 0.2s;
-      opacity: 0.1;
+      opacity: 1;
     }
 
     .page0 a:after {
@@ -235,7 +235,7 @@ profileCover_sharedStyles.transition = /*css*/ `
       width: 460px;
       height: 60vh;
       border-radius: 0.5em;
-      background-color: var(--grmj-profile-background_10);
+      background-color: hsla(195, 53%, 79%, 0.49);
       text-align: center;
       visibility: hidden;
     }
@@ -269,7 +269,7 @@ profileCover_sharedStyles.transition = /*css*/ `
       font-size: 1.2em;
       color: var(--grmj-font-color-17);
       transition: 0.2s;
-      opacity: 0.1;
+      opacity: 0.8;
     }
 
     .page1 a:after {
@@ -284,7 +284,7 @@ profileCover_sharedStyles.transition = /*css*/ `
       width: 460px;
       height: 60vh;
       border-radius: 0.5em;
-      background-color: var(--grmj-profile-background_10);
+      background-color: hsla(195, 53%, 79%, 0.49);
       text-align: center;
       visibility: hidden;
     }
@@ -318,7 +318,7 @@ profileCover_sharedStyles.transition = /*css*/ `
       font-size: 1.2em;
       color: var(--grmj-font-color-17);
       transition: 0.2s;
-      opacity: 0.1;
+      opacity: 0.75;
     }
 
     .page2 a:after {
@@ -333,7 +333,7 @@ profileCover_sharedStyles.transition = /*css*/ `
       width: 460px;
       height: 60vh;
       border-radius: 0.5em;
-      background-color: var(--grmj-profile-background_10);
+      background-color: hsla(195, 53%, 79%, 0.49);
       text-align: center;
       visibility: hidden;
     }
@@ -367,7 +367,7 @@ profileCover_sharedStyles.transition = /*css*/ `
       font-size: 1.2em;
       color: var(--grmj-font-color-17);
       transition: 0.2s;
-      opacity: 0.1;
+      opacity: 0.75;
     }
 
     .page3 a:after {
@@ -377,9 +377,12 @@ profileCover_sharedStyles.transition = /*css*/ `
     @keyframes loading {
       0% {
         top: -100%;
+        opacity: 0;
+
       } 
       100% {
         top: 20%;
+        opacity: 1;
       }
     }
 

@@ -8,8 +8,11 @@
     --grmj-profile-background: -webkit-linear-gradient(180deg, hsla(0, 0%, 75%, 0.5), hsla(0, 0%, 20%, 0.79) 25.71%),
         -webkit-linear-gradient(359deg, hsla(0, 0%, 75%, 0.2), hsla(197, 98%, 17%, 0.49) 20.71%),
         -webkit-linear-gradient(000deg, hsla(197, 45%, 63%, 0.59), hsla(197, 45%, 63%, 0.69) 10.71%);
+    --profile-background_hover: hsla(0, 0%, 27%, 0.99);
+    --button-background-hover: gold;
     --grmj-profile-background_1: hsla(0, 0%, 80%, 0.99);
     --grmj-profile-background_2: hsla(0, 0%, 27%, 0.99);
+    --grmj-profile-background_2a: hsla(0, 0%, 27%, 0.49);
     --grmj-profile-background_3: hsla(0, 1%, 56%, 0.99);
     --grmj-profile-background_4: hsla(198, 53%, 87%, 0.99);
     --grmj-profile-background_5: hsla(198, 53%, 87%, 0.19);
@@ -17,7 +20,7 @@
     --grmj-profile-background_7: hsla(0, 0%, 80%, 0.66);
     --grmj-profile-background_8: hsla(212, 62%, 49%, 0.14);
     --grmj-profile-background_9: hsla(209, 59%, 48%, 0.99);
-    --grmj-profile-background_10: hsla(195, 53%, 79%, 0.09);
+    --grmj-profile-background_10: hsla(195, 53%, 79%, 0.59);
     --grmj-profile-background_11: hsla(209, 59%, 48%, 0.29);
     --grmj-profile-background_12: hsla(0, 0%, 66%, 0.99);
     --grmj-profile-background_13: hsla(197, 71%, 73%, 0.70);
@@ -167,6 +170,10 @@
     --menu-grey: hsla(0, 0%, 66%, 0.69);
 }
 
+@font-face {
+    font-family: 'SpaceX';
+    src: url('/src/resources/font/SpaceX.ttf') format('truetype');
+}
 
 * {
     margin: 0;

@@ -15,6 +15,7 @@ const dropDown_sharedStyles = {
     goals: ``,
     codeEx: ``,
     contact: ``,
+    spacex: ``,
     library: ``
 };
 
@@ -259,6 +260,7 @@ dropDown_sharedStyles.home = /*css*/ `
     .dropdown:hover {
         background: var(--grmj-profile-background_5);
         color: var(--grmj-font-color-3);
+        border-radius: 0.6em;
     }
 
     .dropdown:hover .dropdown_arrow {
@@ -1455,6 +1457,149 @@ dropDown_sharedStyles.contact = /*css*/ `
         color: var(--grmj-font-color-1);
     }
 `;
+
+dropDown_sharedStyles.spacex = /*css*/ `
+    /* dropDown_sharedStyles.letter  */
+    .drop-down {
+        top: 0;
+    }    
+    
+    .dd-section {
+        margin: 0em 0 0em 0em;
+        position: sticky;
+        width: 100%;
+        height: 5vh;
+        background: var(--grmj-profile-background_3);
+        filter: var(--grmj-filter-dropShadow-4);
+        justify-content: space-between;
+        align-items: right;
+        z-index: 1;
+    }
+    
+    .dropdown {
+        margin: 0.6em auto 0em 0.4em;
+        width: 175px;
+        height: 34px;
+        display: inline-block;
+        border-right: 2px ridge #aaa;
+        border-left: 2px ridge #aaa;
+        color: var(--grmj-font-color-5);
+        line-height: 30px;
+        user-select: none;
+        cursor: pointer;
+        font-size: 0.8em;
+        font-family: Arial, Helvetica, sans-serif;
+        justify-content: space-between;
+        letter-spacing: var(--grmj-letter-spacing-1);
+        text-align: center;
+    }
+
+    .dropdown:hover {
+        background: var(--grmj-profile-background_5);
+        color: var(--grmj-font-color-3);
+    }
+
+    .dropdown:hover .dropdown_arrow {
+        color: var(--grmj-font-color-3);
+    }
+
+    .dropdown:active {
+        background: var(--grmj-profile-background_2);
+        border: 1px inset white;
+    }
+
+    #dd1 {
+        position: sticky;
+        left: 65%;
+    }
+
+    #dd2 {
+        position: sticky;
+        left: 80%;
+    }
+
+    .dropdown_value {
+        display: inline-block;
+        padding-left: 5px;
+    }
+    .dropdown_arrow {
+        position: absolute;
+        right: 5px;
+        top: 0px;
+        color: black;
+        font-size: 25px;
+        transition: all 0.3s ease;
+    }
+    .dropdown_panel {
+        position: absolute;
+        background: transparent;
+        width: calc(100% + 11px);
+        z-index: 4;
+        height: 209px;
+        left: -1px;
+        top: 46px;
+        overflow: hidden;
+        pointer-events: none;
+    }
+    .dropdown ::-webkit-scrollbar {
+        width: 0.4em;
+        background-color: hsla(0, 1%, 66%, 0.9);
+        overflow: auto;
+        z-index: 999;
+
+    }
+    .dropdown ::-webkit-scrollbar:hover {
+        width: 0.85em;
+        background-color: hsla(0, 1%, 34%, 0.9);
+        z-index: 999;
+
+    }
+    .dropdown ::-webkit-scrollbar-thumb {
+        width: 0.5em;
+        background-color: hsl(224, 42%, 40%);
+        border-radius: 0.5em;
+        overflow: auto;
+        z-index: 999;
+
+    }
+    .dropdown ::-webkit-scrollbar-thumb:hover {
+        background-color: hsla(224, 25%, 73%, 0.993);
+        width: 1.85em;
+        scrollbar-width: 1.85em;
+        z-index: 999;
+    }
+    .dropdown ::-webkit-scrollbar-thumb:active {
+        background-color: hsla(224, 25%, 73%, 0.993);
+        width: 1.85em;
+        overflow: auto;
+        z-index: 999;
+    }
+    
+    .dropdown_items {
+        padding: 5px;
+        position: absolute;
+        pointer-events: all;
+        top: 0px;
+        width: calc(100% - 11px);
+        max-height: 195px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        box-shadow: 2px 1px 4px hsla(0, 0%, 0%, 0.99);
+        color: var(--grmj-font-color-1);
+        overflow-y: auto;
+        overflow-x: none;
+        border: 1px solid #aaa;
+        transform: translate(0px, -200px);
+        transition: 0.3s all ease-out;
+    }
+
+    .dropdown_item:hover {
+        background: hsla(197, 71%, 73%, 0.89);
+        color: var(--grmj-font-color-5);
+        font-weight: var(--grmj-font-weight-7);
+    }
+`;
+
 dropDown_sharedStyles.library = /*css*/ `
      /* dropDown_sharedStyles.library  */
      .drop-down-shell {

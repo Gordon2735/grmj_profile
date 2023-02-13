@@ -98,7 +98,7 @@ async function createServer(): Promise<void> {
             ): Promise<void> => {
                 await open(`${host}:${port}`, {
                     app: { name: open.apps.chrome }
-                }).catch((error: Error, code?: any): Error | any | null => {
+                }).catch((error: Error, code?: string): Error | any | null => {
                     console.error(
                         ` Error occurred when trying to open the browser: 
 						${error} || Error Code: ${code}`
@@ -131,7 +131,7 @@ async function eventLogger(): Promise<void> {
     const trackEmitter: EventEmitter = new TrackEmitter();
 
     try {
-        trackEmitter.on('./log', (message: any): EventEmitter => {
+        trackEmitter.on('./log', (message: string): EventEmitter => {
             return logEvents(message);
         });
         setTimeout((): void => {

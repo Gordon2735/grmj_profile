@@ -58,6 +58,7 @@ export class DropDownShell extends DropDownTemplate {
             (this.codeExHREF = `${dropDown_sharedStyles.codeEx}`),
             (this.goalsHREF = `${dropDown_sharedStyles.goals}`),
             (this.contactHREF = `${dropDown_sharedStyles.contact}`),
+            (this.spacexHREF = `${dropDown_sharedStyles.spacex}`),
             (this.libraryHREF = `${dropDown_sharedStyles.library}`)
         );
         return;

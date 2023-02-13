@@ -90,6 +90,9 @@ export class DropDown extends DropDownTemplate {
                     case 'http://127.0.0.1:9080/library':
                         getComponent.setAttribute('operations', 'library');
                         break;
+                    case 'http://127.0.0.1:9080/spacex':
+                        getComponent.setAttribute('operations', 'spacex');
+                        break;
                     default:
                         getComponent.setAttribute('operations', 'home');
                         break;
@@ -260,6 +263,15 @@ export class DropDown extends DropDownTemplate {
                                 grabComponent?.setAttribute(
                                     'operations',
                                     'library'
+                                );
+                            }, 100);
+                            break;
+                        case 'http://127.0.0.1:9080/spacex':
+                            val = this.options.val = 'spacex';
+                            setTimeout(() => {
+                                grabComponent?.setAttribute(
+                                    'operations',
+                                    'spacex'
                                 );
                             }, 100);
                             break;
@@ -480,6 +492,7 @@ export class DropDown extends DropDownTemplate {
                 'Goals',
                 'Code Examples',
                 'Contact',
+                'SpaceX',
                 'Library'
             ],
             cb: function (_newval: any) {
@@ -511,6 +524,9 @@ export class DropDown extends DropDownTemplate {
                             break;
                         case 'Contact':
                             window.location.href = '/contact';
+                            break;
+                        case 'SpaceX':
+                            window.location.href = '/spacex';
                             break;
                         case 'Library':
                             window.location.href = '/library';

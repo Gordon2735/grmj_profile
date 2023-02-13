@@ -51,6 +51,8 @@ async function init(): Promise<void> {
                 document.createElement('script');
             const scriptCheckSwitch: HTMLScriptElement =
                 document.createElement('script');
+            const scriptSpacexShell: HTMLScriptElement =
+                document.createElement('script');
             const scriptFooter: HTMLScriptElement | null =
                 document.createElement('script');
 
@@ -131,6 +133,12 @@ async function init(): Promise<void> {
                 src: '/src/components/checkSwitch/check-switch_shell.js',
                 alt: 'Check Switch Shell Script'
             });
+            setAttributes(scriptSpacexShell, {
+                type: 'module',
+                content: 'text/javascript',
+                src: '/src/components/spacexpage/spacex-page_shell.js',
+                alt: 'Spacex Shell Script'
+            });
             setAttributes(scriptFooter, {
                 type: 'module',
                 content: 'text/javascript',
@@ -151,6 +159,7 @@ async function init(): Promise<void> {
                     scriptDropDown,
                     scriptCheckSwitch,
                     themeShellScript,
+                    scriptSpacexShell,
                     scriptFooter
                 ]);
                 return;

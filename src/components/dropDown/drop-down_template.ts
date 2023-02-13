@@ -16,6 +16,7 @@ export class DropDownTemplate extends HTMLElement {
     codeExHREF: string | undefined;
     goalsHREF: string | undefined;
     contactHREF: string | undefined;
+    spacexHREF: string | undefined;
     libraryHREF: string | undefined;
 
     public get template(): any {
@@ -52,6 +53,7 @@ export class DropDownTemplate extends HTMLElement {
         codeExHREF: string | undefined,
         goalsHREF: string | undefined,
         contactHREF: string | undefined,
+        spacexHREF: string | undefined,
         libraryHREF: string | undefined
     ): any {
         this.locationHREF = locationHREF;
@@ -66,6 +68,7 @@ export class DropDownTemplate extends HTMLElement {
         this.codeExHREF = codeExHREF;
         this.goalsHREF = goalsHREF;
         this.contactHREF = contactHREF;
+        this.spacexHREF = spacexHREF;
         this.libraryHREF = libraryHREF;
 
         try {
@@ -130,6 +133,13 @@ export class DropDownTemplate extends HTMLElement {
                     this.dropShell!.innerHTML = `<style>${this.contactHREF}</style>`;
                     console.log(
                         `%cUsing contactHREF for Dropdown Menu Styles`,
+                        'color: orange; font-size: 1.5rem;'
+                    );
+                    break;
+                case 'http://127.0.0.1:9080/spacex':
+                    this.dropShell!.innerHTML = `<style>${this.spacexHREF}</style>`;
+                    console.log(
+                        `%cUsing spacexHREF for Dropdown Menu Styles`,
                         'color: orange; font-size: 1.5rem;'
                     );
                     break;

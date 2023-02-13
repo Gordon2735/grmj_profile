@@ -124,6 +124,7 @@ interface dropDown_sharedStyles {
     codeEx: string;
     goals: string;
     contact: string;
+    spacex: string;
     library: string;
 }
 
@@ -146,6 +147,7 @@ interface themeSwitcher_sharedStyles {
     codeEx: string;
     goals: string;
     contact: string;
+    spacex: string;
     library: string;
 }
 
@@ -158,6 +160,18 @@ interface checkSwitch_sharedStyles {
     shell: string;
     switcher: string;
     home: string;
+}
+
+interface spacexPage_sharedHTML {
+    shell: string;
+    spacex: string;
+    spacexData: string;
+}
+
+interface spacexPage_sharedStyles {
+    shell: string;
+    spacex: string;
+    spacexData: string;
 }
 interface profileHdr_sharedHTML {
     shell: string;
@@ -212,6 +226,8 @@ export {
     themeSwitcher_sharedStyles,
     checkSwitch_sharedHTML,
     checkSwitch_sharedStyles,
+    spacexPage_sharedHTML,
+    spacexPage_sharedStyles,
     profileHdr_sharedStyles,
     profileHdr_sharedHTML,
     profileFooter_sharedHTML,

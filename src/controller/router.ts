@@ -9,6 +9,7 @@ import code_examples from './routes/code_examples_route.js';
 import goals from './routes/goals_route.js';
 import contact from './routes/contact_route.js';
 import library from './routes/library_route.js';
+import spacex from './routes/spacex_route.js';
 import error404 from './routes/404_route.js';
 import error500 from './routes/500_route.js';
 
@@ -25,12 +26,13 @@ router.use('/', code_examples);
 router.use('/', goals);
 router.use('/', contact);
 router.use('/', library);
+router.use('/', spacex);
 router.use('/', error404);
 router.use('/', error500);
 
 router.use((_req: Request, res: Response, next: NextFunction) => {
-  if (!res.locals.partials) res.locals.partials = {};
-  next();
+    if (!res.locals.partials) res.locals.partials = {};
+    next();
 });
 
 export default router;

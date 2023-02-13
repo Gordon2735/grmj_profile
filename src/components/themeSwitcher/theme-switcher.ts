@@ -13,10 +13,10 @@ export class ThemeSwitcher extends ThemeSwitcherTemplate {
     override get template(): string {
         return /* html */ `
       
-		${themeSwitcher_sharedHTML.switcher}
-		<style>${themeSwitcher_sharedStyles.switcher}</style>
+            ${themeSwitcher_sharedHTML.switcher}
+            <style>${themeSwitcher_sharedStyles.switcher}</style>
       
-      `;
+        `;
     }
     static get observedAttributes(): string[] {
         return ['state'];
@@ -28,8 +28,6 @@ export class ThemeSwitcher extends ThemeSwitcherTemplate {
     }
     override connectedCallback(): void {
         super.connectedCallback();
-
-        init();
 
         this.grabComponent = document.getElementById(
             'themeSwitcher'
@@ -46,7 +44,7 @@ export class ThemeSwitcher extends ThemeSwitcherTemplate {
                 localStorage.setItem('theme', themeName);
                 document.documentElement.className = themeName;
                 return;
-            } catch (error) {
+            } catch (error: unknown) {
                 console.error(
                     `%cThe setTheme Function failed: ${error}`,
                     'color: fuchsia; font-weight: bold;'
@@ -82,7 +80,7 @@ export class ThemeSwitcher extends ThemeSwitcherTemplate {
                         : null;
                 }, 500);
                 return;
-            } catch (error) {
+            } catch (error: unknown) {
                 console.error(
                     `%cThe init Function failed: ${error}`,
                     'color: fuchsia; font-weight: bold;'
@@ -107,6 +105,7 @@ export class ThemeSwitcher extends ThemeSwitcherTemplate {
                 }
             }
         );
+        init();
     }
 
     attributeChangedCallback(name: string, oldValue: string, newValue: string) {
@@ -127,7 +126,7 @@ export class ThemeSwitcher extends ThemeSwitcherTemplate {
                 default:
                     console.error(
                         `%cThe attributeChangedCallback function's "Switch Statement" failed 
-              to change the component's state attribute from ${oldValue} to ${newValue}`,
+                            to change the component's state attribute from ${oldValue} to ${newValue}`,
                         'color: red; font-weight: bold;'
                     );
                     break;
