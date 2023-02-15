@@ -7,6 +7,15 @@ import { profile_sharedHTML } from './profile-sharedHTML.js';
 import RegisterComponent from '../componentTools/components_services.js'; // setAttributes // appendChildren, // setAttributes
 import historyStack from '../../controller/state/profileState.js';
 
+/**
+ * @description The ProfileHome class is a custom element that extends the ProfileTemplate class
+ * @class ProfileHome
+ * @extends ProfileTemplate
+ * @type {ProfileHome}
+ * @example <profile-home></profile-home>
+
+ *
+ */
 export class ProfileHome extends ProfileTemplate {
     override noShadow: boolean;
     State: any | undefined;

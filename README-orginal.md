@@ -75,6 +75,7 @@
     npm install onchange -g
     npm install tsc-watch --save-dev
     npm init playwright@latest
+    npm i -D jsdoc
 
 # NPM UNINSTALLS
 
@@ -171,7 +172,7 @@ package.json
 
 <!--
 	<profile-footer id="profileFooter" class="profile-footer"></profile-footer>
-  -->
+
 
     npm install --save-dev copyfiles
 
@@ -182,3 +183,4 @@ package.json
     Add or update your bundle script so it matches:
 
     "bundle": "tsc"
+ -->

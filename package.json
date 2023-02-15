@@ -39,14 +39,15 @@
         "build": "npx tsc -p .",
         "comp_css": "copyfiles --soft ./src/css/*.* ./dist && echo 'Successful copy of the main images folder'",
         "comp_images": "copyfiles --soft ./src/images/*.* ./dist && echo 'Successful copy of the main images folder'",
-        "comp_static": "copyfiles --soft ./src/components/componentTools/**/**/*.* ./dist && echo 'Copied componentTools to dist/componentTools/**/**/**/*.*'",
-        "start": "npm run comp_static && npm run dev",
-        "dev": "cross-env NODE_ENV=development && tsc-watch --onSuccess \"node dist/src/server.js\"",
+        "comp_static": "copyfiles --soft ./src/components/componentTools/**/*.* ./dist && echo 'Copied componentTools to dist/componentTools'",
+        "start": "npm run dev",
+        "dev": "cross-env NODE_ENV=development node dist/src/server.js",
         "temp": "cross-env NODE_ENV=development npm start",
-        "prod": "cross-env NODE_ENV=production node ./dist/src/server.js",
+        "prod": "cross-env NODE_ENV=production  node ./dist/src/server.js",
         "lint": "eslint . --fix",
         "pretty": "npx prettier --write src/server.ts",
-        "appstat": "npx prettier --write src/server.ts && eslint . --fix && npm test"
+        "appstat": "npx prettier --write src/server.ts && eslint . --fix && npm test",
+        "docs": "npx typedoc"
     },
     "dependencies": {
         "@types/uuid": "^8.3.4",
@@ -62,7 +63,7 @@
         "nodemon": "^2.0.20",
         "path": "^0.12.7",
         "serve-favicon": "^2.5.0",
-        "typescript": "^4.9.4",
+        "typescript": "^4.9.5",
         "uuid": "^9.0.0"
     },
     "devDependencies": {
@@ -89,6 +90,8 @@
         "open": "^8.4.0",
         "prettier": "^2.8.1",
         "tsc-watch": "^6.0.0",
-        "tslib": "^2.4.1"
+        "tslib": "^2.4.1",
+        "typedoc": "^0.23.25",
+        "typedoc-plugin-markdown": "^3.14.0"
     }
 }

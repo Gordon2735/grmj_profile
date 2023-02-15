@@ -8,10 +8,12 @@ import RegisterComponent, {
     setAttributes
 } from '../componentTools/components_services.js'; // setAttributes
 import spacex_url from './spacexAPI.js';
+import dateTimeObject from '../componentTools/dateTimeObject.js';
 
 export class SpacexPage extends SpacexPageTemplate {
     override activateShadowDOM: boolean;
     spacex_url: string;
+    nowDate: dateTimeObject;
 
     override get template(): string {
         return /*html*/ `
@@ -27,8 +29,9 @@ export class SpacexPage extends SpacexPageTemplate {
         super();
 
         this.activateShadowDOM = false;
-
         this.spacex_url = spacex_url;
+
+        this.nowDate = new dateTimeObject();
     }
 
     override connectedCallback(): void {
@@ -39,27 +42,24 @@ export class SpacexPage extends SpacexPageTemplate {
 
         async function getTime(): Promise<void> {
             try {
-                const response: Response = await fetch(
-                    'https://worldtimeapi.org/api/timezone/America/New_York'
-                );
-                const data: any = await response.json();
-                console.info('Data:', data);
-                const { datetime } = data;
-                const time: string = datetime.split('T')[1].split('.')[0];
-                const date: string = datetime.split('T')[0];
                 const timeContainer: HTMLElement | undefined | null =
                     document.getElementById('time');
                 const dateContainer: HTMLElement | null =
                     document.getElementById('date');
-                timeContainer?.setAttribute('data-set-time', `${time}`);
-                dateContainer?.setAttribute('data-set-date', `${date}`);
+
                 timeContainer?.insertAdjacentHTML(
                     'afterbegin',
-                    `Time: ${time}`
+                    `${thiz.nowDate.getNowTime('')}`
                 );
                 dateContainer?.insertAdjacentHTML(
                     'afterbegin',
-                    `Date: ${date}`
+                    `${thiz.nowDate.getDayOfWeek(
+                        ''
+                    )} ${thiz.nowDate.getDayOfMonth(
+                        ''
+                    )}, ${thiz.nowDate.getMonthOfYear(
+                        ''
+                    )}, ${thiz.nowDate.getYear('')} `
                 );
             } catch (error: unknown) {
                 console.error(
@@ -126,3 +126,7 @@ export class SpacexPage extends SpacexPageTemplate {
     }
 }
 RegisterComponent('spacex-page', SpacexPage);
+
+// \"node dist/src/server.js\"
+
+// "dev": "cross-env NODE_ENV=development && tsc-watch --onSuccess node \"node dist/src/server.js\"",

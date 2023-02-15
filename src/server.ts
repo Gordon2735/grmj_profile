@@ -16,15 +16,47 @@ import favicon from 'serve-favicon';
 import logEvents, { date } from './logEvents.js';
 import router from './controller/router.js';
 
+/**
+ *
+ * Using the dotenv package to load environment variables from a .env file into process.env
+ *
+ * @see https://www.npmjs.com/package/dotenv
+ *
+ * @description The dotenv package will look for a config.env file in the config folder in the root
+ *  of the project and load any environment variables into process.env
+ * The config.env file is not tracked by git and is used to store sensitive information such as
+ * database credentials, API keys, etc.
+ *
+ * @example process.env.MY_ENV_VAR
+ */
 // Load Environment Variables
 dotenv.config({ path: './config/config.env' });
 
+/**
+ * @description The express package is Node.js Framework for building web applications and APIs.
+ *
+ * @see https://www.npmjs.com/package/express
+ *
+ * @var {Application} app - The express application
+ *
+ * @type {Application}
+ * @const app
+ * @description The express application*
+ *
+ */
 // Create Instance of Express App
 const app: Application = express();
 
 const environment =
     process.env.NODE_ENV || ('development' as unknown as NodeJS.ProcessEnv);
 
+/**
+ * @description The morgan package is a HTTP request logger middleware for node.js
+ *
+ * @see https://www.npmjs.com/package/morgan
+ *
+ * @description The morgan package will log HTTP requests to the console when the server is running in development mode
+ */
 // Logging Middleware
 if (environment) {
     app.use(morgan('dev'));
