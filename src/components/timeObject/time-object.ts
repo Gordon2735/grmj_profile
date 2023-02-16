@@ -3,10 +3,7 @@
 import { TimeObjectTemplate } from './time-object_template.js';
 import { timeObject_sharedHTML } from './time-object_sharedHTML.js';
 import { timeObject_sharedStyles } from './time-object_sharedStyles.js';
-import RegisterComponent, {
-    setAttributes,
-    appendChildren
-} from '../componentTools/components_services.js';
+import RegisterComponent from '../componentTools/components_services.js'; // appendChildren // setAttributes,
 
 export class TimeObject extends TimeObjectTemplate {
     override activateShadowDOM: boolean;
