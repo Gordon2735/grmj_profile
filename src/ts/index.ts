@@ -1,4 +1,3 @@
-/* eslint-disable no-var */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use strict';
 
@@ -23,8 +22,6 @@ async function init(): Promise<void> {
     }
 
     async function waitOnDOM(this: any): Promise<void> {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        Document;
         try {
             const head: HTMLHeadElement | null =
                 document.getElementById('head');

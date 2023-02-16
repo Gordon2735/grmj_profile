@@ -76,7 +76,10 @@ export class ThemeSwitcher extends ThemeSwitcherTemplate {
                 setTimeout(() => {
                     localStorage.getItem('theme') !== 'theme-dark'
                         ? (setTheme('theme-dark'),
-                          this.grabComponent.setAttribute('state', 'dark'))
+                          this.grabComponent.setAttribute(
+                              'state',
+                              'theme-light'
+                          ))
                         : null;
                 }, 500);
                 return;

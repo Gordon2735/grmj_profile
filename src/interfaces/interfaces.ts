@@ -173,6 +173,16 @@ interface spacexPage_sharedStyles {
     spacex: string;
     spacexData: string;
 }
+
+interface timeObject_sharedHTML {
+    shell: string;
+    time: string;
+}
+
+interface timeObject_sharedStyles {
+    shell: string;
+    time: string;
+}
 interface profileHdr_sharedHTML {
     shell: string;
     hdr: string;
@@ -228,6 +238,8 @@ export {
     checkSwitch_sharedStyles,
     spacexPage_sharedHTML,
     spacexPage_sharedStyles,
+    timeObject_sharedHTML,
+    timeObject_sharedStyles,
     profileHdr_sharedStyles,
     profileHdr_sharedHTML,
     profileFooter_sharedHTML,
