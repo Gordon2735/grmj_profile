@@ -5,8 +5,8 @@ import express, { Router, Request, Response } from 'express';
 
 // const app = express();
 const router: Router = express.Router();
-// router.use(express.static('/src/views'));
 router.use(express.static('../../views'));
+const historyShellScript = `<script type="module" content="text/javascript" src="/src/components/profileHistory/profile-history_shell.js"></script>`;
 
 //%  /Home page Route
 let user: any;
@@ -16,7 +16,8 @@ const history: Router = router
         res.set('Content-Type', 'text/html');
         res.render('history', {
             layout: 'main',
-            title: 'History-Profile'
+            title: 'History-Profile',
+            script: [`${historyShellScript}`]
         });
     })
     .post('/history', async (req: Request, res: Response) => {

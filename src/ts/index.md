@@ -1,6 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use strict';
 
+console.log(
+    `%cGORDON R MULLEN JR of HooT™️ Webelistics®️ Rendered Here!!!`,
+    'color: gold; font-size: 1.5rem;'
+);
+
 async function init(): Promise<void> {
     function setAttributes(element: HTMLElement, attributes: any) {
         for (const key in attributes) {
@@ -15,13 +20,25 @@ async function init(): Promise<void> {
             parent?.appendChild(child);
         });
     }
+
     async function waitOnDOM(this: any): Promise<void> {
         try {
             const head: HTMLHeadElement | null =
                 document.getElementById('head');
-            const scriptIndex: HTMLScriptElement =
-                document.createElement('script');
+            const script: HTMLScriptElement = document.createElement('script');
             const scriptSidePanelShell: HTMLScriptElement =
+                document.createElement('script');
+            const scriptHistory: HTMLScriptElement =
+                document.createElement('script');
+            const scriptResume: HTMLScriptElement =
+                document.createElement('script');
+            const scriptProjects: HTMLScriptElement =
+                document.createElement('script');
+            const scriptGoals: HTMLScriptElement =
+                document.createElement('script');
+            const scriptCodeExamples: HTMLScriptElement =
+                document.createElement('script');
+            const scriptCoverShell: HTMLScriptElement =
                 document.createElement('script');
             const scriptMenuNavbarShell: HTMLScriptElement =
                 document.createElement('script');
@@ -31,21 +48,63 @@ async function init(): Promise<void> {
                 document.createElement('script');
             const scriptCheckSwitch: HTMLScriptElement =
                 document.createElement('script');
+            const scriptSpacexShell: HTMLScriptElement =
+                document.createElement('script');
             const scriptFooter: HTMLScriptElement | null =
                 document.createElement('script');
+
+            // if (head !== null) {
             console.log('HooT™️ Webelistics®️ Rendered Here!!!');
-            setAttributes(scriptIndex, {
+
+            setAttributes(script, {
                 type: 'module',
                 content: 'text/javascript',
                 src: '/src/components/profileHome/profile-shell.js',
                 alt: 'Profile Main Shell Script'
             });
-            head?.appendChild(scriptIndex);
+            head?.appendChild(script);
+
             setAttributes(scriptSidePanelShell, {
                 type: 'module',
                 content: 'text/javascript',
                 src: '/src/components/sidePanel/side-panel_shell.js',
                 alt: 'Side Panel Shell'
+            });
+            setAttributes(scriptHistory, {
+                type: 'module',
+                content: 'text/javascript',
+                src: '/src/components/profileHistory/profile-history_shell.js',
+                alt: 'Profile History Shell'
+            });
+            setAttributes(scriptResume, {
+                type: 'module',
+                content: 'text/javascript',
+                src: '/src/components/profileResume/profile-resume_shell.js',
+                alt: 'Profile Resume Shell'
+            });
+            setAttributes(scriptProjects, {
+                type: 'module',
+                content: 'text/javascript',
+                src: '/src/components/profileProjects/profile-projects_shell.js',
+                alt: 'Profile Projects Shell'
+            });
+            setAttributes(scriptGoals, {
+                type: 'module',
+                content: 'text/javascript',
+                src: '/src/components/profileGoals/profile-goals_shell.js',
+                alt: 'Profile Goals Shell'
+            });
+            setAttributes(scriptCodeExamples, {
+                type: 'module',
+                content: 'text/javascript',
+                src: '/src/components/profileCodeExamples/profile-code-examples_shell.js',
+                alt: 'Profile Code Examples Shell'
+            });
+            setAttributes(scriptCoverShell, {
+                type: 'module',
+                content: 'text/javascript',
+                src: '/src/components/profileCover/profile-cover_shell.js',
+                alt: 'Profile Cover Shell'
             });
             setAttributes(scriptMenuNavbarShell, {
                 type: 'module',
@@ -71,20 +130,33 @@ async function init(): Promise<void> {
                 src: '/src/components/checkSwitch/check-switch_shell.js',
                 alt: 'Check Switch Shell Script'
             });
-
+            setAttributes(scriptSpacexShell, {
+                type: 'module',
+                content: 'text/javascript',
+                src: '/src/components/spacexpage/spacex-page_shell.js',
+                alt: 'Spacex Shell Script'
+            });
             setAttributes(scriptFooter, {
                 type: 'module',
                 content: 'text/javascript',
                 src: '/src/components/profileFooter/profile-footer.js',
                 alt: 'Profile Footer Element'
             });
+
             const loadScripts = async (): Promise<void> => {
                 appendChildren(head, [
                     scriptSidePanelShell,
+                    scriptHistory,
+                    scriptResume,
+                    scriptProjects,
+                    scriptGoals,
+                    // scriptCodeExamples,
+                    scriptCoverShell,
                     scriptMenuNavbarShell,
                     scriptDropDown,
                     scriptCheckSwitch,
                     themeShellScript,
+                    scriptSpacexShell,
                     scriptFooter
                 ]);
                 return;

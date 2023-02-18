@@ -3,8 +3,8 @@
 import express, { Router, Request, Response } from 'express';
 
 const router: Router = express.Router();
-
 router.use(express.static('../../views'));
+const homeShellScript = `<script type="module" content="text/javascript" src="/src/components/profileHome/profile-home_shell.js"></script>`;
 
 //%  /Home page Route
 let user: any;
@@ -13,7 +13,8 @@ const home: Router = router
         res.set('Content-Type', 'text/html');
         res.render('home', {
             layout: 'main',
-            title: 'Home-Profile'
+            title: 'Home-Profile',
+            script: [`${homeShellScript}`]
         });
     })
     .post('/', async (req: Request, res: Response) => {

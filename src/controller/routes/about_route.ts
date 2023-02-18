@@ -1,8 +1,8 @@
 import express, { Router, Request, Response } from 'express';
 
 const router = express.Router();
-
 router.use(express.static('../../views'));
+const aboutShellScript = `<script type="module" content="text/javascript" src="/src/components/profileAbout/profile-about_shell.js"></script>`;
 
 //%  /About page Route
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -12,7 +12,8 @@ const about: Router = router
         res.set('Content-Type', 'text/html');
         res.render('about', {
             layout: 'main',
-            title: 'About-Profile'
+            title: 'About-Profile',
+            script: [`${aboutShellScript}`]
         });
     })
     .post('/', async (req: Request, res: Response) => {

@@ -4,6 +4,8 @@
 import express, { Router, Request, Response } from 'express';
 
 const router: Router = express.Router();
+router.use(express.static('../../views'));
+const goalsShellScript = `<script type="module" content="text/javascript" src="/src/components/profileGoals/profile-goals_shell.js"></script>`;
 
 let user: any;
 
@@ -12,7 +14,8 @@ const goals: Router = router
         res.set('Content-Type', 'text/html');
         res.render('goals', {
             layout: 'main',
-            title: 'Goals-Profile'
+            title: 'Goals-Profile',
+            script: [`${goalsShellScript}`]
         });
     })
     .post('/goals', async (req: Request, res: Response) => {

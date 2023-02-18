@@ -4,6 +4,8 @@
 import express, { Router, Request, Response } from 'express';
 
 const router: Router = express.Router();
+router.use(express.static('../../views'));
+const projectsShellScript = `<script type="module" content="text/javascript" src="/src/components/profileProjects/profile-projects_shell.js"></script>`;
 
 let user: any;
 
@@ -12,11 +14,9 @@ const projects: Router = router
         res.set('Content-Type', 'text/html');
         res.render('projects', {
             layout: 'main',
-            title: 'Projects-Profile'
+            title: 'Projects-Profile',
+            script: [`${projectsShellScript}`]
         });
-        // res.render(
-        // 	'/src/components/profileProjects/tools/images/typescript2.png'
-        // );
     })
     .post('/projects', async (req: Request, res: Response) => {
         res.json(

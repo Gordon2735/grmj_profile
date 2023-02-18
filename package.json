@@ -46,7 +46,7 @@
         "prod": "cross-env NODE_ENV=production  node ./dist/src/server.js",
         "lint": "eslint . --fix",
         "pretty": "npx prettier --write src/server.ts",
-        "appstat": "npx prettier --write src/server.ts && eslint . --fix && npm test",
+        "appstate": "npx prettier --write src/server.ts && eslint . --fix && npm test",
         "docs": "npx typedoc"
     },
     "dependencies": {

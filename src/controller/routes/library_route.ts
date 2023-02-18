@@ -1,8 +1,8 @@
 import express, { Router, Request, Response } from 'express';
 
 const router: Router = express.Router();
-
 router.use(express.static('../../views'));
+const libraryShellScript = `<script type="module" content="text/javascript" src="/src/components/profileLibrary/profile-library_shell.js"></script>`;
 
 //%  /Library page Route
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -12,7 +12,8 @@ const library: Router = router
         res.set('Content-Type', 'text/html');
         res.render('library', {
             layout: 'main',
-            title: 'Library-Profile'
+            title: 'Library-Profile',
+            script: [`${libraryShellScript}`]
         });
     })
     .post('/', async (req: Request, res: Response) => {

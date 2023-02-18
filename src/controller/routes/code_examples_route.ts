@@ -4,6 +4,8 @@
 import express, { Router, Request, Response } from 'express';
 
 const router: Router = express.Router();
+router.use(express.static('../../views'));
+const codeShellScript = `<script type="module" content="text/javascript" src="/src/components/profileCodeEx/profile-codeEx_shell.js"></script>`;
 
 let user: any;
 
@@ -12,7 +14,8 @@ const code_examples: Router = router
         res.set('Content-Type', 'text/html');
         res.render('code_examples', {
             layout: 'main',
-            title: 'Code Examples-Profile'
+            title: 'Code Examples-Profile',
+            script: [`${codeShellScript}`]
         });
     })
     .post('/code_examples', async (req: Request, res: Response) => {
