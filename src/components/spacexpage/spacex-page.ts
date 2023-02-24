@@ -24,7 +24,6 @@ export class SpacexPage extends SpacexPageTemplate {
 
         `;
     }
-
     constructor() {
         super();
 
@@ -33,7 +32,6 @@ export class SpacexPage extends SpacexPageTemplate {
 
         this.nowDate = new dateTimeObject();
     }
-
     override connectedCallback(): void {
         super.connectedCallback();
 

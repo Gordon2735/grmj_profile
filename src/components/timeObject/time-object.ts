@@ -24,7 +24,7 @@ export class TimeObject extends TimeObjectTemplate {
     constructor() {
         super();
 
-        this.activateShadowDOM = true;
+        this.activateShadowDOM = false;
     }
     override connectedCallback(): void {
         super.connectedCallback();

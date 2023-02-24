@@ -8,7 +8,7 @@ import RegisterComponent from '../componentTools/components_services.js'; // app
 // import historyStack from '../../controller/state/profileState.js';
 
 export class DropDown extends DropDownTemplate {
-    override noShadow = true;
+    override activateShadowDOM: boolean;
     // State: any | undefined;
     // historyStack: import('d:/grmj_profile/src/interfaces/interfaces').HistoryObject;
     head: HTMLHeadElement | null;
@@ -17,11 +17,14 @@ export class DropDown extends DropDownTemplate {
     dd2: Element;
     initOperations: () => Promise<void>;
     setOperations: () => Promise<void>;
+    window: any;
+    closeWindow: void | undefined;
+    shutdownButton: HTMLButtonElement | undefined;
 
     constructor(dd1: any, dd2: any) {
         super();
 
-        this.noShadow = true;
+        this.activateShadowDOM = false;
         this.dd1 = dd1;
         this.dd2 = dd2;
 
@@ -59,42 +62,54 @@ export class DropDown extends DropDownTemplate {
                 switch (getCurrentOperations) {
                     case 'http://127.0.0.1:9080/':
                         getComponent.setAttribute('operations', 'home');
+                        getComponent.setAttribute('target', 'blank');
                         break;
                     case 'http://127.0.0.1:9080/cover_letter':
                         getComponent.setAttribute('operations', 'cover_letter');
+                        getComponent.setAttribute('target', 'blank');
                         break;
                     case 'http://127.0.0.1:9080/about':
                         getComponent.setAttribute('operations', 'about');
+                        getComponent.setAttribute('target', 'blank');
                         break;
                     case 'http://127.0.0.1:9080/projects':
                         getComponent.setAttribute('operations', 'projects');
+                        getComponent.setAttribute('target', 'blank');
                         break;
                     case 'http://127.0.0.1:9080/history':
                         getComponent.setAttribute('operations', 'history');
+                        getComponent.setAttribute('target', 'blank');
                         break;
                     case 'http://127.0.0.1:9080/resume':
                         getComponent.setAttribute('operations', 'resume');
+                        getComponent.setAttribute('target', 'blank');
                         break;
                     case 'http://127.0.0.1:9080/code_examples':
                         getComponent.setAttribute(
                             'operations',
                             'code_examples'
                         );
+                        getComponent.setAttribute('target', 'blank');
                         break;
                     case 'http://127.0.0.1:9080/goals':
                         getComponent.setAttribute('operations', 'goals');
+                        getComponent.setAttribute('target', 'blank');
                         break;
                     case 'http://127.0.0.1:9080/contact':
                         getComponent.setAttribute('operations', 'contact');
+                        getComponent.setAttribute('target', 'blank');
                         break;
                     case 'http://127.0.0.1:9080/library':
                         getComponent.setAttribute('operations', 'library');
+                        getComponent.setAttribute('target', 'blank');
                         break;
                     case 'http://127.0.0.1:9080/spacex':
                         getComponent.setAttribute('operations', 'spacex');
+                        getComponent.setAttribute('target', 'blank');
                         break;
                     default:
                         getComponent.setAttribute('operations', 'home');
+                        getComponent.setAttribute('target', 'blank');
                         break;
                 }
             } catch (error: unknown) {
@@ -121,7 +136,44 @@ export class DropDown extends DropDownTemplate {
 
         initialRender();
 
-        const thiz = this;
+        console.log(window.location);
+
+        const thiz: this = this;
+
+        this.shutdownButton = document.getElementById(
+            'shutdownButton'
+        ) as HTMLButtonElement;
+
+        this.shutdownButton.addEventListener('click', (event: MouseEvent) => {
+            let openWindow: Window | null;
+            const closeWindow = (opener: Window | null): void => {
+                (self && opener)?.close();
+            };
+            switch (window.location.href) {
+                case 'http://127.0.0.1:9080/':
+                    openWindow = open(
+                        window.location.origin,
+                        '_self'
+                    ) as Window;
+                    closeWindow(openWindow);
+                    break;
+                case 'http://127.0.0.1:9080/cover_letter':
+                    openWindow = open(
+                        window.location.origin,
+                        '_self'
+                    ) as Window;
+                    closeWindow(openWindow);
+                    break;
+                default:
+                    openWindow = open(
+                        window.location.origin,
+                        '_self'
+                    ) as Window;
+                    closeWindow(openWindow);
+                    break;
+            }
+            return event.stopPropagation();
+        });
 
         async function initialRender(): Promise<void> {
             const checkOperations = document.getElementById(
@@ -183,6 +235,7 @@ export class DropDown extends DropDownTemplate {
                                     'operations',
                                     'home'
                                 );
+                                grabComponent?.setAttribute('target', 'blank');
                             }, 100);
                             break;
                         case 'http://127.0.0.1:9080/cover_letter':
@@ -192,6 +245,7 @@ export class DropDown extends DropDownTemplate {
                                     'operations',
                                     'cover_letter'
                                 );
+                                grabComponent?.setAttribute('target', 'blank');
                             }, 100);
                             break;
                         case 'http://127.0.0.1:9080/about':
@@ -201,6 +255,7 @@ export class DropDown extends DropDownTemplate {
                                     'operations',
                                     'about'
                                 );
+                                grabComponent?.setAttribute('target', 'blank');
                             }, 100);
                             break;
                         case 'http://127.0.0.1:9080/projects':
@@ -210,6 +265,7 @@ export class DropDown extends DropDownTemplate {
                                     'operations',
                                     'projects'
                                 );
+                                grabComponent?.setAttribute('target', 'blank');
                             }, 100);
                             break;
                         case 'http://127.0.0.1:9080/history':
@@ -219,6 +275,7 @@ export class DropDown extends DropDownTemplate {
                                     'operations',
                                     'history'
                                 );
+                                grabComponent?.setAttribute('target', 'blank');
                             }, 100);
                             break;
                         case 'http://127.0.0.1:9080/resume':
@@ -228,6 +285,7 @@ export class DropDown extends DropDownTemplate {
                                     'operations',
                                     'resume'
                                 );
+                                grabComponent?.setAttribute('target', 'blank');
                             }, 100);
                             break;
                         case 'http://127.0.0.1:9080/code_examples':
@@ -237,6 +295,7 @@ export class DropDown extends DropDownTemplate {
                                     'operations',
                                     'code_examples'
                                 );
+                                grabComponent?.setAttribute('target', 'blank');
                             }, 100);
                             break;
                         case 'http://127.0.0.1:9080/goals':
@@ -246,6 +305,7 @@ export class DropDown extends DropDownTemplate {
                                     'operations',
                                     'goals'
                                 );
+                                grabComponent?.setAttribute('target', 'blank');
                             }, 100);
                             break;
                         case 'http://127.0.0.1:9080/contact':
@@ -255,6 +315,7 @@ export class DropDown extends DropDownTemplate {
                                     'operations',
                                     'contact'
                                 );
+                                grabComponent?.setAttribute('target', 'blank');
                             }, 100);
                             break;
                         case 'http://127.0.0.1:9080/library':
@@ -264,6 +325,7 @@ export class DropDown extends DropDownTemplate {
                                     'operations',
                                     'library'
                                 );
+                                grabComponent?.setAttribute('target', 'blank');
                             }, 100);
                             break;
                         case 'http://127.0.0.1:9080/spacex':
@@ -273,6 +335,7 @@ export class DropDown extends DropDownTemplate {
                                     'operations',
                                     'spacex'
                                 );
+                                grabComponent?.setAttribute('target', 'blank');
                             }, 100);
                             break;
                         default:
@@ -282,6 +345,7 @@ export class DropDown extends DropDownTemplate {
                                     'operations',
                                     'home'
                                 );
+                                grabComponent?.setAttribute('target', 'blank');
                             }, 100);
                             break;
                     }

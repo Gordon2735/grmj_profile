@@ -8,7 +8,7 @@ import RegisterComponent, {
 } from '../componentTools/components_services.js';
 
 export class MenuNavbarShell extends MenuNavbarTemplate {
-    override initializeShadowDOM: boolean;
+    override activateShadowDOM: boolean;
     head: HTMLHeadElement | null | undefined;
     menuNavbarScript: HTMLScriptElement;
 
@@ -25,7 +25,7 @@ export class MenuNavbarShell extends MenuNavbarTemplate {
     constructor() {
         super();
 
-        this.initializeShadowDOM = false;
+        this.activateShadowDOM = false;
 
         const head: HTMLHeadElement | null | undefined =
             document.getElementById('head');

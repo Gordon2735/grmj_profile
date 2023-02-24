@@ -6,7 +6,7 @@ console.log(
     'color: gold; font-size: 1.5rem;'
 );
 
-async function init(): Promise<void> {
+async function initialize(): Promise<void> {
     function setAttributes(element: HTMLElement, attributes: any) {
         for (const key in attributes) {
             element.setAttribute(key, attributes[key]);
@@ -169,4 +169,4 @@ async function init(): Promise<void> {
     }
     waitOnDOM();
 }
-document.addEventListener('DOMContentLoaded', init);
+document.addEventListener('DOMContentLoaded', initialize);

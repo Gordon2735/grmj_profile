@@ -49,6 +49,7 @@ dropDown_sharedStyles.dropdown = /*css*/ `
         justify-content: center;
         z-index: 50;
     }
+
     .dropdown {
         margin: 0em 0 2em 2em;
         position: sticky;
@@ -237,6 +238,39 @@ dropDown_sharedStyles.home = /*css*/ `
         align-items: right;
         z-index: 3;
     }
+
+    .shutdown-container {
+        margin: 0em;
+        padding: 0em;
+        width: 14em;
+        height: 4em;
+        top: 0.7em;
+        left: 10em;
+        position: absolute;
+        display: inline-flex;
+        text-align: center;
+    }
+    .shutdown-button {
+        margin: 0 auto 0 auto;
+        padding: 0.1em;
+        width: 7em;
+        height: 2em;
+        position: relative;
+        display: inline-block;
+        border: var(--button-border);
+        border-radius: 0.5em;
+        background-color: var(--button-background);
+        color: var(--font-color);
+        font-family: var(--button-ff);
+        font-size: var(--button-fs);
+        text-align: center;
+        filter: var(--button-filter)
+    }    
+
+    .shutdown-button:hover {
+        background-color: var(--button-background-hover);
+        color: var(--button-hover);
+    }
     
     .dropdown {
         margin: 0.6em auto 0em 0.4em;
@@ -387,6 +421,41 @@ dropDown_sharedStyles.letter = /*css*/ `
         justify-content: space-between;
         align-items: right;
         z-index: 3;
+    }
+
+    
+    .shutdown-container {
+        margin: 0em;
+        padding: 0em;
+        width: 14em;
+        height: 4em;
+        top: 0.7em;
+        left: 10em;
+        position: absolute;
+        display: inline-flex;
+        text-align: center;
+    }
+
+    .shutdown-button {
+        margin: 0 auto 0 auto;
+        padding: 0.1em;
+        width: 7em;
+        height: 2em;
+        position: relative;
+        display: inline-block;
+        border: var(--button-border);
+        border-radius: 0.5em;
+        background-color: var(--button-background);
+        color: var(--font-color);
+        font-family: var(--button-ff);
+        font-size: var(--button-fs);
+        text-align: center;
+        filter: var(--button-filter)
+    }    
+
+    .shutdown-button:hover {
+        background-color: var(--button-background-hover);
+        color: var(--button-hover);
     }
     
     .dropdown {
@@ -544,6 +613,40 @@ dropDown_sharedStyles.about = /*css*/ `
         align-items: center;
         z-index: 50;
     }
+
+    
+    .shutdown-container {
+        margin: 0em;
+        padding: 0em;
+        width: 14em;
+        height: 4em;
+        top: 0.7em;
+        left: 10em;
+        position: absolute;
+        display: inline-flex;
+        text-align: center;
+    }
+    .shutdown-button {
+        margin: 0 auto 0 auto;
+        padding: 0.1em;
+        width: 7em;
+        height: 2em;
+        position: relative;
+        display: inline-block;
+        border: var(--button-border);
+        border-radius: 0.5em;
+        background-color: var(--button-background);
+        color: var(--font-color);
+        font-family: var(--button-ff);
+        font-size: var(--button-fs);
+        text-align: center;
+        filter: var(--button-filter)
+    }    
+
+    .shutdown-button:hover {
+        background-color: var(--button-background-hover);
+        color: var(--button-hover);
+    }
     
     .dropdown {
         margin: 0em auto 0em 0.8em;
@@ -678,6 +781,40 @@ dropDown_sharedStyles.projects = /*css*/ `
         justify-content: center;
         align-items: center;
         z-index: 50;
+    }
+
+    
+    .shutdown-container {
+        margin: 0em;
+        padding: 0em;
+        width: 14em;
+        height: 4em;
+        top: 0.7em;
+        left: 10em;
+        position: absolute;
+        display: inline-flex;
+        text-align: center;
+    }
+    .shutdown-button {
+        margin: 0 auto 0 auto;
+        padding: 0.1em;
+        width: 7em;
+        height: 2em;
+        position: relative;
+        display: inline-block;
+        border: var(--button-border);
+        border-radius: 0.5em;
+        background-color: var(--button-background);
+        color: var(--font-color);
+        font-family: var(--button-ff);
+        font-size: var(--button-fs);
+        text-align: center;
+        filter: var(--button-filter)
+    }    
+
+    .shutdown-button:hover {
+        background-color: var(--button-background-hover);
+        color: var(--button-hover);
     }
     
     .dropdown {
@@ -815,6 +952,40 @@ dropDown_sharedStyles.history = /*css*/ `
         z-index: 50;
     }
     
+    
+    .shutdown-container {
+        margin: 0em;
+        padding: 0em;
+        width: 14em;
+        height: 4em;
+        top: 0.7em;
+        left: 10em;
+        position: absolute;
+        display: inline-flex;
+        text-align: center;
+    }
+    .shutdown-button {
+        margin: 0 auto 0 auto;
+        padding: 0.1em;
+        width: 7em;
+        height: 2em;
+        position: relative;
+        display: inline-block;
+        border: var(--button-border);
+        border-radius: 0.5em;
+        background-color: var(--button-background);
+        color: var(--font-color);
+        font-family: var(--button-ff);
+        font-size: var(--button-fs);
+        text-align: center;
+        filter: var(--button-filter)
+    }    
+
+    .shutdown-button:hover {
+        background-color: var(--button-background-hover);
+        color: var(--button-hover);
+    }
+
     .dropdown {
         margin: 0em auto 0em 0.8em;
         position: sticky;
@@ -948,6 +1119,40 @@ dropDown_sharedStyles.resume = /*css*/ `
         justify-content: center;
         align-items: center;
         z-index: 50;
+    }
+
+    
+    .shutdown-container {
+        margin: 0em;
+        padding: 0em;
+        width: 14em;
+        height: 4em;
+        top: 0.7em;
+        left: 10em;
+        position: absolute;
+        display: inline-flex;
+        text-align: center;
+    }
+    .shutdown-button {
+        margin: 0 auto 0 auto;
+        padding: 0.1em;
+        width: 7em;
+        height: 2em;
+        position: relative;
+        display: inline-block;
+        border: var(--button-border);
+        border-radius: 0.5em;
+        background-color: var(--button-background);
+        color: var(--font-color);
+        font-family: var(--button-ff);
+        font-size: var(--button-fs);
+        text-align: center;
+        filter: var(--button-filter)
+    }    
+
+    .shutdown-button:hover {
+        background-color: var(--button-background-hover);
+        color: var(--button-hover);
     }
     
     .dropdown {
@@ -1084,6 +1289,40 @@ dropDown_sharedStyles.codeEx = /*css*/ `
         align-items: center;
         z-index: 50;
     }
+
+    
+    .shutdown-container {
+        margin: 0em;
+        padding: 0em;
+        width: 14em;
+        height: 4em;
+        top: 0.7em;
+        left: 10em;
+        position: absolute;
+        display: inline-flex;
+        text-align: center;
+    }
+    .shutdown-button {
+        margin: 0 auto 0 auto;
+        padding: 0.1em;
+        width: 7em;
+        height: 2em;
+        position: relative;
+        display: inline-block;
+        border: var(--button-border);
+        border-radius: 0.5em;
+        background-color: var(--button-background);
+        color: var(--font-color);
+        font-family: var(--button-ff);
+        font-size: var(--button-fs);
+        text-align: center;
+        filter: var(--button-filter)
+    }    
+
+    .shutdown-button:hover {
+        background-color: var(--button-background-hover);
+        color: var(--button-hover);
+    }
     
     .dropdown {
         margin: 0em auto 0em 0.8em;
@@ -1218,6 +1457,40 @@ dropDown_sharedStyles.goals = /*css*/ `
         justify-content: center;
         align-items: center;
         z-index: 50;
+    }
+
+    
+    .shutdown-container {
+        margin: 0em;
+        padding: 0em;
+        width: 14em;
+        height: 4em;
+        top: 0.7em;
+        left: 10em;
+        position: absolute;
+        display: inline-flex;
+        text-align: center;
+    }
+    .shutdown-button {
+        margin: 0 auto 0 auto;
+        padding: 0.1em;
+        width: 7em;
+        height: 2em;
+        position: relative;
+        display: inline-block;
+        border: var(--button-border);
+        border-radius: 0.5em;
+        background-color: var(--button-background);
+        color: var(--font-color);
+        font-family: var(--button-ff);
+        font-size: var(--button-fs);
+        text-align: center;
+        filter: var(--button-filter)
+    }    
+
+    .shutdown-button:hover {
+        background-color: var(--button-background-hover);
+        color: var(--button-hover);
     }
     
     .dropdown {
@@ -1355,6 +1628,40 @@ dropDown_sharedStyles.contact = /*css*/ `
         z-index: 50;
     }
     
+    .shutdown-container {
+        margin: 0em;
+        padding: 0em;
+        width: 14em;
+        height: 4em;
+        top: 0.7em;
+        left: 10em;
+        position: absolute;
+        display: inline-flex;
+        text-align: center;
+    }
+    .shutdown-button {
+        margin: 0 auto 0 auto;
+        padding: 0.1em;
+        width: 7em;
+        height: 2em;
+        position: relative;
+        display: inline-block;
+        border: var(--button-border);
+        border-radius: 0.5em;
+        background-color: var(--button-background);
+        color: var(--font-color);
+        font-family: var(--button-ff);
+        font-size: var(--button-fs);
+        text-align: center;
+        filter: var(--button-filter)
+    }    
+
+    .shutdown-button:hover {
+        background-color: var(--button-background-hover);
+        color: var(--button-hover);
+    }
+
+    
     .dropdown {
         margin: 0em auto 0em 0.8em;
         position: sticky;
@@ -1475,7 +1782,41 @@ dropDown_sharedStyles.spacex = /*css*/ `
         align-items: right;
         z-index: 1;
     }
+
     
+    .shutdown-container {
+        margin: 0em;
+        padding: 0em;
+        width: 14em;
+        height: 4em;
+        top: 0.7em;
+        left: 10em;
+        position: absolute;
+        display: inline-flex;
+        text-align: center;
+    }
+    .shutdown-button {
+        margin: 0 auto 0 auto;
+        padding: 0.1em;
+        width: 7em;
+        height: 2em;
+        position: relative;
+        display: inline-block;
+        border: var(--button-border);
+        border-radius: 0.5em;
+        background-color: var(--button-background);
+        color: var(--font-color);
+        font-family: var(--button-ff);
+        font-size: var(--button-fs);
+        text-align: center;
+        filter: var(--button-filter)
+    }    
+
+    .shutdown-button:hover {
+        background-color: var(--button-background-hover);
+        color: var(--button-hover);
+    }
+
     .dropdown {
         margin: 0.6em auto 0em 0.4em;
         width: 175px;
@@ -1630,6 +1971,40 @@ dropDown_sharedStyles.library = /*css*/ `
         justify-content: center;
         align-items: center;
         z-index: 50;
+    }
+
+    
+    .shutdown-container {
+        margin: 0em;
+        padding: 0em;
+        width: 14em;
+        height: 4em;
+        top: 0.7em;
+        left: 10em;
+        position: absolute;
+        display: inline-flex;
+        text-align: center;
+    }
+    .shutdown-button {
+        margin: 0 auto 0 auto;
+        padding: 0.1em;
+        width: 7em;
+        height: 2em;
+        position: relative;
+        display: inline-block;
+        border: var(--button-border);
+        border-radius: 0.5em;
+        background-color: var(--button-background);
+        color: var(--font-color);
+        font-family: var(--button-ff);
+        font-size: var(--button-fs);
+        text-align: center;
+        filter: var(--button-filter)
+    }    
+
+    .shutdown-button:hover {
+        background-color: var(--button-background-hover);
+        color: var(--button-hover);
     }
     
     .dropdown {

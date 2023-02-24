@@ -6,7 +6,7 @@ import { menuNavbar_sharedStyles } from './menu-navbar_sharedStyles.js';
 import RegisterComponent from '../componentTools/components_services.js'; // appendChildren // setAttributes,
 
 export class MenuNavbar extends MenuNavbarTemplate {
-    override initializeShadowDOM: boolean;
+    override activateShadowDOM: boolean;
     menuNav: HTMLElement | null | undefined;
     clickToggle: HTMLAnchorElement | null | undefined;
     clickNavbarLinks: HTMLDivElement | null | undefined;
@@ -25,7 +25,7 @@ export class MenuNavbar extends MenuNavbarTemplate {
     constructor() {
         super();
 
-        this.initializeShadowDOM = false;
+        this.activateShadowDOM = false;
 
         const menuNav = document.getElementById('menuNavbar');
         const clickToggle = menuNav?.querySelector(

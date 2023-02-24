@@ -6,21 +6,22 @@ import { profileResume_sharedHTML } from './profile-resume_sharedHTML.js';
 import RegisterComponent from '../componentTools/components_services.js';
 
 export class ProfileResume extends ResumeTemplate {
-  constructor() {
-    super();
+    override activateShadowDOM: boolean;
+    constructor() {
+        super();
 
-    this.noShadow = true;
-  }
-  override connectedCallback() {
-    super.connectedCallback();
+        this.activateShadowDOM = false;
+    }
+    override connectedCallback() {
+        super.connectedCallback();
 
-    console.log('Resume-Page is Rendered :::: HooT™️ Webelistics®️ ');
-  }
-  override get template() {
-    return /*html*/ `
+        console.log('Resume-Page is Rendered :::: HooT™️ Webelistics®️ ');
+    }
+    override get template() {
+        return /*html*/ `
             ${profileResume_sharedHTML.resume}
             <style>${profileResume_sharedStyles.resume}</style>
         `;
-  }
+    }
 }
 RegisterComponent('profile-resume', ProfileResume);

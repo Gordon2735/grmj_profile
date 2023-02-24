@@ -1,5 +1,9 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+'use strict';
+
 export class ThemeSwitcherTemplate extends HTMLElement {
-    noShadow = true;
+    activateShadowDOM = false;
+    root: ShadowRoot | null = this.shadowRoot;
 
     public get template(): string {
         return this.template;
@@ -8,18 +12,18 @@ export class ThemeSwitcherTemplate extends HTMLElement {
         this.template = value;
     }
 
-    connectedCallback() {
-        if (!this.noShadow) this.attachShadow({ mode: 'open' });
+    connectedCallback(): void {
+        if (this.activateShadowDOM === true)
+            this.attachShadow({ mode: 'open' });
         this.render(this.template);
     }
-
-    render(template: string) {
-        if (this.noShadow) {
+    render(template: string): void {
+        if (this.activateShadowDOM === false) {
             this.innerHTML = template || this.template;
             return;
         } else {
-            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            this.shadowRoot!.innerHTML = template || this.template;
+            this.root!.innerHTML = template || this.template;
+            return;
         }
     }
 }

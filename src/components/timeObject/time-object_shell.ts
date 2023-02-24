@@ -3,9 +3,7 @@
 import { TimeObjectTemplate } from './time-object_template.js';
 import { timeObject_sharedHTML } from './time-object_sharedHTML.js';
 import { timeObject_sharedStyles } from './time-object_sharedStyles.js';
-import RegisterComponent from // setAttributes,
-// appendChildren
-'../componentTools/components_services.js';
+import RegisterComponent from '../componentTools/components_services.js'; // appendChildren // setAttributes,
 
 export class TimeObjectShell extends TimeObjectTemplate {
     override activateShadowDOM: boolean;
@@ -21,7 +19,8 @@ export class TimeObjectShell extends TimeObjectTemplate {
 
     constructor() {
         super();
-        this.activateShadowDOM = true;
+
+        this.activateShadowDOM = false;
     }
     override connectedCallback(): void {
         super.connectedCallback();

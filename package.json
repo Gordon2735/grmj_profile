@@ -34,7 +34,7 @@
     "author": "Gordon R Mullen Jr <webelistics@gmail.com>",
     "license": "MIT",
     "scripts": {
-        "test": "npx playwright test",
+        "test": "npx playwright test --trace on",
         "report": " npx playwright show-report",
         "build": "npx tsc -p .",
         "comp_css": "copyfiles --soft ./src/css/*.* ./dist && echo 'Successful copy of the main images folder'",
@@ -47,6 +47,7 @@
         "lint": "eslint . --fix",
         "pretty": "npx prettier --write src/server.ts",
         "appstate": "npx prettier --write src/server.ts && eslint . --fix && npm test",
+        "pwtrace": "npx playwright show-trace trace.zip",
         "docs": "npx typedoc"
     },
     "dependencies": {

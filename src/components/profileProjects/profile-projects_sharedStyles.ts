@@ -3,17 +3,53 @@
 import { profileProjects_sharedStyles } from '../../interfaces/interfaces.js';
 
 const profileProjects_sharedStyles = {
-  shell: ``,
-  projects: ``,
-  slide: ``,
-  footer: ``,
-  footerMod: ``,
+    shell: ``,
+    projects: ``,
+    slide: ``,
+    footer: ``,
+    footerMod: ``
 };
 
 profileProjects_sharedStyles.shell = /*css*/ `
     body {
         background-image: var(--grmj-profile-background_image_1);
     }
+
+    .theme-light {
+        --image-home: url('../../src/components/componentTools/resources/images/005___home-theme-light__BACKGROUND.jpg');
+        --image-cover: url('../../src/components/componentTools/resources/images/006___cover-light__BACKGROUND.png');
+        --color-primary: var(--grmj-font-color-6);
+        --color-secondary: #fbfbfe;
+        --color-tertiary: var(--grmj-font-color-6);
+        --color-accent: #fd6f53;
+        --font-color: #000000;
+        --button-background: hsla(0, 0%, 41%, 0.99);
+        --button-background-hover: hsla(212, 62%, 49%, 0.99);
+        --button-ff: Arial, Helvetica, sans-serif;
+        --button-color: hsla(219, 97%, 73%, 0.99);
+        --button-fs: 1.2em;
+        --button-border: 0.3em inset #fff; 
+        --button-hover: hsla(0, 0%, 86%, 0.99);
+      }
+
+      .theme-startup,
+      .theme-dark {
+        --image-home: url('../../src/components/componentTools/resources/images/000___home-theme-dark__BACKGROUND.png');
+        --image-cover: url('../../src/components/componentTools/resources/images/006___cover-dark__BACKGROUND.png');
+        --color-primary: var(--grmj-font-color-2);
+        --color-secondary: #2a2c2d;
+        --color-tertiary: var(--grmj-font-color-3);
+        --color-accent: #12cdea;
+        --font-color: #ffffff;
+        --button-background: hsla(0, 0%, 41%, 0.99);
+        --button-background-hover: hsla(212, 62%, 49%, 0.99);
+        --button-ff: Arial, Helvetica, sans-serif;
+        --button-color: hsla(0, 0%, 86%, 0.99);
+        --button-fs: 1.2em;
+        --button-border: 0.3em inset #fff; 
+        --button-hover: hsla(0, 100%, 69%, 0.99);
+      }
+      
     .profile-projects-shell .drop-down-shell {
         margin: 0em 0em 0em 0em;
         position: absolute;

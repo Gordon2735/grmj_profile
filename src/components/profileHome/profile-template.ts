@@ -1,26 +1,28 @@
-'use strict';
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-/* eslint-disable @typescript-eslint/no-explicit-any */
+'use strict';
 export class ProfileTemplate extends HTMLElement {
-    noShadow = true;
+    activateShadowDOM = false as boolean;
     root: ShadowRoot | null = this.shadowRoot;
 
-    public get template(): any {
+    public get template(): string {
         return this.template;
     }
-    public set template(value: any) {
+    public set template(value: string) {
         this.template = value;
     }
-    connectedCallback() {
-        if (!this.noShadow) this.attachShadow({ mode: 'open' });
+
+    connectedCallback(): void {
+        if (this.activateShadowDOM === true)
+            this.attachShadow({ mode: 'open' });
         this.render(this.template);
     }
-    render(template: any): void {
-        if (this.noShadow) {
+    render(template: string): void {
+        if (this.activateShadowDOM === false) {
             this.innerHTML = template || this.template;
             return;
         } else {
-            this.shadowRoot!.innerHTML = template || this.template;
+            this.root!.innerHTML = template || this.template;
+            return;
         }
     }
 }

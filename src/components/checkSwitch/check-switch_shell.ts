@@ -9,7 +9,6 @@ import RegisterComponent, {
 } from '../componentTools/components_services.js';
 
 export class CheckSwitchShell extends CheckSwitchTemplate {
-    override activateShadowDOM: boolean | undefined;
     checkSwitchScript: HTMLScriptElement;
     head: HTMLHeadElement;
     linkChango: HTMLLinkElement;

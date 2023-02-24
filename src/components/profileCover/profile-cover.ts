@@ -6,7 +6,7 @@ import { profileCover_sharedHTML } from './profile-cover_sharedHTML.js';
 import { profileCover_sharedStyles } from './profile-cover_sharedStyles.js';
 
 export class ProfileCover extends ProfileCoverTemplate {
-    override noShadow = true;
+    override activateShadowDOM = false;
     anchor0: HTMLAnchorElement | undefined;
     anchor1: HTMLAnchorElement | undefined;
     anchor2: HTMLAnchorElement | undefined;
@@ -30,7 +30,7 @@ export class ProfileCover extends ProfileCoverTemplate {
     constructor() {
         super();
 
-        this.noShadow = true;
+        this.activateShadowDOM = false;
     }
     override connectedCallback() {
         super.connectedCallback();

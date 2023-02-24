@@ -18,7 +18,7 @@ themeSwitcher_sharedHTML.switcher = /* html */ `
     <div class="container-theme">
     <h1 id="h1Theme" class="h1-theme">Theme <br> Switcher</h1>
     <label id="labelSwitch" class="label-switch">
-        <input type="checkbox" id="sliderCheckbox" class="slider-checkbox">
+        <input type="checkbox" id="sliderCheckbox" class="slider-checkbox startup">
         <span id="span-slider" data-theme-now="" class="span-slider round"></span>
     </label>
     </div>

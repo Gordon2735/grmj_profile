@@ -17,7 +17,7 @@ import historyStack from '../../controller/state/profileState.js';
  *
  */
 export class ProfileHome extends ProfileTemplate {
-    override noShadow: boolean;
+    override activateShadowDOM: boolean;
     State: any | undefined;
     historyStack: import('d:/grmj_profile/src/interfaces/interfaces.js').HistoryObject;
     head: HTMLHeadElement | null;
@@ -30,11 +30,13 @@ export class ProfileHome extends ProfileTemplate {
 			${profile_sharedHTML.home}	
 		`;
     }
-
+    static get observedAttributes(): string[] {
+        return ['nowLocale'];
+    }
     constructor() {
         super();
 
-        this.noShadow = true;
+        this.activateShadowDOM = false;
 
         let State: any | undefined;
         this.State = State;
@@ -51,7 +53,7 @@ export class ProfileHome extends ProfileTemplate {
         window.history.replaceState(this.State, 'home', '');
         this.historyStack.push(history.state);
 
-        window.onpopstate = (event) => {
+        window.onpopstate = (event: PopStateEvent): any | null => {
             event.state
                 ? ((this.State = event.state), this.historyStack.pop())
                 : (this.State = { pageOpen: '/' });
@@ -60,22 +62,21 @@ export class ProfileHome extends ProfileTemplate {
         console.log(history.state);
         console.log(this.historyStack, window.location.href);
     }
-    override connectedCallback() {
+    override connectedCallback(): void {
         super.connectedCallback();
-    }
-    static get observedAttributes() {
-        return ['window.location.href'];
+
+        console.log(window.location.origin);
     }
     public attributeChangedCallback(
         name: string,
-        _oldValue: string,
-        _newValue: string
-    ) {
-        _oldValue !== _newValue
-            ? console.info(`old location: ${_oldValue},
-				${name} has a new location of: ${_newValue}
+        oldValue: string,
+        newValue: string
+    ): void {
+        oldValue !== newValue
+            ? console.info(`old location: ${oldValue},
+				${name} has a new location of: ${newValue}
 				which should be equal to: ${window.location} `)
-            : console.info(`old location: ${_oldValue}`);
+            : console.info(`old location: ${oldValue}`);
     }
 }
 RegisterComponent('profile-home', ProfileHome);

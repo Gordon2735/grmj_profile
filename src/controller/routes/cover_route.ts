@@ -11,6 +11,7 @@ let user: any;
 const cover: Router = router
     .get('/cover_letter', (_req: Request, res: Response) => {
         res.set('Content-Type', 'text/html');
+        res.set('target', 'blank');
         res.render('cover_letter', {
             layout: 'main',
             title: 'Cover-Letter-Profile',

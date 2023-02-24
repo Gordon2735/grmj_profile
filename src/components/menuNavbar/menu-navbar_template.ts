@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 'use strict';
-
 export class MenuNavbarTemplate extends HTMLElement {
-    initializeShadowDOM = false;
+    activateShadowDOM = false as boolean;
+    root: ShadowRoot | null = this.shadowRoot;
 
     public get template(): string {
         return this.template;
@@ -9,17 +10,19 @@ export class MenuNavbarTemplate extends HTMLElement {
     public set template(value: string) {
         this.template = value;
     }
-    connectedCallback() {
-        if (this.initializeShadowDOM) this.attachShadow({ mode: 'open' });
+
+    connectedCallback(): void {
+        if (this.activateShadowDOM === true)
+            this.attachShadow({ mode: 'open' });
         this.render(this.template);
     }
-    render(template: string) {
-        if (!this.initializeShadowDOM) {
+    render(template: string): void {
+        if (this.activateShadowDOM === false) {
             this.innerHTML = template || this.template;
             return;
         } else {
-            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            this.shadowRoot!.innerHTML = template || this.template;
+            this.root!.innerHTML = template || this.template;
+            return;
         }
     }
 }

@@ -1,7 +1,8 @@
-'use strict';
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
+'use strict';
 export class ProfileCoverTemplate extends HTMLElement {
-    noShadow = true;
+    activateShadowDOM = false as boolean;
+    root: ShadowRoot | null = this.shadowRoot;
 
     public get template(): string {
         return this.template;
@@ -10,16 +11,18 @@ export class ProfileCoverTemplate extends HTMLElement {
         this.template = value;
     }
 
-    connectedCallback() {
-        if (!this.noShadow) this.attachShadow({ mode: 'open' });
+    connectedCallback(): void {
+        if (this.activateShadowDOM === true)
+            this.attachShadow({ mode: 'open' });
         this.render(this.template);
     }
-    render(template: string) {
-        if (this.noShadow) {
+    render(template: string): void {
+        if (this.activateShadowDOM === false) {
             this.innerHTML = template || this.template;
             return;
         } else {
-            this.shadowRoot!.innerHTML = template || this.template;
+            this.root!.innerHTML = template || this.template;
+            return;
         }
     }
 }

@@ -11,14 +11,14 @@ import RegisterComponent, {
 } from '../componentTools/components_services.js';
 
 export class ProfileShell extends ProfileTemplate {
-    override noShadow: boolean;
+    override activateShadowDOM: boolean;
     head: HTMLHeadElement | null;
     scriptHome: HTMLScriptElement;
 
     constructor() {
         super();
 
-        this.noShadow = true;
+        this.activateShadowDOM = false;
 
         this.head = document.getElementById('head');
         this.scriptHome = document.createElement('script');

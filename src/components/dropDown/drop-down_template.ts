@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
+'used strict';
 
 export class DropDownTemplate extends HTMLElement {
-    noShadow = true;
+    activateShadowDOM = false;
+    root: ShadowRoot | null = this.shadowRoot;
     locationHREF: string | undefined;
     checkLocation: string | undefined;
-    dropShell: HTMLElement | null | undefined;
     styleSheetMod: string | null | undefined;
     homeStartHREF: string | undefined;
     coverLetterHREF: string | undefined;
@@ -18,32 +19,32 @@ export class DropDownTemplate extends HTMLElement {
     contactHREF: string | undefined;
     spacexHREF: string | undefined;
     libraryHREF: string | undefined;
+    dropShell: HTMLElement | undefined;
 
-    public get template(): any {
+    public get template(): string {
         return this.template;
     }
-    public set template(value: any) {
+    public set template(value: string) {
         this.template = value;
     }
 
-    connectedCallback() {
-        if (!this.noShadow) this.attachShadow({ mode: 'open' });
+    connectedCallback(): void {
+        if (this.activateShadowDOM === true)
+            this.attachShadow({ mode: 'open' });
         this.render(this.template);
     }
-
-    render(template: any) {
-        if (this.noShadow) {
+    render(template: string): void {
+        if (this.activateShadowDOM === false) {
             this.innerHTML = template || this.template;
             return;
         } else {
-            this.shadowRoot!.innerHTML = template || this.template;
+            this.root!.innerHTML = template || this.template;
+            return;
         }
     }
-
     public dropDownStyleMod(
         locationHREF: string | undefined,
         checkLocation: string | undefined,
-        dropShell: HTMLElement | null | undefined,
         homeStartHREF: string | undefined,
         coverLetterHREF: string | undefined,
         aboutHREF: string | undefined,
@@ -58,7 +59,6 @@ export class DropDownTemplate extends HTMLElement {
     ): any {
         this.locationHREF = locationHREF;
         this.checkLocation = checkLocation;
-        this.dropShell = dropShell;
         this.homeStartHREF = homeStartHREF;
         this.coverLetterHREF = coverLetterHREF;
         this.aboutHREF = aboutHREF;
@@ -70,6 +70,11 @@ export class DropDownTemplate extends HTMLElement {
         this.contactHREF = contactHREF;
         this.spacexHREF = spacexHREF;
         this.libraryHREF = libraryHREF;
+
+        const dropShell = document.querySelector(
+            '.drop-down-shell'
+        ) as HTMLElement;
+        this.dropShell = dropShell;
 
         try {
             switch (this.locationHREF) {
@@ -167,12 +172,11 @@ export class DropDownTemplate extends HTMLElement {
             );
         }
 
-        this.dropShell!.insertAdjacentHTML(
+        this.dropShell.insertAdjacentHTML(
             'afterbegin',
             `<drop-down id="dropDown" class="drop-down" operations="startup" data-dd1_2="hiding">
-            </drop-down>`
+                    </drop-down>`
         );
-        this.render(this.dropShell);
         return;
     }
 }

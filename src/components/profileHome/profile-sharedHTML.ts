@@ -11,7 +11,7 @@ const profile_sharedHTML = {
 };
 
 profile_sharedHTML.shell = /*html*/ ` 
-    <profile-home id="profileHome" class="profile-home"></profile-home>
+    <profile-home id="profileHome" class="profile-home" target="blank" nowLocale="home"></profile-home>
 `;
 
 profile_sharedHTML.home = /*html*/ `

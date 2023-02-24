@@ -4,13 +4,15 @@ import express, { Router, Request, Response } from 'express';
 
 const router: Router = express.Router();
 router.use(express.static('../../views'));
-const homeShellScript = `<script type="module" content="text/javascript" src="/src/components/profileHome/profile-home_shell.js"></script>`;
+const homeShellScript = `<script type="module" content="text/javascript" src="/src/components/profileHome/profile-shell.js"></script>`;
+// const utilityTypes = `<script type="module" content="text/javascript" src="/src/ts/utility-types-1.js"></script>`;
 
 //%  /Home page Route
 let user: any;
 const home: Router = router
     .get('/', (_req: Request, res: Response) => {
         res.set('Content-Type', 'text/html');
+        res.set('target', 'blank');
         res.render('home', {
             layout: 'main',
             title: 'Home-Profile',
@@ -28,3 +30,5 @@ const home: Router = router
         );
     });
 export default home;
+
+// script: [[`${homeShellScript}`], [`${utilityTypes}`]]

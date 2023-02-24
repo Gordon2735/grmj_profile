@@ -8,9 +8,9 @@ import { setAttributes } from '../componentTools/components_services.js';
 // import { setAttributes, appendChildren } from '../componentTools/components_services.js';
 
 export class ProfileCoverShell extends ProfileCoverTemplate {
+    override activateShadowDOM: boolean;
     head: HTMLHeadElement | null | undefined;
     script: HTMLScriptElement | null | undefined;
-    override noShadow: boolean;
 
     override get template() {
         return /*html*/ `
@@ -24,7 +24,7 @@ export class ProfileCoverShell extends ProfileCoverTemplate {
     constructor() {
         super();
 
-        this.noShadow = true;
+        this.activateShadowDOM = false;
 
         const head: HTMLHeadElement | null | undefined =
             document.getElementById('head');

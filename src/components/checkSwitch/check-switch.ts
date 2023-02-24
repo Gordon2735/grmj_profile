@@ -6,14 +6,14 @@ import { checkSwitch_sharedStyles } from './check-switch_sharedStyles.js';
 import RegisterComponent from '../componentTools/components_services.js';
 
 export class CheckSwitch extends CheckSwitchTemplate {
-    override activateShadowDOM: boolean | undefined;
+    override activateShadowDOM: boolean;
 
     constructor() {
         super();
 
         this.activateShadowDOM = false;
     }
-    observedAttributes() {
+    observedAttributes(): never[] {
         return [];
     }
     override get template(): string {
@@ -25,11 +25,15 @@ export class CheckSwitch extends CheckSwitchTemplate {
         `;
     }
 
-    override connectedCallback() {
+    override connectedCallback(): void {
         super.connectedCallback();
     }
 
-    attributeChangedCallback(name: string, oldValue: string, newValue: string) {
+    attributeChangedCallback(
+        name: string,
+        oldValue: string,
+        newValue: string
+    ): void {
         console.info(
             `attributeChangedCallback, ${name}, ${oldValue}, ${newValue}`
         );

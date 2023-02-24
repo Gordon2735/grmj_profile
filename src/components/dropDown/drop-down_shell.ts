@@ -10,24 +10,25 @@ import RegisterComponent, {
 } from '../componentTools/components_services.js';
 
 export class DropDownShell extends DropDownTemplate {
-    override noShadow: boolean;
-    head: HTMLHeadElement | null;
+    override activateShadowDOM: boolean;
+    head: HTMLHeadElement;
     scriptDropDown: HTMLScriptElement;
 
     override get template() {
         return /*html*/ `
-
-			${dropDown_sharedHTML.dynadrop}
-        
-    `;
+			${dropDown_sharedHTML.shell}             
+			${dropDown_sharedHTML.dynadrop}             
+        `;
     }
     constructor() {
         super();
 
-        this.noShadow = true;
+        this.activateShadowDOM = false;
 
-        this.head = document.querySelector('head');
-        this.scriptDropDown = document.createElement('script');
+        this.head = document.querySelector('head') as HTMLHeadElement;
+        this.scriptDropDown = document.createElement(
+            'script'
+        ) as HTMLScriptElement;
 
         setAttributes(this.scriptDropDown, {
             type: 'module',
@@ -48,7 +49,6 @@ export class DropDownShell extends DropDownTemplate {
         super.dropDownStyleMod(
             (this.locationHREF = window.location.href),
             (this.checkLocation = 'http://127.0.0.1:9080/'),
-            (this.dropShell = document.getElementById('dropDownShell')),
             (this.homeStartHREF = `${dropDown_sharedStyles.home}`),
             (this.coverLetterHREF = `${dropDown_sharedStyles.letter}`),
             (this.aboutHREF = `${dropDown_sharedStyles.about}`),
@@ -63,6 +63,5 @@ export class DropDownShell extends DropDownTemplate {
         );
         return;
     }
-    override render() {}
 }
 RegisterComponent('drop-down_shell', DropDownShell);

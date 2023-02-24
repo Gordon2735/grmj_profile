@@ -7,7 +7,7 @@ import { profileFooter_sharedStyles } from './profile-footer_sharedStyles.js';
 import RegisterComponent from '../componentTools/components_services.js';
 
 export class ProfileFooter extends ProfileFooterTemplate {
-    override noShadow = true;
+    override activateShadowDOM = false;
     getHREF: string;
     targetHREF: string;
     getElement: HTMLElement | undefined | null;
@@ -24,7 +24,7 @@ export class ProfileFooter extends ProfileFooterTemplate {
     constructor() {
         super();
 
-        this.noShadow = true;
+        this.activateShadowDOM = false;
         this.getHREF = window.location.href;
         this.targetHREF = 'http://127.0.0.1:9080/';
         this.getElement = document.getElementById('profileFooter');

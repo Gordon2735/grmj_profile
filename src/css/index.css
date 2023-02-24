@@ -88,6 +88,7 @@
     --grmj-letter-spacing-4: 0.4em;
     --grmj-letter-spacing-5: 0.5em;
 
+
     /*Font Sizing*/
     --grmj-font-size-01vw: 0.3vw;
     --grmj-font-size-02vw: 0.1vw;
@@ -154,6 +155,7 @@
     --grmj-font-color-18: hsla(197, 71%, 73%, 0.70);
 
 
+
     /*Borders*/
     --grmj-border-0: 2.5px solid hsla(240, 81%, 12%, 0.99);
     --grmj-border-1: 1.25px solid hsla(240, 81%, 12%, 0.99);
@@ -168,6 +170,7 @@
 
     /* Background Contingencies */
     --menu-grey: hsla(0, 0%, 66%, 0.69);
+
 }
 
 @font-face {
@@ -207,4 +210,5 @@ body::-webkit-scrollbar-thumb {
 
 body::-webkit-scrollbar-thumb:hover {
     background: var(--grmj_profile_scrollbar-thumb_hover);
+    color: hsla(0, 0%, 41%, 0.99);
 }

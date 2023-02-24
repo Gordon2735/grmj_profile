@@ -10,6 +10,7 @@ let user: any;
 const contact: Router = router
     .get('/contact', (_req: Request, res: Response) => {
         res.set('Content-Type', 'text/html');
+        res.set('target', 'blank');
         res.render('contact', {
             layout: 'main',
             title: 'Contact-Profile',

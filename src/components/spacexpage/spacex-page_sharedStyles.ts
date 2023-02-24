@@ -71,10 +71,17 @@ spacexPage_sharedStyles.shell = /*css*/ `
             --font-color: #000000;
             --border-bottom: 2px solid #fff;
             --width-main: 53%;
-
+            --button-background: hsla(0, 0%, 41%, 0.99);
+            --button-background-hover: hsla(212, 62%, 49%, 0.99);
+            --button-ff: Arial, Helvetica, sans-serif;
+            --button-color: hsla(219, 97%, 73%, 0.99);
+            --button-fs: 0.7em;
+            --button-border: 0.1em ridge hsla(180, 25%, 25%, 0.99);; 
+            --button-hover: hsla(0, 0%, 86%, 0.39);
+            --button-filter: drop-shadow(0.1em 0.08rem 0.08rem rgba(0, 0, 0, 0.22));
         }
          
-    
+        .theme-startup,
         .theme-dark {
             --background-image: url('../../src/components/componentTools/resources/images/spacex_images/SpaceX__MOON_Rocket.webp');
             --image-home: url('../../src/components/componentTools/resources/images/000___home-theme-dark__BACKGROUND.png');
@@ -86,7 +93,17 @@ spacexPage_sharedStyles.shell = /*css*/ `
             --font-color: #ffffff;
             --border-bottom: 2px solid #000;
             --width-main: 49%;
-        }
+            --button-background: hsla(0, 0%, 41%, 0.99);
+            --button-background-hover: hsla(212, 62%, 49%, 0.99);
+            --button-ff: Arial, Helvetica, sans-serif;
+            --button-color: hsla(0, 0%, 86%, 0.99);
+            --button-fs: 0.7em;
+            --button-border: 0.1em ridge hsla(180, 25%, 25%, 0.99);; 
+            --button-hover: hsla(90, 100%, 50%, 0.99);
+            --button-filter: drop-shadow(0.1em 0.08rem 0.08rem rgba(0, 0, 0, 0.22));
+        }   
+
+  
       
         .side-panel-shell {
             z-index: 600;
