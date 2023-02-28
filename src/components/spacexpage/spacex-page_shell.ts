@@ -18,7 +18,7 @@ export class SpacexPageShell extends SpacexPageTemplate {
             ${spacexPage_sharedHTML.shell}
             <style>${spacexPage_sharedStyles.shell}</style>
 
-            <spacex-page id="spaceXPage" class="spacex-page" data-set-options></spacex-page>
+            <spacex-page id="spaceXPage" class="spacex-page" data-set-options=''></spacex-page>
 
         `;
     }

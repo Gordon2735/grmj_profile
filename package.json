@@ -3,6 +3,10 @@
     "description": "Official Profile Landing Page for Gordon R Mullen Jr, Software Developer",
     "version": "1.1.2",
     "main": "server.js",
+    "exports": {
+        "import": "./dist/src/server.js",
+        "require": "./dist/src/server.js"
+    },
     "type": "module",
     "keywords": [
         "Gordon R Mullen Jr",
@@ -34,14 +38,14 @@
     "author": "Gordon R Mullen Jr <webelistics@gmail.com>",
     "license": "MIT",
     "scripts": {
-        "test": "npx playwright test --trace on",
+        "test": "npx playwright test",
         "report": " npx playwright show-report",
         "build": "npx tsc -p .",
         "comp_css": "copyfiles --soft ./src/css/*.* ./dist && echo 'Successful copy of the main images folder'",
-        "comp_images": "copyfiles --soft ./src/images/*.* ./dist && echo 'Successful copy of the main images folder'",
-        "comp_static": "copyfiles --soft ./src/components/componentTools/*.* ./dist && echo 'Copied componentTools to dist/componentTools'",
+        "comp_images": "copyfiles --soft ./src/images/*.* ./dist/ && echo 'Successful copy of the main images folder'",
+        "comp_static": "copyfiles --soft ./src/components/componentTools/**/**/*.* ./dist/ && echo 'Copied componentTools to ./dist/src/components/componentTools'",
         "start": "npm run dev",
-        "dev": "cross-env NODE_ENV=development \"node dist/src/server.js\"",
+        "dev": "cross-env NODE_ENV=development \"node ./dist/src/server.js\"",
         "temp": "cross-env NODE_ENV=development npm start",
         "prod": "cross-env NODE_ENV=production  node ./dist/src/server.js",
         "lint": "eslint . --fix",

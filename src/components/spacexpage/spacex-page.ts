@@ -59,15 +59,14 @@ export class SpacexPage extends SpacexPageTemplate {
                         ''
                     )}, ${thiz.nowDate.getYear('')} `
                 );
+                return;
             } catch (error: unknown) {
                 console.error(
                     `%c ERROR: ${error}`,
                     `color: red; font-weight: bold;`
                 );
+                return;
             }
-            // setTimeout(() => {
-            //     getTime();
-            // }, 1000);
         }
         getTime();
 
@@ -77,11 +76,13 @@ export class SpacexPage extends SpacexPageTemplate {
                 const data: any = await response.json();
                 console.info('Data:', data);
                 createLaunchList(data);
+                return;
             } catch (error: unknown) {
                 console.error(
                     `%c ERROR: ${error}`,
                     `color: red; font-weight: bold;`
                 );
+                return;
             }
         }
 
@@ -109,16 +110,27 @@ export class SpacexPage extends SpacexPageTemplate {
                     `;
                     launchListContainer?.appendChild(launchListItems);
                 });
+                return;
             } catch (error: unknown) {
                 console.error(
                     `%c ERROR: ${error}`,
                     `color: red; font-weight: bold;`
                 );
+                return;
             }
         }
 
         async function init(): Promise<void> {
-            await getSpaceXData(thiz.spacex_url);
+            try {
+                await getSpaceXData(thiz.spacex_url);
+                return;
+            } catch (error: unknown) {
+                console.error(
+                    `%c The Initializing Function "init()" had an ERROR: ${error}`,
+                    `color: red; font-weight: bold;`
+                );
+                return;
+            }
         }
         init();
     }

@@ -13,7 +13,7 @@ export class TimeObjectShell extends TimeObjectTemplate {
             
             ${timeObject_sharedHTML.shell}
             <style>${timeObject_sharedStyles.shell}</style>
-            <time-object id="timeObject" class="time-object" data-set-options></time-object>
+            <time-object id="timeObject" class="time-object" data-set-options="startup"></time-object>
         `;
     }
 

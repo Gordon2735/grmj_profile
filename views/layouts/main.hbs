@@ -13,7 +13,8 @@
 			content="HOOT Webelistics, Web Application Development"
 			alt="We can build your applications with maximum accessibility to fit you precise needs!"
     />
-    {{> seo_head}}      
+    {{> seo_head}} 
+         
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,400;0,600;0,700;0,900;1,200;1,400&display=swap"
@@ -24,7 +25,13 @@
     />    
     <link type="text/css" rel="stylesheet" href="/src/css/index.css" alt="CSS Script" />
     <script type="module" src="/src/ts/index.js" content="text/javascript"></script>
+
     {{{script}}}
+
+    {{#if_cond title '===' 'SpaceX-Profile'}}
+      <script type="module" content="text/javascript" src="src/components/timeObject/time-object_shell.js"></script>
+    {{/if_cond}}
+
     <title>{{{title}}}</title>    
   </head>
 

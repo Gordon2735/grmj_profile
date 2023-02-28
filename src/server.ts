@@ -15,6 +15,7 @@ import open from 'open';
 import favicon from 'serve-favicon';
 import logEvents, { date } from './logEvents.js';
 import router from './controller/router.js';
+import helper from '../views/helpers/hbsHelpers.js';
 
 /**
  *
@@ -75,7 +76,7 @@ const handlebars: ExpressHandlebars = create({
     defaultLayout: 'main',
     layoutsDir: path.join(__dirname, '..', '..', 'views', 'layouts'),
     partialsDir: path.join(__dirname, '..', '..', 'views', 'partials'),
-    helpers: {}
+    helpers: { ...helper }
 });
 
 // Crank Up the Handlebars Engine & Configurations
