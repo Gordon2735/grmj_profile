@@ -76,12 +76,15 @@
     npm install tsc-watch --save-dev
     npm init playwright@latest
     npm i -D jsdoc
+    npm i -D supertest jest ts-jest @types/jest @types/supertest eslint-plugin-jest
 
 # NPM UNINSTALLS
 
+---
+
 -   npm uninstall ts-jest
--   npm uninstall @types/jest
--   npm uninstall eslint-plugin-jest
+-   npm uninstall @types/**jest**
+-   npm uninstall eslint-plugin-**jest**
 -   <br/>
 
 **Type: string | string[]**

@@ -5,7 +5,7 @@ import { spacexPage_sharedHTML } from './spacex-page_sharedHTML.js';
 import { spacexPage_sharedStyles } from './spacex-page_sharedStyles.js';
 import RegisterComponent, {
     setAttributes
-} from '../componentTools/components_services.js';
+} from '../../componentTools/components_services.js';
 
 export class SpacexPageShell extends SpacexPageTemplate {
     override activateShadowDOM: boolean;

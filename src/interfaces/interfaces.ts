@@ -183,6 +183,16 @@ interface timeObject_sharedStyles {
     shell: string;
     time: string;
 }
+
+interface profileBlog_sharedHTML {
+    shell: string;
+    blog: string;
+}
+
+interface profileBlog_sharedStyles {
+    shell: string;
+    blog: string;
+}
 interface profileHdr_sharedHTML {
     shell: string;
     hdr: string;
@@ -240,6 +250,8 @@ export {
     spacexPage_sharedStyles,
     timeObject_sharedHTML,
     timeObject_sharedStyles,
+    profileBlog_sharedHTML,
+    profileBlog_sharedStyles,
     profileHdr_sharedStyles,
     profileHdr_sharedHTML,
     profileFooter_sharedHTML,

@@ -1,6 +1,6 @@
 'use strict';
 
-import { spacexPage_sharedHTML } from '../../interfaces/interfaces.js';
+import { spacexPage_sharedHTML } from '../../../interfaces/interfaces.js';
 
 const spacexPage_sharedHTML = {
     shell: ``,

@@ -72,6 +72,10 @@ export class DropDown extends DropDownTemplate {
                         getComponent.setAttribute('operations', 'about');
                         getComponent.setAttribute('target', 'blank');
                         break;
+                    case 'http://127.0.0.1:9080/blog':
+                        getComponent.setAttribute('operations', 'blog');
+                        getComponent.setAttribute('target', 'blank');
+                        break;
                     case 'http://127.0.0.1:9080/projects':
                         getComponent.setAttribute('operations', 'projects');
                         getComponent.setAttribute('target', 'blank');
@@ -254,6 +258,16 @@ export class DropDown extends DropDownTemplate {
                                 grabComponent?.setAttribute(
                                     'operations',
                                     'about'
+                                );
+                                grabComponent?.setAttribute('target', 'blank');
+                            }, 100);
+                            break;
+                        case 'http://127.0.0.1:9080/blog':
+                            val = this.options.val = 'Blog';
+                            setTimeout(() => {
+                                grabComponent?.setAttribute(
+                                    'operations',
+                                    'blog'
                                 );
                                 grabComponent?.setAttribute('target', 'blank');
                             }, 100);
@@ -550,6 +564,7 @@ export class DropDown extends DropDownTemplate {
                 'Home',
                 'Cover Letter',
                 'About',
+                'Blog',
                 'Projects',
                 'History',
                 'Resume',
@@ -570,6 +585,9 @@ export class DropDown extends DropDownTemplate {
                             break;
                         case 'About':
                             window.location.href = '/about';
+                            break;
+                        case 'Blog':
+                            window.location.href = '/blog';
                             break;
                         case 'Projects':
                             window.location.href = '/projects';
