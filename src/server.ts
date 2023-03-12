@@ -1,11 +1,17 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use strict';
 
 import * as dotenv from 'dotenv';
-import express from 'express';
-import { Application, Request, Response, NextFunction } from 'express';
+import express, { Application, Request, Response, NextFunction } from 'express';
 import { create, ExpressHandlebars } from 'express-handlebars';
 import path from 'path';
+import MongoStore from 'connect-mongo';
+import passport from 'passport';
+import passportConfig from '../config/passport.js';
+import methodOverride from 'method-override';
+import blogDB from './controller/databases/blogDB.js';
+import session from 'express-session';
 import fs from 'fs';
 import morgan from 'morgan';
 import cors from 'cors';
@@ -32,6 +38,8 @@ import helper from '../views/helpers/hbsHelpers.js';
  */
 // Load Environment Variables
 dotenv.config({ path: './config/config.env' });
+passportConfig(passport);
+blogDB();
 
 /**
  * @description The express package is Node.js Framework for building web applications and APIs.
@@ -64,8 +72,22 @@ if (environment) {
 }
 
 // body-parser...
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
+
+// Method-override
+app.use(
+    methodOverride(function (req: any, res: any) {
+        if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+            // look in urlencoded POST bodies and delete it
+            const method = req.body._method;
+            delete req.body._method;
+            return method;
+        }
+        console.log(res.statusCode);
+    })
+);
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -73,7 +95,7 @@ const __dirname = path.dirname(__filename);
 // Handlebars Mapping
 const handlebars: ExpressHandlebars = create({
     extname: '.hbs',
-    defaultLayout: 'main',
+    defaultLayout: 'dash',
     layoutsDir: path.join(__dirname, '..', '..', 'views', 'layouts'),
     partialsDir: path.join(__dirname, '..', '..', 'views', 'partials'),
     helpers: { ...helper }
@@ -84,6 +106,22 @@ app.set('view engine', '.hbs');
 app.set('views', path.join(__dirname, '..', '..', 'views'));
 app.engine('.hbs', handlebars.engine);
 app.enable('view cache');
+
+// Session Middleware
+app.use(
+    session({
+        secret: 'hoot session',
+        resave: false,
+        saveUninitialized: false,
+        store: MongoStore.create({
+            mongoUrl: process.env.MONGO_URI
+        })
+    })
+);
+
+// Passport Middleware
+app.use(passport.initialize());
+app.use(passport.session());
 
 // static folders
 app.use(express.static(path.join(__dirname, '../../dist')));
@@ -96,25 +134,17 @@ app.use(function (_req: Request, res: Response, next: NextFunction) {
     if (!res.locals.partials) res.locals.partials = {};
     next();
 });
+app.use(function (req: Request, res: Response, next: NextFunction) {
+    res.locals.user = req.user || null;
+    next();
+});
 
 // Integrate Routes
 app.use('/', router);
 
-// ! Research Error and 404 Handling || when server is cranking and not
-// Render Errors when they occur
-app.use((_req: Request, res: Response, next: NextFunction) => {
-    res.render('404', { layout: 'errors' });
-    next();
-});
-// ! Research Error and 500 Handling || 500 Handling || maybe pure HTML?
-app.use((_req: Request, res: Response, next: NextFunction) => {
-    res.render('500', { layout: 'errors500' });
-    next();
-});
-
 // Configure Port and Host
 const PORT: string | 9080 = process.env.PORT || 9080;
-const HOST: string = process.env.HOST || `127.0.0.1`;
+const HOST: string = process.env.HOST || `http://127.0.0.1`;
 
 // Launch Server & Create Event Logger
 createServer();
@@ -138,7 +168,7 @@ async function createServer(): Promise<void> {
                     );
                     app.use(
                         (_req: Request, res: Response, next: NextFunction) => {
-                            res.render('500', { layout: 'errors500' });
+                            res.render('errors/500', { layout: '500' });
                             next();
                         }
                     );
@@ -150,13 +180,12 @@ async function createServer(): Promise<void> {
                 `Unable to start Browser due to a Server Problem: ${error}`
             );
             app.use((_req: Request, res: Response, next: NextFunction) => {
-                res.render('500', { layout: 'errors500' });
+                res.render('errors/500', { layout: '500' });
                 next();
             });
         }
     });
 }
-// Open Browser
 
 // Logging Events
 async function eventLogger(): Promise<void> {
@@ -179,11 +208,10 @@ async function eventLogger(): Promise<void> {
 			ERROR CODE: ${error}
 		`);
         app.use((_req: Request, res: Response, next: NextFunction) => {
-            res.render('500', { layout: 'errors500' });
+            res.render('errors/500', { layout: '500' });
             next();
         });
     }
-
     // Create a write stream (in append mode)(morgan)
     try {
         const accessLogStream: fs.WriteStream = fs.createWriteStream(
@@ -199,7 +227,7 @@ async function eventLogger(): Promise<void> {
 			ERROR CODE: ${error}
 		`);
         app.use((_req: Request, res: Response, next: NextFunction) => {
-            res.render('500', { layout: 'errors500' });
+            res.render('errors/500', { layout: '500' });
             next();
         });
     }

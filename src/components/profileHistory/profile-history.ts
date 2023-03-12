@@ -8,7 +8,7 @@ import RegisterComponent, {
     setAttributes,
     appendChildren
 } from '../componentTools/components_services.js';
-import historyStack from '../../controller/state/profileState.js';
+import historyStack from '../../images/state/profileState.js';
 import { HistoryObject } from '../../interfaces/interfaces.js';
 
 export class ProfileHistory extends ProfileHistoryTemplate {

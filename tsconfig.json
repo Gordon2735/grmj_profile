@@ -106,12 +106,15 @@
     "exclude": ["node_modules", "public"],
     "include": [
         "src/**/*",
+        "config/passport.ts",
         "utils/test/**/*",
+        "utils/CiCd_pipeline/**/*",
         "src/components/**/*",
         "playwright.config.ts",
         "playwright-report/trace/index.374bb04a.js",
         "playwright-report/trace/sw.bundle.js",
-        "views/helpers/hbsHelpers.js"
+        "views/helpers/hbsHelpers.js",
+        "jest.config.js"
     ],
     "typedocOptions": {
         "entryPoints": ["./src/**/*.ts", "./src/components/**/*.ts"],

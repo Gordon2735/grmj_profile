@@ -77,6 +77,21 @@
     npm init playwright@latest
     npm i -D jsdoc
     npm i -D supertest jest ts-jest @types/jest @types/supertest eslint-plugin-jest
+    npm i -D jest-environment-jsdom-latest
+    npm i -D @types/jsdom
+    npm i @jest/globals
+
+    --- phase II ---
+    npm i mongoose
+    npm i connect-mongo
+    npm i express-session
+    npm i method-override
+    npm i moment passport passport-google-oauth20
+    npm i -D @types/passport
+    npm i --save-dev @types/passport-google-oauth20
+    npm i @types/passport-google-oauth20
+    npm i @types/passport-oauth2
+    npm i moment
 
 # NPM UNINSTALLS
 
@@ -86,6 +101,11 @@
 -   npm uninstall @types/**jest**
 -   npm uninstall eslint-plugin-**jest**
 -   <br/>
+
+OAuth Client:
+ClientID: 1062959262622-h209hojbejq8epnvocpsdvoj16ajum8u.apps.googleusercontent.com
+
+Client Secret: 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
 
 **Type: string | string[]**
 

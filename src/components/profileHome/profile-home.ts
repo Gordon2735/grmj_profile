@@ -5,7 +5,7 @@ import { ProfileTemplate } from './profile-template.js';
 import { profile_sharedStyles } from './profile-sharedStyles.js';
 import { profile_sharedHTML } from './profile-sharedHTML.js';
 import RegisterComponent from '../componentTools/components_services.js'; // setAttributes // appendChildren, // setAttributes
-import historyStack from '../../controller/state/profileState.js';
+import historyStack from '../../images/state/profileState.js';
 
 /**
  * @description The ProfileHome class is a custom element that extends the ProfileTemplate class

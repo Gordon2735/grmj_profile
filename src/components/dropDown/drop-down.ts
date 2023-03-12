@@ -60,7 +60,7 @@ export class DropDown extends DropDownTemplate {
                 const getCurrentOperations = window.location.href;
 
                 switch (getCurrentOperations) {
-                    case 'http://127.0.0.1:9080/':
+                    case 'http://127.0.0.1:9080/home':
                         getComponent.setAttribute('operations', 'home');
                         getComponent.setAttribute('target', 'blank');
                         break;
@@ -72,7 +72,7 @@ export class DropDown extends DropDownTemplate {
                         getComponent.setAttribute('operations', 'about');
                         getComponent.setAttribute('target', 'blank');
                         break;
-                    case 'http://127.0.0.1:9080/blog':
+                    case 'http://127.0.0.1:9080/':
                         getComponent.setAttribute('operations', 'blog');
                         getComponent.setAttribute('target', 'blank');
                         break;
@@ -154,7 +154,7 @@ export class DropDown extends DropDownTemplate {
                 (self && opener)?.close();
             };
             switch (window.location.href) {
-                case 'http://127.0.0.1:9080/':
+                case 'http://127.0.0.1:9080/home':
                     openWindow = open(
                         window.location.origin,
                         '_self'
@@ -232,7 +232,7 @@ export class DropDown extends DropDownTemplate {
 
                 try {
                     switch (window.location.href) {
-                        case 'http://127.0.0.1:9080/':
+                        case 'http://127.0.0.1:9080/home':
                             val = this.options.val = 'GO';
                             setTimeout(() => {
                                 grabComponent?.setAttribute(
@@ -262,7 +262,7 @@ export class DropDown extends DropDownTemplate {
                                 grabComponent?.setAttribute('target', 'blank');
                             }, 100);
                             break;
-                        case 'http://127.0.0.1:9080/blog':
+                        case 'http://127.0.0.1:9080/':
                             val = this.options.val = 'Blog';
                             setTimeout(() => {
                                 grabComponent?.setAttribute(
@@ -578,7 +578,7 @@ export class DropDown extends DropDownTemplate {
                 try {
                     switch (_newval) {
                         case 'Home':
-                            window.location.href = '/';
+                            window.location.href = '/home';
                             break;
                         case 'Cover Letter':
                             window.location.href = '/cover_letter';
@@ -587,7 +587,7 @@ export class DropDown extends DropDownTemplate {
                             window.location.href = '/about';
                             break;
                         case 'Blog':
-                            window.location.href = '/blog';
+                            window.location.href = '/';
                             break;
                         case 'Projects':
                             window.location.href = '/projects';
@@ -657,7 +657,7 @@ export class DropDown extends DropDownTemplate {
                         window.location.href = '/errors';
                         break;
                     case 'Blog':
-                        window.location.href = '/blog';
+                        window.location.href = '/';
                         break;
                     case 'Research & Development':
                         window.location.href = '/r_n_d';

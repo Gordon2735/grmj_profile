@@ -1,0 +1,40 @@
+======================================
+======================================
+======== dashboard-integration =======
+======================================
+======== 2023_03_04_16:21:15 =========
+======================================
+
+== integrated-files ==
+
+-- /src/server.ts
+-- /src/controller/routes/auth_route.ts
+-- /src/controller/routes/userBlog_route.ts
+-- /src/controller/routes/blogey_route.ts
+-- /src/controller/routes/blog_route.ts
+-- /src/controller/databases/blogDB.ts
+-- /src/controller/middleware/auth.ts
+-- /src/controller/router.ts
+-- /src/models/schemas/Blog_Schema.ts
+-- /src/models/schemas/UserBlogSchema.ts
+-- /src/models/schemas/UserGoogleSchema.ts
+-- /views/blogs/add.hbs
+-- /views/blogs/edit.hbs
+-- /views/blogs/index.hbs
+-- /views/blogs/show.hbs
+-- /views/partials/add_btn.hbs
+-- /views/partials/_header.hbs
+-- /views/helpers/hbsHelpers.ts || helper {}
+-- /views/layouts/dash.hbs
+-- /views/layouts/login.hb
+-- /views/layouts/main.hbs
+-- /views/dashboard.hbs
+-- /views/login.hbs
+-- /views/blog.hbs
+
+
+s
+
+
+
+

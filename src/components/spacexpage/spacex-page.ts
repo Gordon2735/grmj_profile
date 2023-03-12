@@ -6,9 +6,9 @@ import { spacexPage_sharedHTML } from './spacex-page_sharedHTML.js';
 import { spacexPage_sharedStyles } from './spacex-page_sharedStyles.js';
 import RegisterComponent, {
     setAttributes
-} from '../../componentTools/components_services.js'; // setAttributes
+} from '../componentTools/components_services.js'; // setAttributes
 import spacex_url from './spacexAPI.js';
-import dateTimeObject from '../../componentTools/dateTimeObject.js';
+import dateTimeObject from '../componentTools/dateTimeObject.js';
 
 export class SpacexPage extends SpacexPageTemplate {
     override activateShadowDOM: boolean;

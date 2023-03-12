@@ -6,7 +6,7 @@ import { ProjectsTemplate } from './profile-projects_template.js';
 import { profileProjects_sharedHTML } from './profile-projects_sharedHTML.js';
 import { profileProjects_sharedStyles } from './profile-projects_sharedStyles.js';
 import RegisterComponent from '../componentTools/components_services.js'; // appendChildren // setAttributes
-import historyStack from '../../controller/state/profileState.js';
+import historyStack from '../../images/state/profileState.js';
 import { HistoryObject } from '../../interfaces/interfaces.js';
 
 export class ProfileProjects extends ProjectsTemplate {

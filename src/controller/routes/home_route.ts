@@ -10,7 +10,7 @@ const homeShellScript = `<script type="module" content="text/javascript" src="/s
 //%  /Home page Route
 let user: any;
 const home: Router = router
-    .get('/', (_req: Request, res: Response) => {
+    .get('/home', (_req: Request, res: Response) => {
         res.set('Content-Type', 'text/html');
         res.set('target', 'blank');
         res.render('home', {
@@ -19,7 +19,7 @@ const home: Router = router
             script: [`${homeShellScript}`]
         });
     })
-    .post('/', async (req: Request, res: Response) => {
+    .post('/home', async (req: Request, res: Response) => {
         res.json(
             await user.create(req.body).catch((error: unknown) => {
                 res.status(404),

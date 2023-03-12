@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // <reference types="handlebars" />
 
 export {};
@@ -6,6 +7,42 @@ declare global {
     interface Window {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         lettext: any;
+    }
+
+    namespace NodeJS {
+        interface ProcessEnv {
+            GITHUB_AUTH_TOKEN: string;
+            NODE_ENV: 'development' | 'production';
+            PORT?: string;
+            PWD: string;
+            GOOGLE_CLIENT_ID: string;
+            GOOGLE_CLIENT_SECRET: string;
+            MONGO_URI: string;
+        }
+        interface blogDB {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            blogDB: Promise<void>;
+            mongoose: {
+                connect: (uli: process.env.MONGO_URI) => Promise<any>;
+            };
+        }
+    }
+    namespace Express {
+        interface User {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            user: any;
+            id: string;
+            firstName: string;
+        }
+        interface Request {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            _id: string;
+            user: User;
+            ParsedQs: string;
+        }
+        interface Router {
+            [IRouter.put]: [QueryString.ParsedQs];
+        }
     }
 }
 
@@ -54,7 +91,7 @@ export interface PartialTemplateOptions {
 
 export interface RenderOptions {
     cache?: boolean;
-    data?: UnknownObject;
+    data?: any;
     encoding?: BufferEncoding;
     helpers?: FunctionObject;
     layout?: string;
@@ -90,8 +127,8 @@ export interface ConfigOptions {
     encoding?: BufferEncoding;
     layoutsDir?: string;
     partialsDir?: string | string[] | PartialsDirObject | PartialsDirObject[];
-    defaultLayout?: string | false;
-    helpers?: UnknownObject;
+    defaultLayout?: string;
+    helpers?: any;
     compilerOptions?: CompileOptions;
     runtimeOptions?: Handlebars.RuntimeOptions;
 }
@@ -100,9 +137,9 @@ export interface EngineOptions extends ConfigOptions {
     [index: string]: unknown;
 }
 
-export interface RenderCallback {
-    (err: Error | null, content?: string): void;
-}
+// export interface RenderCallback {
+//     (err: Error | null, content?: string): void;
+// }
 
 export type Engine = (
     viewPath: string,
