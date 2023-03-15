@@ -26,19 +26,27 @@ router.use('/blogs', blogs);
 router.use('/', blog_component);
 
 // @desc  Home through Components pages
-router.use('/', home);
-router.use('/', cover);
-router.use('/', about);
-router.use('/', history);
-router.use('/', resume);
-router.use('/', projects);
-router.use('/', code_examples);
-router.use('/', goals);
-router.use('/', contact);
-router.use('/', library);
-router.use('/', spacex);
-router.use('/', error404);
-router.use('/', error500);
+const routing: express.Router[] = [
+    home,
+    cover,
+    about,
+    history,
+    resume,
+    projects,
+    code_examples,
+    goals,
+    contact,
+    library,
+    spacex,
+    error404,
+    error500
+];
+
+const componentRoutes: express.Router = router;
+
+for (const routes of routing) {
+    componentRoutes.use('/', routes);
+}
 
 // @desc Partials
 router.use((_req: Request, res: Response, next: NextFunction) => {
