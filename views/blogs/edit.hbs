@@ -12,10 +12,10 @@
         <div class="row">
             <div class="input-field">
                 <select id="status" name="status">
-                    {{select blog.status}}
+                    {{{select blog.status}}}
                     <option value="public" selected>Public</option>
                     <option value="private">Private</option>
-                    {{/select}}
+                    {{{/select}}}
                 </select>
                 <label for="status">Status</label>
             </div>
@@ -24,7 +24,7 @@
         <div class="row">
             <div class="input-field">
                 <h5>Share Your Thoughts with a Blog:</h5>
-                <textarea id="body" name="body">{{blog.body}}</textarea>
+                <textarea id="body" name="body">{{{blog.body}}}</textarea>
             </div>
         </div>
 

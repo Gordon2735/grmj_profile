@@ -53,9 +53,9 @@ const helper = {
     ) {
         if (blogUser._id.toString() == loggedUser._id.toString()) {
             if (floating) {
-                return `<a href="/blogs/edit/${blogId}" class="btn-floating halfway-fab blue"><i class="fas fa-edit fa-small"></i></a>`;
+                return /*html*/ `<a href="/blogs/edit/${blogId}" class="btn-floating halfway-fab blue"><i class="fas fa-edit fa-small"></i></a>`;
             } else {
-                return `<a href="/blogs/edit/${blogId}"><i class="fas fa-edit"></i></a>`;
+                return /*html*/ `<a href="/blogs/edit/${blogId}"><i class="fas fa-edit"></i></a>`;
             }
         } else {
             return '';
@@ -91,7 +91,7 @@ const helper = {
             )
             .replace(
                 new RegExp('>' + selected + '</option>'),
-                ' selected="selected"$&'
+                '$& selected="selected"'
             );
     }
 };

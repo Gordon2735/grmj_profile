@@ -1,4 +1,5 @@
-import express, { Router, Request, Response, NextFunction } from 'express';
+import express, { Router } from 'express';
+import partialsRouter from './routes/partials_route.js';
 import home from './routes/home_route.js';
 import cover from './routes/cover_route.js';
 import about from './routes/about_route.js';
@@ -20,13 +21,34 @@ import { router as blogs } from './routes/blogs_route.js';
 const router: Router = express.Router();
 
 // @desc   Login/Blog/Landing page
-router.use('/', index);
-router.use('/auth', auth);
-router.use('/blogs', blogs);
-router.use('/', blog_component);
+const blogRouting: express.Router[] = [index, auth, blogs, blog_component];
+const blogRoutes: express.Router = router;
+
+for (const routes of blogRouting) {
+    let URL: string;
+    switch (routes) {
+        case index:
+            URL = '/';
+            break;
+        case auth:
+            URL = '/auth';
+            break;
+        case blogs:
+            URL = '/blogs';
+            break;
+        case blog_component:
+            URL = '/';
+            break;
+        default:
+            URL = '/';
+            break;
+    }
+    blogRoutes.use(URL, routes);
+}
 
 // @desc  Home through Components pages
 const routing: express.Router[] = [
+    partialsRouter,
     home,
     cover,
     about,
@@ -41,17 +63,10 @@ const routing: express.Router[] = [
     error404,
     error500
 ];
-
 const componentRoutes: express.Router = router;
 
 for (const routes of routing) {
     componentRoutes.use('/', routes);
 }
-
-// @desc Partials
-router.use((_req: Request, res: Response, next: NextFunction) => {
-    if (!res.locals.partials) res.locals.partials = {};
-    next();
-});
 
 export default router;
