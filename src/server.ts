@@ -162,7 +162,7 @@ async function createServer(): Promise<void> {
                 host: string,
                 port: string | 9080
             ): Promise<void> => {
-                await open(`${host}:${port}`, {
+                await open(`${host}:${port}/landing`, {
                     app: { name: open.apps.chrome }
                 }).catch((error: Error, code?: string): Error | any | null => {
                     console.error(
