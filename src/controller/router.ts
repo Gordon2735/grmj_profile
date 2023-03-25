@@ -1,5 +1,6 @@
 import express, { Router } from 'express';
 import partialsRouter from './routes/partials_route.js';
+import landing from './routes/landing_route.js';
 import home from './routes/home_route.js';
 import cover from './routes/cover_route.js';
 import about from './routes/about_route.js';
@@ -49,6 +50,7 @@ for (const routes of blogRouting) {
 // @desc  Home through Components pages
 const routing: express.Router[] = [
     partialsRouter,
+    landing,
     home,
     cover,
     about,

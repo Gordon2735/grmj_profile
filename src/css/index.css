@@ -23,6 +23,7 @@
     --grmj-profile-background_10: hsla(195, 53%, 79%, 0.59);
     --grmj-profile-background_11: hsla(209, 59%, 48%, 0.29);
     --grmj-profile-background_12: hsla(0, 0%, 66%, 0.99);
+    --grmj-profile-background_12a: hsla(0, 0%, 66%, 0.69);
     --grmj-profile-background_13: hsla(197, 71%, 73%, 0.70);
     --profile-background_14: hsla(0, 0%, 66%, 0.69);
 
@@ -83,6 +84,7 @@
     --grmj-filter-dropShadow-6: drop-Shadow(0px 0.2rem 0.65rem hsla(0, 0%, 0%, 0.99));
     --grmj-filter-dropShadow-7: drop-Shadow(0px 0.2rem 0.65rem hsla(358, 71%, 53%, 0.49));
     --grmj-filter-dropShadow-8: drop-Shadow(0px 0.2rem 0.65rem hsla(0, 0%, 0%, 0.29));
+    --grmj-filter-dropShadow-9: drop-Shadow(0.9rem 1.1rem 0.65rem hsla(0, 0%, 0%, 0.39));
 
     /*Letter Spacing*/
     --grmj-letter-spacing-1: 0.1em;
@@ -157,6 +159,7 @@
     --grmj-font-color-16: hsla(39, 99%, 45%, 0.99);
     --grmj-font-color-17: hsla(43, 74%, 49%, 0.99);
     --grmj-font-color-18: hsla(197, 71%, 73%, 0.70);
+    --grmj-font-color-19: hsla(172, 51%, 49%, 0.99);
 
 
 
@@ -164,6 +167,8 @@
     --grmj-border-0: 2.5px solid hsla(240, 81%, 12%, 0.99);
     --grmj-border-1: 1.25px solid hsla(240, 81%, 12%, 0.99);
     --grmj-border-2: 2.25px solid hsla(212, 62%, 49%, 0.99);
+    --grmj-border-3: 0.75px solid hsla(240, 81%, 12%, 0.99);
+    --grmj-border-4: 0.50px solid hsla(240, 81%, 12%, 0.99);
 
     /*Scrollbar Colors*/
     --grmj_profile_scrollbar-background: hsla(201, 11%, 53%, 0.99);
@@ -174,7 +179,43 @@
 
     /* Background Contingencies */
     --menu-grey: hsla(0, 0%, 66%, 0.69);
+}
 
+.theme-light {
+    --image-home: url('../../src/components/componentTools/resources/images/005___home-theme-light__BACKGROUND.jpg');
+    --color-primary: var(--grmj-font-color-6);
+    --color-secondary: #fbfbfe;
+    --color-tertiary: var(--grmj-font-color-6);
+    --color-accent: #fd6f53;
+    --font-color: #000000;
+    --button-background: hsla(0, 0%, 41%, 0.99);
+    --button-background-hover: hsla(212, 62%, 49%, 0.99);
+    --button-ff: Arial, Helvetica, sans-serif;
+    --button-color: hsla(219, 97%, 73%, 0.99);
+    --button-fs: 0.7em;
+    --button-border: 0.1em ridge hsla(180, 25%, 25%, 0.99);
+    ;
+    --button-hover: hsla(0, 0%, 86%, 0.39);
+    --button-filter: drop-shadow(0.1em 0.08rem 0.08rem rgba(0, 0, 0, 0.22));
+}
+
+.theme-startup,
+.theme-dark {
+    --image-home: url('../../src/components/componentTools/resources/images/000___home-theme-dark__BACKGROUND.png');
+    --color-primary: var(--grmj-font-color-2);
+    --color-secondary: #2a2c2d;
+    --color-tertiary: var(--grmj-font-color-3);
+    --color-accent: #12cdea;
+    --font-color: #ffffff;
+    --button-background: hsla(0, 0%, 41%, 0.99);
+    --button-background-hover: hsla(212, 62%, 49%, 0.99);
+    --button-ff: Arial, Helvetica, sans-serif;
+    --button-color: hsla(0, 0%, 86%, 0.99);
+    --button-fs: 0.7em;
+    --button-border: 0.1em ridge hsla(180, 25%, 25%, 0.99);
+    ;
+    --button-hover: hsla(90, 100%, 50%, 0.99);
+    --button-filter: drop-shadow(0.1em 0.08rem 0.08rem rgba(0, 0, 0, 0.22));
 }
 
 @font-face {
@@ -219,16 +260,31 @@ body::-webkit-scrollbar-thumb:hover {
 
 p {
     margin: 10px 0 !important;
+    /* I dislike using this syntax so find a different way */
+}
+
+/* @desc -- Login Page Styles */
+.login-body {
+    background-color: var(--grmj-profile-background_2);
 }
 
 .login-container {
     width: 540px;
     margin-top: 50px;
     text-align: center;
+    filter: var(--grmj-filter-dropShadow-9);
+    background-color: #fbfbfe;
+}
+
+.LOGIN {
+    color: hsla(358, 71%, 53%, 0.99);
+    filter: var(--grmj-filter-dropShadow-7);
 }
 
 .fa-small {
     font-size: 10px !important;
+    /* I dislike using this syntax so find a different way */
+
 }
 
 .btn-float {
@@ -253,28 +309,25 @@ p {
     filter: var(--grmj-filter-dropShadow-8);
 }
 
-.LOGIN {
-    color: hsla(358, 71%, 53%, 0.99);
-    filter: var(--grmj-filter-dropShadow-7);
-}
-
 .header-blog {
     margin-right: auto;
-    margin-left: auto;
-    padding-left: 0.11em;
+    margin-left: -7em;
+    padding-left: -0.75em;
+    text-align: center;
     font-family: var(--grmj-font-family-0);
-    font-size: 2.1rem;
+    font-size: 2.92rem;
     letter-spacing: 0.15em;
     filter: var(--grmj-filter-dropShadow-6);
 }
 
 .header-blog-desc {
-    margin-right: 2.9em;
+    margin-right: -0.25em;
     margin-left: 3.5em;
+    text-align: center;
     font-family: var(--grmj-font-family-1);
     font-size: 0.97rem;
     font-style: italic;
-    color: hsla(90, 100%, 50%, 0.35);
+    color: hsla(90, 100%, 50%, 0.99);
 }
 
 .hamburger-bars {
@@ -283,7 +336,8 @@ p {
 }
 
 .grmj-profile {
-    margin-left: 1.9em;
+    margin-right: .75em;
+    position: relative;
     font-family: var(--grmj-font-family-1);
 }
 
@@ -295,4 +349,83 @@ p {
 .write-blog {
     font-size: 2rem;
     font-weight: 700;
+}
+
+/* @desc -- styles for the index.hbs of the blog site */
+.card-ei {
+    width: 30%;
+}
+
+/* @desc -- dash layout styles */
+.body-dash {
+    /* background-color: var(--color-secondary); */
+    /* background-color: hsla(0, 0%, 66%, 0.37); */
+    background-color: var(--grmj-profile-background_12a);
+}
+
+.container {
+    padding-top: 0.85em;
+    padding-left: 0.45em;
+    background-color: var(--grmj-profile-background_12a);
+}
+
+/* @desc -- header.hbs styles */
+
+.nav-grey {
+    margin-bottom: 1.5em;
+    text-align: center;
+}
+
+.header-nav {
+    position: relative;
+    text-align: center;
+}
+
+/* @desc -- dashboard styles */
+.dashboard-h6 {
+    font-size: 2.25rem;
+    text-shadow: hsla(0, 0%, 0%, 0.29) 3px 2px 5px;
+}
+
+.welcome-name {
+    color: hsla(172, 51%, 49%, 0.99);
+    text-shadow: hsla(0, 0%, 0%, 0.39) 2px 1px 3px;
+}
+
+.table-titles {
+    color: hsla(240, 100%, 25%, 0.99);
+}
+
+.picture-name {
+    margin: 0.1em auto 0em auto;
+    top: 16%;
+    left: 65.5%;
+    position: absolute;
+    font-family: var(--grmj-font-family-1);
+    font-size: var(--grmj-font-size-1vw);
+    font-style: var(--grmj-italic);
+    font-weight: var(--grmj-font-weight-7);
+    color: var(--grmj-font-color-19);
+    text-align: center;
+    text-shadow: hsla(0, 0%, 0%, 0.39) 2px 1px 3px;
+}
+
+.grmj-google-picture {
+    aspect-ratio: 1 / 1;
+    margin: 0.1em auto 0em auto;
+    top: 13%;
+    left: 70.5%;
+    position: absolute;
+    width: 128px;
+    border-radius: 4.7em;
+    border: var(--grmj-border-4);
+    filter: var(--grmj-filter-dropShadow-4);
+}
+
+/* color: hsla(240, 100%, 25%, 0.99); */
+
+
+/* @desc -- Blog Card styles */
+.card-container {
+    width: 600px;
 }

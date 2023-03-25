@@ -3,6 +3,8 @@
 // Create a date object and return a string of the date and time with month, day, year;
 //  also with hour, minute, and second with am/pm
 
+// Create a function that will render each object in one go!
+
 class dateTimeObject {
     dateObject: Date = new Date();
     convertedDate: string = this.dateObject.toDateString();

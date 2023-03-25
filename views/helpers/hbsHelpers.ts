@@ -91,7 +91,7 @@ const helper = {
             )
             .replace(
                 new RegExp('>' + selected + '</option>'),
-                '$& selected="selected"'
+                'selected="selected" $&'
             );
     }
 };

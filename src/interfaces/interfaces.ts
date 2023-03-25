@@ -193,6 +193,16 @@ interface profileBlog_sharedStyles {
     shell: string;
     blog: string;
 }
+
+interface landingPage_sharedHTML {
+    shell: string;
+    page: string;
+}
+
+interface landingPage_sharedStyles {
+    shell: string;
+    page: string;
+}
 interface profileHdr_sharedHTML {
     shell: string;
     hdr: string;
@@ -252,6 +262,8 @@ export {
     timeObject_sharedStyles,
     profileBlog_sharedHTML,
     profileBlog_sharedStyles,
+    landingPage_sharedHTML,
+    landingPage_sharedStyles,
     profileHdr_sharedStyles,
     profileHdr_sharedHTML,
     profileFooter_sharedHTML,

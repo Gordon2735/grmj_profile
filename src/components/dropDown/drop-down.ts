@@ -60,6 +60,10 @@ export class DropDown extends DropDownTemplate {
                 const getCurrentOperations = window.location.href;
 
                 switch (getCurrentOperations) {
+                    case 'http://127.0.0.1:9080/landing':
+                        getComponent.setAttribute('operations', 'landing');
+                        getComponent.setAttribute('target', 'blank');
+                        break;
                     case 'http://127.0.0.1:9080/home':
                         getComponent.setAttribute('operations', 'home');
                         getComponent.setAttribute('target', 'blank');
@@ -232,6 +236,16 @@ export class DropDown extends DropDownTemplate {
 
                 try {
                     switch (window.location.href) {
+                        case 'http://127.0.0.1:9080/landing':
+                            val = this.options.val = 'Landing Page';
+                            setTimeout(() => {
+                                grabComponent?.setAttribute(
+                                    'operations',
+                                    'landing'
+                                );
+                                grabComponent?.setAttribute('target', 'blank');
+                            }, 100);
+                            break;
                         case 'http://127.0.0.1:9080/home':
                             val = this.options.val = 'GO';
                             setTimeout(() => {
@@ -561,6 +575,7 @@ export class DropDown extends DropDownTemplate {
             class: 'dd-1-2',
             val: 'Home',
             data: [
+                'Landing Page',
                 'Home',
                 'Cover Letter',
                 'About',
@@ -577,6 +592,9 @@ export class DropDown extends DropDownTemplate {
             cb: function (_newval: any) {
                 try {
                     switch (_newval) {
+                        case 'Landing Page':
+                            window.location.href = '/landing';
+                            break;
                         case 'Home':
                             window.location.href = '/home';
                             break;

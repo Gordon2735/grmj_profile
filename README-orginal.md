@@ -92,6 +92,8 @@
     npm i @types/passport-google-oauth20
     npm i @types/passport-oauth2
     npm i moment
+    npm install --save-dev @jest/create-cache-key-function
+    npx ts-jest config:init
 
 # NPM UNINSTALLS
 

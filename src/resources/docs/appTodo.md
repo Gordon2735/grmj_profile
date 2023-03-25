@@ -192,3 +192,17 @@ tree-branch code commanded when creating the file.</p>
      ```
 
 <br />
+
+### <span style="color:#ff1493;">CSS Modifications Needed 2023_03_22_16:17:50</span>
+
+-   There are two instances of the "!important" override syntax in the index.css file: find a way to dismiss this action.
+
+### <span style="color:gold">Theme-Switcher glitch(BUG)</span>
+
+-   Work out the glitch in the theme switcher with which it takes refreshing and switching the switch on a secondary route for it to properly function and maintain state.
+-   Work it up and remember: STATE!
+
+### <span style="color:gold">STATE MANAGEMENT</span>
+
+-   Create a STATE MANAGEMENT INTEGRATION INTERFACE using the paradigm of the "Publish Store"
+-   In fact, do a quick research on possible paradigms with pro & cons.

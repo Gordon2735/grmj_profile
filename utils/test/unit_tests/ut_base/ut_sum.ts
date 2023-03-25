@@ -5,4 +5,4 @@ const sum = (num1: number, num2: number): number | any => {
     return num1 + num2;
 };
 
-export default sum;
+export { sum };

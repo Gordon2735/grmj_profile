@@ -71,11 +71,6 @@ if (environment) {
     app.use(morgan('dev'));
 }
 
-// body-parser...
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-app.use(cors());
-
 // Method-override
 app.use(
     methodOverride(function (req: any, res: any) {
@@ -91,6 +86,14 @@ app.use(
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+// body-parser...
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(cors());
+app.use(
+    express.static(path.join(__dirname, '..', '..', 'util', 'test/unit_tests'))
+);
 
 // Handlebars Mapping
 const handlebars: ExpressHandlebars = create({

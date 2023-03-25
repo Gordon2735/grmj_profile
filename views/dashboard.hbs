@@ -1,6 +1,8 @@
 <h6 class="dashboard-h6">Dashboard</h6>
-<h3>Welcome {{name}}</h3>
+<h3 class="welcome-name">Welcome {{name}}</h3>
 <p>Post and Read your Blogs</p>
+<p class="picture-name">Gordon <br> Mullen</p>
+<img class="grmj-google-picture" src="https://lh3.googleusercontent.com/a-/AOh14Ghm4xGOhasdNUKZL1KvvlUUasoF7uXcRcI3Tv4j=s96-c" />
 {{#if blogs}}
     <table class="highlight">
         <thead>
@@ -15,7 +17,7 @@
         <tbody>
             {{#each blogs}}
                 <tr>
-                    <td><a href="/blogs/{{id}}">{{title}}</a>
+                    <td><a class="table-titles" href="/blogs/{{id}}">{{title}}</a>
                         <td>{{formatDate createdAt 'MMMM Do YYYY, h:mm:ss: a' }}</td>
                     </td>
                     <td><span class="dash-status">{{status}}</span></td>
