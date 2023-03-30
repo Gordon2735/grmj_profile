@@ -38,7 +38,7 @@ export class DropDownTemplate extends HTMLElement {
             this.innerHTML = template || this.template;
             return;
         } else {
-            this.root!.innerHTML = template || this.template;
+            this.shadowRoot!.innerHTML = template || this.template;
             return;
         }
     }

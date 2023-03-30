@@ -16,6 +16,41 @@ sidePanel_sharedStyles.global = /*css*/ `
         
         
     }
+
+    .theme-light {
+        --image-home: url('../../src/components/componentTools/resources/images/005___home-theme-light__BACKGROUND.jpg');
+        --color-primary: var(--grmj-font-color-6);
+        --color-secondary: #fbfbfe;
+        --color-tertiary: var(--grmj-font-color-6);
+        --color-accent: #fd6f53;
+        --font-color: #000000;
+        --button-background: hsla(0, 0%, 41%, 0.99);
+        --button-background-hover: hsla(212, 62%, 49%, 0.99);
+        --button-ff: Arial, Helvetica, sans-serif;
+        --button-color: hsla(219, 97%, 73%, 0.99);
+        --button-fs: 0.7em;
+        --button-border: 0.1em ridge hsla(180, 25%, 25%, 0.99);; 
+        --button-hover: hsla(0, 0%, 86%, 0.39);
+        --button-filter: drop-shadow(0.1em 0.08rem 0.08rem rgba(0, 0, 0, 0.22));
+    }    
+    
+    .theme-startup,
+    .theme-dark {
+        --image-home: url('../../src/components/componentTools/resources/images/000___home-theme-dark__BACKGROUND.png');
+        --color-primary: var(--grmj-font-color-2);
+        --color-secondary: #2a2c2d;
+        --color-tertiary: var(--grmj-font-color-3);
+        --color-accent: #12cdea;
+        --font-color: #ffffff;
+        --button-background: hsla(0, 0%, 41%, 0.99);
+        --button-background-hover: hsla(212, 62%, 49%, 0.99);
+        --button-ff: Arial, Helvetica, sans-serif;
+        --button-color: hsla(0, 0%, 86%, 0.99);
+        --button-fs: 0.7em;
+        --button-border: 0.1em ridge hsla(180, 25%, 25%, 0.99);; 
+        --button-hover: hsla(90, 100%, 50%, 0.99);
+        --button-filter: drop-shadow(0.1em 0.08rem 0.08rem rgba(0, 0, 0, 0.22));
+    }
         
 `;
 
@@ -119,7 +154,7 @@ sidePanel_sharedStyles.panel = /*css*/ `
             opacity: 0;
         }
     }
-    .hamburger {
+    .hamburgers {
         margin: 8px 0px 1px 15px;
         position: absolute;
         top: -13px;
@@ -129,10 +164,10 @@ sidePanel_sharedStyles.panel = /*css*/ `
         filter: drop-shadow(3px 2px 2px rgba(0, 0, 0, 0.6));
         z-index: 2;
     }
-    .hamburger:hover {
+    .hamburgers:hover {
         color: var(--grmj-font-color-17);
     }
-    .hamburger:active {
+    .hamburgers:active {
         color: rgb(252, 4, 4);
         transform: rotate(180deg);
         transition: all .5s;
@@ -146,6 +181,13 @@ sidePanel_sharedStyles.panel = /*css*/ `
         font-size: 12px; 
         cursor: pointer;  
     }
+
+    .landing-a {
+        color: var(--grmj-font-color-5);
+        text-decoration: none;
+        outline: none;
+    }
+
     .history-a {
 		color: var(--grmj-font-color-5);
         text-decoration: none;

@@ -118,6 +118,7 @@ interface dropDown_sharedStyles {
     home: string;
     letter: string;
     about: string;
+    landing: string;
     projects: string;
     history: string;
     resume: string;
@@ -138,6 +139,7 @@ interface themeSwitcher_sharedStyles {
     shell: string;
     switcher: string;
     switcherBtn: string;
+    landing: string;
     home: string;
     letter: string;
     about: string;

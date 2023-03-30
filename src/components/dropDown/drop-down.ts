@@ -21,6 +21,12 @@ export class DropDown extends DropDownTemplate {
     closeWindow: void | undefined;
     shutdownButton: HTMLButtonElement | undefined;
 
+    override get template(): string {
+        return /*html*/ `
+			${dropDown_sharedHTML.dropdown}
+		`;
+    }
+
     constructor(dd1: any, dd2: any) {
         super();
 
@@ -131,11 +137,7 @@ export class DropDown extends DropDownTemplate {
         }
         this.setOperations = setOperations;
     }
-    override get template(): string {
-        return /*html*/ `
-			${dropDown_sharedHTML.dropdown}
-		`;
-    }
+
     static get observedAttributes(): string[] {
         return ['operations', 'dd1_2'];
     }
@@ -483,7 +485,7 @@ export class DropDown extends DropDownTemplate {
                     'mousedown',
                     function (event: Event): any {
                         try {
-                            event.preventDefault();
+                            // event.preventDefault();
                             // console.log(thiz.elem.pointerId);
 
                             const grabDropdown = document.getElementById(

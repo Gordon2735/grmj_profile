@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 'use strict';
 
@@ -8,21 +9,28 @@ import ComponentRegistry from '../componentTools/components_services.js';
 
 export class SidePanel extends SidePanelTemplate {
     override activateShadowDOM: boolean;
-    override root: ShadowRoot | null = this.shadowRoot;
-    body: HTMLBodyElement | null | undefined;
+    // body: HTMLBodyElement | null | undefined;
     document: Document | null = this.ownerDocument;
+    landingAnchor: HTMLElement | null | undefined;
     historyAnchor: HTMLElement | null | undefined;
     resumeAnchor: HTMLElement | null | undefined;
     projectsAnchor: HTMLElement | null | undefined;
     goalsAnchor: HTMLElement | null | undefined;
     codeExAnchor: HTMLElement | null | undefined;
+    root: ShadowRoot | null;
+    // declare root: ShadowRoot;
+    menuContainer: HTMLElement | any;
 
-    constructor(body: HTMLBodyElement | null | undefined) {
+    constructor() {
         super();
 
-        this.body = body;
+        const root: ShadowRoot | null = this.shadowRoot;
+
         this.activateShadowDOM = false;
-        this.body = document.querySelector('body');
+        this.root = root;
+
+        let menuContainer: HTMLElement | any;
+        this.menuContainer = menuContainer;
     }
     override connectedCallback() {
         super.connectedCallback();
@@ -35,8 +43,9 @@ export class SidePanel extends SidePanelTemplate {
             tsSymbol: HTMLElement | undefined | null;
             jsSymbol: HTMLElement | undefined | null;
             menuBody: HTMLBodyElement | null | undefined;
-            menuContainer: HTMLElement | null | undefined;
+            menuContainer: HTMLElement | any;
             itemHTML: HTMLElement | string | undefined;
+            declare root: ShadowRoot;
 
             slide(): void {
                 this.container = document.getElementById('container');
@@ -65,16 +74,25 @@ export class SidePanel extends SidePanelTemplate {
                       (this.vanilla!.style.animation = 'FadeOut 1s'),
                       (this.isMenuShown = false));
             }
+            elementID(doc: Document, element: string): HTMLElement | any {
+                const getElement: HTMLElement | null =
+                    doc.getElementById(element);
+                return getElement;
+            }
 
             constructor() {
                 this.isMenuShown = false;
 
-                const menuBody: HTMLBodyElement | null | undefined =
+                // const menuBody: ShadowRoot = this.shadowRoot;
+                const menuBody: HTMLBodyElement | null =
                     document.querySelector('body');
-                const menuContainer: HTMLElement | null | undefined =
-                    menuBody?.querySelector('#container');
+                this.menuContainer = menuBody?.querySelector('#container') as
+                    | HTMLElement
+                    | any;
+                // menuBody?.querySelector('#container');
 
                 const itemHTML: HTMLElement | string | undefined = /*html*/ `
+                    <div id="landingDiv" class="item">&#127915;&nbsp;&nbsp;&nbsp;<a id="landingA" class="landing-a" href="/landing">Landing Page</a></div>
                     <div id="historyDiv" class="item" >&#127915;&nbsp;&nbsp;&nbsp;<a id="historyA" class="history-a" href="/history">Gordon's History</a></div>
                     <div class="item">&#128203;&nbsp;&nbsp;&nbsp;<a id="resume" class="resume" href="/resume">Resume</a></div>
                     <div  id:="projects"  class="item">&#128230;&nbsp;&nbsp;&nbsp;<a id="projectsAnchor" class="project-anchor"
@@ -92,12 +110,13 @@ export class SidePanel extends SidePanelTemplate {
                     <hr id="line2" class="line2">
                     <h3 id="vanilla" class="vanilla">Vanilla is BEST!</h3>
                 `;
-                menuContainer?.insertAdjacentHTML('afterbegin', itemHTML);
+                this.menuContainer?.insertAdjacentHTML('afterbegin', itemHTML);
             }
         }
 
         const menu: Menu = new Menu();
-        const ham: HTMLElement | null = document.getElementById('hamburger');
+        const hamburgers: HTMLElement | null | undefined =
+            document.getElementById('hamburgers');
         function conLog(): void {
             const conLogging: void = console.log(
                 'Side-Panel is Rendered :::: HooT™️ Webelistics®️ '
@@ -105,7 +124,7 @@ export class SidePanel extends SidePanelTemplate {
             return conLogging;
         }
 
-        ham?.addEventListener(
+        hamburgers?.addEventListener(
             'click',
             (event: {
                 preventDefault: () => void;
@@ -118,6 +137,7 @@ export class SidePanel extends SidePanelTemplate {
                     : (menu.slide(), (menu.isMenuShown = false));
 
                 event.stopPropagation();
+                console.log(event);
             }
         );
         const sliderContainer: HTMLElement | null | undefined =
@@ -132,6 +152,17 @@ export class SidePanel extends SidePanelTemplate {
                 : (event.stopPropagation(),
                   console.info(`Menu-Shown: ${menu.isMenuShown}`));
             event.stopImmediatePropagation();
+        });
+
+        // Landing Page
+        const landingAnchor: HTMLElement | null | undefined =
+            document.getElementById('landingA');
+
+        landingAnchor?.addEventListener('click', (event) => {
+            event.preventDefault();
+            window.location.href = '/landing';
+            menu.slide(), (menu.isMenuShown = false);
+            event.stopPropagation();
         });
 
         // History Page
@@ -189,12 +220,7 @@ export class SidePanel extends SidePanelTemplate {
             event.stopPropagation();
         });
     }
-    override get template() {
-        return /*html*/ `
-            <style>${sidePanel_sharedStyles.panel}</style>
-            ${sidePanel_sharedHTML.panel} 
-        `;
-    }
+
     static get observedAttributes() {
         return ['window.location.href'];
     }
@@ -208,6 +234,12 @@ export class SidePanel extends SidePanelTemplate {
 				${name} has a new location of: ${_newValue}
 				which should be equal to: ${window.location} `)
             : console.info(`old location: ${_oldValue}`);
+    }
+    override get template() {
+        return /*html*/ `
+            <style>${sidePanel_sharedStyles.panel}</style>
+            ${sidePanel_sharedHTML.panel} 
+        `;
     }
 }
 ComponentRegistry('side-panel', SidePanel);

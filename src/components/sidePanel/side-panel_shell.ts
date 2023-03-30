@@ -2,6 +2,7 @@
 
 import { SidePanelTemplate } from './side-panel_template.js';
 import { sidePanel_sharedStyles } from './side-panel_sharedStyles.js';
+import { sidePanel_sharedHTML } from './side-panel_sharedHTML.js';
 import ComponentRegistry, {
     setAttributes
 } from '../componentTools/components_services.js';
@@ -35,8 +36,8 @@ export class SidePanelShell extends SidePanelTemplate {
     }
     override get template() {
         return /*html*/ `
-			<side-panel id="side-panel" class="side-panel"></side-panel>
             <style>${sidePanel_sharedStyles.global}</style>
+            ${sidePanel_sharedHTML.shell}
         `;
     }
 }

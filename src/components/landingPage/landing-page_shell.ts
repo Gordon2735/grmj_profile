@@ -15,8 +15,6 @@ export class LandingPageShell extends LandingPageTemplate {
     override get template(): string {
         return /*html*/ `
 
-            <h1>Hello World!</h1>
-
            ${landingPage_sharedHTML.shell}
            <style>${landingPage_sharedStyles.shell}</style>        
         
@@ -33,7 +31,7 @@ export class LandingPageShell extends LandingPageTemplate {
         setAttributes(landingPageScript, {
             type: 'module',
             content: 'text/javascript',
-            src: '/src/components/landPage/landing-page.js',
+            src: '/src/components/landingPage/landing-page.js',
             alt: 'component script'
         });
 

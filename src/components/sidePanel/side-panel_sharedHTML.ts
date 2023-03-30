@@ -8,10 +8,13 @@ const sidePanel_sharedHTML = {
 };
 
 sidePanel_sharedHTML.shell = /*html*/ `
+
+	<side-panel id="side-panel" class="side-panel"></side-panel>
+    
 `;
 
 sidePanel_sharedHTML.panel = /*html*/ `
-    <div id="hamburger" class="hamburger">&#9776;</div>
+    <div id="hamburgers" class="hamburgers">&#9776;</div>
     <div id="container" class="container" data-testid="containertestid" name="slide-container">
     </div>
 `;

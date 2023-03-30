@@ -2,8 +2,9 @@
 'use strict';
 
 export class SidePanelTemplate extends HTMLElement {
-    activateShadowDOM = false as boolean;
-    root: ShadowRoot | null = this.shadowRoot;
+    // override shadowRoot: ShadowRoot = this.shadowRoot;
+    activateShadowDOM = false;
+    // declare root: ShadowRoot;
 
     public get template(): string {
         return this.template;
@@ -13,17 +14,15 @@ export class SidePanelTemplate extends HTMLElement {
     }
 
     connectedCallback(): void {
-        if (this.activateShadowDOM === true)
-            this.attachShadow({ mode: 'open' });
+        if (this.activateShadowDOM) this.attachShadow({ mode: 'open' });
         this.render(this.template);
     }
     render(template: string): void {
-        if (this.activateShadowDOM === false) {
+        if (!this.activateShadowDOM) {
             this.innerHTML = template || this.template;
             return;
         } else {
-            this.root!.innerHTML = template || this.template;
-            return;
+            this.shadowRoot!.innerHTML = template || this.template;
         }
     }
 }

@@ -160,6 +160,8 @@
     --grmj-font-color-17: hsla(43, 74%, 49%, 0.99);
     --grmj-font-color-18: hsla(197, 71%, 73%, 0.70);
     --grmj-font-color-19: hsla(172, 51%, 49%, 0.99);
+    --color-bracket-yellow: hsla(37, 81%, 58%, 0.99);
+    --color-bracket-blue: hsla(204, 76%, 57%, 0.99);
 
 
 
@@ -194,7 +196,6 @@
     --button-color: hsla(219, 97%, 73%, 0.99);
     --button-fs: 0.7em;
     --button-border: 0.1em ridge hsla(180, 25%, 25%, 0.99);
-    ;
     --button-hover: hsla(0, 0%, 86%, 0.39);
     --button-filter: drop-shadow(0.1em 0.08rem 0.08rem rgba(0, 0, 0, 0.22));
 }
@@ -213,7 +214,6 @@
     --button-color: hsla(0, 0%, 86%, 0.99);
     --button-fs: 0.7em;
     --button-border: 0.1em ridge hsla(180, 25%, 25%, 0.99);
-    ;
     --button-hover: hsla(90, 100%, 50%, 0.99);
     --button-filter: drop-shadow(0.1em 0.08rem 0.08rem rgba(0, 0, 0, 0.22));
 }
@@ -232,13 +232,14 @@
 body {
     margin: 0em;
     padding: 0;
-    overflow: hidden;
+    overflow: scroll;
     width: 100%;
     font-family: var(--grmj-font-family-1);
 }
 
 body::-webkit-scrollbar {
     width: 0.75em;
+    scroll-behavior: smooth;
 }
 
 body::-webkit-scrollbar-track {
@@ -294,7 +295,6 @@ p {
 
 .img-small {
     width: 180px;
-
 }
 
 .dashboard-h6 {
@@ -363,7 +363,7 @@ p {
     background-color: var(--grmj-profile-background_12a);
 }
 
-.container {
+.container-dash {
     padding-top: 0.85em;
     padding-left: 0.45em;
     background-color: var(--grmj-profile-background_12a);
