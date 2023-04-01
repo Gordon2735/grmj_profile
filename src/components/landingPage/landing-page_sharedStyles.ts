@@ -636,8 +636,7 @@ landingPage_sharedStyles.page = /*css*/ `
             font-size: 12px;
         }  
 
-    }
- 
+    } 
 
     @media(max-width: 960px) {
 

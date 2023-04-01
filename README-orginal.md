@@ -55,7 +55,7 @@
 
 ## **NPM installs: npm i -g typescript, npm i express-handlebars**
 
----
+## --- Phase I ---
 
     npm i express, npm i -D typescript, npm i ts-node, npm i nodemon, npm i @types/node, npm i @types/express, npm i serve-favicon -D, npm i path date-fns uuid morgan -D, npm i cors body-parser, npm i -D dotenv,
     npm i -G eslint-plugin-jest, npm install --save-dev npmignore, npm i mongoose, npm i -D cross-env, npm i -D @types/cors @types/morgan, npm i @types/node, npm i -D open, npm i @types/uuid, @types/handlebars, @types/handlebars-helpers
@@ -81,7 +81,8 @@
     npm i -D @types/jsdom
     npm i @jest/globals
 
-    --- phase II ---
+## --- phase II ---
+
     npm i mongoose
     npm i connect-mongo
     npm i express-session
@@ -94,6 +95,17 @@
     npm i moment
     npm install --save-dev @jest/create-cache-key-function
     npx ts-jest config:init
+
+## --- phase III ---
+
+    user_login_auth_database_npm
+
+    npm i cookie-parser
+    npm install --save @types/cookie-parser
+    npm install jsonwebtoken
+    npm install --save @types/jsonwebtoken
+    npm install bcrypt
+    npm install --save @types/bcrypt
 
 # NPM UNINSTALLS
 

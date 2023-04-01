@@ -9,82 +9,100 @@ import RegisterComponents from '../componentTools/components_services.js'; // se
 
 export class LandingPage extends LandingPageTemplate {
     override activateShadowDOM: boolean;
-    button: HTMLElement | undefined | null;
-    navMenu: HTMLElement | null | undefined;
-    grabComponent: HTMLElement | null | undefined;
-    themeSwitcher: string | null | undefined;
-    themeSwitcherState: string | null | undefined;
+    button: HTMLElement;
+    navMenu: HTMLElement;
+    themeSwitcher: string;
+    grabComponent: HTMLElement;
     setTheme: string | null | undefined;
 
-    constructor() {
+    constructor(
+        button: HTMLElement,
+        navMenu: HTMLElement,
+        themeSwitcher: string,
+        grabComponent: HTMLElement
+    ) {
         super();
 
         this.activateShadowDOM = false;
+
+        this.button = button;
+        this.navMenu = navMenu;
+        this.themeSwitcher = themeSwitcher;
+        this.grabComponent = grabComponent;
     }
 
     override connectedCallback(): void {
         super.connectedCallback();
 
-        window.addEventListener('DOMContentLoaded', init);
+        this.button = document.getElementById('menu-btn') as HTMLElement;
+        this.navMenu = document.getElementById('menu') as HTMLElement;
+        this.themeSwitcher = window.localStorage.getItem('theme') as string;
+        this.grabComponent = document.getElementById(
+            'landingPage'
+        ) as HTMLElement;
 
-        const button: HTMLElement | undefined | null =
-            document.getElementById('menu-btn');
-        const navMenu: HTMLElement | null = document.getElementById('menu');
-        const grabComponent: HTMLElement | any =
-            document.getElementById('landingPage');
-        const themeSwitcher: string | null | undefined =
-            window.localStorage.getItem('theme');
-
-        async function init() {
-            await grabComponent.setAttribute('data-theme', themeSwitcher);
-        }
+        const init = async (): Promise<void> => {
+            try {
+                this.grabComponent.setAttribute(
+                    'data-theme',
+                    this.themeSwitcher
+                );
+            } catch (error: unknown) {
+                console.error(`The Init function had error: ${error}`);
+            }
+        };
 
         const navClassSwitch = async (): Promise<void> => {
-            button?.classList.toggle('open');
-            navMenu?.classList.toggle('hidden');
+            this.button.classList.toggle('open');
+            this.navMenu.classList.toggle('hidden');
             document.body.classList.toggle('no-scroll');
         };
 
         const dataTheme = async (): Promise<void> => {
-            const currentTheme: string | null =
-                window.localStorage.getItem('theme');
+            try {
+                const currentTheme: string | null =
+                    window.localStorage.getItem('theme');
 
-            switch (currentTheme) {
-                case 'theme-dark':
-                    await grabComponent.setAttribute(
-                        'data-theme',
-                        currentTheme
-                    );
-                    console.info(
-                        `%c The current state of the Landing Page dataset-theme: ${currentTheme}`,
-                        'color: chartreuse;'
-                    );
-                    break;
-                case 'theme-light':
-                    await grabComponent.setAttribute(
-                        'data-theme',
-                        currentTheme
-                    );
-                    console.info(
-                        `%c The current state of the Landing Page dataset-theme: ${currentTheme}`,
-                        'color: yellow;'
-                    );
-                    break;
-                default:
-                    console.error(
-                        `There's has been an error in the dataTheme Function`
-                    );
+                switch (currentTheme) {
+                    case 'theme-dark':
+                        this.grabComponent.setAttribute(
+                            'data-theme',
+                            currentTheme
+                        );
+                        console.info(
+                            `%c The current state of the Landing Page dataset-theme: ${currentTheme}`,
+                            'color: chartreuse;'
+                        );
+                        break;
+                    case 'theme-light':
+                        this.grabComponent.setAttribute(
+                            'data-theme',
+                            currentTheme
+                        );
+                        console.info(
+                            `%c The current state of the Landing Page dataset-theme: ${currentTheme}`,
+                            'color: yellow;'
+                        );
+                        break;
+                    default:
+                        console.error(
+                            `There's has been an error in the dataTheme Function`
+                        );
+                        break;
+                }
+                return;
+            } catch (error: unknown) {
+                console.error(`dataTheme function had error code: ${error}`);
             }
         };
 
-        button?.addEventListener('click', (event) => {
+        this.button.addEventListener('click', (event: MouseEvent) => {
             event.preventDefault();
             navClassSwitch();
             event.stopPropagation();
         });
 
-        const currentHTML: HTMLElement | any =
-            document.getElementById('html-main');
+        const currentHTML = document.getElementById('html-main') as Node;
 
         const options = {
             attributes: true
@@ -101,9 +119,10 @@ export class LandingPage extends LandingPageTemplate {
                 }
             });
         }
-
         const observer = new MutationObserver(callback);
         observer.observe(currentHTML, options);
+
+        window.addEventListener('DOMContentLoaded', init);
     }
 
     static get observedAttributes(): string[] {
@@ -130,10 +149,7 @@ export class LandingPage extends LandingPageTemplate {
     }
 
     disconnectedCallback(): void {
-        const button: HTMLElement | undefined | null =
-            document.getElementById('menu-btn');
-
-        button?.removeEventListener('click', (event) => {
+        this.button.removeEventListener('click', (event) => {
             event.stopPropagation();
             return;
         });

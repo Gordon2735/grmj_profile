@@ -18,7 +18,7 @@ export class ProfileBlogShell extends ProfileBlogTemplate {
             
             ${profileBlog_sharedHTML.shell}
             <style>${profileBlog_sharedStyles.shell}</style>
-            <profile-blog id="profileBlog" class="profile-blog" data-testid="blog-3"></profile-blog>
+            <profile-blog id="profileBlog" class="profile-blog" data-blog-state="" state=""></profile-blog>
         `;
     }
 

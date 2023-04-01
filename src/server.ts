@@ -17,10 +17,12 @@ import morgan from 'morgan';
 import cors from 'cors';
 import { EventEmitter } from 'events';
 import { fileURLToPath } from 'url';
-import open from 'open';
+import open, { apps } from 'open';
 import favicon from 'serve-favicon';
 import logEvents, { date } from './logEvents.js';
 import router from './controller/router.js';
+import error404 from './controller/routes/404_route.js';
+import error500 from './controller/routes/500_route.js';
 import helper from '../views/helpers/hbsHelpers.js';
 
 /**
@@ -151,7 +153,6 @@ const HOST: string = process.env.HOST || `http://127.0.0.1`;
 
 // Launch Server & Create Event Logger
 createServer();
-eventLogger();
 
 // Create Server
 async function createServer(): Promise<void> {
@@ -163,7 +164,7 @@ async function createServer(): Promise<void> {
                 port: string | 9080
             ): Promise<void> => {
                 await open(`${host}:${port}/landing`, {
-                    app: { name: open.apps.chrome }
+                    app: { name: apps.chrome }
                 }).catch((error: Error, code?: string): Error | any | null => {
                     console.error(
                         ` Error occurred when trying to open the browser: 
@@ -179,59 +180,49 @@ async function createServer(): Promise<void> {
             };
             openBrowser(HOST, PORT);
         } catch (error: unknown) {
-            console.log(
+            console.error(
                 `Unable to start Browser due to a Server Problem: ${error}`
             );
-            app.use((_req: Request, res: Response, next: NextFunction) => {
-                res.render('errors/500', { layout: '500' });
-                next();
-            });
+            app.use('/', error500);
         }
     });
 }
 
 // Logging Events
-async function eventLogger(): Promise<void> {
-    class TrackEmitter extends EventEmitter {}
-    const trackEmitter: EventEmitter = new TrackEmitter();
+class TrackEmitter extends EventEmitter {}
+const trackEmitter: EventEmitter = new TrackEmitter();
 
-    try {
-        trackEmitter.on('./log', (message: string): EventEmitter => {
-            return logEvents(message);
-        });
-        setTimeout((): void => {
-            trackEmitter.emit(
-                'log',
-                'Nodemon Server Logging initiated: "EVENT EMITTED"'
-            ),
-                console.log(date);
-        }, 500);
-    } catch (error: unknown) {
-        console.log(`It appears the Event Emitter errored on startup
+try {
+    trackEmitter.on('log', (message: string): EventEmitter => {
+        return logEvents(message);
+    });
+    setTimeout((): void => {
+        trackEmitter.emit(
+            'log',
+            'Nodemon Server Logging initiated: "EVENT EMITTED"'
+        ),
+            console.log(date);
+    }, 500);
+} catch (error: unknown) {
+    console.error(`It appears the Event Emitter errored on startup
 			ERROR CODE: ${error}
 		`);
-        app.use((_req: Request, res: Response, next: NextFunction) => {
-            res.render('errors/500', { layout: '500' });
-            next();
-        });
-    }
-    // Create a write stream (in append mode)(morgan)
-    try {
-        const accessLogStream: fs.WriteStream = fs.createWriteStream(
-            path.join('./logs', 'access.log'),
-            { flags: 'a' }
-        );
-        app.use<any>(morgan<Request>('combined', { stream: accessLogStream }));
-        app.get<any>('/', (_req: Request, res: Response) => {
-            res.send('HOOT Webelistics Logger Tracker');
-        });
-    } catch (error: unknown) {
-        console.log(`On Server Startup there appears to have been a WriteStream Error
+    app.use('/', error404);
+    app.use('/', error500);
+}
+// Create a write stream (in append mode)(morgan)
+try {
+    const accessLogStream: fs.WriteStream = fs.createWriteStream(
+        path.join('./logs', 'access.log'),
+        { flags: 'a' }
+    );
+    app.use<any>(morgan<Request>('combined', { stream: accessLogStream }));
+    app.get<any>('/', (_req: Request, res: Response) => {
+        res.send('HOOT Webelistics Logger Tracker');
+    });
+} catch (error: unknown) {
+    console.error(`On Server Startup there appears to have been a WriteStream Error
 			ERROR CODE: ${error}
 		`);
-        app.use((_req: Request, res: Response, next: NextFunction) => {
-            res.render('errors/500', { layout: '500' });
-            next();
-        });
-    }
+    app.use('/', error500);
 }
