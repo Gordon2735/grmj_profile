@@ -9,14 +9,18 @@ import RegisterComponents from '../componentTools/components_services.js'; // se
 
 export class LandingPage extends LandingPageTemplate {
     override activateShadowDOM: boolean;
+    body: HTMLBodyElement;
     button: HTMLElement;
+    button_join: HTMLButtonElement;
     navMenu: HTMLElement;
     themeSwitcher: string;
     grabComponent: HTMLElement;
     setTheme: string | null | undefined;
 
     constructor(
+        body: HTMLBodyElement,
         button: HTMLElement,
+        button_join: HTMLButtonElement,
         navMenu: HTMLElement,
         themeSwitcher: string,
         grabComponent: HTMLElement
@@ -25,7 +29,9 @@ export class LandingPage extends LandingPageTemplate {
 
         this.activateShadowDOM = false;
 
+        this.body = body;
         this.button = button;
+        this.button_join = button_join;
         this.navMenu = navMenu;
         this.themeSwitcher = themeSwitcher;
         this.grabComponent = grabComponent;
@@ -34,7 +40,13 @@ export class LandingPage extends LandingPageTemplate {
     override connectedCallback(): void {
         super.connectedCallback();
 
+        this.body = document.querySelector(
+            '.login-container'
+        ) as HTMLBodyElement;
         this.button = document.getElementById('menu-btn') as HTMLElement;
+        this.button_join = document.getElementById(
+            'buttonJoin'
+        ) as HTMLButtonElement;
         this.navMenu = document.getElementById('menu') as HTMLElement;
         this.themeSwitcher = window.localStorage.getItem('theme') as string;
         this.grabComponent = document.getElementById(
@@ -51,6 +63,13 @@ export class LandingPage extends LandingPageTemplate {
                 console.error(`The Init function had error: ${error}`);
             }
         };
+
+        this.button_join.addEventListener('click', (event: MouseEvent) => {
+            event.preventDefault();
+            window.location.href = '/login_modal';
+            this.body.style.backgroundColor = 'red';
+            event.stopPropagation();
+        });
 
         const navClassSwitch = async (): Promise<void> => {
             this.button.classList.toggle('open');

@@ -4,7 +4,15 @@
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import User from '../src/models/schemas/UserGoogleSchema.js';
 
-export default function (passport: any): void {
+export default function (passport: {
+    use: (arg0: GoogleStrategy) => void;
+    serializeUser: (
+        arg0: (user: { id: any }, done: (arg0: any, arg1: any) => void) => void
+    ) => void;
+    deserializeUser: (
+        arg0: (id: any, done: (arg0: unknown, arg1: any) => void) => void
+    ) => void;
+}): void {
     passport.use(
         new GoogleStrategy(
             {
@@ -36,8 +44,10 @@ export default function (passport: any): void {
                         user = await User.create(newUser);
                         done(null, user);
                     }
-                } catch (error) {
-                    console.error(error);
+                } catch (error: unknown) {
+                    console.error(
+                        `Failed to find or create User/ERROR CODE: ${error}`
+                    );
                 }
             }
         )

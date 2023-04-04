@@ -288,6 +288,22 @@ p {
 
 }
 
+.team-logo {
+    margin: 0.4em 0.5em 0 -0.4em;
+    padding: 0;
+    float: left;
+    width: 34px;
+}
+
+.log-btn:hover {
+    color: hsla(0, 0%, 66%, 0.69);
+    background-color: hsla(0, 0%, 80%, 0.99);
+}
+
+.team-logo:hover {
+    transform: rotate(-24deg);
+}
+
 .btn-float {
     float: left;
     margin-right: 10px;

@@ -183,6 +183,7 @@ async function createServer(): Promise<void> {
             console.error(
                 `Unable to start Browser due to a Server Problem: ${error}`
             );
+            app.use('/', error404);
             app.use('/', error500);
         }
     });
@@ -202,11 +203,11 @@ try {
             'Nodemon Server Logging initiated: "EVENT EMITTED"'
         ),
             console.log(date);
-    }, 500);
+    }, 100);
 } catch (error: unknown) {
     console.error(`It appears the Event Emitter errored on startup
-			ERROR CODE: ${error}
-		`);
+                ERROR CODE: ${error}
+            `);
     app.use('/', error404);
     app.use('/', error500);
 }
@@ -222,7 +223,8 @@ try {
     });
 } catch (error: unknown) {
     console.error(`On Server Startup there appears to have been a WriteStream Error
-			ERROR CODE: ${error}
-		`);
+                ERROR CODE: ${error}
+            `);
+    app.use('/', error404);
     app.use('/', error500);
 }

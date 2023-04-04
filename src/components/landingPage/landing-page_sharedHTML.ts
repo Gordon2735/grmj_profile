@@ -58,7 +58,7 @@ landingPage_sharedHTML.page = /*html*/ `
                 </a>
             </li>
             <li><button class="btn btn-dark-outline">Sign in</button></li>
-            <li><button class="btn btn-dark">Join now</button></li>
+            <li><button id="buttonJoin" class="btn btn-dark">Join now</button></li>
         </ul>
         <button type="button" id="menu-btn" class="hamburger">
             <span class="hamburger-top"></span>
