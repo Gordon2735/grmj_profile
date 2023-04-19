@@ -1,40 +1,135 @@
-button {
+:root {
+    --tw-blue: hsla(213, 58%, 44%, 0.99);
+    --tw-lightblue: hsla(197, 100%, 45%, 0.99);
+    --modal_ff: var(--grmj-font-family-1);
+    --tw-yellow: hsla(32, 80%, 52%, 0.99);
+    --tw-yellow-light: hsla(37, 67%, 76%, 0.99);
+    --tw-black: hsla(0, 0%, 0%, 0.99);
+    --tw-white: hsla(0, 0%, 100%, 0.99);
+    --tw-drop-shadow-1: var(--grmj-filter-dropShadow-6);
+    --tw-drop-shadow-2: var(--grmj-filter-dropShadow-9);
+}
+
+.modal {
+    margin: 2.5em auto 1.5em auto;
+    position: relative;
+    display: block;
+    text-align: center;
+}
+
+.modal-header {
+    margin: 2.5em auto 1.5em auto;
+    display: block;
+    text-align: center;
+}
+
+
+.modal .tw-logo {
+    margin: 2.5em auto 0em auto;
+    display: block;
+    text-align: center;
+    width: 180px;
+    aspect-ratio: 130 / 103;
+    filter: var(--tw-drop-shadow-2);
+}
+
+.modal .tw-caption {
+    margin: 0em auto 0em auto;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    text-align: center;
+    filter: var(--tw-drop-shadow-2);
+}
+
+.tw-caption .h1-team {
+    margin: 0em auto 0em auto;
+    display: block;
+    order: 1;
+    font-family: var(--grmj-font-family-1);
+    font-size: 2rem;
+    font-weight: var(--grmj-font-weight-7);
+    color: var(--color-bracket-blue);
+    text-align: center;
+}
+
+.tw-caption .h2-webelistics {
+    display: block;
+    order: 2;
+    font-family: var(--grmj-font-family-1);
+    font-size: 2.5rem;
+    font-weight: var(--grmj-font-weight-9);
+    color: var(--color-bracket-yellow);
+    letter-spacing: -0.7;
+    text-align: center;
+}
+
+.sup-reg {
+    font-family: var(--grmj-font-family-3);
+    font-size: 25%;
+    font-weight: 6;
+    color: var(--color-bracket-blue);
+    line-height: 0;
+    vertical-align: baseline;
+    top: -1.5em;
+}
+
+.modal .form {
+    position: relative;
+    display: block;
+    text-align: center;
+}
+
+.modal label {
+    margin: 3.75em auto 0.75em auto;
+    font-family: var(--modal_ff);
+    font-size: 1rem;
+    color: var(--tw-black);
+}
+
+.modal .login-modal-date {
+    margin: 0.2em auto 2.5em auto;
+    font-family: var(--modal_ff);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--tw-blue);
+    filter: var(--tw-drop-shadow-1);
+}
+
+.modal .input-login {
+    margin: 0em auto 3em auto;
+    padding: 25px;
+    display: block;
+    font-size: 2.8em;
+    font-family: var(--modal_ff);
+    color: var(--tw-blue);
+    border: solid 1.75px var(--tw-blue);
+    width: 175px;
+    text-align: center;
+    background-color: rgba(107, 107, 107, 0.2)
+}
+
+.modal button,
+.btn {
     padding: 10px;
+    font-family: var(--modal_ff);
     font-size: 1.1em;
-    background: #32bacf;
-    color: white;
+    width: 7em;
+    background: var(--tw-blue);
+    color: var(--tw-white);
     border: none;
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.2);
     cursor: pointer;
 }
 
-button:hover {
-    background: rgba(0, 0, 0, 0.7);
+.modal button:hover {
+    background: var(--tw-lightblue);
+    color: var(--tw-yellow);
 }
 
-/* #modalCover {
-    width: 100%;
-    height: 100vh;
-    position: absolute;
-    background: rgba(0, 0, 0, 0.7);
-
-    display: none;
-    align-items: center;
-    justify-content: center;
-} */
-/* 
-#modalCover #modal {
-    max-width: 650px;
-    width: 100%;
-    background: white;
-    height: 400px;
-
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-} */
-
-#modalCover #modal .modal-footer {
-    margin-top: auto;
+.modal .modal-footer {
+    margin: 2.5em auto 2.5em auto;
+    text-align: center;
 }

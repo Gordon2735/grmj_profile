@@ -2,20 +2,19 @@
 
 import mongoose from 'mongoose';
 
-const UserBlogSchema = new mongoose.Schema({
+const Schema = mongoose.Schema;
+const Model = mongoose.model;
+const ObjectId = Schema.Types.ObjectId;
+
+const UsersSchema = new mongoose.Schema({
     userId: {
         type: String,
         required: true
     },
     displayName: {
-        type: String,
-        required: true
+        type: String
     },
-    firstName: {
-        type: String,
-        required: true
-    },
-    lastName: {
+    userName: {
         type: String,
         required: true
     },
@@ -26,9 +25,14 @@ const UserBlogSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    user: {
+        type: ObjectId,
+        ref: 'User'
+    },
     createdAt: {
         type: Date,
         default: Date.now
     }
 });
-export default mongoose.model('UserBlog', UserBlogSchema);
+export default Model('Users', UsersSchema);
+export { UsersSchema };

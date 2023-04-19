@@ -10,24 +10,36 @@
     <link rel="stylesheet" href="/src/css/index.css">
     <link rel="stylesheet" href="/src/controller/login/login_modal.css" >
     <link rel="shortcut icon" href="/src/images/svgs/team_webelistics_brackets.svg" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&effect=fire-animation" rel="stylesheet"/>
 
     <script defer        
         src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
     </script>
     <script type="module" src="/src/controller/login/login_modal.js"></script>
 
-    <title>Gordon's Profile Site Login</title>
+    <title>User Login</title>
 
 </head>
 <body class="login-body">
 
-    <div class="container login-container">
-        <div class="card">
-            <div class="card-content">
-                {{{body}}}
-            </div>
+<section id="modalCover">
+    
+    <div id="modal" class="modal">
+        <div class="modal-header">
+            <h2 class="h2-header">
+                User Login
+            </h2>
         </div>
+
+        {{{body}}}
+
     </div>
+
+</section>
+
     
 </body>
 </html>
+
+{{!-- :ital,wght@0,200;0,400;0,600;0,700;0,900;1,200;1,400; --}}
+{{!-- effect=neon|outline|emboss|shadow-multiple|fire --}}

@@ -5,7 +5,7 @@
     "main": "server.js",
     "exports": {
         "import": "./dist/src/server.js",
-        "require": "./dist/src/server.js"
+        "require": null
     },
     "type": "module",
     "keywords": [
@@ -46,7 +46,7 @@
         "comp_images": "copyfiles --soft ./src/images/*.* ./dist/ && echo 'Successful copy of the main images folder'",
         "comp_static": "copyfiles --soft  ./src/components/componentTools/**/**/*.* ./dist/ && echo 'Copied componentTools to ./dist/src/components/componentTools'",
         "start": "npm run dev",
-        "dev": "cross-env NODE_ENV=development \"node ./dist/src/server.js\"",
+        "dev": "cross-env NODE_ENV=development \"nodemon ./dist/src/server.js\"",
         "temp": "cross-env NODE_ENV=development npm start",
         "prod": "cross-env NODE_ENV=production  node ./dist/src/server.js",
         "lint": "eslint . --fix",
@@ -57,9 +57,12 @@
     },
     "dependencies": {
         "@jest/globals": "^29.5.0",
+        "@types/bcrypt": "^5.0.0",
         "@types/mongoose": "^5.11.97",
+        "@types/passport-local": "^1.0.35",
         "@types/uuid": "^9.0.1",
         "@types/vscode": "^1.74.0",
+        "bcrypt": "^5.1.0",
         "concurrently": "^8.0.1",
         "connect-mongo": "^5.0.0",
         "cors": "^2.8.5",
@@ -76,6 +79,7 @@
         "nodemon": "^2.0.20",
         "passport": "^0.6.0",
         "passport-google-oauth20": "^2.0.0",
+        "passport-local": "^1.0.0",
         "path": "^0.12.7",
         "serve-favicon": "^2.5.0",
         "typescript": "^5.0.3",

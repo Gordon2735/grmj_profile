@@ -9,8 +9,9 @@ import path from 'path';
 import MongoStore from 'connect-mongo';
 import passport from 'passport';
 import passportConfig from '../config/passport.js';
+import authenticateUser from '../config/passport.js';
 import methodOverride from 'method-override';
-import blogDB from './controller/databases/blogDB.js';
+// import databaseCONN from './models/databases/database_conn.js';
 import session from 'express-session';
 import fs from 'fs';
 import morgan from 'morgan';
@@ -21,8 +22,7 @@ import open, { apps } from 'open';
 import favicon from 'serve-favicon';
 import logEvents, { date } from './logEvents.js';
 import router from './controller/router.js';
-import error404 from './controller/routes/404_route.js';
-import error500 from './controller/routes/500_route.js';
+import { error404, error500 } from './controller/routes/appRoutes.js';
 import helper from '../views/helpers/hbsHelpers.js';
 
 /**
@@ -41,7 +41,13 @@ import helper from '../views/helpers/hbsHelpers.js';
 // Load Environment Variables
 dotenv.config({ path: './config/config.env' });
 passportConfig(passport);
-blogDB();
+authenticateUser(passport);
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Database Connection for multiple models and Databases
+// databaseCONN();
 
 /**
  * @description The express package is Node.js Framework for building web applications and APIs.
@@ -60,6 +66,9 @@ const app: Application = express();
 
 const environment =
     process.env.NODE_ENV || ('development' as unknown as NodeJS.ProcessEnv);
+
+// import "Open" handler for opening the browser
+const openApps = apps;
 
 /**
  * @description The morgan package is a HTTP request logger middleware for node.js
@@ -86,16 +95,13 @@ app.use(
     })
 );
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 // body-parser...
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
-app.use(
-    express.static(path.join(__dirname, '..', '..', 'util', 'test/unit_tests'))
-);
+// app.use(
+//     express.static(path.join(__dirname, '..', '..', 'util', 'test/unit_tests'))
+// );
 
 // Handlebars Mapping
 const handlebars: ExpressHandlebars = create({
@@ -115,7 +121,7 @@ app.enable('view cache');
 // Session Middleware
 app.use(
     session({
-        secret: 'hoot session',
+        secret: process.env.SECRET as string | string[],
         resave: false,
         saveUninitialized: false,
         store: MongoStore.create({
@@ -129,6 +135,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // static folders
+app.use(express.static(path.join(__dirname, 'views')));
+app.use(express.static(path.join(__dirname, 'src')));
 app.use(express.static(path.join(__dirname, '../../dist')));
 
 // Favicon
@@ -144,7 +152,7 @@ app.use(function (req: Request, res: Response, next: NextFunction) {
     next();
 });
 
-// Integrate Routes
+// Integrated Routes
 app.use('/', router);
 
 // Configure Port and Host
@@ -152,19 +160,16 @@ const PORT: string | 9080 = process.env.PORT || 9080;
 const HOST: string = process.env.HOST || `http://127.0.0.1`;
 
 // Launch Server & Create Event Logger
-createServer();
+createServer(HOST, PORT);
 
 // Create Server
-async function createServer(): Promise<void> {
+function createServer(host: string, port: string | 9080): void {
     app.listen(PORT, () => {
         console.info(`Server running in ${environment} mode on port ${PORT}`);
         try {
-            const openBrowser = async (
-                host: string,
-                port: string | 9080
-            ): Promise<void> => {
+            const openBrowser = async (): Promise<void> => {
                 await open(`${host}:${port}/landing`, {
-                    app: { name: apps.chrome }
+                    app: { name: openApps.chrome }
                 }).catch((error: Error, code?: string): Error | any | null => {
                     console.error(
                         ` Error occurred when trying to open the browser: 
@@ -178,7 +183,7 @@ async function createServer(): Promise<void> {
                     );
                 });
             };
-            openBrowser(HOST, PORT);
+            openBrowser();
         } catch (error: unknown) {
             console.error(
                 `Unable to start Browser due to a Server Problem: ${error}`
@@ -228,3 +233,5 @@ try {
     app.use('/', error404);
     app.use('/', error500);
 }
+
+export default environment;

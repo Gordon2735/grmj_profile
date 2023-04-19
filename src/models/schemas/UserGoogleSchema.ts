@@ -31,3 +31,4 @@ const UserGoogleSchema = new Schema({
     }
 });
 export default Model('User', UserGoogleSchema);
+export { UserGoogleSchema };

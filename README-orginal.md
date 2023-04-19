@@ -102,10 +102,15 @@
 
     npm i cookie-parser
     npm install --save @types/cookie-parser
-    npm install jsonwebtoken
-    npm install --save @types/jsonwebtoken
+
     npm install bcrypt
     npm install --save @types/bcrypt
+
+    npm i passport-local@latest
+    npm i --save-dev @types/passport-local
+
+    npm install --save passport-local-mongoose
+    npm install --save @types/passport-local-mongoose
 
 # NPM UNINSTALLS
 

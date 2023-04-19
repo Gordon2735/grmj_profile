@@ -1,40 +1,50 @@
 
-<section id="modalCover">
-    
-    <div id="modal">
-        <div class="modal-header">
-            <h2 class="h2-header">
-                User Login
-            </h2>
-        </div>
 
-        <form action="/#" id="form" class="form">
-            <ul>
-                <li>
-                    <label for="name">First Name:</label>
-                    <input type="text" id="name" name="user_name">
-                </li>
-                <li>
-                    <label for="name">Last Name:</label>
-                    <input type="text" id="name" name="user_name">
-                </li>
-                <li>
-                    <label for="mail">Email:</label>
-                    <input type="email" id="mail" name="user_email">
-                </li>
-                <li>
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password">
-                </li>
-            </ul>
-        </form>
+    <figure class="logo-figure">
+        <img class="tw-logo" src="/src/controller/login/team_webelistics_brackets.svg" alt="">
+        <figcaption class="font-effect-fire-animation tw-caption">
+            <div class="navbar-div">
+                <h1 id="h1Team" class="h1-team">Team</h1>
+            </div>
+            <div class="navbar-div">            
+                <h2 id="h2Webelistics" class="h2-webelistics">Webelistics<sup class="sup-reg">&#174;</sup></h2>
+            </div>          
+        </figcaption>
+    </figure>
+
+    <form action="/user/{{_id}}" id="form" class="form" method="POST">
+
+        <aside id="loginModal-date" class="login-modal-date">
+            <span id="loginModal-span" class="login-modal-span">
+                {{formatDate createdAt 'MMMM Do YYYY, h:mm:ss: a' }}
+            </span>
+        </aside>
+
+        <ul>
+             <li>
+                <label for="name">First Name</label>
+                <input class="input-login" type="text" id="name" name="firstName">
+            </li>
+            <li>
+                <label for="name">Last Name</label>
+                <input class="input-login" type="text" id="name" name="lastName">
+            </li>
+            <li>
+                <label for="mail" placeholder="Email">Email</label>
+                <input class="input-login" type="email" id="mail" name="email">
+            </li>
+            <li>
+                <label for="password">Password</label>
+                <input class="input-login" type="password" id="password" name="password">
+            </li>
+        </ul>
 
         <footer class="modal-footer">
-            <button id="close-modal">Close</button>
-            <button id="save">Submit</button>
+            <button id="close-modal" class="local-buttons">Close</button>
+            <input type="submit" value="Save" class="local-buttons local-save">
         </footer>
+    </form>
 
-    </div>
-</section>
 
 {{!-- Need to implement an automatic user id & password(verify password--}}
+ {{!-- tw-caption --}}
