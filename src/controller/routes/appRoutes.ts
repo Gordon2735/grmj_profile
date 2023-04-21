@@ -26,8 +26,6 @@ import {
     historyHandlerPost,
     libraryHandler,
     libraryHandlerPost,
-    loginModalHandler,
-    loginModalHandlerPost,
     partialsHandler,
     resumeHandler,
     resumeHandlerPost,
@@ -36,8 +34,17 @@ import {
     spaceXHandler,
     spaceXHandlerPost
 } from '../route_handlers/route_handlers.js';
+import {
+    loginModalHandler,
+    loginUserCreateHandler
+} from '../route_handlers/loginModal_handlers.js';
 
 const router: Router = express.Router();
+
+// loginModal Pop-up Router
+export const loginModal: express.Router = router
+    .get('/login_modal', loginModalHandler)
+    .post('/login_modal', loginUserCreateHandler);
 
 // Home Page Router
 export const home: Router = router
@@ -72,7 +79,7 @@ export const code_examples: Router = router
 // Contact Page Router
 export const contact: Router = router
     .get('/contact', contactHandler)
-    .post('/', contactHandlerPost);
+    .post('/contact', contactHandlerPost);
 
 // Goals Page Router
 export const goals: Router = router
@@ -88,11 +95,6 @@ export const history: Router = router
 export const library: Router = router
     .get('/library', libraryHandler)
     .post('/library', libraryHandlerPost);
-
-// loginModal Pop-up Router
-export const loginModal: Router = router
-    .get('/login_modal', loginModalHandler)
-    .post('/loginModal', loginModalHandlerPost);
 
 // Partials Router
 export const partialsRouter = router.use(partialsHandler);

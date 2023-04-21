@@ -3,26 +3,30 @@
 'use strict';
 
 import mongoose from 'mongoose';
-
-import UsersSchema from '../schemas/UsersSchema.js';
-import BlogSchema from '../schemas/Blog_Schema.js';
-import UserGoogleSchema from '../schemas/UserGoogleSchema.js';
+import { LocalUserSchema } from '../schemas/User_Schema.js';
+import blogDB from './blogDB.js';
 
 export default async function databaseCONN(): Promise<mongoose.Connection> {
-    const conn = mongoose.createConnection(
-        process.env.MONGO_URI
-    ) as mongoose.Connection;
+    try {
+        const conn: mongoose.Connection = mongoose.createConnection(
+            process.env.MONGO_URI
+        );
 
-    const usersSchema = UsersSchema as unknown as mongoose.Schema;
-    const blog_Schema = BlogSchema as unknown as mongoose.Schema;
-    // prettier-ignore
-    const userGoogleSchema = UserGoogleSchema as unknown as mongoose.Schema;
+        // const LocalSchema: mongoose.Schema<any> = LocalUserSchema;
 
-    conn.model('Users', usersSchema);
-    conn.model('Blog', blog_Schema);
-    conn.model('User', userGoogleSchema);
+        conn.model('LocalUser', LocalUserSchema);
+        blogDB();
 
-    return conn;
+        console.log(
+            `MongoDB 'databaseCONN' created a new mongoose connection: ${conn.collection(
+                'LocalUser'
+            )}`
+        );
+        return conn;
+    } catch (error: unknown) {
+        console.error(`Error: ${error}`);
+        process.exit(1);
+    }
 }
 
 // MONGO_URI = mongodb+srv://team-webelistics:acts2389@cluster0.le1ltnq.mongodb.net/?retryWrites=true&w=majority

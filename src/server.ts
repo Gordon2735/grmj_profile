@@ -11,7 +11,7 @@ import passport from 'passport';
 import passportConfig from '../config/passport.js';
 import authenticateUser from '../config/passport.js';
 import methodOverride from 'method-override';
-// import databaseCONN from './models/databases/database_conn.js';
+import databaseCONN from './models/databases/database_conn.js';
 import session from 'express-session';
 import fs from 'fs';
 import morgan from 'morgan';
@@ -47,7 +47,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Database Connection for multiple models and Databases
-// databaseCONN();
+databaseCONN();
 
 /**
  * @description The express package is Node.js Framework for building web applications and APIs.
@@ -135,8 +135,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // static folders
-app.use(express.static(path.join(__dirname, 'views')));
-app.use(express.static(path.join(__dirname, 'src')));
+// app.use(express.static(path.join(__dirname, 'views')));
+// app.use(express.static(path.join(__dirname, 'src')));
 app.use(express.static(path.join(__dirname, '../../dist')));
 
 // Favicon

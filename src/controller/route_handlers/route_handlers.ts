@@ -366,43 +366,6 @@ export async function libraryHandlerPost(
     }
 }
 
-// loginModal Route Handlers
-export async function loginModalHandler(
-    _req: Request,
-    res: Response
-): Promise<void> {
-    try {
-        const loginModalScript = /*html*/ `<script type="module" content="text/javascript" src="/src/controller/login/login_modal.js"></script>`;
-        res.set('Content-Type', 'text/html');
-        res.set('target', 'blank');
-        res.render('login_modal', {
-            layout: 'loginModal',
-            title: 'Login',
-            script: [`${loginModalScript}`]
-        });
-        return;
-    } catch (error: unknown) {
-        console.error(`LoginModalHandler Error: ${error}`);
-    }
-}
-export async function loginModalHandlerPost(
-    req: Request,
-    res: Response
-): Promise<void> {
-    try {
-        res.json(
-            await user.create(req.body).catch((error: unknown) => {
-                res.status(404),
-                    console.info(
-                        `Whoops, seems there was a "Page Not Found Error" ${error}`
-                    );
-            })
-        );
-    } catch (error: unknown) {
-        console.error(`LoginModalHandlerPost Error: ${error}`);
-    }
-}
-
 // Partials Route Handlers
 export function partialsHandler(
     _req: Request,

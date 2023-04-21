@@ -11,7 +11,7 @@ async function closeLogin(): Promise<void> {
 
 async function submitUser(): Promise<void> {
     try {
-        window.location.href = '/blogs/:id';
+        window.location.href = '/login_modal';
     } catch (error: unknown) {
         console.error(`There has been an Submit User ERROR: ${error}`);
     }

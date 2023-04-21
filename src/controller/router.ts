@@ -4,6 +4,7 @@ import { router as auth } from './routes/auth_route.js';
 import { router as blogs } from './routes/blogs_route.js';
 import { router as users } from './routes/user_route.js';
 import landing, {
+    loginModal,
     home,
     cover,
     about,
@@ -13,7 +14,6 @@ import landing, {
     goals,
     history,
     library,
-    loginModal,
     partialsRouter,
     resume,
     projects,
@@ -50,9 +50,11 @@ for (const routes of blogRouting) {
     blogRoutes.use(URL, routes);
 }
 
+// @desc Login Modal Routes/Endpoints/Controllers
 // @desc  App Components pages Routes/Handler-Functions-Controllers
 const routing: express.Router[] = [
     landing,
+    loginModal,
     home,
     cover,
     about,
@@ -62,7 +64,6 @@ const routing: express.Router[] = [
     goals,
     history,
     library,
-    loginModal,
     partialsRouter,
     resume,
     projects,
