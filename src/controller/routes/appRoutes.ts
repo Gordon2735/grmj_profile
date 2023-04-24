@@ -39,10 +39,13 @@ import {
     loginUserCreateHandler
 } from '../route_handlers/loginModal_handlers.js';
 
+// const app = express();
 const router: Router = express.Router();
 
+// app.use(express.static('../../views'));
+
 // loginModal Pop-up Router
-export const loginModal: express.Router = router
+const loginModal: express.Router = router
     .get('/login_modal', loginModalHandler)
     .post('/login_modal', loginUserCreateHandler);
 
@@ -120,4 +123,4 @@ export const error404: Router = router.get('*', error404Handler);
 // Error 500 Route
 export const error500: Router = router.get('*', error500Handler);
 
-export default landing;
+export { landing as default, loginModal };

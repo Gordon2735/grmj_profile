@@ -3,10 +3,12 @@
 'use strict';
 
 import express, { Router, Request, Response } from 'express';
-import { ensureAuth, ensureGuest } from '../middleware/auth.js';
+import ensureGuest, { ensureAuth } from '../middleware/auth.js';
 import Blog from '../../models/schemas/Blog_Schema.js';
 
+// const app = express();
 const router: Router = express.Router();
+// app.use(express.static('../../views'));
 
 //@desc Login/Landing page
 //@route GET /

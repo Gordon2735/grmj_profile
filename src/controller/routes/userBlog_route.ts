@@ -4,8 +4,9 @@ import express, { Router, Request, Response } from 'express';
 import ensureAuth from '../middleware/auth.js';
 import Users from '../../models/schemas/UsersSchema.js';
 
+// const app = express();
 const router: Router = express.Router();
-router.use(express.static('../../views'));
+// app.use(express.static('../../views'));
 
 // @desc    Show add page
 // @route   GET /blogs/add
@@ -25,4 +26,4 @@ router.post('/', ensureAuth, async (req: Request, res: Response) => {
         res.render('error/500');
     }
 });
-export default router;
+export { router };

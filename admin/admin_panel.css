@@ -1,0 +1,114 @@
+/* 
+    Admin CSS Styles File
+*/
+
+:root {
+    --admin-main-cl: hsla(0, 0%, 20%, 0.99);
+    --admin-tw-blue: hsla(213, 58%, 44%, 0.99);
+    --admin-tw-lightblue: hsla(197, 100%, 45%, 0.99);
+    --admin-main_ff: 'Source Sans Pro', sans-serif;
+    --admin-tw-yellow: hsla(32, 80%, 52%, 0.99);
+    --admin-tw-yellow-light: hsla(37, 67%, 76%, 0.99);
+    --admin-tw-black: hsla(0, 0%, 0%, 0.99);
+    --admin-tw-white: hsla(0, 0%, 100%, 0.99);
+    --admin-bracket-blue: hsla(204, 76%, 57%, 0.99);
+    --admin-bracket-yellow: hsla(37, 81%, 58%, 0.99);
+    --admin-drop-shadow-1: drop-Shadow(0px 0.2rem 0.65rem hsla(0, 0%, 0%, 0.99));
+    --admin-drop-shadow-2: drop-Shadow(0.7rem 0.9rem 0.55rem hsla(0, 0%, 0%, 0.29));
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.admin_panel-body {
+    width: 100%;
+    background-color: var(--admin-main-cl);
+    justify-items: center;
+    display: inline-block;
+    text-align: center;
+}
+
+.admin_panel-sec {
+    margin: 3em auto 2em auto;
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    width: 75%;
+    background-color: var(--admin-tw-blue);
+    text-align: center;
+    border-radius: 15px;
+
+}
+
+.admin-logo-figure {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.admin-logo-figure .admin-logo {
+    margin: 2.5em auto 0em auto;
+    display: block;
+    text-align: center;
+    width: 180px;
+    aspect-ratio: 130 / 103;
+    filter: var(--admin-drop-shadow-2);
+}
+
+.admin-logo-figure .admin-caption {
+    margin: 0em auto 0em auto;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    text-align: center;
+    filter: var(--admin-drop-shadow-2);
+}
+
+.admin-caption .h1-team {
+    margin: 0em auto 0em auto;
+    display: block;
+    order: 1;
+    font-family: var(--admin-main_ff);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--admin-bracket-blue);
+    text-align: center;
+}
+
+.admin-caption .h2-webelistics {
+    display: block;
+    order: 2;
+    font-family: var(--admin-main_ff);
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--admin-bracket-yellow);
+    letter-spacing: -0.7;
+    text-align: center;
+}
+
+.admin-logo-figure .admin-panel-date {
+    margin: 0.2em auto 4.5em auto;
+    text-align: center;
+}
+
+.admin-panel-date .admin-panel-span {
+    margin: 0.2em auto 12px auto;
+    padding-bottom: 6em;
+    text-align: center;
+    font-family: var(--admin-main_ff);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--admin-tw-white);
+    filter: var(--admin-drop-shadow-1);
+}
+
+
+
+
+
+
+/* .admin_panel-sec {} */

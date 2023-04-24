@@ -21,6 +21,7 @@ import landing, {
     error404,
     error500
 } from './routes/appRoutes.js';
+import { router as admin } from './admin/admin_routes.js';
 
 const router: Router = express.Router();
 
@@ -50,9 +51,27 @@ for (const routes of blogRouting) {
     blogRoutes.use(URL, routes);
 }
 
+// @desc Admin Panel Routes/Endpoints/Controllers
+// const adminRouting: express.Router[] = [admin];
+// const adminRoutes: express.Router = router;
+
+// for (const routes of adminRouting) {
+//     let URL: string;
+//     switch (routes) {
+//         case admin:
+//             URL = '/admin_panel';
+//             break;
+//         default:
+//             URL = '/admin_panel';
+//             break;
+//     }
+//     adminRoutes.use(URL, routes);
+// }
+
 // @desc Login Modal Routes/Endpoints/Controllers
 // @desc  App Components pages Routes/Handler-Functions-Controllers
 const routing: express.Router[] = [
+    admin,
     landing,
     loginModal,
     home,

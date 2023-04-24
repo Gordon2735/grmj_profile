@@ -15,7 +15,6 @@ const blogDB = async (): Promise<any> => {
             .then((mongoose) => {
                 return mongoose;
             });
-
         console.log(
             `MongoDB 'blogDB' Connected: ${(await conn).connection.host}`
         );
@@ -25,8 +24,6 @@ const blogDB = async (): Promise<any> => {
         process.exit(1);
     }
 };
-
-// const blogDB = dbBlogURI;
 export default blogDB;
 
 // mongodb+srv://grmj:mat2819@sandbox.glrio.mongodb.net/?retryWrites=true&w=majority

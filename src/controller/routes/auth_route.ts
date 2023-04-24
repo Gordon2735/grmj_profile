@@ -3,8 +3,9 @@
 import express, { Router, Request, Response } from 'express';
 import passport from 'passport';
 
+// const app = express();
 const router: Router = express.Router();
-router.use(express.static('views'));
+// app.use(express.static('../../views'));
 
 // @desc  Auth with Google
 // @route GET /auth/google

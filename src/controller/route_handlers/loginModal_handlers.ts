@@ -2,11 +2,10 @@
 'use strict';
 
 import { Request, Response } from 'express';
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 import LocalUser from '../../models/schemas/User_Schema.js';
-// import { ensureAuth } from '../middleware/auth.js';
-
-// const insurance: any = ensureAuth;
+import notifier from 'node-notifier';
+import { ensureAuth } from '../middleware/auth.js';
 
 // loginModal Route Handlers
 export async function loginModalHandler(
@@ -30,19 +29,27 @@ export async function loginModalHandler(
 
 //  Login Modal Create User Handler
 export async function loginUserCreateHandler(
-    // insurance: { insurance: any },
     req: Request,
     res: Response
 ): Promise<void> {
     try {
+        ensureAuth;
         const user: any = req.body;
-        const userID: string = uuidv4();
-        const userWithID: any = { ...user, id: userID };
-        await LocalUser.create(userWithID);
-        res.send(`User with the name ${user.firstName} added to the database!`);
+        // const userID: string = uuidv4();
+        // const userWithID: any = { ...user, id: userID };
+        const userInfo: any = { ...user };
+        // await LocalUser.create(userWithID);
+        await LocalUser.create(userInfo);
+        notifier.notify({
+            title: 'User Created',
+            message: `User ${user.firstName} has been created and added to the database!`
+            // icon: './src/images/team_webelistics_brackets.png'
+        });
+        console.log(
+            `User with the name ${user.firstName} added to the database!`
+        );
         res.redirect('/landing');
-        alert(`User ${userWithID.username} has been created!, ${res.location}`);
     } catch (error: unknown) {
-        console.error(`LoginPostHandler Error: ${error}`);
+        console.error(`LoginUserCreateHandler Error: ${await error}`);
     }
 }

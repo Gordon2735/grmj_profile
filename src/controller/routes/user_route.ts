@@ -7,6 +7,9 @@ import { ensureAuth } from '../middleware/auth.js';
 import Users from '../../models/schemas/UsersSchema.js';
 
 const router: Router = express.Router();
+
+// router.use(express.static('views'));
+
 // @desc    Show add page
 // @route   GET /blogs/add
 router.get('/add', ensureAuth, async (_req: Request, res: Response) => {
@@ -32,7 +35,7 @@ router.post('/', ensureAuth, async (req: Request, res: Response) => {
 // @route   GET /blogs
 router.get('/', ensureAuth, async (_req: Request, res: Response) => {
     try {
-        const users = await Users.find({ status: 'public' })
+        const users = await Users.find({ status: 'src' })
             .populate('user')
             .sort({ createdAt: 'desc' })
             .lean();

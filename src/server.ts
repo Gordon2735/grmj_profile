@@ -11,7 +11,6 @@ import passport from 'passport';
 import passportConfig from '../config/passport.js';
 import authenticateUser from '../config/passport.js';
 import methodOverride from 'method-override';
-import databaseCONN from './models/databases/database_conn.js';
 import session from 'express-session';
 import fs from 'fs';
 import morgan from 'morgan';
@@ -24,6 +23,7 @@ import logEvents, { date } from './logEvents.js';
 import router from './controller/router.js';
 import { error404, error500 } from './controller/routes/appRoutes.js';
 import helper from '../views/helpers/hbsHelpers.js';
+import blogDB from './models/databases/blogDB.js';
 
 /**
  *
@@ -45,9 +45,6 @@ authenticateUser(passport);
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
-// Database Connection for multiple models and Databases
-databaseCONN();
 
 /**
  * @description The express package is Node.js Framework for building web applications and APIs.
@@ -99,9 +96,7 @@ app.use(
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
-// app.use(
-//     express.static(path.join(__dirname, '..', '..', 'util', 'test/unit_tests'))
-// );
+openDatabases();
 
 // Handlebars Mapping
 const handlebars: ExpressHandlebars = create({
@@ -125,7 +120,7 @@ app.use(
         resave: false,
         saveUninitialized: false,
         store: MongoStore.create({
-            mongoUrl: process.env.MONGO_URI
+            mongoUrl: process.env.MONGO_URI as string
         })
     })
 );
@@ -135,9 +130,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // static folders
-// app.use(express.static(path.join(__dirname, 'views')));
-// app.use(express.static(path.join(__dirname, 'src')));
 app.use(express.static(path.join(__dirname, '../../dist')));
+// app.use(express.static('views'));
 
 // Favicon
 app.use(favicon(path.join(__dirname, '/images', '/favicon.ico')));
@@ -162,11 +156,24 @@ const HOST: string = process.env.HOST || `http://127.0.0.1`;
 // Launch Server & Create Event Logger
 createServer(HOST, PORT);
 
+// Database Connections for multiple models and Databases
+async function openDatabases(): Promise<void> {
+    try {
+        await blogDB();
+    } catch (error: unknown) {
+        console.error(
+            `There was a problem invoking databases, ERROR: ${await error}`
+        );
+    }
+}
+
 // Create Server
-function createServer(host: string, port: string | 9080): void {
-    app.listen(PORT, () => {
-        console.info(`Server running in ${environment} mode on port ${PORT}`);
-        try {
+async function createServer(host: string, port: string | 9080): Promise<void> {
+    try {
+        app.listen(PORT, () => {
+            console.info(
+                `Server running in ${environment} mode on port ${PORT}`
+            );
             const openBrowser = async (): Promise<void> => {
                 await open(`${host}:${port}/landing`, {
                     app: { name: openApps.chrome }
@@ -184,14 +191,14 @@ function createServer(host: string, port: string | 9080): void {
                 });
             };
             openBrowser();
-        } catch (error: unknown) {
-            console.error(
-                `Unable to start Browser due to a Server Problem: ${error}`
-            );
-            app.use('/', error404);
-            app.use('/', error500);
-        }
-    });
+        });
+    } catch (error: unknown) {
+        console.error(
+            `Unable to start Browser due to a Server Problem: ${await error}`
+        );
+        app.use('/', error404);
+        app.use('/', error500);
+    }
 }
 
 // Logging Events

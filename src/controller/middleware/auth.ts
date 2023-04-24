@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use strict';
 
-export const { ensureAuth, ensureGuest }: any = {
+const { ensureAuth, ensureGuest }: any = {
     ensureAuth: function (
         req: { isAuthenticated: () => any },
         res: { redirect: (arg0: string) => void },
@@ -26,9 +26,9 @@ export const { ensureAuth, ensureGuest }: any = {
     }
 };
 
-export default function osGosh() {
-    console.log('osGosh');
-}
+// export default function osGosh() {
+//     console.log('osGosh');
+// }
 
-// export default { ensureGuest };
+export { ensureGuest as default, ensureAuth };
 // export  ensureAuth ;

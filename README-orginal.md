@@ -112,6 +112,12 @@
     npm install --save passport-local-mongoose
     npm install --save @types/passport-local-mongoose
 
+## --- phase IV ---
+
+    npm i node-notifier
+    npm install --save @types/node-notifier
+    npm install -D typescript-plugin-css-modules
+
 # NPM UNINSTALLS
 
 ---

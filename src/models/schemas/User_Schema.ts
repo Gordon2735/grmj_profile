@@ -10,18 +10,19 @@ const LocalUserSchema = new mongoose.Schema({
         required: false
     },
     firstName: {
-        type: String
+        type: String,
+        required: true
     },
     lastName: {
         type: String,
         required: true
     },
-    image: {
-        type: String
-    },
     password: {
         type: String,
         required: true
+    },
+    image: {
+        type: String
     },
     createdAt: {
         type: Date,

@@ -1,0 +1,49 @@
+    <figure class="admin-logo-figure">
+        <img class="admin-logo" src="/src/controller/login/team_webelistics_brackets.svg" alt="">
+        <figcaption class="admin-caption">
+            <div class="caption-div">
+                <h1 id="h1Team" class="h1-team">Team</h1>
+            </div>
+            <div class="caption-div">            
+                <h2 id="h2Webelistics" class="h2-webelistics">Webelistics<sup class="sup-reg">&#174;</sup></h2>
+            </div>          
+        </figcaption>
+            <aside id="adminPanelDate" class="admin-panel-date">
+                <span id="adminPanel-span" class="admin-panel-span">
+                    {{formatDate createdAt 'MMMM Do YYYY, h:mm:ss: a' }}
+                </span>
+            </aside>
+    </figure>
+
+    <table id="adminTable" class="admin-table">
+        <thead>
+            <tr>
+                <th class="admin-table-header">Administration</th>
+                <th class="admin-table-header">Panel</th>
+                <th class="admin-table-header">List</th>
+                <th class="admin-table-header"></th>
+            </tr>
+
+        </thead>
+        <tbody>
+            {{#each Users}}
+                <tr>
+                    <td><a class="table-titles" href="/blogs/{{id}}">{{title}}</a>
+                        <td>{{formatDate createdAt 'MMMM Do YYYY, h:mm:ss: a' }}</td>
+                    </td>
+                    <td><span class="dash-status">{{status}}</span></td>
+                    <td>
+                        <a href="/blogs/edit/{{_id}}" class="btn btn-float">
+                            <i class="fa-solid fa-edit"></i>
+                        </a>
+
+                        <form action="/blogs/{{_id}}" method="POST" id="delete-form">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn red">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            {{/each}}
+    </table>
