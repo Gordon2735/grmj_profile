@@ -3,8 +3,10 @@
 import mongoose from 'mongoose';
 
 const Model = mongoose.model;
+const Schema = mongoose.Schema;
+const ObjectId = Schema.Types.ObjectId;
 
-const LocalUserSchema = new mongoose.Schema({
+const LocalUserSchema = new Schema({
     userId: {
         type: String,
         required: false
@@ -23,6 +25,15 @@ const LocalUserSchema = new mongoose.Schema({
     },
     image: {
         type: String
+    },
+    status: {
+        type: String,
+        default: 'public',
+        enum: ['public', 'private']
+    },
+    user: {
+        type: ObjectId,
+        ref: 'User'
     },
     createdAt: {
         type: Date,

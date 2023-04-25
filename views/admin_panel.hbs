@@ -28,7 +28,7 @@
         <tbody>
             {{#each Users}}
                 <tr>
-                    <td><a class="table-titles" href="/blogs/{{id}}">{{title}}</a>
+                    <td><a class="table-titles" href="/LocalUsers/{{id}}">{{title}}</a>
                         <td>{{formatDate createdAt 'MMMM Do YYYY, h:mm:ss: a' }}</td>
                     </td>
                     <td><span class="dash-status">{{status}}</span></td>
@@ -37,12 +37,7 @@
                             <i class="fa-solid fa-edit"></i>
                         </a>
 
-                        <form action="/blogs/{{_id}}" method="POST" id="delete-form">
-                            <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit" class="btn red">
-                                <i class="fa-solid fa-trash-can"></i>
-                            </button>
-                        </form>
+                    
                     </td>
                 </tr>
             {{/each}}
