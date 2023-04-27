@@ -2,7 +2,8 @@
 'use strict';
 
 import { Request, Response } from 'express';
-import LocalUser from '../../models/schemas/User_Schema.js';
+import LocalUserSchema from '../../models/schemas/User_Schema.js';
+import { ensureAuth } from '../middleware/auth.js';
 
 // Admin Panel Route Handlers
 export async function adminPanelHandler(
@@ -11,8 +12,12 @@ export async function adminPanelHandler(
 ): Promise<void> {
     try {
         const adminPanelScript = /*html*/ `<script type="module" content="text/javascript" src="/admin/admin_panel.js"></script>`;
-        const users = await LocalUser.find({ status: 'src' })
-            .populate('LocalUser')
+        ensureAuth;
+        const users: any = await LocalUserSchema.find({})
+            .populate({
+                path: 'user: User',
+                strictPopulate: false
+            })
             .sort({ createdAt: 'desc' })
             .lean();
         res.set('Content-Type', 'text/html');

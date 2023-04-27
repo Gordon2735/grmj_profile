@@ -74,7 +74,7 @@ router.get('/:id', ensureAuth, async (req: Request, res: Response) => {
 // @desc    Show edit page
 // @route   GET /blogs/edit/:id
 router.get('/edit/:id', ensureAuth, async (req: Request, res: Response) => {
-    const users = await Users.findOne({
+    const users: any = await Users.findOne({
         _id: req.params.id
     }).lean();
 
@@ -139,7 +139,7 @@ router.put(
 // @route   DELETE /blogs/:id
 router.delete('/:id', ensureAuth, async (req: Request, res: Response) => {
     try {
-        const users = await Users.findById(req.params.id).lean();
+        const users: any = await Users.findById(req.params.id).lean();
 
         if (!users) {
             return res.render('/errors/404');

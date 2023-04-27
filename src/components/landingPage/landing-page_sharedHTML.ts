@@ -49,6 +49,9 @@ landingPage_sharedHTML.page = /*html*/ `
             <li>
                 <a href="/spacex">SpaceX API</a>
             </li>
+            <li>
+                <a href="/admin_panel">Admin Panel</a>
+            </li>
         </ul>
         <ul class="navbar-nav-right">
             <li>

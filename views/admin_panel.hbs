@@ -13,32 +13,49 @@
                     {{formatDate createdAt 'MMMM Do YYYY, h:mm:ss: a' }}
                 </span>
             </aside>
-    </figure>
+    </figure><br /><br /><br />
 
-    <table id="adminTable" class="admin-table">
-        <thead>
-            <tr>
-                <th class="admin-table-header">Administration</th>
-                <th class="admin-table-header">Panel</th>
-                <th class="admin-table-header">List</th>
-                <th class="admin-table-header"></th>
-            </tr>
 
-        </thead>
-        <tbody>
-            {{#each Users}}
+    <section id="tableSection" class="table-section">
+        <h2 id="adminTableH2" class="admin-table-h2">Administration Panel</h2>
+
+        <table id="adminTable" class="admin-table">
+            <thead class="admin-thead">
                 <tr>
-                    <td><a class="table-titles" href="/LocalUsers/{{id}}">{{title}}</a>
-                        <td>{{formatDate createdAt 'MMMM Do YYYY, h:mm:ss: a' }}</td>
-                    </td>
-                    <td><span class="dash-status">{{status}}</span></td>
-                    <td>
-                        <a href="/blogs/edit/{{_id}}" class="btn btn-float">
-                            <i class="fa-solid fa-edit"></i>
-                        </a>
-
-                    
-                    </td>
+                    <th class="admin-table-header">ID</th>
+                    <th class="admin-table-header">Last Name</th>
+                    <th class="admin-table-header">First Name</th>
+                    <th class="admin-table-header">Email</th>
                 </tr>
-            {{/each}}
-    </table>
+            </thead>
+        <br>
+            <tbody class="admin-tbody">
+                {{#each users}}
+                    <tr>
+                        <td class="admin-table-data">{{_id}}</td>
+                        <td class="admin-table-data">{{lastName}}</td>
+                        <td class="admin-table-data">{{firstName}}</td>
+                        <td class="admin-table-data">{{email}}</td>   
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </section>
+
+    <br /><br /><br />
+
+    <foot id="adminFooter" class="admin-footer">
+        <section id="footerSection" class="footer-section">
+            <div class="admin-footer-div tw-div">
+                <p class="admin-footer-p tw">Team Webelistics<sup class="sup-reg">&#174;</sup> 2023</p>
+            </div>
+                <br />
+            <div class="admin-footer-div reserved-div">
+                <p class="admin-footer-p reserved">All Rights Reserved</p>
+            </div>
+        </section>
+
+        <button id="adminBtn" class="admin-btn">
+            <a id="adminBtn-a" class="admin-btn-a" href="/landing">Landing</a>
+        </button>
+    </foot>

@@ -1,6 +1,4 @@
-/* 
-    Admin CSS Styles File
-*/
+/*gm        Admin Panel  ** CSS **  { Styles } File        */
 
 :root {
     --admin-main-cl: hsla(0, 0%, 20%, 0.99);
@@ -8,6 +6,7 @@
     --admin-tw-lightblue: hsla(197, 100%, 45%, 0.99);
     --admin-main_ff: 'Source Sans Pro', sans-serif;
     --admin-tw-yellow: hsla(32, 80%, 52%, 0.99);
+    --admin-tw-yellow-hover: hsla(32, 80%, 52%, 0.39);
     --admin-tw-yellow-light: hsla(37, 67%, 76%, 0.99);
     --admin-tw-black: hsla(0, 0%, 0%, 0.99);
     --admin-tw-white: hsla(0, 0%, 100%, 0.99);
@@ -25,18 +24,19 @@
 
 .admin_panel-body {
     width: 100%;
+    min-height: 100vh;
     background-color: var(--admin-main-cl);
-    justify-items: center;
     display: inline-block;
     text-align: center;
 }
 
-.admin_panel-sec {
+.admin_panel-main {
     margin: 3em auto 2em auto;
     position: relative;
-    display: inline-flex;
+    display: inline-block;
     justify-content: center;
-    width: 75%;
+    width: 85%;
+    min-height: 60vh;
     background-color: var(--admin-tw-blue);
     text-align: center;
     border-radius: 15px;
@@ -50,7 +50,7 @@
 }
 
 .admin-logo-figure .admin-logo {
-    margin: 2.5em auto 0em auto;
+    margin: 0.5em auto 0em auto;
     display: block;
     text-align: center;
     width: 180px;
@@ -91,24 +91,151 @@
 }
 
 .admin-logo-figure .admin-panel-date {
-    margin: 0.2em auto 4.5em auto;
+    margin: 0.2em auto 0.5em auto;
     text-align: center;
 }
 
 .admin-panel-date .admin-panel-span {
-    margin: 0.2em auto 12px auto;
+    margin: 0.2em auto 0em auto;
     padding-bottom: 6em;
     text-align: center;
     font-family: var(--admin-main_ff);
     font-size: 1rem;
     font-weight: 700;
-    color: var(--admin-tw-white);
+    color: var(--admin-tw-yellow-light);
     filter: var(--admin-drop-shadow-1);
 }
 
+.table-section {
+    margin-bottom: 10em;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    width: auto;
+}
 
+.table-section .admin-table-h2 {
+    margin: 0.5em auto 0em auto;
+    display: block;
+    text-align: center;
+    font-family: var(--admin-main_ff);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--admin-bracket-yellow);
+    letter-spacing: 0.1em;
+    text-align: center;
+    filter: var(--admin-drop-shadow-1);
+}
 
+/* 
+.table-section::before {
+    content: "\a";
+    white-space: pre;
+} */
 
+.admin-table {
+    /* display: block; */
+    border-collapse: collapse;
+    margin: -0.5em 0 0 0;
+    font-size: 0.9em;
+    min-width: 450px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
 
+.admin-table thead tr {
+    background-color: var(--admin-bracket-yellow);
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
 
-/* .admin_panel-sec {} */
+.admin-table th,
+.admin-table td {
+    padding: 12px 15px;
+}
+
+.admin-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.admin-table tbody tr:nth-of-type(even) {
+    background-color: var(--admin-tw-yellow-light);
+}
+
+.admin-table tbody tr:last-of-type {
+    border-bottom: 2px solid var(--admin-bracket-yellow);
+}
+
+.admin-table tbody tr.active-row {
+    font-weight: bold;
+    color: var(--admin-tw-yellow);
+}
+
+.admin-footer {
+    margin: 0em auto 0em auto;
+    padding: 0;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    font-family: var(--admin-main_ff);
+    font-size: 0.9em;
+    color: var(--admin-tw-yellow-light);
+}
+
+.admin-footer .footer-section {
+    margin: -0.5em auto 0em auto;
+    display: inline-block;
+    order: 1;
+}
+
+/* .admin-footer .tw-div {
+    margin: -0.5em auto 0em auto;
+    display: inline-block;
+    order: 1;
+}
+*/
+.footer-section .reserved-div {
+    margin: -2.5em auto 0em auto;
+}
+
+.admin-footer-div .admin-footer-p {
+    margin: 0em auto 0em auto;
+}
+
+.admin-footer-div .reserved {
+    font-style: italic;
+}
+
+.admin-footer .admin-btn {
+    margin: 0em 0em 2em 5em;
+    padding: 10px;
+    display: block;
+    order: 3;
+    font-family: var(--admin-main_ff);
+    font-size: 1.1em;
+    width: 7em;
+    text-decoration: none;
+    background: var(--admin-tw-yellow);
+    color: var(--admin-tw-yellow-light);
+    border: none;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.admin-footer .admin-btn a {
+    text-decoration: none;
+    color: var(--admin-tw-white);
+}
+
+.admin-footer .admin-btn a:hover {
+    text-decoration: none;
+    color: var(--admin-tw-white);
+}
+
+.admin-footer .admin-btn:hover {
+    background: var(--admin-tw-yellow-hover);
+    color: var(--admin-tw-white);
+}

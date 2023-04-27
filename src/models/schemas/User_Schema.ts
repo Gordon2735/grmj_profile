@@ -19,6 +19,10 @@ const LocalUserSchema = new Schema({
         type: String,
         required: true
     },
+    email: {
+        type: String,
+        required: true
+    },
     password: {
         type: String,
         required: true
@@ -40,5 +44,15 @@ const LocalUserSchema = new Schema({
         default: Date.now
     }
 });
+
+const PostSchema = new Schema({
+    title: String,
+    postedBy: {
+        type: ObjectId,
+        ref: 'LocalUser'
+    }
+});
+const Post = Model('Post', PostSchema);
+
 export default Model('LocalUser', LocalUserSchema);
-export { LocalUserSchema };
+export { LocalUserSchema, Post, PostSchema };

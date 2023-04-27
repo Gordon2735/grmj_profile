@@ -8,7 +8,7 @@ import mongoose from 'mongoose';
 
 const blogDB = async (): Promise<any> => {
     try {
-        mongoose.set('strictQuery', true);
+        // mongoose.set('strictQuery', true);
         const conn: Promise<typeof mongoose> = mongoose
             // .connect(process.env.MONGO_URI, { dbName: 'blogDB' })
             .connect(process.env.MONGO_URI)
