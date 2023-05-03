@@ -30,55 +30,6 @@ landingPage_sharedStyles.shell = /*css*/ `
         src: url('/src/resources/font/SpaceX.ttf') format('truetype');
     }
 
-    .theme-light {
-        --image-home: url('../../src/components/componentTools/resources/images/005___home-theme-light__BACKGROUND.jpg');
-        --color-primary: #fff;
-        --color-secondary: #fbfbfe;
-        --color-tertiary: var(--grmj-font-color-6);
-        --color-quandary: var(--grmj-font-color-8);
-        --color-quinary: #fff;
-        --color-senary: rgba(0, 0, 0, 0.10);
-        --color-octonary: #bebebe;
-        --color-nectary: #ccc;
-        --color-denary: #ccc;
-        --color-nonary: rgba(0, 0, 0, 0.07);
-        --color-accent: #fd6f53;
-        --font-color: #000000;
-        --button-background: hsla(0, 0%, 41%, 0.99);
-        --button-background-hover: hsla(212, 62%, 49%, 0.99);
-        --button-ff: Arial, Helvetica, sans-serif;
-        --button-color: hsla(219, 97%, 73%, 0.99);
-        --button-fs: 0.7em;
-        --button-border: 0.1em ridge hsla(180, 25%, 25%, 0.99);
-        --button-hover: hsla(0, 0%, 86%, 0.39);
-        --button-filter: drop-shadow(0.1em 0.08rem 0.08rem rgba(0, 0, 0, 0.22));
-    }
-    
-    .theme-startup,
-    .theme-dark {
-        --image-home: url('../../src/components/componentTools/resources/images/000___home-theme-dark__BACKGROUND.png');
-        --color-primary: rgba(0, 0, 0, 0.99);
-        --color-secondary: #2a2c2d;
-        --color-tertiary: var(--grmj-font-color-3);
-        --color-quandary: var(--grmj-font-color-5);
-        --color-quinary: #000;
-        --color-senary: rgba(0, 0, 0, 0.99);
-        --color-octonary: #333;
-        --color-nectary: #bebebe;
-        --color-denary: #ccc;
-        --color-nonary: rgba(0, 0, 0, 0.17);
-        --color-accent: #12cdea;
-        --font-color: #ffffff;
-        --button-background: hsla(0, 0%, 41%, 0.99);
-        --button-background-hover: hsla(212, 62%, 49%, 0.99);
-        --button-ff: Arial, Helvetica, sans-serif;
-        --button-color: hsla(0, 0%, 86%, 0.99);
-        --button-fs: 0.7em;
-        --button-border: 0.1em ridge hsla(180, 25%, 25%, 0.99);
-        --button-hover: hsla(90, 100%, 50%, 0.99);
-        --button-filter: drop-shadow(0.1em 0.08rem 0.08rem rgba(0, 0, 0, 0.22));
-    }
-
     .drop-down-shell {
         margin: 0;
         padding: 0;
@@ -428,14 +379,15 @@ landingPage_sharedStyles.page = /*css*/ `
     }
 
     .btn-dark-outline {
+        background-color: var(--color-duodenary);
         border-color: var(--color-senary);
-        color: var(--color-senary);
+        color: var(--font-color-2);
     }
 
     .btn-dark-outline:hover,
     .btn-light-outline:hover {
         background-color: var(--color-nonary);
-        color: var(--font-color);
+        color: var(--font-color-3);
     }
 
     .btn-light-outline {
@@ -445,22 +397,23 @@ landingPage_sharedStyles.page = /*css*/ `
 
     .btn-dark {
         background-color: var(--color-senary);
-        color: var(--font-color);
+        color: var(--font-color-2);
     }
-
+    
     .btn-dark:hover {
         background-color: var(--color-octonary);
+        color: var(--font-color);
     }
 
     /* Background Classes */
     .bg-primary {
         background-color: var(--color-senary);
-        color: var(--font-color);
+        color: var(--font-color-2);
     }
 
     .bg-secondary {
         background-color: var(--color-secondary);
-        color: var(--font-color);
+        color: var(--font-color-2);
     }
 
     .bg-extra {
@@ -805,3 +758,52 @@ landingPage_sharedStyles.page = /*css*/ `
 `;
 
 export { landingPage_sharedStyles };
+
+// .theme-light {
+//     --image-home: url('../../src/components/componentTools/resources/images/005___home-theme-light__BACKGROUND.jpg');
+//     --color-primary: #fff;
+//     --color-secondary: #fbfbfe;
+//     --color-tertiary: var(--grmj-font-color-6);
+//     --color-quandary: var(--grmj-font-color-8);
+//     --color-quinary: #fff;
+//     --color-senary: rgba(0, 0, 0, 0.10);
+//     --color-octonary: #bebebe;
+//     --color-nectary: #ccc;
+//     --color-denary: #ccc;
+//     --color-nonary: rgba(0, 0, 0, 0.07);
+//     --color-accent: #fd6f53;
+//     --font-color: #000000;
+//     --button-background: hsla(0, 0%, 41%, 0.99);
+//     --button-background-hover: hsla(212, 62%, 49%, 0.99);
+//     --button-ff: Arial, Helvetica, sans-serif;
+//     --button-color: hsla(219, 97%, 73%, 0.99);
+//     --button-fs: 0.7em;
+//     --button-border: 0.1em ridge hsla(180, 25%, 25%, 0.99);
+//     --button-hover: hsla(0, 0%, 86%, 0.39);
+//     --button-filter: drop-shadow(0.1em 0.08rem 0.08rem rgba(0, 0, 0, 0.22));
+// }
+
+// .theme-startup,
+// .theme-dark {
+//     --image-home: url('../../src/components/componentTools/resources/images/000___home-theme-dark__BACKGROUND.png');
+//     --color-primary: rgba(0, 0, 0, 0.99);
+//     --color-secondary: #2a2c2d;
+//     --color-tertiary: var(--grmj-font-color-3);
+//     --color-quandary: var(--grmj-font-color-5);
+//     --color-quinary: #000;
+//     --color-senary: rgba(0, 0, 0, 0.99);
+//     --color-octonary: #333;
+//     --color-nectary: #bebebe;
+//     --color-denary: #ccc;
+//     --color-nonary: rgba(0, 0, 0, 0.17);
+//     --color-accent: #12cdea;
+//     --font-color: #ffffff;
+//     --button-background: hsla(0, 0%, 41%, 0.99);
+//     --button-background-hover: hsla(212, 62%, 49%, 0.99);
+//     --button-ff: Arial, Helvetica, sans-serif;
+//     --button-color: hsla(0, 0%, 86%, 0.99);
+//     --button-fs: 0.7em;
+//     --button-border: 0.1em ridge hsla(180, 25%, 25%, 0.99);
+//     --button-hover: hsla(90, 100%, 50%, 0.99);
+//     --button-filter: drop-shadow(0.1em 0.08rem 0.08rem rgba(0, 0, 0, 0.22));
+// }

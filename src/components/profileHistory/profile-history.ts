@@ -8,8 +8,8 @@ import RegisterComponent, {
     setAttributes,
     appendChildren
 } from '../componentTools/components_services.js';
-import historyStack from '../../images/state/profileState.js';
-import { HistoryObject } from '../../interfaces/interfaces.js';
+// import historyStack from '../../images/state/profileState.js';
+// import { HistoryObject } from '../../interfaces/interfaces.js';
 
 export class ProfileHistory extends ProfileHistoryTemplate {
     override activateShadowDOM: boolean;
@@ -26,7 +26,7 @@ export class ProfileHistory extends ProfileHistoryTemplate {
     earlyYearsText: string;
     earlyYearsSection: HTMLElement;
     State: any;
-    historyStack: import('d:/grmj_profile/src/interfaces/interfaces.js').HistoryObject;
+    // historyStack: import('d:/grmj_profile/src/interfaces/interfaces.js').HistoryObject;
 
     constructor(body: HTMLBodyElement | null | undefined, State: any) {
         super();
@@ -40,21 +40,21 @@ export class ProfileHistory extends ProfileHistoryTemplate {
             | undefined;
 
         this.State = State;
-        this.historyStack = historyStack;
+        // this.historyStack = historyStack;
         // this.historyStacK = []; // historyStack;
 
-        this.State = { pageOpen: '/history' };
-        window.history.pushState(this.State, 'history', '/history');
-        this.historyStack.push(history.state);
+        // this.State = { pageOpen: '/history' };
+        // window.history.pushState(this.State, 'history', '/history');
+        // this.historyStack.push(history.state);
 
-        window.onpopstate = (event) => {
-            event.state
-                ? ((this.State = event.state), this.historyStack.pop())
-                : this.historyStack.pop();
-        };
-        console.log(this.State.pageOpen);
-        console.log(history.state);
-        console.log(this.historyStack);
+        // window.onpopstate = (event) => {
+        //     event.state
+        //         ? ((this.State = event.state), this.historyStack.pop())
+        //         : this.historyStack.pop();
+        // };
+        // console.log(this.State.pageOpen);
+        // console.log(history.state);
+        // console.log(this.historyStack);
 
         const earlyYearsSection: HTMLElement =
             document.createElement('section');
@@ -96,21 +96,18 @@ export class ProfileHistory extends ProfileHistoryTemplate {
         `;
     }
     static get observedAttributes() {
-        return ['this.historyStack.pageOpen'];
+        return;
+        // return ['this.historyStack.pageOpen'];
     }
-    public attributeChangedCallback(
-        name: string,
-        _oldValue: string,
-        _newValue: string
-    ) {
-        const currentLocation: HistoryObject = this.historyStack;
-        console.log(currentLocation);
-
-        _oldValue !== _newValue
-            ? console.info(`old location: ${_oldValue},
-				${name} has a new location of: ${_newValue}
-				which should be equal to: ${currentLocation}`)
-            : console.info(`old location: ${_oldValue}`);
+    public attributeChangedCallback() // _newValue: string // _oldValue: string, // name: string,
+    {
+        // const currentLocation: HistoryObject = this.historyStack;
+        // console.log(currentLocation);
+        // _oldValue !== _newValue
+        //     ? console.info(`old location: ${_oldValue},
+        // 		${name} has a new location of: ${_newValue}
+        // 		which should be equal to: ${currentLocation}`)
+        //     : console.info(`old location: ${_oldValue}`);
     }
 }
 RegisterComponent('profile-history', ProfileHistory);

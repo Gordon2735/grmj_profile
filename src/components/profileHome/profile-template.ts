@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 'use strict';
+
 export class ProfileTemplate extends HTMLElement {
     activateShadowDOM = false as boolean;
     root: ShadowRoot | null = this.shadowRoot;

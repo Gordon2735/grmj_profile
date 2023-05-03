@@ -1,12 +1,21 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use strict';
 
-import { Request, Response, NextFunction } from 'express';
+import express, { Application, Request, Response, NextFunction } from 'express';
 
 let user: any;
 
+const app: Application = express();
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.static('views'));
+
 // Home Route Handlers
-export async function homeHandler(_req: Request, res: Response): Promise<void> {
+export async function homeHandler(
+    _req: Request,
+    res: Response
+    // _next: NextFunction
+): Promise<void> {
     try {
         const homeShellScript = /*html*/ `<script type="module" content="text/javascript" src="/src/components/profileHome/profile-shell.js"></script>`;
         res.set('Content-Type', 'text/html');

@@ -60,7 +60,7 @@ landingPage_sharedHTML.page = /*html*/ `
                     <span>Find me</span>
                 </a>
             </li>
-            <li><button class="btn btn-dark-outline">Sign in</button></li>
+            <li><button id="buttonSignin" class="btn btn-dark-outline">Sign in</button></li>
             <li><button id="buttonJoin" class="btn btn-dark">Join now</button></li>
         </ul>
         <button type="button" id="menu-btn" class="hamburger">
@@ -88,12 +88,15 @@ landingPage_sharedHTML.page = /*html*/ `
             <li>
                 <a href="/spacex">SpaceX API</a>
             </li>
+            <li>
+            <a href="/admin_panel">Admin Panel</a>
+        </li>
         </ul>
         <div class="mobile-menu-bottom">
-            <button class="btn btn-dark-outline">
+            <button id="mobileButtonSignin" class="btn btn-dark-outline">
                 Sign in
             </button>
-            <button class="btn btn-dark">
+            <button id="mobileButtonJoin" class="btn btn-dark">
                 Join now
             </button>
             <div>

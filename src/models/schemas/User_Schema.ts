@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use strict';
 
 import mongoose from 'mongoose';
+import passportLocalMongoose from 'passport-local-mongoose';
 
 const Model = mongoose.model;
 const Schema = mongoose.Schema;
@@ -39,11 +41,17 @@ const LocalUserSchema = new Schema({
         type: ObjectId,
         ref: 'User'
     },
+    username: {
+        type: String,
+        ref: 'username'
+    },
     createdAt: {
         type: Date,
         default: Date.now
     }
 });
+
+LocalUserSchema.plugin(passportLocalMongoose);
 
 const PostSchema = new Schema({
     title: String,
@@ -54,5 +62,7 @@ const PostSchema = new Schema({
 });
 const Post = Model('Post', PostSchema);
 
+const LocalUser: any = LocalUserSchema;
+
 export default Model('LocalUser', LocalUserSchema);
-export { LocalUserSchema, Post, PostSchema };
+export { LocalUser, LocalUserSchema, Post, PostSchema };

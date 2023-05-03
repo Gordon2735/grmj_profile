@@ -1,4 +1,4 @@
-import express, { Router } from 'express';
+import express, { Application, Router } from 'express';
 import { router as index } from './routes/index.js';
 import { router as auth } from './routes/auth_route.js';
 import { router as blogs } from './routes/blogs_route.js';
@@ -23,11 +23,14 @@ import landing, {
 } from './routes/appRoutes.js';
 import { router as admin } from './admin/admin_routes.js';
 
+const app: Application = express();
 const router: Router = express.Router();
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 // @desc   Login/Blog/Users Routes/Endpoints/Controllers
-const blogRouting: express.Router[] = [index, auth, blogs, users];
-const blogRoutes: express.Router = router;
+const blogRouting: Router[] = [index, auth, blogs, users];
+const blogRoutes: Router = router;
 
 for (const routes of blogRouting) {
     let URL: string;
@@ -70,7 +73,7 @@ for (const routes of blogRouting) {
 
 // @desc Login Modal Routes/Endpoints/Controllers
 // @desc  App Components pages Routes/Handler-Functions-Controllers
-const routing: express.Router[] = [
+const routing: Router[] = [
     admin,
     landing,
     loginModal,
@@ -90,7 +93,7 @@ const routing: express.Router[] = [
     error404,
     error500
 ];
-const componentRoutes: express.Router = router;
+const componentRoutes: Router = router;
 
 for (const routes of routing) {
     componentRoutes.use('/', routes);

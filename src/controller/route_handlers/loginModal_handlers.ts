@@ -1,11 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use strict';
 
-import { Request, Response } from 'express';
+import express, { Application, Request, Response } from 'express';
 // import { v4 as uuidv4 } from 'uuid';
+// import passport from 'passport';
 import LocalUser from '../../models/schemas/User_Schema.js';
 import notifier from 'node-notifier';
 import { ensureAuth } from '../middleware/auth.js';
+
+const app: Application = express();
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 // loginModal Route Handlers
 export async function loginModalHandler(

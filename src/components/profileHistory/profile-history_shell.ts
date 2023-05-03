@@ -2,7 +2,7 @@
 
 import { ProfileHistoryTemplate } from './profile-history_template.js';
 import { profileHistory_sharedStyles } from './profile-history_sharedStyles.js';
-import { profileHistory_sharedHTML } from './profile-history_sharedHTML.js';
+// import { profileHistory_sharedHTML } from './profile-history_sharedHTML.js';
 import RegisterComponent, {
     setAttributes
 } from '../componentTools/components_services.js';
@@ -38,8 +38,10 @@ export class ProfileHistoryShell extends ProfileHistoryTemplate {
     override get template() {
         return /*html*/ `
             <style>${profileHistory_sharedStyles.shell}</style>
-            ${profileHistory_sharedHTML.shell}
-        `;
+            <profile-history id="profileHistory" class="profile-history"></profile-history>
+            `;
     }
 }
 RegisterComponent('profile-history_shell', ProfileHistoryShell);
+
+// ${profileHistory_sharedHTML.shell}

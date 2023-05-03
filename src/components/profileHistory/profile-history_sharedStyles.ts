@@ -3,17 +3,58 @@
 import profileHistory_sharedStyles from '../../interfaces/interfaces.js';
 
 const profileHistory_sharedStyles = {
-  shell: ``,
-  history: ``,
+    shell: ``,
+    history: ``
 };
 
 profileHistory_sharedStyles.shell = /*css*/ `
-    body {
-        background-image: var(--grmj-profile-background_image_3);
-    }
+
 `;
 
 profileHistory_sharedStyles.history = /*css*/ `
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {  
+        width: 100%;
+        height: 100vh;
+        background:
+            linear-gradient(darkgrey, transparent),
+            linear-gradient(to top left, blue, transparent),
+            linear-gradient(to top right, darkblue, transparent);
+        background-blend-mode: screen;
+        background-size: cover;
+        overflow: hidden;
+    }
+
+    .main {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .main .history-image {
+        margin: 0 auto 0 auto;
+
+    }
+    
+    .drop-down-shell {
+        margin: 0;
+        padding: 0;
+        position: sticky;
+        top: 0em;
+        width: 100%;
+        height: 10vh;
+        z-index: 1;
+    }
+
+    .side-panel-shell {
+        z-index = 100;
+    }
+
     .title {
         margin: 2em auto 1em auto;	
         left: 3em;	
@@ -21,7 +62,7 @@ profileHistory_sharedStyles.history = /*css*/ `
         font-family: var(--grmj-font-family-1);
         font-size: var(--grmj-font-size-11vw);
         font-weight: var(--grmj-font-weight-7);
-        color: var(--grmj-font-color-2);
+        color: var(--font-color);
         text-shadow: var(--grmj-text-shadow-1);
         letter-spacing: var(--grmj-letter-spacing-1a);
     }
@@ -46,3 +87,12 @@ profileHistory_sharedStyles.history = /*css*/ `
 `;
 
 export { profileHistory_sharedStyles };
+
+// background-image: var(--grmj-profile-background_image_3);
+// background-repeat: no-repeat;
+// background-size: cover;
+
+// url('../../src/components/componentTools/resources/images/gordonPhoto.webp'),
+// background-blend-mode: screen, screen, normal, screen;
+// background-size: cover, cover, 200px, cover;
+// background-repeat: repeat, repeat, no-repeat, repeat;

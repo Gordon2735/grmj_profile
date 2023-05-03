@@ -11,7 +11,10 @@ export class LandingPage extends LandingPageTemplate {
     override activateShadowDOM: boolean;
     body: HTMLBodyElement;
     button: HTMLElement;
+    button_signin: HTMLButtonElement;
     button_join: HTMLButtonElement;
+    mobileButton_signin: any;
+    mobileButton_join: HTMLButtonElement;
     navMenu: HTMLElement;
     themeSwitcher: string;
     grabComponent: HTMLElement;
@@ -20,7 +23,10 @@ export class LandingPage extends LandingPageTemplate {
     constructor(
         body: HTMLBodyElement,
         button: HTMLElement,
+        button_signin: HTMLButtonElement,
         button_join: HTMLButtonElement,
+        mobileButton_signin: HTMLButtonElement,
+        mobileButton_join: HTMLButtonElement,
         navMenu: HTMLElement,
         themeSwitcher: string,
         grabComponent: HTMLElement
@@ -31,7 +37,10 @@ export class LandingPage extends LandingPageTemplate {
 
         this.body = body;
         this.button = button;
+        this.button_signin = button_signin;
         this.button_join = button_join;
+        this.mobileButton_signin = mobileButton_signin;
+        this.mobileButton_join = mobileButton_join;
         this.navMenu = navMenu;
         this.themeSwitcher = themeSwitcher;
         this.grabComponent = grabComponent;
@@ -44,8 +53,17 @@ export class LandingPage extends LandingPageTemplate {
             '.login-container'
         ) as HTMLBodyElement;
         this.button = document.getElementById('menu-btn') as HTMLElement;
+        this.button_signin = document.getElementById(
+            'buttonSignin'
+        ) as HTMLButtonElement;
         this.button_join = document.getElementById(
             'buttonJoin'
+        ) as HTMLButtonElement;
+        this.mobileButton_signin = document.getElementById(
+            'mobileButtonSignin'
+        ) as HTMLButtonElement;
+        this.mobileButton_join = document.getElementById(
+            'mobileButtonJoin'
         ) as HTMLButtonElement;
         this.navMenu = document.getElementById('menu') as HTMLElement;
         this.themeSwitcher = window.localStorage.getItem('theme') as string;
@@ -64,12 +82,38 @@ export class LandingPage extends LandingPageTemplate {
             }
         };
 
+        this.button_signin.addEventListener('click', (event: MouseEvent) => {
+            event.preventDefault();
+            window.location.href = '/signin_modal';
+            this.body.style.backgroundColor = 'red';
+            event.stopPropagation();
+        });
+
         this.button_join.addEventListener('click', (event: MouseEvent) => {
             event.preventDefault();
             window.location.href = '/login_modal';
             this.body.style.backgroundColor = 'red';
             event.stopPropagation();
         });
+        this.mobileButton_signin.addEventListener(
+            'click',
+            (event: MouseEvent) => {
+                event.preventDefault();
+                window.location.href = '/signin_modal';
+                this.body.style.backgroundColor = 'red';
+                event.stopPropagation();
+            }
+        );
+
+        this.mobileButton_join.addEventListener(
+            'click',
+            (event: MouseEvent) => {
+                event.preventDefault();
+                window.location.href = '/login_modal';
+                this.body.style.backgroundColor = 'red';
+                event.stopPropagation();
+            }
+        );
 
         const navClassSwitch = async (): Promise<void> => {
             this.button.classList.toggle('open');

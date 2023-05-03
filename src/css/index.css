@@ -2,6 +2,8 @@
 
 /* Global CSS main index file */
 
+/* did it copy this file? */
+
 :root {
 
     /* Backgrounds */
@@ -29,12 +31,16 @@
 
 
     /* Background Image */
-    --grmj-profile-background_image_00: url('../../src/components/componentTools/resources/images/005___profile__BACKGROUND.jpg');
-    --grmj-profile-background_image_000: url('../../src/components/componentTools/resources/images/000___home-theme-dark__BACKGROUND.png');
-    --grmj-profile-background_image_01: url('../../src/components/componentTools/resources/images/006___cover-light__BACKGROUND.png');
-    --grmj-profile-background_image_1: url('../../src/components/componentTools/resources/images/000_projects_page-main.jpg');
-    --grmj-profile-background_image_2: url('../../src/components/componentTools/resources/images/000_brown_slider-main.jpg');
-    --grmj-profile-background_image_3: url('../../src/components/componentTools/resources/images/003_background.png');
+    --grmj-profile-background_image_00: url('../../src/components/componentTools/resources/images/005___profile__BACKGROUND.webp');
+    --grmj-profile-background_image_000: url('../../src/components/componentTools/resources/images/000___home-theme-dark__BACKGROUND.webp');
+    --grmj-profile-background_image_01: url('../../src/components/componentTools/resources/images/005___home-theme-light__BACKGROUND.webp');
+    --grmj-profile-background_image_01g: url('../../src/components/componentTools/resources/images/006___cover-light__BACKGROUND.webp');
+    --grmj-profile-background_image_1: url('../../src/components/componentTools/resources/images/000_projects_page-main.webp');
+    --grmj-profile-background_image_2: url('../../src/components/componentTools/resources/images/000_brown_slider-main.webp');
+    --grmj-profile-background_image_3: url('../../src/components/componentTools/resources/images/003_background.webp');
+    --grmj-profile-background_image_4: url('../../src/components/componentTools/resources/images/gordonPhoto.webp');
+    --grmj-profile-background_image_5: url('../../src/components/componentTools/resources/images/001_history.webp');
+    --grmj-profile-background_image_6: url('../../src/components/componentTools/resources/images/rustic-circles.webp');
 
     /*Font Family*/
     --grmj-font-family-0: 'Chango', cursive;
@@ -184,12 +190,26 @@
 }
 
 .theme-light {
-    --image-home: url('../../src/components/componentTools/resources/images/005___home-theme-light__BACKGROUND.jpg');
+    --image-home: var(--grmj-profile-background_image_01);
+    --image-cover: var(--grmj-profile-background_image_01g);
+    --image-grmj: var(--grmj-profile-background_image_4);
+    --image-history: var(--grmj-profile-background_image_6);
     --color-primary: var(--grmj-font-color-6);
     --color-secondary: #fbfbfe;
     --color-tertiary: var(--grmj-font-color-6);
+    --color-quaternary: var(--grmj-font-color-8);
+    --color-quinary: #fff;
+    --color-senary: rgba(0, 0, 0, 0.644);
+    --color-septenary: rgba(0, 0, 0, 0.637);
+    --color-octonary: #bebebe;
+    --color-nectary: hsla(219, 97%, 73%, 0.99);
+    --color-denary: #ccc;
+    --color-nonary: rgba(0, 0, 0, 0.384);
+    --color-duodenary: slategray;
     --color-accent: #fd6f53;
     --font-color: #000000;
+    --font-color-2: #fbfbfe;
+    --font-color-3: #fbfbfe;
     --button-background: hsla(0, 0%, 41%, 0.99);
     --button-background-hover: hsla(212, 62%, 49%, 0.99);
     --button-ff: Arial, Helvetica, sans-serif;
@@ -202,12 +222,26 @@
 
 .theme-startup,
 .theme-dark {
-    --image-home: url('../../src/components/componentTools/resources/images/000___home-theme-dark__BACKGROUND.png');
+    --image-home: var(--grmj-profile-background_image_000);
+    --image-cover: var(--grmj-profile-background_image_000);
+    --image-grmj: var(--grmj-profile-background_image_4);
+    --image-history: var(--grmj-profile-background_image_5);
     --color-primary: var(--grmj-font-color-2);
     --color-secondary: #2a2c2d;
     --color-tertiary: var(--grmj-font-color-3);
+    --color-quaternary: var(--grmj-font-color-5);
+    --color-quinary: #000;
+    --color-senary: rgba(0, 0, 0, 0.99);
+    --color-septenary: rgba(0, 0, 0, 0.99);
+    --color-octonary: #333;
+    --color-nectary: #bebebe;
+    --color-denary: #ccc;
+    --color-nonary: rgba(0, 0, 0, 0.17);
+    --color-duodenary: slategray;
     --color-accent: #12cdea;
     --font-color: #ffffff;
+    --font-color-2: #fbfbfe;
+    --font-color-3: #000;
     --button-background: hsla(0, 0%, 41%, 0.99);
     --button-background-hover: hsla(212, 62%, 49%, 0.99);
     --button-ff: Arial, Helvetica, sans-serif;
@@ -227,6 +261,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: darkolivegreen
 }
 
 body {

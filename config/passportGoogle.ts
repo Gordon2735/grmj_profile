@@ -52,6 +52,9 @@ export default function (passport: {
             }
         )
     );
+    // passport.use(
+    //     new
+    // )
     passport.serializeUser(
         (user: { id: any }, done: (arg0: any, arg1: any) => void) => {
             done(null, user.id);

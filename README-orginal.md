@@ -118,6 +118,10 @@
     npm install --save @types/node-notifier
     npm install -D typescript-plugin-css-modules
 
+## --- phase V ---
+
+    npm install @handlebars/allow-prototype-access
+
 # NPM UNINSTALLS
 
 ---

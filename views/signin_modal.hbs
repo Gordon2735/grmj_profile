@@ -1,0 +1,56 @@
+
+
+
+<section id="signinModalCover">
+    
+    <div id="signinModal" class="signin-modal">
+        <div class="signin-modal-header">
+            <h2 class="signin-h2-header">
+                User Signin & Authentication
+            </h2>
+        </div>
+
+
+        <figure class="logo-figure">
+            <img class="tw-logo" src="/src/controller/login/team_webelistics_brackets.svg" alt="">
+            <figcaption class="font-effect-fire-animation tw-caption">
+                <div class="navbar-div">
+                    <h1 id="h1Team" class="h1-team">Team</h1>
+                </div>
+                <div class="navbar-div">            
+                    <h2 id="h2Webelistics" class="h2-webelistics">Webelistics<sup class="sup-reg">&#174;</sup></h2>
+                </div>          
+            </figcaption>
+        </figure>
+
+        <form action="/signin_modal" id="form" class="form-local" method="POST">
+                
+            <aside id="signinModal-date" class="signin-modal-date">
+                <span id="signinModal-span" class="signin-modal-span">
+                    {{formatDate createdAt 'MMMM Do YYYY, h:mm:ss: a' }}
+                </span>
+            </aside>
+
+            <ul>
+                <li>
+                    <label for="name">Username</label>
+                    <input class="input-signin" type="text" id="name" name="username">
+                </li>     
+                <li>
+                    <label for="mail" placeholder="Email">Email</label>
+                    <input class="input-signin" type="email" id="mail" name="email">
+                </li>
+                <li>
+                    <label for="password">Password</label>
+                    <input class="input-signin" type="password" id="password" name="password">
+                </li>
+            </ul>
+
+            <footer class="signin-modal-footer">
+                <button id="signinClose-modal" class="local-buttons">Close</button>
+                <input id="signinModal-submit" type="submit" value="Submit" class="local-buttons local-save">
+            </footer>
+        </form>
+
+    </div>
+</section>

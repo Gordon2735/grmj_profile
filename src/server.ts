@@ -1,15 +1,17 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-'use strict';
+('use strict');
 
 import * as dotenv from 'dotenv';
 import express, { Application, Request, Response, NextFunction } from 'express';
 import { create, ExpressHandlebars } from 'express-handlebars';
+import Handlebars from 'handlebars';
+import { allowInsecurePrototypeAccess } from '@handlebars/allow-prototype-access';
 import path from 'path';
 import MongoStore from 'connect-mongo';
 import passport from 'passport';
-import passportConfig from '../config/passport.js';
-import authenticateUser from '../config/passport.js';
+import passportConfig from '../config/passportGoogle.js';
+import authenticateUser from '../config/passportGoogle.js';
 import methodOverride from 'method-override';
 import session from 'express-session';
 import fs from 'fs';
@@ -45,6 +47,7 @@ authenticateUser(passport);
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+// const authenticate: any = './src/controller/middleware/authenticate.js';
 
 /**
  * @description The express package is Node.js Framework for building web applications and APIs.
@@ -104,13 +107,14 @@ const handlebars: ExpressHandlebars = create({
     defaultLayout: 'dash',
     layoutsDir: path.join(__dirname, '..', '..', 'views', 'layouts'),
     partialsDir: path.join(__dirname, '..', '..', 'views', 'partials'),
-    helpers: { ...helper }
+    helpers: { ...helper },
+    handlebars: allowInsecurePrototypeAccess(Handlebars)
 });
 
 // Crank Up the Handlebars Engine & Configurations
+app.engine('.hbs', handlebars.engine);
 app.set('view engine', '.hbs');
 app.set('views', path.join(__dirname, '..', '..', 'views'));
-app.engine('.hbs', handlebars.engine);
 app.enable('view cache');
 
 // Session Middleware

@@ -8,44 +8,39 @@
     --tw-white: hsla(0, 0%, 100%, 0.99);
     --tw-drop-shadow-1: var(--grmj-filter-dropShadow-6);
     --tw-drop-shadow-2: var(--grmj-filter-dropShadow-9);
-
-    /* Dropdown Shadow */
-    --dropdown-shadow: drop-Shadow(0.7rem 0.9rem 0.55rem hsla(0, 0%, 0%, 0.29));
 }
 
-.modal {
+.signin-modal {
     margin: 2.5em auto 1.5em auto;
     position: relative;
     display: block;
-    justify-content: center;
-    justify-items: center;
     text-align: center;
 }
 
-.modal-header {
+.signin-modal-header {
     margin: 2.5em auto 1.5em auto;
     display: block;
     text-align: center;
 }
 
 
-.modal .tw-logo {
+.signin-modal .tw-logo {
     margin: 2.5em auto 0em auto;
     display: block;
     text-align: center;
     width: 180px;
     aspect-ratio: 130 / 103;
-    filter: var(--dropdown-shadow);
+    filter: var(--tw-drop-shadow-2);
 }
 
-.modal .tw-caption {
+.signin-modal .tw-caption {
     margin: 0em auto 0em auto;
     display: inline-flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-start;
     text-align: center;
-    filter: var(--dropdown-shadow);
+    filter: var(--tw-drop-shadow-2);
 }
 
 .tw-caption .h1-team {
@@ -80,29 +75,29 @@
     top: -1.5em;
 }
 
-/* .modal .form {
+.signin-modal .form {
     position: relative;
     display: block;
     text-align: center;
-} */
+}
 
-.modal label {
+.signin-modal label {
     margin: 3.75em auto 0.75em auto;
     font-family: var(--modal_ff);
     font-size: 1rem;
     color: var(--tw-black);
 }
 
-.modal .login-modal-date {
+.signin-modal .signin-modal-date {
     margin: 0.2em auto 2.5em auto;
     font-family: var(--modal_ff);
     font-size: 1rem;
     font-weight: 500;
     color: var(--tw-blue);
-    filter: var(--dropdown-shadow);
+    filter: var(--tw-drop-shadow-1);
 }
 
-/* .modal .input-login {
+.signin-modal .input-signin {
     margin: 0em auto 3em auto;
     padding: 25px;
     display: block;
@@ -113,9 +108,9 @@
     width: 175px;
     text-align: center;
     background-color: rgba(107, 107, 107, 0.2)
-} */
+}
 
-.modal .local-buttons {
+.signin-modal .local-buttons {
     margin: 0em 2.5em 0em 1em;
     padding: 10px;
     font-family: var(--modal_ff);
@@ -130,36 +125,36 @@
     filter: var(--dropdown-shadow);
 }
 
-.modal button:hover {
+.signin-modal button:hover {
     background: var(--tw-lightblue);
     color: var(---tw-black);
     font-weight: 700;
 }
 
-.modal .local-save:hover {
+.signin-modal .local-save:hover {
     background: var(--tw-yellow);
     color: var(---tw-black);
     font-weight: 700;
 }
 
-.modal button:active {
+.signin-modal button:active {
     background: #e5e5e5;
     box-shadow: inset 0px 0px 5px #c1c1c1;
     outline: none;
 }
 
-.modal .local-save:active {
+.signin-modal .local-save:active {
     background: #e5e5e5;
     box-shadow: inset 0px 0px 5px #c1c1c1;
     outline: none;
 }
 
-.modal .modal-footer {
+.signin-modal .signin-modal-footer {
     margin: 2.5em auto 2.5em auto;
     text-align: center;
 }
 
-.modal .form-local {
+.signin-modal .form-local {
     margin: 0.2em auto 0.2em auto;
     display: inline-block;
     width: 380px;
@@ -168,7 +163,7 @@
     text-align: center;
 }
 
-.form-local .input-local {
+.form-local .input-signin {
     margin: 0.2em auto 0.2em auto;
     position: relative;
     appearance: none;
@@ -179,7 +174,7 @@
 
 }
 
-.form-local .input-local:not([type="submit"]) {
+.form-local .input-signin:not([type="submit"]) {
     display: block;
     width: 100%;
     padding: 7px;
@@ -194,17 +189,17 @@
 
 }
 
-.form-local .input-local:not([type="submit"])::placeholder {
+.form-local .input-signin:not([type="submit"])::placeholder {
     color: #ccc;
 }
 
-.form-local .input-local:not([type="submit"]):focus,
-.form-local .input-local:not([type="submit"]):valid {
+.form-local .input-signin:not([type="submit"]):focus,
+.form-local .input-signin:not([type="submit"]):valid {
     background-color: #fff;
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-f.form-local .input-local[type="submit"] {
+f.form-local .input-signin[type="submit"] {
     display: block;
     width: 100%;
     padding: 7px;

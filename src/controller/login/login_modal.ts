@@ -2,7 +2,7 @@
 
 async function closeLogin(): Promise<void> {
     try {
-        window.location.assign('/landing');
+        window.location.href = '/landing';
     } catch (error: unknown) {
         console.error(`There has been an Close Login ERROR: ${await error}`);
     }

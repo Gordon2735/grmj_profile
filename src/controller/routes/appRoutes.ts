@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use strict';
 
 import express, { Router } from 'express';
@@ -38,20 +39,33 @@ import {
     loginModalHandler,
     loginUserCreateHandler
 } from '../route_handlers/loginModal_handlers.js';
+import {
+    signinModalHandler,
+    signinUserPostHandler,
+    userLogoutHandler
+} from '../route_handlers/signinModal_handlers.js';
 
-// const app = express();
+// import isLoggedIn from '../middleware/authenticate.js';
+
 const router: Router = express.Router();
 
 // app.use(express.static('../../views'));
 
 // loginModal Pop-up Router
-const loginModal: express.Router = router
+const loginModal: Router = router
     .get('/login_modal', loginModalHandler)
     .post('/login_modal', loginUserCreateHandler);
 
+// Signin Modal Pop-up Router
+const signinModal: Router = router
+    .get('/signin_modal', signinModalHandler)
+    .post('/signin_modal', signinUserPostHandler)
+    .get('/signin_modal/logout', userLogoutHandler);
+
 // Home Page Router
-export const home: Router = router
+const home: Router = router
     .get('/home', homeHandler)
+    // .get('/home', isLoggedIn, homeHandler)
     .post('/home', homeHandlerPost);
 
 // Landing Page Router
@@ -60,67 +74,86 @@ const landing: Router = router
     .post('/landing', landingHandlerPost);
 
 // Cover Letter Page Router
-export const cover: Router = router
+const cover: Router = router
     .get('/cover_letter', coverHandler)
     .post('/cover_letter', coverHandlerPost);
 
 // About Page Router
-export const about: Router = router
+const about: Router = router
     .get('/about', aboutHandler)
     .post('/about', aboutHandlerPost);
 
 //  Blog Component Router
-export const blog_component: Router = router
+const blog_component: Router = router
     .get('/blog', blogComponentHandler)
     .post('/blog', blogComponentHandlerPost);
 
 // Code Example Router
-export const code_examples: Router = router
+const code_examples: Router = router
     .get('/code_examples', codeExampleHandler)
     .post('/code_examples', codeExampleHandlerPost);
 
 // Contact Page Router
-export const contact: Router = router
+const contact: Router = router
     .get('/contact', contactHandler)
     .post('/contact', contactHandlerPost);
 
 // Goals Page Router
-export const goals: Router = router
+const goals: Router = router
     .get('/goals', goalsHandler)
     .post('/goals', goalsHandlerPost);
 
 // History Page Router
-export const history: Router = router
+const history: Router = router
     .get('/history', historyHandler)
     .post('/history', historyHandlerPost);
 
 // Library Page Router
-export const library: Router = router
+const library: Router = router
     .get('/library', libraryHandler)
     .post('/library', libraryHandlerPost);
 
 // Partials Router
-export const partialsRouter = router.use(partialsHandler);
+const partialsRouter = router.use(partialsHandler);
 
 // Resume Page Router
-export const resume: Router = router
+const resume: Router = router
     .get('/resume', resumeHandler)
     .post('/resume', resumeHandlerPost);
 
 // Projects Page Router
-export const projects: Router = router
+const projects: Router = router
     .get('/projects', projectsHandler)
     .post('/projects', projectsHandlerPost);
 
 //  SpaceX Page Router
-export const spacex: Router = router
+const spacex: Router = router
     .get('/spacex', spaceXHandler)
     .post('/spacex', spaceXHandlerPost);
 
 // Error 404 Route
-export const error404: Router = router.get('*', error404Handler);
+const error404: Router = router.get('*', error404Handler);
 
 // Error 500 Route
-export const error500: Router = router.get('*', error500Handler);
+const error500: Router = router.get('*', error500Handler);
 
-export { landing as default, loginModal };
+export {
+    landing as default,
+    loginModal,
+    signinModal,
+    home,
+    cover,
+    about,
+    blog_component,
+    code_examples,
+    contact,
+    goals,
+    history,
+    library,
+    partialsRouter,
+    resume,
+    projects,
+    spacex,
+    error404,
+    error500
+};
