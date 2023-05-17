@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-('use strict');
+'use strict';
 
 import * as dotenv from 'dotenv';
 import express, { Application, Request, Response, NextFunction } from 'express';
@@ -12,8 +12,8 @@ import MongoStore from 'connect-mongo';
 import passport from 'passport';
 import passportConfig from '../config/passportGoogle.js';
 import authenticateUser from '../config/passportGoogle.js';
-import methodOverride from 'method-override';
 import session from 'express-session';
+import methodOverride from 'method-override';
 import fs from 'fs';
 import morgan from 'morgan';
 import cors from 'cors';
@@ -135,7 +135,8 @@ app.use(passport.session());
 
 // static folders
 app.use(express.static(path.join(__dirname, '../../dist')));
-// app.use(express.static('views'));
+// app.use(express.static(path.join(__dirname, '/src')));
+app.use(express.static('src'));
 
 // Favicon
 app.use(favicon(path.join(__dirname, '/images', '/favicon.ico')));
@@ -244,5 +245,4 @@ try {
     app.use('/', error404);
     app.use('/', error500);
 }
-
 export default environment;

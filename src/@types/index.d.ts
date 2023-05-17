@@ -146,3 +146,8 @@ export type Engine = (
     options: ConfigOptions,
     callback?: RenderCallback
 ) => Promise<string>;
+
+// export interface cssModule {
+//     import: '../../Global/global_fonts.css';
+//     assert: { type: 'css' };
+// }

@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use strict';
 
+// import { fileURLToPath } from 'url';
+// import path from 'path';
 import express, { Router } from 'express';
 import {
     error404Handler,
@@ -47,9 +49,12 @@ import {
 
 // import isLoggedIn from '../middleware/authenticate.js';
 
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
+// const app: express.Application = express();
 const router: Router = express.Router();
 
-// app.use(express.static('../../views'));
+// app.use(express.static(path.join(__dirname, 'src')));
 
 // loginModal Pop-up Router
 const loginModal: Router = router
@@ -88,6 +93,11 @@ const blog_component: Router = router
     .get('/blog', blogComponentHandler)
     .post('/blog', blogComponentHandlerPost);
 
+// History Page Router
+const history: Router = router
+    .get('/history', historyHandler)
+    .post('/history', historyHandlerPost);
+
 // Code Example Router
 const code_examples: Router = router
     .get('/code_examples', codeExampleHandler)
@@ -102,11 +112,6 @@ const contact: Router = router
 const goals: Router = router
     .get('/goals', goalsHandler)
     .post('/goals', goalsHandlerPost);
-
-// History Page Router
-const history: Router = router
-    .get('/history', historyHandler)
-    .post('/history', historyHandlerPost);
 
 // Library Page Router
 const library: Router = router

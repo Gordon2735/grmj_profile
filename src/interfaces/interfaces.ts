@@ -25,10 +25,15 @@ interface sidePanel_sharedHTML {
 interface profileHistory_sharedStyles {
     shell: string;
     history: string;
+    page_sweeper: string;
+    footer: string;
 }
 
 interface profileHistory_sharedHTML {
+    shell: string;
     history: string;
+    page_sweeper: string;
+    footer: string;
 }
 
 interface profileResume_sharedStyles {

@@ -4,7 +4,13 @@
 
 /* did it copy this file? */
 
+/* @import url('/src/Global/global_fonts.css'):root { */
+/* @import url(' http://127.0.0.1:9080/src/Global/global_fonts.css/css2?family=Rubik+Dirt&family=Rubik+Moonrocks&display=swap'); */
+
+/* @import url('/src/Global/global_fonts.css'); */
+
 :root {
+
 
     /* Backgrounds */
     --grmj-profile-background: -webkit-linear-gradient(180deg, hsla(0, 0%, 75%, 0.5), hsla(0, 0%, 20%, 0.79) 25.71%),
@@ -43,10 +49,19 @@
     --grmj-profile-background_image_6: url('../../src/components/componentTools/resources/images/rustic-circles.webp');
 
     /*Font Family*/
-    --grmj-font-family-0: 'Chango', cursive;
+    --grmj-font-family-0: 'Chango';
     --grmj-font-family-1: 'Source Sans Pro', sans-serif;
     --grmj-font-family-2: 'Impact, Haettenschweiler', 'Arial Narrow Bold', sans-serif;
     --grmj-font-family-3: 'Arial, Helvetica, sans-serif';
+    --grmj-font-family-4: 'Black Ops One';
+    --grmj-font-family-5: 'Rubik Dirt';
+    --grmj-font-family-6: 'CabinSketch';
+    --grmj-font-family-7: 'Rubik Moonrocks';
+    --grmj-font-family-8: 'Bruno Ace SC';
+    --grmj-font-family-9: 'Freckle Face';
+    --grmj-font-family-10: 'Finger Paint';
+    --grmj-font-family-11: 'Road Rage';
+    --grmj-font-family-12: 'Rubik Moonrocks';
 
     /*Font Weight*/
     --grmj-font-weight-1: 100;
@@ -85,7 +100,8 @@
     --grmj-filter-dropShadow-3: drop-Shadow(0px 0.2rem 0.65rem hsla(198, 53%, 87%, 0.89));
     --grmj-filter-dropShadow-4: drop-shadow(0 0.2rem 0.25rem rgba(0, 0, 0, 0.99));
     --filter-dropShadow-4a: drop-shadow(0 0.03rem 0.03rem rgba(0, 0, 0, 0.12));
-    --filter-dropShadow-4b: drop-shadow(0 0.08rem 0.08rem rgba(0, 0, 0, 0.32));
+    --filter-dropShadow-4b: drop-shadow(0 0.11rem 0.11rem rgba(0, 0, 0, 0.82));
+    --filter-dropShadow-4c: drop-shadow(0 4px 7px rgba(243, 241, 241, 0.99));
     --filter-dropShadow-5: drop-shadow(0 0.2rem 0.25rem hsla(198, 86%, 92%, 0.99));
     --grmj-filter-dropShadow-6: drop-Shadow(0px 0.2rem 0.65rem hsla(0, 0%, 0%, 0.99));
     --grmj-filter-dropShadow-7: drop-Shadow(0px 0.2rem 0.65rem hsla(358, 71%, 53%, 0.49));
@@ -108,14 +124,12 @@
     --grmj-font-size-04vw: 0.01vw;
     --grmj-font-size-05vw: 0.005vw;
     --grmj-font-size-06vw: 0.002vw;
+    --grmj-font-size-1vw-history: 0.5vw;
     --grmj-font-size-1zw: 0.5vw;
     --grmj-font-size-1zwy: 0.57vw;
     --grmj-font-size-1zwx: 0.65vw;
     --grmj-font-size-1avw: 0.75vw;
-    --grmj-font-size-1vw: 0.5vw;
-    --grmj-font-size-1avw: 0.75vw;
-    --grmj-font-size-1vw: 1vw;
-    --grmj-font-size-1vw-history: 0.5vw;
+    --grmj-font-size-1zvwh: 1.05vw;
     --grmj-font-size-2vw: 1.2vw;
     --grmj-font-size-3vw: 1.4vw;
     --grmj-font-size-4vw: 1.6vw;
@@ -168,6 +182,14 @@
     --grmj-font-color-19: hsla(172, 51%, 49%, 0.99);
     --color-bracket-yellow: hsla(37, 81%, 58%, 0.99);
     --color-bracket-blue: hsla(204, 76%, 57%, 0.99);
+    --color-scratchy-beige: hsla(38, 35%, 78%, 0.99);
+    --color-scratchy-brown: hsla(37, 25%, 33%, 0.99);
+    --color-scratchy-darkbrown: hsla(36, 27%, 22%, 0.99);
+    --color-scratchy-blue: hsla(136, 5%, 57%, 0.99);
+    --color-scratchy-blue-shade: hsla(135, 4%, 37%, 0.99);
+    --color-scratchy-mediumblue: hsla(138, 4%, 53%, 0.99);
+    --color-scratchy-darkblue: hsla(136, 5%, 57%, 0.99);
+    --color-scratchy-darkerblue: hsla(140, 3%, 21%, 0.99);
 
 
 
@@ -199,17 +221,25 @@
     --color-tertiary: var(--grmj-font-color-6);
     --color-quaternary: var(--grmj-font-color-8);
     --color-quinary: #fff;
-    --color-senary: rgba(0, 0, 0, 0.644);
-    --color-septenary: rgba(0, 0, 0, 0.637);
+    --color-senary: rgba(0, 0, 0, 0.64);
+    --color-septenary: rgba(0, 0, 0, 0.67);
     --color-octonary: #bebebe;
     --color-nectary: hsla(219, 97%, 73%, 0.99);
     --color-denary: #ccc;
-    --color-nonary: rgba(0, 0, 0, 0.384);
+    --color-nonary: rgba(0, 0, 0, 0.38);
     --color-duodenary: slategray;
     --color-accent: #fd6f53;
     --font-color: #000000;
+    --font-color-1: hsla(0, 0%, 0%, 0.49);
     --font-color-2: #fbfbfe;
     --font-color-3: #fbfbfe;
+    --font-color-4: var(--grmj-font-color-6a);
+    --font-color-5: hsla(197, 93%, 33%, 0.99);
+    --font-family-history: var(--grmj-font-family-7);
+    --font-family-history-2: var(--grmj-font-family-12);
+    --font-family-history-3: var(--grmj-font-family-6);
+    --font-family-Freckle-Face: var(--grmj-font-family-9);
+    --font-family-MoonRocks: var(--grmj-font-family-12);
     --button-background: hsla(0, 0%, 41%, 0.99);
     --button-background-hover: hsla(212, 62%, 49%, 0.99);
     --button-ff: Arial, Helvetica, sans-serif;
@@ -218,6 +248,11 @@
     --button-border: 0.1em ridge hsla(180, 25%, 25%, 0.99);
     --button-hover: hsla(0, 0%, 86%, 0.39);
     --button-filter: drop-shadow(0.1em 0.08rem 0.08rem rgba(0, 0, 0, 0.22));
+    --scratchy-blue: var(--color-scratchy-blue);
+    --scratchy-blue-header: var(--color-scratchy-darkbrown);
+    --scratchy-mediumblue: var(--color-scratchy-mediumblue);
+    --scratchy-darkbrown: var(--color-scratchy-brown);
+    --history-page: hsla(36, 27%, 22%, 0.29);
 }
 
 .theme-startup,
@@ -238,10 +273,18 @@
     --color-denary: #ccc;
     --color-nonary: rgba(0, 0, 0, 0.17);
     --color-duodenary: slategray;
-    --color-accent: #12cdea;
+    --color-accent: #fd6f53;
     --font-color: #ffffff;
+    --font-color-1: hsla(0, 0%, 100%, 0.856);
     --font-color-2: #fbfbfe;
     --font-color-3: #000;
+    --font-color-4: var(--color-scratchy-blue-shade);
+    --font-color-5: hsla(0, 0%, 0%, 0.99);
+    --font-family-history: var(--grmj-font-family-7);
+    --font-family-history-2: var(--grmj-font-family-12);
+    --font-family-history-3: var(--grmj-font-family-6);
+    --font-family-Freckle-Face: var(--grmj-font-family-9);
+    --font-family-MoonRocks: var(--grmj-font-family-12);
     --button-background: hsla(0, 0%, 41%, 0.99);
     --button-background-hover: hsla(212, 62%, 49%, 0.99);
     --button-ff: Arial, Helvetica, sans-serif;
@@ -250,6 +293,11 @@
     --button-border: 0.1em ridge hsla(180, 25%, 25%, 0.99);
     --button-hover: hsla(90, 100%, 50%, 0.99);
     --button-filter: drop-shadow(0.1em 0.08rem 0.08rem rgba(0, 0, 0, 0.22));
+    --scratchy-blue: var(--color-scratchy-darkblue);
+    --scratchy-blue-header: var(--color-scratchy-darkblue);
+    --scratchy-mediumblue: var(--color-scratchy-darkerblue);
+    --scratchy-darkbrown: var(--color-scratchy-darkbrown);
+    --history-page: hsla(36, 27%, 22%, 0.19);
 }
 
 @font-face {
@@ -261,7 +309,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: darkolivegreen
 }
 
 body {

@@ -8,7 +8,7 @@ let user: any;
 const app: Application = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(express.static('views'));
+// app.use(express.static('src'));
 
 // Home Route Handlers
 export async function homeHandler(
@@ -310,16 +310,20 @@ export async function historyHandler(
 ): Promise<void> {
     try {
         const historyShellScript = /*html*/ `<script type="module" content="text/javascript" src="/src/components/profileHistory/profile-history_shell.js"></script>`;
+        // const historyFontStylesheet = /*html*/ `<link type="text/css" rel="stylesheet" href="/src/Global/global_fonts.css" alt="CSS Self-Hosted Fonts Stylesheet" />`;
         res.set('Content-Type', 'text/html');
+        res.set('target', 'blank');
         res.render('history', {
             layout: 'main',
             title: 'History-Profile',
             script: [`${historyShellScript}`]
+            // stylesheet: [`${historyFontStylesheet}`]
         });
         return;
     } catch (error: unknown) {
         console.error(`HistoryHandler Error: ${error}`);
     }
+    return;
 }
 export async function historyHandlerPost(
     req: Request,

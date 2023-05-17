@@ -1,0 +1,224 @@
+.black-ops {
+    font-family: 'Black Ops One';
+}
+
+
+
+
+
+/* Barrio-Regular ttf */
+@font-face {
+    font-family: 'Barrio', cursive;
+    src: url('/src/resources/font/Barrio/Barrio-Regular.ttf') format('truetype');
+}
+
+/* Black & White Picture */
+@font-face {
+    font-family: 'Black And White Picture', sans-serif;
+    src: url('/src/resources/font/Black_And_White_Picture/BlackAndWhitePicture-Regular.ttf') format('trueType');
+    unicode-range: 'U+c779-c77b, U+c77e-c782, U+c786, U+c78b, U+c78d, U+c78f, U+c792-c793, U+c795, U+c797, U+c799-c79f, U+c7a2, U+c7a7-c7ab, U+c7ae-c7bb, U+c7bd-c7c0, U+c7c2-c7c7, U+c7c9-c7dc, U+c7de-c7ff, U+c802-c803, U+c805-c807, U+c809, U+c80b-c80f, U+c812, U+c814, U+c817-c81b, U+c81e-c81f, U+c821-c823, U+c825-c82e, U+c830-c837, U+c839-c83b, U+c83d-c840';
+}
+
+/* Black Han Sans */
+@font-face {
+    font-family: 'Black Han Sans', sans-serif;
+    src: url('/src/resources/font/Black_Han_Sans/BlackHanSans-Regular.ttf') format('truetype');
+}
+
+/* Black Ops One */
+@font-face {
+    font-family: 'Black Ops One', cursive;
+    src: url('/src/resources/font/Black_Ops_One/BlackOpsOne-Regular.ttf') format('truetype');
+}
+
+/* Braah One */
+@font-face {
+    font-family: 'Braah One', sans-serif;
+    src: url('/src/resources/font/Braah_One/BraahOne-Regular.ttf') format('truetype');
+}
+
+/* Bruno Ace SC */
+@font-face {
+    font-family: 'Bruno Ace SC', cursive;
+    src: url('http://127.0.0.1/src/resources/font/Bruno_Ace_SC/BrunoAceSC-Regular.ttf') format('truetype');
+}
+
+/* CabinSketch-Bold, CabinSketch-Regular */
+@font-face {
+    font-family: 'CabinSketch';
+    src: url('/src/resources/font/CabinSketch/CabinSketch-Bold.ttf') format('truetype');
+    src: url('/src/resources/fonts/CabinSketch/CabinSketch-Regular.ttf') format('truetype');
+}
+
+/* local('CabinSketch'), */
+
+/* Caveat_Brush */
+@font-face {
+    font-family: 'Caveat Brush', cursive;
+    src: url('/src/resources/font/Caveat_Brush/CaveatBrush-Regular.ttf') format('truetype');
+}
+
+/* Dokdo */
+@font-face {
+    font-family: 'Dokdo', cursive;
+    src: url('/src/resources/font/Dokdo/Dokdo-Regular.ttf') format('truetype');
+}
+
+/* Fascinate Inline */
+@font-face {
+    font-family: 'Fascinate Inline', cursive;
+    src: url('/src/resources/font/Fascinate_Inline/FascinateInline-Regular.ttf') format('truetype');
+}
+
+/* Finger Paint */
+@font-face {
+    font-family: 'Finger Paint', cursive;
+    src: url('/src/resources/font/Finger_Paint/FingerPaint-Regular.ttf') format('truetype');
+}
+
+/* Freckle Face */
+@font-face {
+    font-family: 'Freckle Face', cursive;
+    src: url('/src/resources/font/Freckle_Face/FreckleFace-Regular.ttf') format('truetype');
+}
+
+/* Fredericka the Great */
+@font-face {
+    font-family: 'Fredericka the Great', cursive;
+    src: url('/src/resources/font/Fredericka_the_Great/FrederickatheGreat-Regular.ttf') format('truetype');
+}
+
+/* Indie Flower */
+@font-face {
+    font-family: 'Indie Flower', cursive;
+    src: url('/src/resources/font/Indie_Flower/IndieFlower-Regular.ttf') format('truetype');
+}
+
+/* Libre Barcode 39 Text */
+@font-face {
+    font-family: 'Libre Barcode 39 Text', cursive;
+    src: url('/src/resources/font/Libre_Barcode_39_Text/LibreBarcode39Text-Regular.ttf') format('truetype');
+}
+
+/* Lobster */
+@font-face {
+    font-family: 'Lobster', cursive;
+    src: url('/src/resources/font/Lobster/Lobster-Regular.ttf') format('truetype');
+}
+
+/* Londrina Sketch */
+@font-face {
+    font-family: 'Londrina Sketch', cursive;
+    src: url('/src/resources/font/Londrina_Sketch/LondrinaSketch-Regular.ttf') format('truetype');
+}
+
+/* Macondo */
+@font-face {
+    font-family: 'Macondo', cursive;
+    src: url('/src/resources/font/Macondo/Macondo-Regular.ttf') format('truetype');
+}
+
+/* Miltonian Tattoo */
+@font-face {
+    font-family: 'Miltonian Tattoo', cursive;
+    src: url('/src/resources/font/Miltonian_Tattoo/MiltonianTattoo-Regular.ttf') format('truetype');
+}
+
+/* Monofett */
+@font-face {
+    font-family: 'Monofett', cursive;
+    src: url('/src/resources/font/Monofett/Monofett-Regular.ttf') format('truetype');
+}
+
+/* Montez */
+@font-face {
+    font-family: 'Montez', cursive;
+    src: url('/src/resources/font/Montez/Montez-Regular.ttf') format('truetype');
+}
+
+/* Overlock SC */
+@font-face {
+    font-family: 'Overlock SC', cursive;
+    src: url('/src/resources/font/Overlock_SC/OverlockSC-Regular.ttf') format('truetype');
+}
+
+/* Piedra */
+@font-face {
+    font-family: 'Piedra', cursive;
+    src: url('/src/resources/font/Piedra/Piedra-Regular.ttf') format('truetype');
+}
+
+/* Righteous */
+@font-face {
+    font-family: 'Righteous', cursive;
+    src: url('/src/resources/font/Righteous/Righteous-Regular.ttf') format('truetype');
+}
+
+/* Road Rage */
+@font-face {
+    font-family: 'Road Rage', cursive;
+    src: url('/src/resources/font/Road_Rage/RoadRage-Regular.ttf') format('truetype');
+}
+
+/* Rubik Dirt */
+@font-face {
+    font-family: 'Rubik Dirt', cursive;
+    src: url('/src/resources/font/Rubik_Dirt/RubikDirt-Regular.ttf') format('truetype');
+}
+
+/* Rubik Distressed */
+@font-face {
+    font-family: 'Rubik Distressed', cursive;
+    src: url('/src/resources/font/Rubik_Distressed/RubikDistressed-Regular.ttf') format('truetype');
+}
+
+/* Rubik Microbe */
+@font-face {
+    font-family: 'Rubik Microbe', cursive;
+    src: url('/src/resources/font/Rubik_Microbe/RubikMicrobe-Regular.ttf') format('truetype');
+}
+
+/* Rubik Moonrocks */
+@font-face {
+    font-family: 'Rubik Moonrocks', cursive;
+    src: url('/src/resources/font/Rubik_Moonrocks/RubikMoonrocks-Regular.ttf') format('truetype');
+}
+
+/* Rubik Pixels */
+@font-face {
+    font-family: 'Rubik Pixels', cursive;
+    src: url('/src/resources/font/Rubik_Pixels/RubikPixels-Regular.ttf') format('truetype');
+}
+
+/* Rubik Wet Paint */
+@font-face {
+    font-family: 'Rubik Wet Paint', cursive;
+    src: url('/src/resources/font/Rubik_Wet_Paint/RubikWetPaint-Regular.ttf') format('truetype');
+}
+
+/* Ruslan Display */
+@font-face {
+    font-family: 'Ruslan Display', cursive;
+    src: url('/src/resources/font/Ruslan_Display/RuslanDisplay-Regular.ttf') format('truetype');
+}
+
+/* Zen Tokyo Zoo */
+@font-face {
+    font-family: 'Zen Tokyo Zoo', cursive;
+    src: url('/src/resources/font/Zen_Tokyo_Zoo/ZenTokyoZoo-Regular.ttf') format('truetype');
+}
+
+/* SpaceX */
+@font-face {
+    font-family: 'SpaceX', cursive;
+    src: url('/src/resources/font/SpaceX/SpaceX.ttf') format('truetype');
+}
+
+/* latin */
+/* @font-face {
+    font-family: 'Barrio';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/barrio/v19/wEO8EBXBk8hBIDi0cgwg.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+} */

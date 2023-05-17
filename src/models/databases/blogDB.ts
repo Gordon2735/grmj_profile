@@ -28,3 +28,5 @@ export default blogDB;
 
 // mongodb+srv://grmj:mat2819@sandbox.glrio.mongodb.net/?retryWrites=true&w=majority
 // team-webelistics:acts2389@cluster0.abfpuzr.mongodb.net/?retryWrites=true&w=majority
+
+// MONGO_URI = mongodb+srv://grmj:mat2819@sandbox.glrio.mongodb.net/?retryWrites=true&w=majority

@@ -13,17 +13,16 @@ export class ProfileHistoryTemplate extends HTMLElement {
     }
 
     connectedCallback(): void {
-        if (this.activateShadowDOM === true)
-            this.attachShadow({ mode: 'open' });
+        if (this.activateShadowDOM) this.attachShadow({ mode: 'open' });
         this.render(this.template);
     }
     render(template: string): void {
-        if (this.activateShadowDOM === false) {
+        if (!this.activateShadowDOM) {
             this.innerHTML = template || this.template;
             return;
         } else {
             this.root!.innerHTML = template || this.template;
-            return;
+            // return;
         }
     }
 }

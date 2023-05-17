@@ -408,12 +408,16 @@ landingPage_sharedStyles.page = /*css*/ `
     /* Background Classes */
     .bg-primary {
         background-color: var(--color-senary);
-        color: var(--font-color-2);
+        border: none;
+        color: var(--font-color);
     }
 
     .bg-secondary {
         background-color: var(--color-secondary);
-        color: var(--font-color-2);
+        border: 6px ridge var(--color-senary);
+        box-shadow: inset 9px 8px 14px hsla(0, 0%, 0%, 0.23),
+            9px 9px 15px hsla(0, 0%, 0%, 0.39);
+        color: var(--font-color);
     }
 
     .bg-extra {
@@ -423,7 +427,8 @@ landingPage_sharedStyles.page = /*css*/ `
 
     .bg-dark {
         background-color: var(--color-dark);
-        color: var(--color-senary);
+        border: none;
+        color: var(--font-color);
     }
 
     /* Text Styles */
