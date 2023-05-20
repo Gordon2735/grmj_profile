@@ -30,8 +30,15 @@
         }
     },
     "middle_road": {
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum",
         "ministry": {
-            "church": "",
+            "church": [
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum modi, repellat a in culpa, vitae cumque odit! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum",
+                "modi, repellat a in culpa, vitae cumque odit!Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+                "Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum",
+                "modi, repellat a in culpa, vitae cumque odit!   Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum",
+                "modi, repellat a in culpa, vitae cumque odit!"
+            ],
             "song_leader": "",
             "preacher": "",
             "pastor": ""

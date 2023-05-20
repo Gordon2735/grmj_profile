@@ -69,35 +69,28 @@ profileHistory_sharedHTML.page_sweeper = /*html*/ `
         <section id="secPageSweeper" class="page_sweeper">
             <article id="open_page" class="layer zero reveal article_open-page">
                 <h2 id="open_pageH2" class="articles-h2 open_page-h2">Gordon's History Brief</h2>
-                <p id="open_pagePara" class="open_page-para ">A quick glance into the history of Gordon Mullen</p>
+                <p id="open_pagePara" class="open_page-para" data-brief="">A quick glance into the history of Gordon Mullen</p>
             </article>
             <article id="early_years" class="layer one article-early_years">
                 <h2 id="early_yearsH2" class="articles-h2 early_years-h2">My Early Years</h2>
-                <p id="early_yearsPara" class="early_years-para ">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                <p id="early_yearsPara" class="early_years-para" data-early="">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Commodi et sunt quo ab nemo, a deleniti, atque, reprehenderit provident dolor vitae iste ullam. Expedita
                     quaerat, quibusdam corrupti aspernatur libero explicabo!
                 </p>
             </article>
             <article id="young_man" class="layer two article-young_man">
                 <h2 id="young_manH2" class="articles-h2 young_man-h2">Young Man Years</h2>
-                <p id="young_manPara" class="young_man-para ">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                <p id="young_manPara" class="young_man-para" data-young_man="">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     Perspiciatis deserunt deleniti alias, quibusdam cum fugit laudantium inventore nemo illum, asperiores
                     dolore? Veniam est, consequatur iure quibusdam minima optio obcaecati architecto!</p>
             </article>
             <article id="middle_road" class="layer three article-middle_road">
                 <h2 id="middle_roadH2" class="articles-h2 middle_road-h2">Middle of the Road Years</h2>
-                <p id="middle_roadPara" class="middle_road-para ">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum
-                    modi, repellat a in culpa, vitae cumque odit!
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum
-                    modi, repellat a in culpa, vitae cumque odit!Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum
-                    modi, repellat a in culpa, vitae cumque odit!</p>
+                <p id="middle_roadPara" class="middle_road-para" data-middle_road=""></p>
             </article>
             <article id="career_moves" class="layer four article-career_moves">
                 <h2 id="career_movesH2" class="articles-h2 career_moves-h2">Career Moves</h2>
-                <p id="career_movesPara" class="career_moves-para ">Lorem ipsum dolor sit amet, consectetur adipisicing
+                <p id="career_movesPara" class="career_moves-para" data-career_moves="">Lorem ipsum dolor sit amet, consectetur adipisicing
                     elit. Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic
                     earum modi, repellat a in culpa, vitae cumque odit!Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum
@@ -105,23 +98,52 @@ profileHistory_sharedHTML.page_sweeper = /*html*/ `
             </article>
             <article id="future_plans" class="layer five article-future_plans">
                 <h2 id="future_plansH2" class="articles-h2 future_plans-h2">Future Plans</h2>
-                <p id="future_plansPara" class="future_plans-para ">Lorem ipsum dolor sit amet, consectetur adipisicing
+                <p id="future_plansPara" class="future_plans-para"data-future_plans="">Lorem ipsum dolor sit amet, consectetur adipisicing
                     elit. Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic
                     earum modi, repellat a in culpa, vitae cumque odit!Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum
                     modi, repellat a in culpa, vitae cumque odit!Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum
-                    modi, repellat a in culpa, vitae cumque odit!</p>
+                    modi, repellat a in culpa, vitae cumque odit!
+                    <br />
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum
+                    modi, repellat a in culpa, vitae cumque odit!Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum
+                    modi, repellat a in culpa, vitae cumque odit   Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum
+                    modi, repellat a in culpa, vitae cumque odit!
+                    <br />
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum
+                    modi, repellat a in culpa, vitae cumque odit!Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum
+                    modi, repellat a in culpa, vitae cumque odit
+                    <br />
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum
+                    modi, repellat a in culpa, vitae cumque odit!Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum
+                    modi, repellat a in culpa, vitae cumque odit   Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum
+                    modi, repellat a in culpa, vitae cumque odit!
+                    <br />
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum
+                    modi, repellat a in culpa, vitae cumque odit!Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum
+                    modi, repellat a in culpa, vitae cumque odit
+                    </p>
             </article>
 
             </section>
             
-            <section id="sectionBtn" class="section-btn">
-                <button id="leftBtn" class="left-btn">&#10096; Prev</button>
-                <button id="rightBtn" class="right-btn">Next &#10097;</button>
-            </section>
+            <nav id="bulletNav" class="bullet-nav">
+                <section id="sectionBtn" class="section-btn">
+                    <button id="leftBtn" class="left-btn">&#10096; Prev</button>
+                    <button id="rightBtn" class="right-btn">Next &#10097;</button>
+                </section>
 
-            <ul id="bullets" class="bullets"></ul>        
+                <ul id="bullets" class="bullets"></ul>   
+            </nav>     
         
 `;
 

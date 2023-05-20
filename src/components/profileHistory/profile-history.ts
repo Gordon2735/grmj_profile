@@ -294,6 +294,26 @@ export class ProfileHistory extends ProfileHistoryTemplate {
             },
             false
         );
+
+        async function importHistoryData(jsonPath: string): Promise<any> {
+            const namespaceObject = await import(jsonPath, {
+                assert: { type: 'json' }
+            });
+            return namespaceObject.default;
+        }
+
+        const jsonFilePath =
+            '/src/components/profileHistory/json/grmj_history.json';
+
+        const historyDataObject: Promise<any> = importHistoryData(jsonFilePath);
+
+        const historyData: any = async () => await historyDataObject;
+
+        const middleRoadPara = document.getElementById(
+            'middle_roadPara'
+        ) as HTMLElement;
+
+        middleRoadPara.innerHTML = historyData.middle_road;
     }
     override get template() {
         return /*html*/ `

@@ -157,6 +157,16 @@
     --grmj-font-size-24vw: 2.6rem;
     --grmj-font-size-media-0: 0.3vw;
     --grmj-font-size-media-1: max(2vw, 4vw);
+    --grmj-font-size-header-1: 2.03rem;
+    --grmj-font-size-header-2: 1.7rem;
+    --grmj-font-size-header-3: 2.07rem;
+    --grmj-font-size-header-4: 1.7rem;
+    --grmj-font-size-header-5: 1.46rem;
+    --grmj-font-size-header-6: 1.48rem;
+    --grmj-font-size-header-7: 1.06rem;
+    --grmj-font-size-header-8: 1.08rem;
+    --grmj-font-size-header-9: 0.86rem;
+    --grmj-font-size-header-10: 0.88rem;
 
     /*Font Colors*/
     --grmj-font-color-1: hsla(198, 86%, 92%, 0.99);
@@ -253,6 +263,7 @@
     --scratchy-mediumblue: var(--color-scratchy-mediumblue);
     --scratchy-darkbrown: var(--color-scratchy-brown);
     --history-page: hsla(36, 27%, 22%, 0.29);
+    --history-page-hover: hsla(35, 9%, 46%, 0.719);
 }
 
 .theme-startup,
@@ -314,7 +325,7 @@
 body {
     margin: 0em;
     padding: 0;
-    overflow: scroll;
+    overflow-y: scroll;
     width: 100%;
     font-family: var(--grmj-font-family-1);
 }
