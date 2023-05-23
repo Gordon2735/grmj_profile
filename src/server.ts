@@ -26,6 +26,7 @@ import router from './controller/router.js';
 import { error404, error500 } from './controller/routes/appRoutes.js';
 import helper from '../views/helpers/hbsHelpers.js';
 import blogDB from './models/databases/blogDB.js';
+// import { createRequire } from 'module';
 
 /**
  *
@@ -135,7 +136,6 @@ app.use(passport.session());
 
 // static folders
 app.use(express.static(path.join(__dirname, '../../dist')));
-// app.use(express.static(path.join(__dirname, '/src')));
 app.use(express.static('src'));
 
 // Favicon
@@ -160,7 +160,6 @@ const HOST: string = process.env.HOST || `http://127.0.0.1`;
 
 // Launch Server & Create Event Logger
 createServer(HOST, PORT);
-
 // Database Connections for multiple models and Databases
 async function openDatabases(): Promise<void> {
     try {
@@ -171,6 +170,10 @@ async function openDatabases(): Promise<void> {
         );
     }
 }
+
+// const require: NodeRequire = createRequire(import.meta.url);
+// const data: NodeRequire = require('./src/components/profileHistory/json/grmj_history.json');
+// console.info(data);
 
 // Create Server
 async function createServer(host: string, port: string | 9080): Promise<void> {
@@ -245,4 +248,4 @@ try {
     app.use('/', error404);
     app.use('/', error500);
 }
-export default environment;
+// export { environment as default, data };

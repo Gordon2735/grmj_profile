@@ -9,6 +9,7 @@ import { ProfileHistoryTemplate } from './profile-history_template.js';
 import { profileHistory_sharedStyles } from './profile-history_sharedStyles.js';
 import { profileHistory_sharedHTML } from './profile-history_sharedHTML.js';
 import RegisterComponent from '../componentTools/components_services.js'; // appendChildren // setAttributes,
+import gordonHistory from './json/grmj_history.json' assert { type: 'json' };
 
 export class ProfileHistory extends ProfileHistoryTemplate {
     override activateShadowDOM: boolean;
@@ -36,7 +37,7 @@ export class ProfileHistory extends ProfileHistoryTemplate {
         this.body = body;
     }
 
-    override connectedCallback() {
+    override async connectedCallback() {
         super.connectedCallback();
 
         function setAttributes(element: HTMLElement, attributes: any) {
@@ -295,25 +296,16 @@ export class ProfileHistory extends ProfileHistoryTemplate {
             false
         );
 
-        async function importHistoryData(jsonPath: string): Promise<any> {
-            const namespaceObject = await import(jsonPath, {
-                assert: { type: 'json' }
-            });
-            return namespaceObject.default;
-        }
+        const gordonEarlyYears = JSON.stringify(
+            gordonHistory.early_years
+        ).replace(/^\[|]$/g, '');
 
-        const jsonFilePath =
-            '/src/components/profileHistory/json/grmj_history.json';
-
-        const historyDataObject: Promise<any> = importHistoryData(jsonFilePath);
-
-        const historyData: any = async () => await historyDataObject;
-
-        const middleRoadPara = document.getElementById(
-            'middle_roadPara'
-        ) as HTMLElement;
-
-        middleRoadPara.innerHTML = historyData.middle_road;
+        const gordonBrief: HTMLElement | null | undefined =
+            document.getElementById('briefPara');
+        gordonBrief?.insertAdjacentHTML(
+            'beforeend',
+            gordonEarlyYears.toString()
+        );
     }
     override get template() {
         return /*html*/ `

@@ -70,6 +70,7 @@ profileHistory_sharedHTML.page_sweeper = /*html*/ `
             <article id="open_page" class="layer zero reveal article_open-page">
                 <h2 id="open_pageH2" class="articles-h2 open_page-h2">Gordon's History Brief</h2>
                 <p id="open_pagePara" class="open_page-para" data-brief="">A quick glance into the history of Gordon Mullen</p>
+                <p id="briefPara" class="brief-para" data-brief=""></p>
             </article>
             <article id="early_years" class="layer one article-early_years">
                 <h2 id="early_yearsH2" class="articles-h2 early_years-h2">My Early Years</h2>

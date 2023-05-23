@@ -94,6 +94,8 @@
     --grmj-profile-box-shadow-2: 7px 5px 9px hsla(0, 0%, 0%, 0.69);
 
     /*Filter: drop-shadow*/
+    --landing-dropShadow-00: drop-Shadow(0.15rem 0.13rem 0.73rem rgba(0, 0, 0, 0.28));
+    --landing-dropShadow-01: drop-Shadow(0.15rem 0.13rem 0.73rem rgba(0, 0, 0, 0.21));
     --grmj-filter-dropShadow-0: drop-shadow(6px 5px 7px hsla(0, 0%, 0%, 0.72));
     --grmj-filter-dropShadow-1: drop-shadow(3px 2px 2px hsla(0, 0%, 0%, 0.6));
     --grmj-filter-dropShadow-2: drop-shadow(6px 4px 4px hsla(0, 0%, 0%, 0.6));
@@ -130,6 +132,8 @@
     --grmj-font-size-1zwx: 0.65vw;
     --grmj-font-size-1avw: 0.75vw;
     --grmj-font-size-1zvwh: 1.05vw;
+    --grmj-font-size-0vw: 0.80vw;
+    --grmj-font-size-1vw: 1vw;
     --grmj-font-size-2vw: 1.2vw;
     --grmj-font-size-3vw: 1.4vw;
     --grmj-font-size-4vw: 1.6vw;
@@ -240,6 +244,13 @@
     --color-duodenary: slategray;
     --color-accent: #fd6f53;
     --font-color: #000000;
+    --font-color-brief-bg-0: hsla(89, 88%, 94%, 0.377);
+    --font-color-brief-bg-1: hsla(36, 27%, 22%, 0.99);
+    --font-color-brief-bg-2: hsla(36, 93%, 88%, 0.822);
+    --font-color-brief-bg-3: hsla(60, 1%, 75%, 0.822);
+    --font-color-brief-x: hsla(144, 7%, 13%, 0.99);
+    --font-color-brief-shadow: hsla(36, 16%, 54%, 0.822);
+    --font-color-brief: hsla(76, 96%, 21%, 0.99);
     --font-color-1: hsla(0, 0%, 0%, 0.49);
     --font-color-2: #fbfbfe;
     --font-color-3: #fbfbfe;
@@ -257,12 +268,15 @@
     --button-fs: 0.7em;
     --button-border: 0.1em ridge hsla(180, 25%, 25%, 0.99);
     --button-hover: hsla(0, 0%, 86%, 0.39);
+    --scrollbar-hover: hsl(90, 100%, 50%);
+    --scrollbar-filter: drop-Shadow(0.7rem 0.9rem 0.55rem hsla(90, 100%, 50%, 0.79));
     --button-filter: drop-shadow(0.1em 0.08rem 0.08rem rgba(0, 0, 0, 0.22));
     --scratchy-blue: var(--color-scratchy-blue);
     --scratchy-blue-header: var(--color-scratchy-darkbrown);
     --scratchy-mediumblue: var(--color-scratchy-mediumblue);
     --scratchy-darkbrown: var(--color-scratchy-brown);
-    --history-page: hsla(36, 27%, 22%, 0.29);
+    --history-page: hsla(36, 93%, 88%, 0.822);
+    --history-page-border-radius: 15px;
     --history-page-hover: hsla(35, 9%, 46%, 0.719);
 }
 
@@ -286,6 +300,13 @@
     --color-duodenary: slategray;
     --color-accent: #fd6f53;
     --font-color: #ffffff;
+    --font-color-brief-bg-0: hsla(89, 81%, 83%, 0.377);
+    --font-color-brief-bg-1: hsla(36, 27%, 22%, 0.99);
+    --font-color-brief-bg-2: hsla(36, 93%, 88%, 0.822);
+    --font-color-brief-bg-3: hsla(60, 1%, 75%, 0.822);
+    --font-color-brief-x: hsla(140, 3%, 19%, 0.99);
+    --font-color-brief-shadow: hsla(36, 93%, 88%, 0.795);
+    --font-color-brief: hsla(89, 68%, 94%, 0.99);
     --font-color-1: hsla(0, 0%, 100%, 0.856);
     --font-color-2: #fbfbfe;
     --font-color-3: #000;
@@ -303,12 +324,15 @@
     --button-fs: 0.7em;
     --button-border: 0.1em ridge hsla(180, 25%, 25%, 0.99);
     --button-hover: hsla(90, 100%, 50%, 0.99);
+    --scrollbar-hover: hsla(90, 100%, 50%, 0.753);
+    --scrollbar-filter: drop-Shadow(1.7rem 1.9rem 1.55rem hsla(0, 0%, 0%, 0.79));
     --button-filter: drop-shadow(0.1em 0.08rem 0.08rem rgba(0, 0, 0, 0.22));
     --scratchy-blue: var(--color-scratchy-darkblue);
     --scratchy-blue-header: var(--color-scratchy-darkblue);
     --scratchy-mediumblue: var(--color-scratchy-darkerblue);
     --scratchy-darkbrown: var(--color-scratchy-darkbrown);
     --history-page: hsla(36, 27%, 22%, 0.19);
+    --history-page-border-radius: 7px;
 }
 
 @font-face {

@@ -146,20 +146,25 @@ landingPage_sharedStyles.page = /*css*/ `
     .navbar-brand > .navbar-div {
         text-align: center;
     }
-
+    
     .navbar-div img {
         order: 1;
         aspect-ratio: 130 / 103;
-        width: 320px;
+        width: 360px;
+    }
+
+    .navbar-brand .image-bracket {
+        filter: var(--landing-dropShadow-00);
     }
 
     .navbar-div .h1-team {
-        margin: 55px 0px 0px -32px;
+        margin: 55px 0px 0px -21px;
         order: 2;
         font-family: var(--grmj-font-family-1);
         font-size: 85px;
         font-weight: var(--grmj-font-weight-7);
         color: var(--color-bracket-blue);
+        filter: var(--landing-dropShadow-01);
     }
 
     .navbar-div .h2-webelistics {
@@ -171,6 +176,7 @@ landingPage_sharedStyles.page = /*css*/ `
         color: var(--color-bracket-yellow);
         -webkit-text-stroke: 0.007em #000; /* width and color */
         letter-spacing: -0.7;
+        filter: var(--landing-dropShadow-01);
     }
 
     .sup-reg {
@@ -761,54 +767,4 @@ landingPage_sharedStyles.page = /*css*/ `
     }
 
 `;
-
 export { landingPage_sharedStyles };
-
-// .theme-light {
-//     --image-home: url('../../src/components/componentTools/resources/images/005___home-theme-light__BACKGROUND.jpg');
-//     --color-primary: #fff;
-//     --color-secondary: #fbfbfe;
-//     --color-tertiary: var(--grmj-font-color-6);
-//     --color-quandary: var(--grmj-font-color-8);
-//     --color-quinary: #fff;
-//     --color-senary: rgba(0, 0, 0, 0.10);
-//     --color-octonary: #bebebe;
-//     --color-nectary: #ccc;
-//     --color-denary: #ccc;
-//     --color-nonary: rgba(0, 0, 0, 0.07);
-//     --color-accent: #fd6f53;
-//     --font-color: #000000;
-//     --button-background: hsla(0, 0%, 41%, 0.99);
-//     --button-background-hover: hsla(212, 62%, 49%, 0.99);
-//     --button-ff: Arial, Helvetica, sans-serif;
-//     --button-color: hsla(219, 97%, 73%, 0.99);
-//     --button-fs: 0.7em;
-//     --button-border: 0.1em ridge hsla(180, 25%, 25%, 0.99);
-//     --button-hover: hsla(0, 0%, 86%, 0.39);
-//     --button-filter: drop-shadow(0.1em 0.08rem 0.08rem rgba(0, 0, 0, 0.22));
-// }
-
-// .theme-startup,
-// .theme-dark {
-//     --image-home: url('../../src/components/componentTools/resources/images/000___home-theme-dark__BACKGROUND.png');
-//     --color-primary: rgba(0, 0, 0, 0.99);
-//     --color-secondary: #2a2c2d;
-//     --color-tertiary: var(--grmj-font-color-3);
-//     --color-quandary: var(--grmj-font-color-5);
-//     --color-quinary: #000;
-//     --color-senary: rgba(0, 0, 0, 0.99);
-//     --color-octonary: #333;
-//     --color-nectary: #bebebe;
-//     --color-denary: #ccc;
-//     --color-nonary: rgba(0, 0, 0, 0.17);
-//     --color-accent: #12cdea;
-//     --font-color: #ffffff;
-//     --button-background: hsla(0, 0%, 41%, 0.99);
-//     --button-background-hover: hsla(212, 62%, 49%, 0.99);
-//     --button-ff: Arial, Helvetica, sans-serif;
-//     --button-color: hsla(0, 0%, 86%, 0.99);
-//     --button-fs: 0.7em;
-//     --button-border: 0.1em ridge hsla(180, 25%, 25%, 0.99);
-//     --button-hover: hsla(90, 100%, 50%, 0.99);
-//     --button-filter: drop-shadow(0.1em 0.08rem 0.08rem rgba(0, 0, 0, 0.22));
-// }

@@ -15,12 +15,22 @@
     },
     "young_man": {
         "military": {
-            "navy": "",
+            "navy": "Operation Specialist",
             "operations_specialist": ""
         },
         "civilian": {
             "back_to_school": "",
-            "musician": ""
+            "musician": [
+                "Ben and Brad were at the carport door when I heard their their knock. I had been fast asleep on the couch.",
+                "I had just arrived home from college classes and having worked the grave yard shift the night before.",
+                "Both of them laughed as they looked at me. You look rough, Ben said. I told him he would too if he had been up all night and in school for half a day.",
+                "Then they offered me a position in their new forming band as the keyboard player.",
+                "My first thoughts were that it would never happen, my parents would definitely think my elevator never reached the top.",
+                "I told them I would think about it and let them know.",
+                "Ben invited me to their first practice in Enterprise Alabama the next day, and that I could drop by when I got out of school.",
+                "I said sure, why not.",
+                "I met them at the Enterprise Music Store and then we went upstairs to the practice room."
+            ]
         },
         "satellite_man": {
             "technician": "",
