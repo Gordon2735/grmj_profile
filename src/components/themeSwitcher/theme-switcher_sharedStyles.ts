@@ -1,6 +1,6 @@
 'use strict';
 
-import { themeSwitcher_sharedStyles } from '../../interfaces/interfaces';
+import { themeSwitcher_sharedStyles } from '../../interfaces/interfaces.js';
 
 const themeSwitcher_sharedStyles = {
     shell: '',

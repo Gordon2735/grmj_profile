@@ -1,6 +1,6 @@
 'use strict';
 
-import { menuNavbar_sharedHTML } from '../../interfaces/interfaces';
+import { menuNavbar_sharedHTML } from '../../interfaces/interfaces.js';
 
 const menuNavbar_sharedHTML = {
     shell: ``,

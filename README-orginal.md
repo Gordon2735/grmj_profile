@@ -121,6 +121,7 @@
 ## --- phase V ---
 
     npm install @handlebars/allow-prototype-access
+    npm install node-fetch
 
 # NPM UNINSTALLS
 

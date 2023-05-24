@@ -26,7 +26,6 @@ import router from './controller/router.js';
 import { error404, error500 } from './controller/routes/appRoutes.js';
 import helper from '../views/helpers/hbsHelpers.js';
 import blogDB from './models/databases/blogDB.js';
-// import { createRequire } from 'module';
 
 /**
  *
@@ -99,7 +98,11 @@ app.use(
 // body-parser...
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(cors());
+app.use(
+    cors({
+        origin: 'http://localhost:9080/landing'
+    })
+);
 openDatabases();
 
 // Handlebars Mapping
@@ -248,4 +251,3 @@ try {
     app.use('/', error404);
     app.use('/', error500);
 }
-// export { environment as default, data };

@@ -314,7 +314,7 @@ export async function historyHandler(
         res.set('Content-Type', 'text/html');
         res.set('target', 'blank');
         res.render('history', {
-            layout: 'main',
+            layout: 'history_main',
             title: 'History-Profile',
             script: [`${historyShellScript}`]
             // stylesheet: [`${historyFontStylesheet}`]

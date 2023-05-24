@@ -9,32 +9,20 @@ import { ProfileHistoryTemplate } from './profile-history_template.js';
 import { profileHistory_sharedStyles } from './profile-history_sharedStyles.js';
 import { profileHistory_sharedHTML } from './profile-history_sharedHTML.js';
 import RegisterComponent from '../componentTools/components_services.js'; // appendChildren // setAttributes,
-import gordonHistory from './json/grmj_history.json' assert { type: 'json' };
-
+// import { readFile } from 'node:fs/promises';
 export class ProfileHistory extends ProfileHistoryTemplate {
     override activateShadowDOM: boolean;
-    // window: (Window & typeof globalThis) | undefined;
-
-    body: HTMLElement | null | undefined;
     setAttributes:
         | ((tag: any, attribute: string | object | any) => void)
         | undefined;
     appendChildren:
         | ((parent: HTMLElement | ShadowRoot | null, children: any[]) => void)
         | undefined;
-    window: (Window & typeof globalThis) | undefined;
-    // page_sweeper: typeof window.module = page_sweeper | undefined;
 
     constructor() {
         super();
 
         this.activateShadowDOM = false;
-
-        // window.page_sweeper;
-
-        const body: HTMLElement | null | undefined =
-            document.getElementById('mainBody');
-        this.body = body;
     }
 
     override async connectedCallback() {
@@ -296,16 +284,32 @@ export class ProfileHistory extends ProfileHistoryTemplate {
             false
         );
 
-        const gordonEarlyYears = JSON.stringify(
-            gordonHistory.early_years
-        ).replace(/^\[|]$/g, '');
+        // const gordonEarlyYears = JSON.stringify(
+        //     gordonHistory.early_years
+        // ).replace(/]|[[]/g, '');
+        // ).replace(/^\[|]$/g, '');
+
+        // const gordonData: string = await fs.readFile(
+        //     './src/components/profileHistory/json/grmj_history.json',
+        //     'utf8'
+        // );
+
+        let contents: any;
+
+        try {
+            const fetchHistory: URL = new URL(
+                './json/grmj_history.json',
+                import.meta.url
+            );
+            contents = await fetch(fetchHistory);
+            console.log(contents.response);
+        } catch (error: unknown) {
+            console.error(`Error reading file from disk: ${error}`);
+        }
 
         const gordonBrief: HTMLElement | null | undefined =
             document.getElementById('briefPara');
-        gordonBrief?.insertAdjacentHTML(
-            'beforeend',
-            gordonEarlyYears.toString()
-        );
+        gordonBrief?.insertAdjacentHTML('beforeend', contents.response);
     }
     override get template() {
         return /*html*/ `

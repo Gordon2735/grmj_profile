@@ -1,4 +1,4 @@
-import { profileBlog_sharedStyles } from '../../interfaces/interfaces';
+import { profileBlog_sharedStyles } from '../../interfaces/interfaces.js';
 
 const profileBlog_sharedStyles = {
     shell: ``,

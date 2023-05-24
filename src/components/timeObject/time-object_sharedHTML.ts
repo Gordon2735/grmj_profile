@@ -1,6 +1,6 @@
 'use strict';
 
-import { timeObject_sharedHTML } from '../../interfaces/interfaces';
+import { timeObject_sharedHTML } from '../../interfaces/interfaces.js';
 
 const timeObject_sharedHTML: timeObject_sharedHTML = {
     shell: ``,

@@ -1,6 +1,6 @@
 'use strict';
 
-import { menuNavbar_sharedStyles } from '../../interfaces/interfaces';
+import { menuNavbar_sharedStyles } from '../../interfaces/interfaces.js';
 
 const menuNavbar_sharedStyles = {
     shell: ``,
