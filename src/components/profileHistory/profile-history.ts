@@ -284,32 +284,121 @@ export class ProfileHistory extends ProfileHistoryTemplate {
             false
         );
 
-        // const gordonEarlyYears = JSON.stringify(
-        //     gordonHistory.early_years
-        // ).replace(/]|[[]/g, '');
-        // ).replace(/^\[|]$/g, '');
+        const fetchDataURL =
+            '/src/components/profileHistory/json/grmj_history.json';
+        let dataObject: any;
 
-        // const gordonData: string = await fs.readFile(
-        //     './src/components/profileHistory/json/grmj_history.json',
-        //     'utf8'
-        // );
+        async function getHistoryData(url: string, data: any): Promise<void> {
+            try {
+                const fetchHistory: URL = new URL(url, import.meta.url);
+                const response = await fetch(fetchHistory);
+                data = await response.json();
+            } catch (error: unknown) {
+                console.error(
+                    `Error handling the 'fetching' of the JSON file: ${await error}`
+                );
+            }
+            try {
+                // Fetch Data Object for History 'early_years' Page and Render for View
+                const earlyYearsPara = document.getElementById(
+                    'early_yearsPara'
+                ) as HTMLParagraphElement | null | undefined;
+                const earlyYears: any = await data.early_years;
+                const earlyYearsTravels: any = await earlyYears.travels;
+                const earlyYearsArmyBrat: any = await earlyYears.army_brat;
+                const earlyYearsTeenager: any = await earlyYears.teenager;
+                const teenagerInterests: any =
+                    await earlyYearsTeenager.interests;
+                const teenagerHobbies: any = await earlyYearsTeenager.hobbies;
+                const teenagerGraduation: any =
+                    await earlyYearsTeenager.graduation;
 
-        let contents: any;
+                const theBeginningText = `The Beginning`;
+                const theBeginning: HTMLHeadingElement | undefined | null =
+                    document.createElement('h3');
+                theBeginning.innerHTML = theBeginningText;
+                theBeginning.className = 'the-beginning';
+                earlyYearsPara?.appendChild(theBeginning);
 
-        try {
-            const fetchHistory: URL = new URL(
-                './json/grmj_history.json',
-                import.meta.url
-            );
-            contents = await fetch(fetchHistory);
-            console.log(contents.response);
-        } catch (error: unknown) {
-            console.error(`Error reading file from disk: ${error}`);
+                const armyBratPara: HTMLParagraphElement | null | undefined =
+                    document.createElement('p');
+                const armyBratText = earlyYearsArmyBrat;
+                armyBratPara.innerHTML = armyBratText;
+                earlyYearsPara?.appendChild(armyBratPara);
+
+                const familyTravels = document.createElement(
+                    'h3'
+                ) as HTMLHeadingElement;
+                const familyTravelsTitle = `Family Travels`;
+                familyTravels.innerHTML = familyTravelsTitle;
+                earlyYearsPara?.appendChild(familyTravels);
+
+                const familyTravelsPara:
+                    | HTMLParagraphElement
+                    | null
+                    | undefined = document.createElement('p');
+                const familyTravelsText = `${earlyYearsTravels}`;
+                familyTravelsPara.innerHTML = familyTravelsText;
+                earlyYearsPara?.appendChild(familyTravelsPara);
+
+                const teenageYears = document.createElement(
+                    'h3'
+                ) as HTMLHeadingElement;
+                const teenageYearsTitle = `Teenage Years`;
+                teenageYears.innerHTML = teenageYearsTitle;
+                earlyYearsPara?.appendChild(teenageYears);
+
+                const teenageYearsPara:
+                    | HTMLParagraphElement
+                    | null
+                    | undefined = document.createElement('p');
+                const teenageYearsText: string[] = [
+                    `Interests: ${await teenagerInterests}`,
+                    `<br />`,
+                    `Hobbies: ${await teenagerGraduation}`,
+                    `<br />`,
+                    `Graduation: ${await teenagerHobbies}`
+                ];
+
+                const teenageTextJoin: string = teenageYearsText.join('\n');
+                teenageYearsPara.innerHTML = teenageTextJoin;
+                earlyYearsPara?.appendChild(teenageYearsPara);
+            } catch (error: unknown) {
+                console.error(
+                    `Error handling the History 'early_years' JSON data: ${await error}`
+                );
+            }
+            try {
+                // Fetch Data Object for History 'young_man' Page and Render for View
+            } catch (error: unknown) {
+                console.error(
+                    `Error handling the History 'young_man' JSON data: ${await error}`
+                );
+            }
+            try {
+                // Fetch Data Object for History 'middle_road' Page and Render for View
+            } catch (error: unknown) {
+                console.error(
+                    `Error handling the History 'middle_road' JSON data: ${await error}`
+                );
+            }
+            try {
+                // Fetch Data Object for History 'career_moves' Page and Render for View
+            } catch (error: unknown) {
+                console.error(
+                    `Error handling the History 'career_moves' JSON data: ${await error}`
+                );
+            }
+            try {
+                // Fetch Data Object for History 'future_plans' Page and Render for View
+            } catch (error: unknown) {
+                console.error(
+                    `Error handling the History 'future_plans' JSON data: ${await error}`
+                );
+            }
+            return await data;
         }
-
-        const gordonBrief: HTMLElement | null | undefined =
-            document.getElementById('briefPara');
-        gordonBrief?.insertAdjacentHTML('beforeend', contents.response);
+        getHistoryData(fetchDataURL, dataObject);
     }
     override get template() {
         return /*html*/ `
@@ -340,6 +429,3 @@ export class ProfileHistory extends ProfileHistoryTemplate {
     }
 }
 RegisterComponent('profile-history', ProfileHistory);
-
-// document.adoptedStyleSheets = [sheet];
-// import sheet from '../../Global/global_fonts.css' assert { type: 'css' };

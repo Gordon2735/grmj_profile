@@ -24,7 +24,7 @@
         // "reactNamespace": "",                             /* Specify the object invoked for 'createElement'. This only applies when targeting 'react' JSX emit. */
         // "noLib": true,                                    /* Disable including any library files, including the default lib.d.ts. */
         // "useDefineForClassFields": true,                  /* Emit ECMAScript-standard-compliant class fields. */
-        // "moduleDetection": "auto",                        /* Control what method is used to detect module-format JS files. */
+        "moduleDetection": "auto" /* Control what method is used to detect module-format JS files. */,
 
         /* Modules */
         "module": "NodeNext" /* Specify what module code is generated. */,
@@ -42,7 +42,9 @@
             "./src/Global/*.*"
         ] /* Allow multiple folders to be treated as one when resolving modules. */,
         // "typeRoots": [],                                  /* Specify multiple folders that act like './node_modules/@types'. */
-        // "types": [],                                      /* Specify type package names to be included without being referenced in a source file. */
+        // "types": [
+        //     ".json"
+        // ] /* Specify type package names to be included without being referenced in a source file. */,
         // "allowUmdGlobalAccess": true,                     /* Allow accessing UMD globals from modules. */
         // "moduleSuffixes": [],                             /* List of file name suffixes to search when resolving a module. */
         "resolveJsonModule": true /* Enable importing .json files. */,
@@ -127,8 +129,11 @@
         "admin/admin_panel.css",
         "src/Global/global_fonts.css",
         "src/resources/font/**/*.ttf",
-        "src/@types/*.ts"
+        "src/@types/*.ts",
+        "src/components/profileHistory/json/grmj_history.json",
+        "src/css/*.css"
     ],
+
     "typedocOptions": {
         "entryPoints": ["./src/**/*.ts", "./src/components/**/*.ts"],
         "plugin": "typedoc-plugin-markdown",

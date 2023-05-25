@@ -278,6 +278,8 @@
     --history-page: hsla(36, 93%, 88%, 0.822);
     --history-page-border-radius: 15px;
     --history-page-hover: hsla(35, 9%, 46%, 0.719);
+    --history-h3-00: hsla(39, 98%, 19%, 0.99);
+    --history-h3-01: hsla(0, 98%, 20%, 0.99);
 }
 
 .theme-startup,
@@ -333,6 +335,8 @@
     --scratchy-darkbrown: var(--color-scratchy-darkbrown);
     --history-page: hsla(36, 27%, 22%, 0.19);
     --history-page-border-radius: 7px;
+    --history-h3-00: hsla(39, 99%, 45%, 0.99);
+    --history-h3-01: hsla(0, 96%, 50%, 0.99);
 }
 
 @font-face {

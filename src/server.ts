@@ -174,10 +174,6 @@ async function openDatabases(): Promise<void> {
     }
 }
 
-// const require: NodeRequire = createRequire(import.meta.url);
-// const data: NodeRequire = require('./src/components/profileHistory/json/grmj_history.json');
-// console.info(data);
-
 // Create Server
 async function createServer(host: string, port: string | 9080): Promise<void> {
     try {

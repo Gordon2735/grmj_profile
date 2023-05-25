@@ -982,7 +982,8 @@ profileHistory_sharedStyles.page_sweeper = /*css*/ `
         filter: var(--scrollbar-filter);
     }
 
-    .layer {        
+    .layer { 
+        padding: 0.5em;       
         text-align: center;
         z-index: 175;
     }
@@ -1001,13 +1002,20 @@ profileHistory_sharedStyles.page_sweeper = /*css*/ `
     }
 
     .layer p {
-        margin: 1.5em auto 0em auto;
-        padding: 0.35em 1.7em 0 1.7em;
+        margin: 0.5em auto 0em auto;
+        padding: 0.35em 0.7em 0 0.7em;
         position: relative;
         font-family: var(--grmj-font-family-1);
         font-size: 16px;
         color: var(--font-color);
         text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+        text-align: justify;
+        text-justify: inter-word;
+        text-indent: 25px;
+        letter-spacing: 0.02em;
+        line-height: 1.3;
+        /*white-space: nowrap;*/
+        word-spacing: 1.75px;
     } 
 
     .layer .open_page-para {
@@ -1037,6 +1045,15 @@ profileHistory_sharedStyles.page_sweeper = /*css*/ `
         padding-top: 1.55em;
         font-size: 1.25em;
         color: var(--font-color-brief);
+    }
+
+    .layer h3 {
+        margin: 1.05em auto 0.15em auto;
+        font-family: 'Finger Paint';
+        font-size: 1.75em;
+        font-style: bold;
+        color: var(--history-h3-00);
+        text-align: center;
     }
 
     .layer.zero {

@@ -74,10 +74,7 @@ profileHistory_sharedHTML.page_sweeper = /*html*/ `
             </article>
             <article id="early_years" class="layer one article-early_years">
                 <h2 id="early_yearsH2" class="articles-h2 early_years-h2">My Early Years</h2>
-                <p id="early_yearsPara" class="early_years-para" data-early="">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Commodi et sunt quo ab nemo, a deleniti, atque, reprehenderit provident dolor vitae iste ullam. Expedita
-                    quaerat, quibusdam corrupti aspernatur libero explicabo!
-                </p>
+                <p id="early_yearsPara" class="early_years-para" data-early="" alias="align"></p>
             </article>
             <article id="young_man" class="layer two article-young_man">
                 <h2 id="young_manH2" class="articles-h2 young_man-h2">Young Man Years</h2>
