@@ -10,7 +10,7 @@ const profileHistory_sharedHTML = {
 };
 
 profileHistory_sharedHTML.shell = /*html*/ `
-	<profile-history id="profileHistory" class="profile-history"></profile-history>
+	<profile-history id="profileHistory" class="profile-history" data-article-layer="zero"></profile-history>
 `;
 
 profileHistory_sharedHTML.history = /*html*/ `
@@ -72,7 +72,7 @@ profileHistory_sharedHTML.page_sweeper = /*html*/ `
                 <p id="open_pagePara" class="open_page-para" data-brief="">A quick glance into the history of Gordon Mullen</p>
                 <p id="briefPara" class="brief-para" data-brief=""></p>
             </article>
-            <article id="early_years" class="layer one article-early_years">
+            <article id="early_years" class="layer one article-early_years" data-early="">
                 <h2 id="early_yearsH2" class="articles-h2 early_years-h2">My Early Years</h2>
                 <p id="early_yearsPara" class="early_years-para" data-early="" alias="align"></p>
             </article>

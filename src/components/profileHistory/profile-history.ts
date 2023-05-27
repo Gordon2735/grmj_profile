@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable prefer-spread */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable prefer-rest-params */
@@ -9,7 +10,6 @@ import { ProfileHistoryTemplate } from './profile-history_template.js';
 import { profileHistory_sharedStyles } from './profile-history_sharedStyles.js';
 import { profileHistory_sharedHTML } from './profile-history_sharedHTML.js';
 import RegisterComponent from '../componentTools/components_services.js'; // appendChildren // setAttributes,
-// import { readFile } from 'node:fs/promises';
 export class ProfileHistory extends ProfileHistoryTemplate {
     override activateShadowDOM: boolean;
     setAttributes:
@@ -23,6 +23,40 @@ export class ProfileHistory extends ProfileHistoryTemplate {
         super();
 
         this.activateShadowDOM = false;
+    }
+
+    override get template() {
+        return /*html*/ `
+
+            ${profileHistory_sharedHTML.history}
+            <style>${profileHistory_sharedStyles.history}</style>
+            
+            ${profileHistory_sharedHTML.page_sweeper}
+            <style>${profileHistory_sharedStyles.page_sweeper}</style>
+
+            ${profileHistory_sharedHTML.footer}
+            <style>${profileHistory_sharedStyles.footer}</style>
+       
+        `;
+    }
+
+    static get observedAttributes(): string[] {
+        return ['zero', 'one', 'two', 'three', 'four', 'five'];
+    }
+
+    public attributeChangedCallback({
+        newValue,
+        oldValue,
+        name
+    }: {
+        newValue: string;
+        oldValue: string;
+        name: string;
+    }): void {
+        console.info(
+            `The Component 'profileHistory' attribute named: ${name}
+                changed to: ${newValue} from: ${oldValue}`
+        );
     }
 
     override async connectedCallback() {
@@ -233,11 +267,11 @@ export class ProfileHistory extends ProfileHistoryTemplate {
         }
 
         // Update the bullets when the layer changes
-        psw.changed.add(function (layer: any, index: any) {
+        psw.changed.add(function (_layer: any, index: any) {
+            articleResolveDataset();
             var bullets: Element[] = Array.from(
                 document.getElementsByTagName('ul')[0].children
             );
-            console.log(layer, index);
 
             const layerReveal: HTMLElement | null =
                 document.querySelector('.reveal');
@@ -249,13 +283,18 @@ export class ProfileHistory extends ProfileHistoryTemplate {
                 index = bullets[i].getAttribute('index');
 
                 bullets[i].className = i === parseInt(index) ? 'active' : '';
-                if (i === index) {
+                if (i == index) {
                     var bullet = bullets[i];
-                    bullet.setAttribute('class', 'active');
+                    bullet.classList.value = 'active';
+                    // bullet.setAttribute('class', 'active');
                 } else {
-                    bullets[i].setAttribute('class', '');
+                    // bullets[i].setAttribute('class', '');
+                    bullets[i].classList.value = '';
                 }
             }
+            const articleDataset = document.getElementById(
+                'profileHistory'
+            ) as HTMLElement;
         });
 
         const leftButton: HTMLElement | null =
@@ -288,7 +327,11 @@ export class ProfileHistory extends ProfileHistoryTemplate {
             '/src/components/profileHistory/json/grmj_history.json';
         let dataObject: any;
 
-        async function getHistoryData(url: string, data: any): Promise<void> {
+        async function getHistoryData(
+            this: any,
+            url: string,
+            data: any
+        ): Promise<void> {
             try {
                 const fetchHistory: URL = new URL(url, import.meta.url);
                 const response = await fetch(fetchHistory);
@@ -399,33 +442,74 @@ export class ProfileHistory extends ProfileHistoryTemplate {
             return await data;
         }
         getHistoryData(fetchDataURL, dataObject);
-    }
-    override get template() {
-        return /*html*/ `
 
-        ${profileHistory_sharedHTML.history}
-        <style>${profileHistory_sharedStyles.history}</style>
-        
-        ${profileHistory_sharedHTML.page_sweeper}
-        <style>${profileHistory_sharedStyles.page_sweeper}</style>
+        async function articleResolveDataset(): Promise<void> {
+            const articleDataset = document.getElementById(
+                'profileHistory'
+            ) as HTMLElement;
 
-        ${profileHistory_sharedHTML.footer}
-        <style>${profileHistory_sharedStyles.footer}</style>
-       
-        `;
-    }
-    static get observedAttributes() {
-        return;
-    }
-    public attributeChangedCallback() {
-        // _newValue: string // _oldValue: string, // name: string,
-        // const currentLocation: HistoryObject = this.historyStack;
-        // console.log(currentLocation);
-        // _oldValue !== _newValue
-        //     ? console.info(`old location: ${_oldValue},
-        // 		${name} has a new location of: ${_newValue}
-        // 		which should be equal to: ${currentLocation}`)
-        //     : console.info(`old location: ${_oldValue}`);
+            const articleDatasetMap: DOMStringMap = articleDataset!.dataset;
+            const datasetValue: any = articleDataset!.dataset.articleLayer;
+
+            const layerClassPageReveal = document.querySelector(
+                '.reveal'
+            ) as HTMLElement;
+
+            const layerRevealClass = layerClassPageReveal.classList;
+
+            switch (true) {
+                case layerRevealClass.contains('zero'): {
+                    articleDatasetMap.articleLayer = 'zero';
+                    console.info(
+                        `The current Component profileHistory dataset value changed to: ${datasetValue} `
+                    );
+                    break;
+                }
+                case layerRevealClass.contains('one'): {
+                    articleDatasetMap.articleLayer = 'one';
+                    console.info(
+                        `The current Component profileHistory dataset value changed to: ${datasetValue} `
+                    );
+                    break;
+                }
+                case layerRevealClass.contains('two'): {
+                    articleDatasetMap.articleLayer = 'two';
+                    console.info(
+                        `The current Component profileHistory dataset value changed to: ${datasetValue} `
+                    );
+                    break;
+                }
+                case layerRevealClass.contains('three'): {
+                    articleDatasetMap.articleLayer = 'three';
+                    console.info(
+                        `The current Component profileHistory dataset value changed to: ${datasetValue} `
+                    );
+                    break;
+                }
+                case layerRevealClass.contains('four'): {
+                    articleDatasetMap.articleLayer = 'four';
+                    console.info(
+                        `The current Component profileHistory dataset value changed to: ${datasetValue} `
+                    );
+                    break;
+                }
+                case layerRevealClass.contains('five'): {
+                    articleDatasetMap.articleLayer = 'five';
+                    console.info(
+                        `The current Component profileHistory dataset value changed to: ${datasetValue} `
+                    );
+                    break;
+                }
+                default: {
+                    articleDatasetMap.articleLayer = 'zero';
+                    console.info(
+                        `The default value is: ${datasetValue}, and the DEFAULT was SWITCHED?`
+                    );
+                    break;
+                }
+            }
+            return;
+        }
     }
 }
 RegisterComponent('profile-history', ProfileHistory);

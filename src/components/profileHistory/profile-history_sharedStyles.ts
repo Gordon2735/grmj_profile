@@ -1022,7 +1022,7 @@ profileHistory_sharedStyles.page_sweeper = /*css*/ `
         padding: 0.35em 0.25em 0.35em 0.25em;
         left: 7%;
         width:85%;
-        font-size: 1.55em;
+        font-size: 1.05em;
         font-style: italic;
         font-weight: 900;
         color: var(--font-color-brief-x);
