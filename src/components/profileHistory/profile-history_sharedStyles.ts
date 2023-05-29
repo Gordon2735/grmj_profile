@@ -1162,6 +1162,16 @@ profileHistory_sharedStyles.page_sweeper = /*css*/ `
         background: rgba(255, 255, 255, 0.8);
     }
 
+    .bullets li.glow {
+        cursor: default;
+        background: chartreuse;
+    }
+
+    .bullets li.glow:hover {
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0.8);
+    }
+
     
     /* Transition Styles */
      .page_sweeper.capable {

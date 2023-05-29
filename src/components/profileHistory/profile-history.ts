@@ -18,6 +18,7 @@ export class ProfileHistory extends ProfileHistoryTemplate {
     appendChildren:
         | ((parent: HTMLElement | ShadowRoot | null, children: any[]) => void)
         | undefined;
+    static dataset: DOMStringMap;
 
     constructor() {
         super();
@@ -40,23 +41,18 @@ export class ProfileHistory extends ProfileHistoryTemplate {
         `;
     }
 
-    static get observedAttributes(): string[] {
-        return ['zero', 'one', 'two', 'three', 'four', 'five'];
+    get article(): any {
+        return this.getAttribute('article');
     }
 
-    public attributeChangedCallback({
-        newValue,
-        oldValue,
-        name
-    }: {
-        newValue: string;
-        oldValue: string;
-        name: string;
-    }): void {
-        console.info(
-            `The Component 'profileHistory' attribute named: ${name}
-                changed to: ${newValue} from: ${oldValue}`
-        );
+    set article(value) {
+        console.info(`Old article value from getter: ${value}`);
+        this.setAttribute('article', value);
+        return;
+    }
+
+    static get observedAttributes() {
+        return ['data-article-layer'];
     }
 
     override async connectedCallback() {
@@ -243,10 +239,11 @@ export class ProfileHistory extends ProfileHistoryTemplate {
 
         // Create one bullet per layer
         for (var i = 0, len = psw.getTotal(); i < len; i++) {
-            var bullet: HTMLLIElement = document.createElement('li');
+            var bullet: HTMLElement | any = document.createElement('li');
+            bullet.setAttribute('data-bullet-li', `${i}`);
 
             setAttributes(bullet, {
-                class: i === 0 ? 'active' : '',
+                class: i === 0 ? 'glow' : '',
                 index: i
             });
 
@@ -267,34 +264,15 @@ export class ProfileHistory extends ProfileHistoryTemplate {
         }
 
         // Update the bullets when the layer changes
-        psw.changed.add(function (_layer: any, index: any) {
+        psw.changed.add(function (_layer: any, _index: any) {
+            // Function for the highlighting of the bullets
             articleResolveDataset();
-            var bullets: Element[] = Array.from(
-                document.getElementsByTagName('ul')[0].children
-            );
 
             const layerReveal: HTMLElement | null =
                 document.querySelector('.reveal');
             const revealClass: string | null | undefined =
                 layerReveal?.getAttribute('class');
             console.log(revealClass);
-
-            for (var i = 0, len = bullets.length; i < len; i++) {
-                index = bullets[i].getAttribute('index');
-
-                bullets[i].className = i === parseInt(index) ? 'active' : '';
-                if (i == index) {
-                    var bullet = bullets[i];
-                    bullet.classList.value = 'active';
-                    // bullet.setAttribute('class', 'active');
-                } else {
-                    // bullets[i].setAttribute('class', '');
-                    bullets[i].classList.value = '';
-                }
-            }
-            const articleDataset = document.getElementById(
-                'profileHistory'
-            ) as HTMLElement;
         });
 
         const leftButton: HTMLElement | null =
@@ -313,14 +291,30 @@ export class ProfileHistory extends ProfileHistoryTemplate {
             event.stopPropagation();
         });
 
-        document.addEventListener(
-            'keyup',
-            function (event: KeyboardEvent) {
-                if (event.location === 37) psw.prev();
-                if (event.location === 39) psw.next();
-                // up & down arrows for scrolling {37: left, 38: up, 39: right, 40: down}
+        window.addEventListener(
+            'keydown',
+            async function (event: KeyboardEvent) {
+                if (event.defaultPrevented) {
+                    return;
+                }
+                switch (event.key) {
+                    case 'ArrowLeft':
+                        {
+                            await psw.prev();
+                        }
+                        break;
+                    case 'ArrowRight':
+                        {
+                            await psw.next();
+                        }
+                        break;
+                    default: {
+                        return;
+                    }
+                }
+                event.preventDefault();
             },
-            false
+            true
         );
 
         const fetchDataURL =
@@ -443,13 +437,12 @@ export class ProfileHistory extends ProfileHistoryTemplate {
         }
         getHistoryData(fetchDataURL, dataObject);
 
-        async function articleResolveDataset(): Promise<void> {
+        const articleResolveDataset = (): Promise<string> => {
             const articleDataset = document.getElementById(
                 'profileHistory'
             ) as HTMLElement;
 
-            const articleDatasetMap: DOMStringMap = articleDataset!.dataset;
-            const datasetValue: any = articleDataset!.dataset.articleLayer;
+            const articleDatasetMap: DOMStringMap = articleDataset.dataset;
 
             const layerClassPageReveal = document.querySelector(
                 '.reveal'
@@ -460,56 +453,114 @@ export class ProfileHistory extends ProfileHistoryTemplate {
             switch (true) {
                 case layerRevealClass.contains('zero'): {
                     articleDatasetMap.articleLayer = 'zero';
-                    console.info(
-                        `The current Component profileHistory dataset value changed to: ${datasetValue} `
-                    );
+                    this.setAttribute('article', 'brief');
                     break;
                 }
                 case layerRevealClass.contains('one'): {
                     articleDatasetMap.articleLayer = 'one';
-                    console.info(
-                        `The current Component profileHistory dataset value changed to: ${datasetValue} `
-                    );
+                    this.setAttribute('article', 'early_years');
                     break;
                 }
                 case layerRevealClass.contains('two'): {
                     articleDatasetMap.articleLayer = 'two';
-                    console.info(
-                        `The current Component profileHistory dataset value changed to: ${datasetValue} `
-                    );
+                    this.setAttribute('article', 'young_man');
                     break;
                 }
                 case layerRevealClass.contains('three'): {
                     articleDatasetMap.articleLayer = 'three';
-                    console.info(
-                        `The current Component profileHistory dataset value changed to: ${datasetValue} `
-                    );
+                    this.setAttribute('article', 'middle_road');
                     break;
                 }
                 case layerRevealClass.contains('four'): {
                     articleDatasetMap.articleLayer = 'four';
-                    console.info(
-                        `The current Component profileHistory dataset value changed to: ${datasetValue} `
-                    );
+                    this.setAttribute('article', 'career_moves');
                     break;
                 }
                 case layerRevealClass.contains('five'): {
                     articleDatasetMap.articleLayer = 'five';
-                    console.info(
-                        `The current Component profileHistory dataset value changed to: ${datasetValue} `
-                    );
+                    this.setAttribute('article', 'future_plans');
                     break;
                 }
                 default: {
                     articleDatasetMap.articleLayer = 'zero';
-                    console.info(
-                        `The default value is: ${datasetValue}, and the DEFAULT was SWITCHED?`
-                    );
+                    this.setAttribute('article', 'brief');
                     break;
                 }
             }
+            const currentDatasetValue: string =
+                articleDatasetMap.articleLayer.valueOf();
+            const articleGetter: any = this.article;
+
+            return currentDatasetValue && articleGetter;
+        };
+    }
+
+    public attributeChangedCallback(
+        _name: string[],
+        _oldValue: string[],
+        newValue: string[]
+    ): void {
+        // eslint-disable-next-line prefer-const
+        let datasetValueModified = '';
+
+        function convertDataset(value: string[], _modifier: string): void {
+            switch (value.toString()) {
+                case 'zero':
+                    {
+                        _modifier = '0';
+                    }
+                    console.info(`ZERO ${_modifier}`);
+                    break;
+                case 'one':
+                    {
+                        _modifier = '1';
+                    }
+                    console.info(`ONE ${_modifier}`);
+                    break;
+                case 'two':
+                    {
+                        _modifier = '2';
+                    }
+                    console.info(`TWO ${_modifier}`);
+                    break;
+                case 'three':
+                    {
+                        _modifier = '3';
+                    }
+                    console.info(`THREE ${_modifier}`);
+                    break;
+                case 'four':
+                    {
+                        _modifier = '4';
+                    }
+                    console.info(`FOUR ${_modifier}`);
+                    break;
+                case 'five':
+                    {
+                        _modifier = '5';
+                    }
+                    console.info(`FIVE ${_modifier}`);
+                    break;
+                default:
+                    {
+                        _modifier = '0';
+                    }
+                    console.info(`DEFAULT ${_modifier}`);
+                    break;
+            }
+            datasetValueModified = _modifier;
+
+            const liBullets: Element[] = Array.from(
+                document.getElementsByTagName('li')
+            );
+            liBullets.map((bullet: any, index: number): void => {
+                datasetValueModified === index.toString()
+                    ? bullet.classList.add('glow')
+                    : bullet.classList.remove('glow');
+            });
             return;
         }
+        convertDataset(newValue, datasetValueModified);
     }
 }
 RegisterComponent('profile-history', ProfileHistory);

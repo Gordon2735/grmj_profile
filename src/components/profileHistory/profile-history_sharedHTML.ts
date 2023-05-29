@@ -10,7 +10,7 @@ const profileHistory_sharedHTML = {
 };
 
 profileHistory_sharedHTML.shell = /*html*/ `
-	<profile-history id="profileHistory" class="profile-history" data-article-layer="zero"></profile-history>
+	<profile-history id="profileHistory" class="profile-history" article="brief" data-article-layer="zero"></profile-history>
 `;
 
 profileHistory_sharedHTML.history = /*html*/ `
