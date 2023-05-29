@@ -294,25 +294,31 @@ export class ProfileHistory extends ProfileHistoryTemplate {
         window.addEventListener(
             'keydown',
             async function (event: KeyboardEvent) {
-                if (event.defaultPrevented) {
-                    return;
-                }
-                switch (event.key) {
-                    case 'ArrowLeft':
-                        {
-                            await psw.prev();
-                        }
-                        break;
-                    case 'ArrowRight':
-                        {
-                            await psw.next();
-                        }
-                        break;
-                    default: {
+                try {
+                    if (event.defaultPrevented) {
                         return;
                     }
+                    switch (event.key) {
+                        case 'ArrowLeft':
+                            {
+                                await psw.prev();
+                            }
+                            break;
+                        case 'ArrowRight':
+                            {
+                                await psw.next();
+                            }
+                            break;
+                        default: {
+                            return;
+                        }
+                    }
+                    event.preventDefault();
+                } catch (error: unknown) {
+                    console.error(
+                        `Error handling the 'keydown' event listener: ${await error}`
+                    );
                 }
-                event.preventDefault();
             },
             true
         );
@@ -437,61 +443,69 @@ export class ProfileHistory extends ProfileHistoryTemplate {
         }
         getHistoryData(fetchDataURL, dataObject);
 
-        const articleResolveDataset = (): Promise<string> => {
-            const articleDataset = document.getElementById(
-                'profileHistory'
-            ) as HTMLElement;
+        const articleResolveDataset = async (): Promise<string> => {
+            try {
+                const articleDataset = document.getElementById(
+                    'profileHistory'
+                ) as HTMLElement;
 
-            const articleDatasetMap: DOMStringMap = articleDataset.dataset;
+                const articleDatasetMap: DOMStringMap = articleDataset.dataset;
 
-            const layerClassPageReveal = document.querySelector(
-                '.reveal'
-            ) as HTMLElement;
+                const layerClassPageReveal = document.querySelector(
+                    '.reveal'
+                ) as HTMLElement;
 
-            const layerRevealClass = layerClassPageReveal.classList;
+                const layerRevealClass = layerClassPageReveal.classList;
 
-            switch (true) {
-                case layerRevealClass.contains('zero'): {
-                    articleDatasetMap.articleLayer = 'zero';
-                    this.setAttribute('article', 'brief');
-                    break;
+                switch (true) {
+                    case layerRevealClass.contains('zero'): {
+                        articleDatasetMap.articleLayer = 'zero';
+                        this.setAttribute('article', 'brief');
+                        break;
+                    }
+                    case layerRevealClass.contains('one'): {
+                        articleDatasetMap.articleLayer = 'one';
+                        this.setAttribute('article', 'early_years');
+                        break;
+                    }
+                    case layerRevealClass.contains('two'): {
+                        articleDatasetMap.articleLayer = 'two';
+                        this.setAttribute('article', 'young_man');
+                        break;
+                    }
+                    case layerRevealClass.contains('three'): {
+                        articleDatasetMap.articleLayer = 'three';
+                        this.setAttribute('article', 'middle_road');
+                        break;
+                    }
+                    case layerRevealClass.contains('four'): {
+                        articleDatasetMap.articleLayer = 'four';
+                        this.setAttribute('article', 'career_moves');
+                        break;
+                    }
+                    case layerRevealClass.contains('five'): {
+                        articleDatasetMap.articleLayer = 'five';
+                        this.setAttribute('article', 'future_plans');
+                        break;
+                    }
+                    default: {
+                        articleDatasetMap.articleLayer = 'zero';
+                        this.setAttribute('article', 'brief');
+                        break;
+                    }
                 }
-                case layerRevealClass.contains('one'): {
-                    articleDatasetMap.articleLayer = 'one';
-                    this.setAttribute('article', 'early_years');
-                    break;
-                }
-                case layerRevealClass.contains('two'): {
-                    articleDatasetMap.articleLayer = 'two';
-                    this.setAttribute('article', 'young_man');
-                    break;
-                }
-                case layerRevealClass.contains('three'): {
-                    articleDatasetMap.articleLayer = 'three';
-                    this.setAttribute('article', 'middle_road');
-                    break;
-                }
-                case layerRevealClass.contains('four'): {
-                    articleDatasetMap.articleLayer = 'four';
-                    this.setAttribute('article', 'career_moves');
-                    break;
-                }
-                case layerRevealClass.contains('five'): {
-                    articleDatasetMap.articleLayer = 'five';
-                    this.setAttribute('article', 'future_plans');
-                    break;
-                }
-                default: {
-                    articleDatasetMap.articleLayer = 'zero';
-                    this.setAttribute('article', 'brief');
-                    break;
-                }
+                const currentDatasetValue: string =
+                    articleDatasetMap.articleLayer.valueOf();
+                const articleGetter: any = this.article;
+
+                return currentDatasetValue && articleGetter;
+            } catch (error: unknown) {
+                console.error(
+                    `Error handling the 'articleResolveDataset' function: ${await error}`
+                );
+
+                return '';
             }
-            const currentDatasetValue: string =
-                articleDatasetMap.articleLayer.valueOf();
-            const articleGetter: any = this.article;
-
-            return currentDatasetValue && articleGetter;
         };
     }
 
@@ -504,61 +518,69 @@ export class ProfileHistory extends ProfileHistoryTemplate {
         let datasetValueModified = '';
 
         function convertDataset(value: string[], _modifier: string): void {
-            switch (value.toString()) {
-                case 'zero':
-                    {
-                        _modifier = '0';
-                    }
-                    console.info(`ZERO ${_modifier}`);
-                    break;
-                case 'one':
-                    {
-                        _modifier = '1';
-                    }
-                    console.info(`ONE ${_modifier}`);
-                    break;
-                case 'two':
-                    {
-                        _modifier = '2';
-                    }
-                    console.info(`TWO ${_modifier}`);
-                    break;
-                case 'three':
-                    {
-                        _modifier = '3';
-                    }
-                    console.info(`THREE ${_modifier}`);
-                    break;
-                case 'four':
-                    {
-                        _modifier = '4';
-                    }
-                    console.info(`FOUR ${_modifier}`);
-                    break;
-                case 'five':
-                    {
-                        _modifier = '5';
-                    }
-                    console.info(`FIVE ${_modifier}`);
-                    break;
-                default:
-                    {
-                        _modifier = '0';
-                    }
-                    console.info(`DEFAULT ${_modifier}`);
-                    break;
-            }
-            datasetValueModified = _modifier;
+            try {
+                switch (value.toString()) {
+                    case 'zero':
+                        {
+                            _modifier = '0';
+                        }
+                        console.info(`ZERO ${_modifier}`);
+                        break;
+                    case 'one':
+                        {
+                            _modifier = '1';
+                        }
+                        console.info(`ONE ${_modifier}`);
+                        break;
+                    case 'two':
+                        {
+                            _modifier = '2';
+                        }
+                        console.info(`TWO ${_modifier}`);
+                        break;
+                    case 'three':
+                        {
+                            _modifier = '3';
+                        }
+                        console.info(`THREE ${_modifier}`);
+                        break;
+                    case 'four':
+                        {
+                            _modifier = '4';
+                        }
+                        console.info(`FOUR ${_modifier}`);
+                        break;
+                    case 'five':
+                        {
+                            _modifier = '5';
+                        }
+                        console.info(`FIVE ${_modifier}`);
+                        break;
+                    default:
+                        {
+                            _modifier = '0';
+                        }
+                        console.info(`DEFAULT ${_modifier}`);
+                        break;
+                }
+                datasetValueModified = _modifier;
 
-            const liBullets: Element[] = Array.from(
-                document.getElementsByTagName('li')
-            );
-            liBullets.map((bullet: any, index: number): void => {
-                datasetValueModified === index.toString()
-                    ? bullet.classList.add('glow')
-                    : bullet.classList.remove('glow');
-            });
-            return;
+                const liBullets: Element[] = Array.from(
+                    document.getElementsByTagName('li')
+                );
+                liBullets.map((bullet: any, index: number): void => {
+                    datasetValueModified === index.toString()
+                        ? bullet.classList.add('glow')
+                        : bullet.classList.remove('glow');
+                });
+                return;
+            } catch (error: unknown) {
+                console.error(
+                    `Error handling the 'convertDataset' function: ${error}`
+                );
+
+                return;
+            }
         }
         convertDataset(newValue, datasetValueModified);
     }
