@@ -136,8 +136,8 @@ profileHistory_sharedHTML.page_sweeper = /*html*/ `
             
             <nav id="bulletNav" class="bullet-nav">
                 <section id="sectionBtn" class="section-btn">
-                    <button id="leftBtn" class="left-btn">&#10096; Prev</button>
-                    <button id="rightBtn" class="right-btn">Next &#10097;</button>
+                    <button id="leftBtn" class="left-btn"><span class="btn-arrow-left">&#10096;</span>&emsp; Prev</button>
+                    <button id="rightBtn" class="right-btn">Next &emsp;<span class="btn-arrow-right">&#10097;</span></button>
                 </section>
 
                 <ul id="bullets" class="bullets"></ul>   

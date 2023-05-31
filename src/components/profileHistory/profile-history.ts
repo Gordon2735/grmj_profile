@@ -519,6 +519,7 @@ export class ProfileHistory extends ProfileHistoryTemplate {
 
         function convertDataset(value: string[], _modifier: string): void {
             try {
+                navBlinkingArrows(newValue);
                 switch (value.toString()) {
                     case 'zero':
                         {
@@ -565,15 +566,23 @@ export class ProfileHistory extends ProfileHistoryTemplate {
                 }
                 datasetValueModified = _modifier;
 
-                const liBullets: Element[] = Array.from(
-                    document.getElementsByTagName('li')
-                );
-                liBullets.map((bullet: any, index: number): void => {
-                    datasetValueModified === index.toString()
-                        ? bullet.classList.add('glow')
-                        : bullet.classList.remove('glow');
-                });
-                return;
+                try {
+                    const liBullets: Element[] = Array.from(
+                        document.getElementsByTagName('li')
+                    );
+                    liBullets.map((bullet: any, index: number): void => {
+                        datasetValueModified === index.toString()
+                            ? bullet.classList.add('glow')
+                            : bullet.classList.remove('glow');
+                    });
+                    return;
+                } catch (error: unknown) {
+                    console.error(
+                        `
+                            Error adding or removing the class of "glow" from the li's bullet: ${error}
+                        `
+                    );
+                }
             } catch (error: unknown) {
                 console.error(
                     `Error handling the 'convertDataset' function: ${error}`
@@ -583,6 +592,25 @@ export class ProfileHistory extends ProfileHistoryTemplate {
             }
         }
         convertDataset(newValue, datasetValueModified);
+
+        // Activate a blinking red right arrow in the right navigation button when layer 5 is active.
+        async function navBlinkingArrows(value: string[]): Promise<void> {
+            try {
+                const nextArrow = document.querySelector('.btn-arrow-right');
+                const five: string[] = [`five`];
+
+                value.toString() !== five.toString()
+                    ? nextArrow?.classList.remove('blink')
+                    : nextArrow?.classList.add('blink');
+            } catch (error: unknown) {
+                console.error(
+                    `
+                        Apparent error with the navBlinkingArrow function: ${await error}
+                    `
+                );
+            }
+            return;
+        }
     }
 }
 RegisterComponent('profile-history', ProfileHistory);

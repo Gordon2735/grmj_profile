@@ -120,7 +120,7 @@ profileHistory_sharedStyles.history = /*css*/ `
         font-size: var(--grmj-font-size-header-1);
         font-weight: var(--grmj-font-weight-4);
         font-style: bold;
-        color: var(--scratchy-blue-header);
+        color: var(--scratchy-blue-header-i);
         filter: var(--filter-dropShadow-4b);
         letter-spacing: var(--grmj-letter-spacing-1a);
     }
@@ -1093,7 +1093,7 @@ profileHistory_sharedStyles.page_sweeper = /*css*/ `
     }
 
     .bullet-nav {
-        margin: 4em auto 0em auto;
+        margin: 4em auto 0em 2.75em;
         position: absolute;
         width: 100%;
         text-align: center;
@@ -1102,7 +1102,7 @@ profileHistory_sharedStyles.page_sweeper = /*css*/ `
     }
 
     .bullet-nav .section-btn {
-        margin: 1em auto 1.15em auto;
+        margin: 1em auto 0.75em auto;
         padding: 0;
         position: relative;
         width: 100%;
@@ -1111,18 +1111,102 @@ profileHistory_sharedStyles.page_sweeper = /*css*/ `
     }
 
     .section-btn .left-btn {
-        padding: 2px;
+        padding: 0px 2.5px;
+        width: 7.5em;
+        height: 2.4em;
+        border: var(--button-border);
+        border-radius: 5.5px 0px 0px 5.5px;
+        filter: var(--button-filter);
+        background-color: var(--button-color-history);
+        font-family: var(--grmj-font-family-1);
+        font-size: 14px;
+        font-weight: bold;
+        color: var(--button-fc-history);
         z-index: 176;
     }
 
     .section-btn .right-btn {
-        padding: 2px;
+        padding: 0px 2.5px;
+        width: 7.5em;
+        height: 2.4em;
+        border: var(--button-border);
+        border-radius: 0px 5.5px 5.5px 0px;
+        filter: var(--button-filter);
+        background-color: var(--button-color-history);
+        font-family: var(--grmj-font-family-1);
+        font-size: 14px;
+        font-weight: bold;
+        color: var(--button-fc-history);
         z-index: 176;
     }
 
-    .left-btn,
-    .right-btn:hover {
+    .section-btn .right-btn:hover {
         cursor: pointer;
+        background-color: var(--button-bg-history-hover);
+        color: var(--button-fc-history-hover)
+    }
+
+    .section-btn .left-btn:hover {
+        cursor: pointer;
+        background-color: var(--button-bg-history-hover);
+        color: var(--button-fc-history-hover)
+    }
+    
+    .section-btn .right-btn:active {
+        color: var(--button-fc-history-hover);
+        box-shadow: var(--button-bs-inset-history-active);
+    }
+
+    .section-btn .left-btn:active {
+        color: var(--button-fc-history-hover);
+        box-shadow: var(--button-bs-inset-history-active);
+    }
+
+    .right-btn .btn-arrow-right {
+        font-family: 'Ruslan Display';
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .right-btn .btn-arrow-right.blink {
+        cursor: default;
+        animation-name: button-right-arrow-blink;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+    }
+
+    @keyframes button-right-arrow-blink {
+        0% {
+            color: hsla(0, 98%, 50%, 0.99);
+        }
+        50% {
+            color: hsla(90, 100%, 50%, 0.99);
+        }
+        100% {
+            color: hsla(0, 98%, 50%, 0.99);
+        }
+    }
+
+    .left-btn .btn-arrow-left {
+        font-family: 'Ruslan Display';
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .right-btn .btn-arrow-right:hover {
+        color: var(--button-fc-history-arrow-hover);
+    }
+
+    .left-btn .btn-arrow-left:hover {
+        color: var(--button-fc-history-arrow-hover);
+    }
+
+    .right-btn .btn-arrow-right:active {
+        color: var(--button-fc-history-active);
+    }
+
+    .left-btn .btn-arrow-left:active {
+        color: var(--button-fc-history-active);
     }
 
     .bullet-nav .bullets {
@@ -1136,9 +1220,11 @@ profileHistory_sharedStyles.page_sweeper = /*css*/ `
     .bullets li {
         margin: 0 3px;
         display: inline-block;
-        width: 20px;
-        height: 20px;
+        width: 25px;
+        height: 25px;
         border-radius: 50%;
+        border: 2px solid rgba(0, 0, 0, 0.8);
+        filter: var(--filter-dropShadow-4b);
 
         background: rgba(255, 255, 255, 0.5);
         box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
@@ -1157,19 +1243,39 @@ profileHistory_sharedStyles.page_sweeper = /*css*/ `
         background: chartreuse;
     }
 
+    
     .bullets li.active:hover {
         cursor: pointer;
         background: rgba(255, 255, 255, 0.8);
     }
-
+    
     .bullets li.glow {
         cursor: default;
         background: chartreuse;
     }
-
+    
     .bullets li.glow:hover {
         cursor: pointer;
         background: rgba(255, 255, 255, 0.8);
+    }
+
+    .bullets [data-bullet-li="5"].glow {
+        cursor: default;
+        animation-name: bullet-5-blink;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+    }
+
+    @keyframes bullet-5-blink {
+        0% {
+            background: hsla(0, 98%, 50%, 0.99);
+        }
+        50% {
+            background: hsla(90, 100%, 50%, 0.99);
+        }
+        100% {
+            background: hsla(0, 98%, 50%, 0.99);
+        }
     }
 
     
@@ -1455,7 +1561,7 @@ profileHistory_sharedStyles.page_sweeper = /*css*/ `
 profileHistory_sharedStyles.footer = /*css*/ `
 
     .history-footer {
-        margin: 1em auto 0em auto;
+        margin: 1em auto 0em 2.5em;
         position: absolute;
         display: inline-block;
         width: 100%;
