@@ -341,6 +341,7 @@ export class ProfileHistory extends ProfileHistoryTemplate {
                     `Error handling the 'fetching' of the JSON file: ${await error}`
                 );
             }
+            young_manRenderData(data);
             try {
                 // Fetch Data Object for History 'early_years' Page and Render for View
                 const earlyYearsPara = document.getElementById(
@@ -411,13 +412,47 @@ export class ProfileHistory extends ProfileHistoryTemplate {
                     `Error handling the History 'early_years' JSON data: ${await error}`
                 );
             }
-            try {
-                // Fetch Data Object for History 'young_man' Page and Render for View
-            } catch (error: unknown) {
-                console.error(
-                    `Error handling the History 'young_man' JSON data: ${await error}`
-                );
+            // Fetch Data Object for History 'young_man' Page and Render for View
+            async function young_manRenderData(getData: any): Promise<void> {
+                try {
+                    const sectionYoungMan = document.getElementById(
+                        'young_manSection'
+                    ) as HTMLElement;
+
+                    const young_manData: any = await getData.young_man;
+                    const militaryService: any = await young_manData.military;
+                    const civilian: any = await young_manData.civilian;
+                    const satelliteMan: any = await young_manData.satellite_man;
+
+                    sectionYoungMan.innerHTML = /*html*/ `
+
+                            <h3 id="militaryServiceH3" class="military-service-h3">Military Service</h3>
+                            <h4 id="navyH4" class="navy-h4">US Navy</h4>
+                            <p id="navyPara" class="navy-para">${await militaryService.navy}</p>
+                            <p id="operations_specialistPara" class="operations-specialist-para">
+                                ${await militaryService.operations_specialist}
+                            </p>
+                            
+                            <h3 id="postMilitaryH3" class="post-military-h3">Post Military</h3>
+                            <h4 id="back_to_schoolH4" class="back-to-school-h4">Back to School</h4>
+                            <p id="back_to_schoolPara" class="back-to-school-para">${await civilian.back_to_school}</p>
+                            <h4 id="musicianH4" class="musician-h4">Musician</h4>
+                            <p id="musicianPara" class="musician-para">${await civilian.musician}</p>
+
+                            <h3 id="satellite_manH3" class="satellite_man-h3">Satellite Man</h3>
+                            <h4 id="electronic_techH4" class="electronic-tech-h4">Electronic Technician</h4>
+                            <p id="electronic_techPara" class="electronic-tech-para">${await satelliteMan.electronics_tech}</p>
+                            <h4 id="growing_knowledgeH4" class="growing_knowledge-h4">Growing Knowledge</h4>
+                            <p id="growing_knowledgePara" class="growing_knowledge-para">${await satelliteMan.growing_knowledge}</p>
+
+                        `;
+                } catch (error: unknown) {
+                    console.error(
+                        `Error handling the History 'young_man' JSON data: ${await error}`
+                    );
+                }
             }
+
             try {
                 // Fetch Data Object for History 'middle_road' Page and Render for View
             } catch (error: unknown) {

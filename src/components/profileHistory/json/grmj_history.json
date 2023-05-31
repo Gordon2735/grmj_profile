@@ -89,10 +89,22 @@
     "young_man": {
         "military": {
             "navy": "Operation Specialist",
-            "operations_specialist": ""
+            "operations_specialist": [
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum modi, repellat a in culpa, vitae cumque odit! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum",
+                "modi, repellat a in culpa, vitae cumque odit!Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+                "Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum",
+                "modi, repellat a in culpa, vitae cumque odit!   Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum",
+                "modi, repellat a in culpa, vitae cumque odit!"
+            ]
         },
         "civilian": {
-            "back_to_school": "",
+            "back_to_school": [
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum modi, repellat a in culpa, vitae cumque odit! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum",
+                "modi, repellat a in culpa, vitae cumque odit!Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+                "Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum",
+                "modi, repellat a in culpa, vitae cumque odit!   Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum",
+                "modi, repellat a in culpa, vitae cumque odit!"
+            ],
             "musician": [
                 "Ben and Brad were at the carport door when I heard their their knock. I had been fast asleep on the couch.",
                 "I had just arrived home from college classes and having worked the grave yard shift the night before.",
@@ -106,10 +118,20 @@
             ]
         },
         "satellite_man": {
-            "technician": "",
-            "electronics": "",
-            "tv_repairman": "",
-            "growing_knowledge": ""
+            "electronics_tech": [
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum modi, repellat a in culpa, vitae cumque odit! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum",
+                "modi, repellat a in culpa, vitae cumque odit!Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+                "Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum",
+                "modi, repellat a in culpa, vitae cumque odit!   Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum",
+                "modi, repellat a in culpa, vitae cumque odit!"
+            ],
+            "growing_knowledge": [
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum modi, repellat a in culpa, vitae cumque odit! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum",
+                "modi, repellat a in culpa, vitae cumque odit!Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+                "Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum",
+                "modi, repellat a in culpa, vitae cumque odit!   Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum",
+                "modi, repellat a in culpa, vitae cumque odit!"
+            ]
         }
     },
     "middle_road": {
