@@ -82,7 +82,7 @@
         ],
         "teenager": {
             "interests": "A kind of different teenager!",
-            "Hobbies": "Piano, Keyboard, Synthesizer, and Organ || No Home Computers in the day.",
+            "hobbies": "Piano, Keyboard, Synthesizer, and Organ || No Home Computers in the day.",
             "graduation": "Carroll High School, Ozark, Alabama"
         }
     },
@@ -144,16 +144,18 @@
                 "modi, repellat a in culpa, vitae cumque odit!   Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum",
                 "modi, repellat a in culpa, vitae cumque odit!"
             ],
-            "song_leader": "",
-            "preacher": "",
-            "pastor": ""
+            "leadership": ["song_leader", "preacher", "pastor"]
         },
         "marriage": {
-            "wife": "",
-            "children": "",
-            "husband": "",
-            "father": "",
-            "busy": ""
+            "wife": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum modi, repellat a in culpa, vitae cumque odit! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum",
+            "children": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum modi, repellat a in culpa, vitae cumque odit! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum",
+            "busy_roles": [
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum modi, repellat a in culpa, vitae cumque odit! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum",
+                "modi, repellat a in culpa, vitae cumque odit!Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+                "Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum",
+                "modi, repellat a in culpa, vitae cumque odit!   Quis dolorem reiciendis, vero minus laudantium odio similique vitae. Molestiae voluptate cum hic earum",
+                "modi, repellat a in culpa, vitae cumque odit!"
+            ]
         }
     },
     "career_moves": {
@@ -169,8 +171,7 @@
     "future_plans": {
         "current_status": "",
         "goals": "",
-        "options": "",
-        "studies": "",
+        "studies_options": "",
         "appreciations": ""
     }
 }

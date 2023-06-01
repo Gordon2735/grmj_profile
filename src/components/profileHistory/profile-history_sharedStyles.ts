@@ -989,7 +989,7 @@ profileHistory_sharedStyles.page_sweeper = /*css*/ `
     }
 
     .layer h2 {
-        margin: 1.2em auto 0.5em auto;
+        margin: 0.2em auto 0.11em auto;
         font-family: 'Finger Paint';
         position: relative;
         font-size: 2.25em;
@@ -1002,11 +1002,11 @@ profileHistory_sharedStyles.page_sweeper = /*css*/ `
     }
 
     .layer p {
-        margin: 0.5em auto 0em auto;
+        margin: 0.25em auto 0em auto;
         padding: 0.35em 0.7em 0 0.7em;
         position: relative;
         font-family: var(--grmj-font-family-1);
-        font-size: 16px;
+        font-size: 14px;
         color: var(--font-color);
         text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
         text-align: justify;
@@ -1019,13 +1019,15 @@ profileHistory_sharedStyles.page_sweeper = /*css*/ `
     } 
 
     .layer .open_page-para {
-        padding: 0.35em 0.25em 0.35em 0.25em;
-        left: 7%;
-        width:85%;
-        font-size: 1.05em;
+        padding: 0.25em auto 0.15em auto;
+        left: 5.5%;
+        width: 90%;
+        font-size: 0.95em;
         font-style: italic;
-        font-weight: 900;
+        font-weight: 700;
         color: var(--font-color-brief-x);
+        letter-spacing: 0.2em;
+        text-align: center;
         text-shadow: 1px 1px 2px var(--font-color-brief-shadow);
         background:
             linear-gradient(var(--font-color-brief-bg-0), transparent),
@@ -1036,24 +1038,75 @@ profileHistory_sharedStyles.page_sweeper = /*css*/ `
         background-size: cover; 
         background-repeat: no-repeat;
         border-radius: var(--history-page-border-radius);
-        filter: var(--filter-dropShadow-4b);
+        filter: var(--grmj-filter-dropShadow-10);
         z-index: 220;
     }
     
-    .layer .brief-para {
-        margin: 2.25em auto 0em auto;
-        padding-top: 1.55em;
-        font-size: 1.25em;
+    .layer .brief-figure {
+        margin: 1.75em auto 0em auto;
+        padding-top: 1em;
+        font-size: 0.75em;
         color: var(--font-color-brief);
     }
+    
+    .brief-figure .brief-img {
+        aspect-ratio: 110 / 83;
+        width: 360px;
+        border-radius: 8px;
+        filter: var(--grmj-filter-dropShadow-10);
+        opacity: 0.5;
+    }
+
+    .brief-figure .brief-figcaption {
+        z-index: 200;
+    }
+
+    .brief-figcaption .brief-h4 {
+        margin: 0.4em auto 0em auto;
+        padding: 0;
+        font-size: 1.45em;
+        font-weight: 200;
+        font-style: italic;
+        color: var(--font-color);
+        letter-spacing: 0.175em;
+        text-align: center;
+    }
+
+    .brief-figcaption .brief-h3 {
+        margin: 0.311em auto 0em auto;
+        font-family: 'Finger Paint';
+        font-size: 1.75em;
+        font-style: bold;
+        color: var(--font-color);
+        letter-spacing: 0.2em;
+        text-align: center;
+        text-shadow: 1.5px 1.5px 2px rgba(0, 0, 0, 0.7);
+    }
+
 
     .layer h3 {
-        margin: 1.05em auto 0.15em auto;
+        margin: 0.5em auto 0.15em auto;
         font-family: 'Finger Paint';
         font-size: 1.75em;
         font-style: bold;
         color: var(--history-h3-00);
         text-align: center;
+        text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.6);
+    }
+
+    .layer h4 {
+        margin: 1.75em 1em 0.25em 1.25em;
+        font-family: var(--grmj-font-family-1);
+        font-size: 1.25em;
+        font-style: bold;
+        color: var(--font-color-brief-x);
+        text-align: left;
+    }
+
+    h4 u {
+        text-decoration-line: underline;
+        font-weight: 900;
+        color: var(--font-color-brief-x);
     }
 
     .layer.zero {

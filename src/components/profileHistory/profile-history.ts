@@ -336,81 +336,48 @@ export class ProfileHistory extends ProfileHistoryTemplate {
                 const fetchHistory: URL = new URL(url, import.meta.url);
                 const response = await fetch(fetchHistory);
                 data = await response.json();
+                // Find a way to change the data from an "any" type to a "JSON" type
             } catch (error: unknown) {
                 console.error(
                     `Error handling the 'fetching' of the JSON file: ${await error}`
                 );
             }
-            young_manRenderData(data);
-            try {
-                // Fetch Data Object for History 'early_years' Page and Render for View
-                const earlyYearsPara = document.getElementById(
-                    'early_yearsPara'
-                ) as HTMLParagraphElement | null | undefined;
-                const earlyYears: any = await data.early_years;
-                const earlyYearsTravels: any = await earlyYears.travels;
-                const earlyYearsArmyBrat: any = await earlyYears.army_brat;
-                const earlyYearsTeenager: any = await earlyYears.teenager;
-                const teenagerInterests: any =
-                    await earlyYearsTeenager.interests;
-                const teenagerHobbies: any = await earlyYearsTeenager.hobbies;
-                const teenagerGraduation: any =
-                    await earlyYearsTeenager.graduation;
+            await early_yearsRenderData(data);
+            await young_manRenderData(data);
+            await middle_roadRenderData(data);
+            await career_movesRenderData(data);
+            await future_plansRenderData(data);
 
-                const theBeginningText = `The Beginning`;
-                const theBeginning: HTMLHeadingElement | undefined | null =
-                    document.createElement('h3');
-                theBeginning.innerHTML = theBeginningText;
-                theBeginning.className = 'the-beginning';
-                earlyYearsPara?.appendChild(theBeginning);
+            async function early_yearsRenderData(getData: any): Promise<void> {
+                try {
+                    // Fetch Data Object for History 'early_years' Page and Render for View
+                    const sectionEarlyYears = document.getElementById(
+                        'early_yearsSection'
+                    ) as HTMLParagraphElement;
 
-                const armyBratPara: HTMLParagraphElement | null | undefined =
-                    document.createElement('p');
-                const armyBratText = earlyYearsArmyBrat;
-                armyBratPara.innerHTML = armyBratText;
-                earlyYearsPara?.appendChild(armyBratPara);
+                    const early_yearsData: any = await getData.early_years;
+                    const teenagerData: any = await early_yearsData.teenager;
 
-                const familyTravels = document.createElement(
-                    'h3'
-                ) as HTMLHeadingElement;
-                const familyTravelsTitle = `Family Travels`;
-                familyTravels.innerHTML = familyTravelsTitle;
-                earlyYearsPara?.appendChild(familyTravels);
+                    sectionEarlyYears.innerHTML = /*html*/ `
 
-                const familyTravelsPara:
-                    | HTMLParagraphElement
-                    | null
-                    | undefined = document.createElement('p');
-                const familyTravelsText = `${earlyYearsTravels}`;
-                familyTravelsPara.innerHTML = familyTravelsText;
-                earlyYearsPara?.appendChild(familyTravelsPara);
+                            <h3 id="army_bratH3" class="army_brat-h3">Army Brat</h3>
+                            <p id="army_bratP" class="army_brat-p">${await early_yearsData.army_brat}</p>
+                            <h3 id="travelsH3" class="travels-h3">Family Travels</h3>
+                            <p id="travelsP" class="travels-p">${await early_yearsData.travels}</p>
+                            <h3 id="teenagerH3" class="teenager-h3">Teenager</h3>
+                            <h4 id="interestsH4" class="interests-h4">Interests</h4>
+                            <p id="interestsPara" class="interests-para">${await teenagerData.interests}</p>
+                            <h4 id="hobbiesH4" class="hobbies-h4">Hobbies</h4>
+                            <p id="hobbiesPara" class="hobbies-para">${await teenagerData.hobbies}</p>
+                            <h4 id="graduationH4" class="graduation-h4">High School Graduation</h4>
+                            <p id="graduationPara" class="graduation-para">${await teenagerData.graduation}</p>
 
-                const teenageYears = document.createElement(
-                    'h3'
-                ) as HTMLHeadingElement;
-                const teenageYearsTitle = `Teenage Years`;
-                teenageYears.innerHTML = teenageYearsTitle;
-                earlyYearsPara?.appendChild(teenageYears);
-
-                const teenageYearsPara:
-                    | HTMLParagraphElement
-                    | null
-                    | undefined = document.createElement('p');
-                const teenageYearsText: string[] = [
-                    `Interests: ${await teenagerInterests}`,
-                    `<br />`,
-                    `Hobbies: ${await teenagerGraduation}`,
-                    `<br />`,
-                    `Graduation: ${await teenagerHobbies}`
-                ];
-
-                const teenageTextJoin: string = teenageYearsText.join('\n');
-                teenageYearsPara.innerHTML = teenageTextJoin;
-                earlyYearsPara?.appendChild(teenageYearsPara);
-            } catch (error: unknown) {
-                console.error(
-                    `Error handling the History 'early_years' JSON data: ${await error}`
-                );
+                    `;
+                } catch (error: unknown) {
+                    console.error(
+                        `Error handling the History 'early_years' JSON data: ${await error}`
+                    );
+                }
             }
             // Fetch Data Object for History 'young_man' Page and Render for View
             async function young_manRenderData(getData: any): Promise<void> {
@@ -420,59 +387,141 @@ export class ProfileHistory extends ProfileHistoryTemplate {
                     ) as HTMLElement;
 
                     const young_manData: any = await getData.young_man;
-                    const militaryService: any = await young_manData.military;
-                    const civilian: any = await young_manData.civilian;
-                    const satelliteMan: any = await young_manData.satellite_man;
+                    const militaryServiceData: any =
+                        await young_manData.military;
+                    const civilianData: any = await young_manData.civilian;
+                    const satelliteManData: any =
+                        await young_manData.satellite_man;
 
                     sectionYoungMan.innerHTML = /*html*/ `
 
                             <h3 id="militaryServiceH3" class="military-service-h3">Military Service</h3>
-                            <h4 id="navyH4" class="navy-h4">US Navy</h4>
-                            <p id="navyPara" class="navy-para">${await militaryService.navy}</p>
+                            <h4 id="navyH4" class="navy-h4"><u>US Navy</u></h4>
+                            <p id="navyPara" class="navy-para">${await militaryServiceData.navy}</p>
                             <p id="operations_specialistPara" class="operations-specialist-para">
-                                ${await militaryService.operations_specialist}
+                                ${await militaryServiceData.operations_specialist}
                             </p>
                             
                             <h3 id="postMilitaryH3" class="post-military-h3">Post Military</h3>
-                            <h4 id="back_to_schoolH4" class="back-to-school-h4">Back to School</h4>
-                            <p id="back_to_schoolPara" class="back-to-school-para">${await civilian.back_to_school}</p>
-                            <h4 id="musicianH4" class="musician-h4">Musician</h4>
-                            <p id="musicianPara" class="musician-para">${await civilian.musician}</p>
+                            <h4 id="back_to_schoolH4" class="back-to-school-h4"><u>Back to School</u></h4>
+                            <p id="back_to_schoolPara" class="back-to-school-para">${await civilianData.back_to_school}</p>
+                            <h4 id="musicianH4" class="musician-h4"><u>Musician</u></h4>
+                            <p id="musicianPara" class="musician-para">${await civilianData.musician}</p>
 
                             <h3 id="satellite_manH3" class="satellite_man-h3">Satellite Man</h3>
-                            <h4 id="electronic_techH4" class="electronic-tech-h4">Electronic Technician</h4>
-                            <p id="electronic_techPara" class="electronic-tech-para">${await satelliteMan.electronics_tech}</p>
-                            <h4 id="growing_knowledgeH4" class="growing_knowledge-h4">Growing Knowledge</h4>
-                            <p id="growing_knowledgePara" class="growing_knowledge-para">${await satelliteMan.growing_knowledge}</p>
+                            <h4 id="electronic_techH4" class="electronic-tech-h4"><u>Electronic Technician</u></h4>
+                            <p id="electronic_techPara" class="electronic-tech-para">${await satelliteManData.electronics_tech}</p>
+                            <h4 id="growing_knowledgeH4" class="growing_knowledge-h4"><u>Growing Knowledge</u></h4>
+                            <p id="growing_knowledgePara" class="growing_knowledge-para">${await satelliteManData.growing_knowledge}</p>
 
-                        `;
+                    `;
                 } catch (error: unknown) {
                     console.error(
                         `Error handling the History 'young_man' JSON data: ${await error}`
                     );
                 }
             }
+            async function middle_roadRenderData(getData: any): Promise<void> {
+                try {
+                    // Fetch Data Object for History 'middle_road' Page and Render for View
+                    const sectionMiddleRoad = document.getElementById(
+                        'middle_roadSection'
+                    ) as HTMLElement;
 
-            try {
-                // Fetch Data Object for History 'middle_road' Page and Render for View
-            } catch (error: unknown) {
-                console.error(
-                    `Error handling the History 'middle_road' JSON data: ${await error}`
-                );
+                    const middle_roadData: any = await getData.middle_road;
+                    const description: any = await middle_roadData.description;
+                    const ministryData: any = await middle_roadData.ministry;
+                    const marriageData: any = await middle_roadData.marriage;
+
+                    sectionMiddleRoad.innerHTML = /*html*/ `
+
+                            <h3 id="descriptionH3" class="description-h3">Lordy, Lordy, Gordie's almost Forty</h3>
+                            <p id="descriptionPara" class="description-para">${await description}</p>
+
+                            <h3 id="ministryH3" class="ministry-h3">Into the Ministry</h3>
+                            <h4 id="churchH4" class="church-h4"><u>Life in the Church</u></h4> 
+                            <p id="churchPara" class="church-para">${await ministryData.church}</p>
+                            <h4 id="leadershipH4" class="leadership-h4"><u>Leadership Positions in the Church</u></h4>
+                            <p id="leadershipPara" class="leadership-para">${await ministryData.leadership}</p>
+
+                            <h3 id="marriageH3" class="marriage-h3">Marriage</h3>
+                            <h4 id="wifeH4" class="wife-h4"><u>Gordon's Wife Donna(a Lady)</u></h4>
+                            <p id="wifePara" class="wife-para">${await marriageData.wife}</p>
+                            <h4 id="childrenH4" class="children-h4"><u>Children</u></h4>
+                            <p id="childrenPara" class="children-para">${await marriageData.children}</p>
+                            <h4 id="busy_rolesH4" class="busy-roles-h4"><u>Fulfilling Various Busy Roles</u></h4>
+                            <p id="busy_rolesPara" class="busy-roles-para">${await marriageData.busy_roles}</p>
+
+                    `;
+                } catch (error: unknown) {
+                    console.error(
+                        `Error handling the History 'middle_road' JSON data: ${await error}`
+                    );
+                }
             }
-            try {
-                // Fetch Data Object for History 'career_moves' Page and Render for View
-            } catch (error: unknown) {
-                console.error(
-                    `Error handling the History 'career_moves' JSON data: ${await error}`
-                );
+            async function career_movesRenderData(getData: any): Promise<void> {
+                try {
+                    // Fetch Data Object for History 'career_moves' Page and Render for View
+                    const sectionCareerMoves = document.getElementById(
+                        'career_movesSection'
+                    ) as HTMLElement;
+
+                    const career_movesData: any = await getData.career_moves;
+                    const careerData: any =
+                        await career_movesData.business_owner;
+
+                    sectionCareerMoves.innerHTML = /*html*/ `
+
+                            <h3 id="business_ownerH3" class="business-owner-h3">Business/Operator/Owner</h3>
+
+                            <h4 id="c_bar_cH4" class="c-bar-c-h4"><u>C Bar C</u></h4>
+                            <p id="c_bar_cPara" class="c-bar-c-para">${await careerData.c_bar_c}</p>
+                            <h4 id="lakeside_satelliteH4" class="lakeside_satellite-h4"><u>LakeSide Satellite/VCR/Computers</u></h4>
+                            <p id="lakeside_satellitePara" class="lakeside_satellite-para">${await careerData.lakeside_satellite}</p>
+                            <h4 id="digiworldH4" class="digiworld-h4"><u>DigiWorld</u></h4>
+                            <p id="digiworldPara" class="digiworld-para">${await careerData.digiworld}</p>
+                            <h4 id="az_handyworksH4" class="az_handyworks-h4"><u>A-Z HandyWorks</u></h4>
+                            <p id="az_handyworksPara" class="az_handyworks-para">${await careerData.az_handyworks}</p>
+                            <h4 id="gordons_hvacH4" class="gordons_hvac-h4"><u>Gordon's Heating & Cooling, HVAC</u></h4>
+                            <p id="gordons_hvacPara" class="gordons_hvac-para">${await careerData.gordons_hvac}</p>
+                            <h4 id="webelisticsH4" class="webelistics-h4"><u>Team Webelistics®️</u></h4>
+                            <p id="webelisticsPara" class="webelistics-para">${await careerData.webelistics}</p>
+
+                    `;
+                } catch (error: unknown) {
+                    console.error(
+                        `Error handling the History 'career_moves' JSON data: ${await error}`
+                    );
+                }
             }
-            try {
-                // Fetch Data Object for History 'future_plans' Page and Render for View
-            } catch (error: unknown) {
-                console.error(
-                    `Error handling the History 'future_plans' JSON data: ${await error}`
-                );
+            async function future_plansRenderData(getData: any): Promise<void> {
+                try {
+                    // Fetch Data Object for History 'future_plans' Page and Render for View
+                    const sectionFuturePlans = document.getElementById(
+                        'future_plansSection'
+                    ) as HTMLElement;
+
+                    const future_plansData: any = await getData.future_plans;
+
+                    sectionFuturePlans.innerHTML = /*html*/ `
+
+                            <h3 id="future_plansH3" class="future-plans-h3">Future Plans</h3>
+
+                            <h4 id="current_statusH4" class="current-status-h4"><u>Current Status</u></h4>
+                            <p id="current_statusPara" class="current-status-para">${await future_plansData.current_status}</p>
+                            <h4 id="goalsH4" class="goals-h4"><u>Goals</u></h4>
+                            <p id="goalsPara" class="goals-para">${await future_plansData.goals}</p>
+                            <h4 id="studies_optionsH4" class="studies_options-h4"><u>Studies & Options</u></h4>
+                            <p id="studies_optionsPara" class="studies_options-para">${await future_plansData.studies_options}</p>
+                            <h4 id="appreciationsH4" class="appreciations-h4"><u>Appreciations</u></h4>
+                            <p id="appreciationsPara" class="appreciations-para">${await future_plansData.appreciations}</p>
+
+                    `;
+                } catch (error: unknown) {
+                    console.error(
+                        `Error handling the History 'future_plans' JSON data: ${await error}`
+                    );
+                }
             }
             return await data;
         }

@@ -109,6 +109,7 @@
     --grmj-filter-dropShadow-7: drop-Shadow(0px 0.2rem 0.65rem hsla(358, 71%, 53%, 0.49));
     --grmj-filter-dropShadow-8: drop-Shadow(0px 0.2rem 0.65rem hsla(0, 0%, 0%, 0.29));
     --grmj-filter-dropShadow-9: drop-Shadow(0.7rem 0.9rem 0.55rem hsla(0, 0%, 0%, 0.29));
+    --grmj-filter-dropShadow-10: drop-Shadow(0.3rem 0.5rem 1.55rem hsla(0, 0%, 0%, 0.49));
 
     /*Letter Spacing*/
     --grmj-letter-spacing-1: 0.1em;
