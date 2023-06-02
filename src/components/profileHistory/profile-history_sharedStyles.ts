@@ -396,8 +396,8 @@ profileHistory_sharedStyles.history = /*css*/ `
 
     .history-figure-g-hannah:hover .h3-gordon-hannah {
         opacity: 0.9;
-    }    
-
+    } 
+ 
     @media screen and (max-width: 1230px) {
 
         .history-header .h1-brief {
@@ -1330,7 +1330,64 @@ profileHistory_sharedStyles.page_sweeper = /*css*/ `
             background: hsla(0, 98%, 50%, 0.99);
         }
     }
+       
+    @media screen and (max-width: 1420px) {
+        .layer .open_page-para {
+            font-size: 0.90em;
+        }
 
+        .layer .brief-figure {
+            font-size: 0.70em;
+        }
+        
+        .brief-figure .brief-img {
+            width: 330px;
+        }
+    
+        .brief-figure .brief-figcaption {
+            z-index: 200;
+        }
+    
+        .brief-figcaption .brief-h4 {
+            font-size: 1.35em;
+        }
+    
+        .brief-figcaption .brief-h3 {
+            font-size: 1.65em;
+        }
+    }
+    
+    @media screen and (max-width: 1000px) {
+        .brief-figcaption .brief-h3 {
+            font-size: 1.35em;
+        }
+    }
+
+    @media screen and (max-width: 680px) {
+        .layer .open_page-para {
+            font-size: 0.70em;
+        }
+
+        .layer .brief-figure {
+            font-size: 0.55em;
+        }
+        
+        .brief-figure .brief-img {
+            width: 270px;
+        }
+    
+        .brief-figure .brief-figcaption {
+            z-index: 200;
+        }
+    
+        .brief-figcaption .brief-h4 {
+            font-size: 1.05em;
+        }
+    
+        .brief-figcaption .brief-h3 {
+            font-size: 1.25em;
+        }
+    }
     
     /* Transition Styles */
      .page_sweeper.capable {
