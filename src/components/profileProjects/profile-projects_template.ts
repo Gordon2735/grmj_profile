@@ -3,7 +3,7 @@
 
 export class ProjectsTemplate extends HTMLElement {
     activateShadowDOM = false as boolean;
-    root: ShadowRoot | null = this.shadowRoot;
+    root = this.shadowRoot as ShadowRoot;
 
     public get template(): string {
         return this.template;
@@ -22,7 +22,7 @@ export class ProjectsTemplate extends HTMLElement {
             this.innerHTML = template || this.template;
             return;
         } else {
-            this.root!.innerHTML = template || this.template;
+            this.root.innerHTML = template || this.template;
             return;
         }
     }

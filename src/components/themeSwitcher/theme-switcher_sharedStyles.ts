@@ -38,7 +38,7 @@ themeSwitcher_sharedStyles.switcher = /* css */ `
             flex-direction: row;
             justify-content: center;
             align-items: center;
-            z-index: 1;
+            z-index: 10;
         }
 
         .container-theme .h1-theme {

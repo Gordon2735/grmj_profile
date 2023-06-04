@@ -3,15 +3,14 @@
 import { profileProjects_sharedHTML } from '../../interfaces/interfaces.js';
 
 const profileProjects_sharedHTML = {
-  shell: ``,
-  projects: ``,
-  slide: ``,
-  footerWC: ``,
-  footer: ``,
+    shell: ``,
+    projects: ``,
+    footerWC: ``,
+    footer: ``
 };
 
 profileProjects_sharedHTML.shell = /*html*/ `
-	<profile-projects id="profileProjects" class="profile-projects"></profile-projects>
+	<profile-projects id="profileProjects" class="profile-projects" state="rest" data-project-page="0"></profile-projects>
 		
 	
 `;
@@ -52,10 +51,6 @@ profileProjects_sharedHTML.projects = /*html*/ `
 			<div class="box c">C</div>
 			<div class="box d">D</div>
 	</main>
-`;
-
-profileProjects_sharedHTML.slide = /*html*/ `
-	
 `;
 
 profileProjects_sharedHTML.footerWC = /*html*/ `

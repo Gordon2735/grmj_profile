@@ -5,9 +5,10 @@
 export class DropDownTemplate extends HTMLElement {
     activateShadowDOM = false;
     root: ShadowRoot | null = this.shadowRoot;
-    locationHREF: string | undefined;
+    locationHREF: string | URL | undefined;
     checkLocation: string | undefined;
     styleSheetMod: string | null | undefined;
+    landingHREF: string | undefined;
     homeStartHREF: string | undefined;
     coverLetterHREF: string | undefined;
     projectsHREF: string | undefined;
@@ -45,6 +46,7 @@ export class DropDownTemplate extends HTMLElement {
     public dropDownStyleMod(
         locationHREF: string | undefined,
         checkLocation: string | undefined,
+        landingHREF: string | undefined,
         homeStartHREF: string | undefined,
         coverLetterHREF: string | undefined,
         aboutHREF: string | undefined,
@@ -58,7 +60,9 @@ export class DropDownTemplate extends HTMLElement {
         libraryHREF: string | undefined
     ): any {
         this.locationHREF = locationHREF;
+        this.locationHREF = window.location.href;
         this.checkLocation = checkLocation;
+        this.landingHREF = landingHREF;
         this.homeStartHREF = homeStartHREF;
         this.coverLetterHREF = coverLetterHREF;
         this.aboutHREF = aboutHREF;
@@ -78,7 +82,14 @@ export class DropDownTemplate extends HTMLElement {
 
         try {
             switch (this.locationHREF) {
-                case 'http://127.0.0.1:9080/' || this.checkLocation:
+                case 'http://127.0.0.1:9080/landing':
+                    this.dropShell!.innerHTML = `<style>${this.landingHREF}</style>`;
+                    console.log(
+                        `%cUsing landingHREF for Dropdown Menu Styles`,
+                        'color: orange; font-size: 1.5rem;'
+                    );
+                    break;
+                case 'http://127.0.0.1:9080/home':
                     this.dropShell!.innerHTML = `<style>${this.homeStartHREF}</style>`;
                     console.log(
                         `%cUsing homeHREF for Dropdown Menu Styles`,

@@ -1,26 +1,26 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-/* eslint-disable @typescript-eslint/no-explicit-any */
+/_ eslint-disable @typescript-eslint/no-non-null-assertion _/
+/_ eslint-disable @typescript-eslint/no-explicit-any _/
 'use strict';
 
 import { ProjectsTemplate } from './profile-projects_template.js';
-import { profileProjects_sharedHTML } from './profile-projects_sharedHTML.js';
-import { profileProjects_sharedStyles } from './profile-projects_sharedStyles.js';
+// import { profileProjects_sharedHTML } from './profile-projects_sharedHTML.js';
+// import { profileProjects_sharedStyles } from './profile-projects_sharedStyles.js';
 import RegisterComponent from '../componentTools/components_services.js'; // appendChildren // setAttributes,
 import historyStack from '../../images/state/profileState.js';
 import { HistoryObject } from '../../interfaces/interfaces.js';
 
 export class SlideProjects extends ProjectsTemplate {
-    override activateShadowDOM: boolean;
-    override root: ShadowRoot | null = this.shadowRoot;
-    body: HTMLBodyElement | null | any;
-    State: any;
-    historyStack: import('d:/grmj_profile/src/interfaces/interfaces.js').HistoryObject;
-    setAttributes:
-        | ((tag: HTMLElement, attribute: string | object | any) => void)
-        | undefined;
-    appendChildren:
-        | ((parent: HTMLElement | ShadowRoot | null, children: any[]) => void)
-        | undefined;
+override activateShadowDOM: boolean;
+override root: ShadowRoot | null = this.shadowRoot;
+body: HTMLBodyElement | null | any;
+State: any;
+historyStack: import('d:/grmj_profile/src/interfaces/interfaces.js').HistoryObject;
+setAttributes:
+| ((tag: HTMLElement, attribute: string | object | any) => void)
+| undefined;
+appendChildren:
+| ((parent: HTMLElement | ShadowRoot | null, children: any[]) => void)
+| undefined;
 
     constructor(body: HTMLBodyElement | null | undefined) {
         super();
@@ -107,42 +107,42 @@ export class SlideProjects extends ProjectsTemplate {
                 const menuContainer: HTMLDivElement | null | undefined =
                     menuBody?.querySelector('.container');
 
-                const itemHTML: HTMLElement | string | undefined = /*html*/ `					
-					<div id="spaceInvadersDiv" class="item">&#127915;&nbsp;&nbsp;&nbsp;
-						<a id="spaceInvadersAnchor" class="space-invaders-anchor" href="/projects/space_invaders">Space Invaders App</a>
-					</div>
-					<div class="item">&#128203;&nbsp;&nbsp;&nbsp;
-						<a id="spaceXAnchor" class="space-X-anchor" href="/projects/spaceX">SpaceX Flight App</a>
-					</div>
-					<div  id:="stockDiv"  class="item">&#128230;&nbsp;&nbsp;&nbsp;
-						<a id="stockAnchor" class="stock-anchor" href="/projects/stock">Stock Exchange Spread App</a>
-					</div>
-					<div  id:="blogDiv"  class="item">&#128211;&nbsp;&nbsp;&nbsp;
-						<a id="blogAnchor" class="blog-anchor" href="/projects/blog">HooT™️ BLOG Webelistics®️</a>
-					</div>
-					<div class="item">&lambda;&nbsp;&nbsp;&nbsp;
-						<a id="iOwn" class="i-own">What? 'I Own This' App</a>
-					</div>
-	
-					<img id="webBig3" src="/src/components/componentsTools/resources/images/html-js-css_transparent.png"
-						alt="big three languages image" class="web-big-3" />
-	
-					<hr id="line" class="line" />
-	
-					<img id="jsSymbol" src="/src/components/componentsTools/resources/images/javascript-transparent.png"
-						alt="big three languages image" class="js-symbol" />
-					<img id="tsSymbol" src="/src/components/componentsTools/resources/images/typescript-transparent_tall.png"
-						alt="big three languages image" class="ts-symbol" />
-	
-					<hr id="line2" class="line2" />
-					
-					<h3 id="blueVanilla" class="blue-vanilla">Blue Vanilla: TypeScript, a mature flavor!</h3>
-					
-					<hr id="line3" class="line3" />
-					
-					<h3 id="yellowVanilla" class="vanilla">Vanilla: JavaScript's BEST Flavor!</h3>
-					
-				`;
+                const itemHTML: HTMLElement | string | undefined = /*html*/ `
+    				<div id="spaceInvadersDiv" class="item">&#127915;&nbsp;&nbsp;&nbsp;
+    					<a id="spaceInvadersAnchor" class="space-invaders-anchor" href="/projects/space_invaders">Space Invaders App</a>
+    				</div>
+    				<div class="item">&#128203;&nbsp;&nbsp;&nbsp;
+    					<a id="spaceXAnchor" class="space-X-anchor" href="/projects/spaceX">SpaceX Flight App</a>
+    				</div>
+    				<div  id:="stockDiv"  class="item">&#128230;&nbsp;&nbsp;&nbsp;
+    					<a id="stockAnchor" class="stock-anchor" href="/projects/stock">Stock Exchange Spread App</a>
+    				</div>
+    				<div  id:="blogDiv"  class="item">&#128211;&nbsp;&nbsp;&nbsp;
+    					<a id="blogAnchor" class="blog-anchor" href="/projects/blog">HooT™️ BLOG Webelistics®️</a>
+    				</div>
+    				<div class="item">&lambda;&nbsp;&nbsp;&nbsp;
+    					<a id="iOwn" class="i-own">What? 'I Own This' App</a>
+    				</div>
+
+    				<img id="webBig3" src="/src/components/componentsTools/resources/images/html-js-css_transparent.png"
+    					alt="big three languages image" class="web-big-3" />
+
+    				<hr id="line" class="line" />
+
+    				<img id="jsSymbol" src="/src/components/componentsTools/resources/images/javascript-transparent.png"
+    					alt="big three languages image" class="js-symbol" />
+    				<img id="tsSymbol" src="/src/components/componentsTools/resources/images/typescript-transparent_tall.png"
+    					alt="big three languages image" class="ts-symbol" />
+
+    				<hr id="line2" class="line2" />
+
+    				<h3 id="blueVanilla" class="blue-vanilla">Blue Vanilla: TypeScript, a mature flavor!</h3>
+
+    				<hr id="line3" class="line3" />
+
+    				<h3 id="yellowVanilla" class="vanilla">Vanilla: JavaScript's BEST Flavor!</h3>
+
+    			`;
                 menuContainer?.insertAdjacentHTML('afterbegin', itemHTML);
             }
         }
@@ -240,9 +240,8 @@ export class SlideProjects extends ProjectsTemplate {
     }
     override get template() {
         return /*html*/ `
-			<style>${profileProjects_sharedStyles.slide}</style>
-			${profileProjects_sharedHTML.slide}
-		`;
+
+    	`;
     }
     get observedAttributes() {
         return ['window.location.href'];
@@ -256,9 +255,10 @@ export class SlideProjects extends ProjectsTemplate {
         console.log(currentLocation);
         _oldValue !== _newValue
             ? console.info(`old location: ${_oldValue},
-				${name} has a new location of: ${_newValue}
-				which should be equal to: ${window.location} `)
+    			${name} has a new location of: ${_newValue}
+    			which should be equal to: ${window.location} `)
             : console.info(`old location: ${_oldValue}`);
     }
+
 }
 RegisterComponent('slide-projects', SlideProjects);

@@ -154,7 +154,7 @@ landingPage_sharedStyles.page = /*css*/ `
     }
 
     .navbar-brand .image-bracket {
-        filter: var(--landing-dropShadow-00);
+        filter: var(--drop-shadow-1);
     }
 
     .navbar-div .h1-team {
@@ -164,7 +164,7 @@ landingPage_sharedStyles.page = /*css*/ `
         font-size: 85px;
         font-weight: var(--grmj-font-weight-7);
         color: var(--color-bracket-blue);
-        filter: var(--landing-dropShadow-01);
+        filter: var(--drop-shadow-1);
     }
 
     .navbar-div .h2-webelistics {
@@ -176,7 +176,7 @@ landingPage_sharedStyles.page = /*css*/ `
         color: var(--color-bracket-yellow);
         -webkit-text-stroke: 0.007em #000; /* width and color */
         letter-spacing: -0.7;
-        filter: var(--landing-dropShadow-01);
+        filter: var(--drop-shadow-1);
     }
 
     .sup-reg {

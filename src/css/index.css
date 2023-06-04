@@ -94,8 +94,8 @@
     --grmj-profile-box-shadow-2: 7px 5px 9px hsla(0, 0%, 0%, 0.69);
 
     /*Filter: drop-shadow*/
-    --landing-dropShadow-00: drop-Shadow(0.15rem 0.13rem 0.73rem rgba(0, 0, 0, 0.28));
-    --landing-dropShadow-01: drop-Shadow(0.15rem 0.13rem 0.73rem rgba(0, 0, 0, 0.21));
+    --landing-dropShadow-00: drop-Shadow(0.15rem 0.13rem 0.93rem rgba(0, 0, 0, 0.22));
+    --landing-dropShadow-01: drop-Shadow(0.75rem 0.73rem 1.33rem rgba(247, 246, 246, 0.61));
     --grmj-filter-dropShadow-0: drop-shadow(6px 5px 7px hsla(0, 0%, 0%, 0.72));
     --grmj-filter-dropShadow-1: drop-shadow(3px 2px 2px hsla(0, 0%, 0%, 0.6));
     --grmj-filter-dropShadow-2: drop-shadow(6px 4px 4px hsla(0, 0%, 0%, 0.6));
@@ -263,6 +263,7 @@
     --font-family-history-3: var(--grmj-font-family-6);
     --font-family-Freckle-Face: var(--grmj-font-family-9);
     --font-family-MoonRocks: var(--grmj-font-family-12);
+    --drop-shadow-1: var(--landing-dropShadow-01);
     --button-background: hsla(0, 0%, 41%, 0.99);
     --button-background-hover: hsla(212, 62%, 49%, 0.99);
     --button-ff: Arial, Helvetica, sans-serif;
@@ -331,6 +332,7 @@
     --font-family-history-3: var(--grmj-font-family-6);
     --font-family-Freckle-Face: var(--grmj-font-family-9);
     --font-family-MoonRocks: var(--grmj-font-family-12);
+    --drop-shadow-1: var(--landing-dropShadow-00);
     --button-background: hsla(0, 0%, 41%, 0.99);
     --button-background-hover: hsla(212, 62%, 49%, 0.99);
     --button-ff: Arial, Helvetica, sans-serif;

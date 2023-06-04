@@ -48,7 +48,8 @@ export class DropDownShell extends DropDownTemplate {
     override dropDownStyleMod() {
         super.dropDownStyleMod(
             (this.locationHREF = window.location.href),
-            (this.checkLocation = 'http://127.0.0.1:9080/'),
+            (this.checkLocation = 'http://127.0.0.1:9080/landing'),
+            (this.landingHREF = `${dropDown_sharedStyles.landing}`),
             (this.homeStartHREF = `${dropDown_sharedStyles.home}`),
             (this.coverLetterHREF = `${dropDown_sharedStyles.letter}`),
             (this.aboutHREF = `${dropDown_sharedStyles.about}`),

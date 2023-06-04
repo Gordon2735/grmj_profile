@@ -6,70 +6,81 @@ import { ProjectsTemplate } from './profile-projects_template.js';
 import { profileProjects_sharedHTML } from './profile-projects_sharedHTML.js';
 import { profileProjects_sharedStyles } from './profile-projects_sharedStyles.js';
 import RegisterComponent from '../componentTools/components_services.js'; // appendChildren // setAttributes
-import historyStack from '../../images/state/profileState.js';
-import { HistoryObject } from '../../interfaces/interfaces.js';
+import ProfileProject, {
+    ProfileProjectsState
+} from '../../interfaces/interfaces_components.js';
 
-export class ProfileProjects extends ProjectsTemplate {
+export default class ProfileProjects
+    extends ProjectsTemplate
+    implements ProfileProject
+{
     override activateShadowDOM = false;
-    body: HTMLBodyElement | null;
-    spaceInvader(): void {}
-    // setAttributes:
-    // 	| ((tag: HTMLElement, attribute: string | object | any) => void)
-    // 	| undefined;
-    // appendChildren:
-    // 	| ((parent: HTMLElement | ShadowRoot | null, children: any[]) => void)
-    // 	| undefined;
-    State: any;
-    historyStack: import('d:/grmj_profile/src/interfaces/interfaces.js').HistoryObject;
+    override root = this.shadowRoot as ShadowRoot;
+    state: string | undefined;
+    projectPage: number | undefined;
+    projectGrouping: HTMLElement[];
+    spaceInvaders: string;
+    teamWebelisticsBlog: string;
+    todoApp: string;
 
-    constructor() {
+    override get template(): string {
+        return /*html*/ `
+        
+            ${profileProjects_sharedHTML.projects}
+            <style>${profileProjects_sharedStyles.projects}</style>
+            ${profileProjects_sharedHTML.footer}
+            <style>${profileProjects_sharedStyles.footerMod}</style>
+        `;
+    }
+
+    constructor(
+        spaceInvaders: string,
+        teamWebelisticsBlog: string,
+        todoApp: string
+    ) {
         super();
 
         this.activateShadowDOM = false;
 
-        const body: HTMLBodyElement | null = document.querySelector('body');
-        this.body = body;
+        this.spaceInvaders = spaceInvaders;
+        this.teamWebelisticsBlog = teamWebelisticsBlog;
+        this.todoApp = todoApp;
 
-        this.State = { pageOpen: '/projects' };
-        this.historyStack = historyStack;
-
-        window.history.pushState(this.State, 'projects', '/projects');
-        this.historyStack.push(history.state);
-
-        window.onpopstate = (event) => {
-            event.state
-                ? ((this.State = event.state), this.historyStack.pop())
-                : this.historyStack.pop();
-        };
+        const projectGrouping = [
+            this.spaceInvaders,
+            this.teamWebelisticsBlog,
+            this.todoApp
+        ] as unknown as HTMLElement[];
+        this.projectGrouping = projectGrouping;
     }
+    get observedAttributes(): string[] {
+        return ['state', 'data-project-page'];
+    }
+    dataProjectPage: ProfileProjectsState | null | undefined;
+    stateValue: ProfileProjectsState | null | undefined;
+    dataValue: ProfileProjectsState | null | undefined;
     override connectedCallback(): void {
         super.connectedCallback();
     }
-    override get template(): string {
-        return /*html*/ `
-        
-			${profileProjects_sharedHTML.projects}
-            <style>${profileProjects_sharedStyles.projects}</style>
-			${profileProjects_sharedHTML.footer}
-            <style>${profileProjects_sharedStyles.footerMod}</style>
-		`;
-    }
     static get observedAttributes(): string[] {
-        return ['this.historyStack.pageOpen'];
+        return ['state', 'data-project-page'];
     }
     public attributeChangedCallback(
-        name: string,
+        _name: string,
         _oldValue: string,
         _newValue: string
-    ) {
-        const currentLocation: HistoryObject = this.historyStack;
-        console.log(currentLocation);
+    ): void {
+        // create a asynchronous function to query custom element for data-project-page attribute and set it to the newValue of the attribute.
 
-        _oldValue !== _newValue
-            ? console.info(`old location: ${_oldValue},
-				${name} has a new location of: ${_newValue}
-				which should be equal to: ${currentLocation} `)
-            : console.info(`old location: ${_oldValue}`);
+        console.log(_name, _oldValue, _newValue);
+        (async () => {
+            const projectPage = (await this.getAttribute(
+                'data-project-page'
+            )) as string;
+            const projectPageInt: number = parseInt(projectPage, 10);
+            this.projectPage = projectPageInt;
+            console.info('projectPage', this.projectPage);
+        })();
     }
 }
 RegisterComponent('profile-projects', ProfileProjects);

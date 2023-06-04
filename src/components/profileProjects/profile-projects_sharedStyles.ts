@@ -5,7 +5,6 @@ import { profileProjects_sharedStyles } from '../../interfaces/interfaces.js';
 const profileProjects_sharedStyles = {
     shell: ``,
     projects: ``,
-    slide: ``,
     footer: ``,
     footerMod: ``
 };
@@ -14,41 +13,6 @@ profileProjects_sharedStyles.shell = /*css*/ `
     body {
         background-image: var(--grmj-profile-background_image_1);
     }
-
-    .theme-light {
-        --image-home: url('../../src/components/componentTools/resources/images/005___home-theme-light__BACKGROUND.jpg');
-        --image-cover: url('../../src/components/componentTools/resources/images/006___cover-light__BACKGROUND.png');
-        --color-primary: var(--grmj-font-color-6);
-        --color-secondary: #fbfbfe;
-        --color-tertiary: var(--grmj-font-color-6);
-        --color-accent: #fd6f53;
-        --font-color: #000000;
-        --button-background: hsla(0, 0%, 41%, 0.99);
-        --button-background-hover: hsla(212, 62%, 49%, 0.99);
-        --button-ff: Arial, Helvetica, sans-serif;
-        --button-color: hsla(219, 97%, 73%, 0.99);
-        --button-fs: 1.2em;
-        --button-border: 0.3em inset #fff; 
-        --button-hover: hsla(0, 0%, 86%, 0.99);
-      }
-
-      .theme-startup,
-      .theme-dark {
-        --image-home: url('../../src/components/componentTools/resources/images/000___home-theme-dark__BACKGROUND.png');
-        --image-cover: url('../../src/components/componentTools/resources/images/006___cover-dark__BACKGROUND.png');
-        --color-primary: var(--grmj-font-color-2);
-        --color-secondary: #2a2c2d;
-        --color-tertiary: var(--grmj-font-color-3);
-        --color-accent: #12cdea;
-        --font-color: #ffffff;
-        --button-background: hsla(0, 0%, 41%, 0.99);
-        --button-background-hover: hsla(212, 62%, 49%, 0.99);
-        --button-ff: Arial, Helvetica, sans-serif;
-        --button-color: hsla(0, 0%, 86%, 0.99);
-        --button-fs: 1.2em;
-        --button-border: 0.3em inset #fff; 
-        --button-hover: hsla(0, 100%, 69%, 0.99);
-      }
       
     .profile-projects-shell .drop-down-shell {
         margin: 0em 0em 0em 0em;
@@ -75,8 +39,8 @@ profileProjects_sharedStyles.projects = /*css*/ `
       background-color: var(--grmj-profile-background_6);
       font-size: var(--grmj-font-size-9vw);  
       color: var(--grmj-font-color-10);
-      /*border: 6px solid var(--grmj-font-color-15);*/
-      border-radius: 15px;
+      border: 4px solid var(--grmj-font-color-15);
+      border-radius: 10px;
       background-image: url('/src/components/componentTools/resources/images/water-drops-transparent-many.png')
     }  
     
@@ -207,211 +171,6 @@ profileProjects_sharedStyles.projects = /*css*/ `
         height: 50vh;
     }
  
-`;
-
-profileProjects_sharedStyles.slide = /*css*/ `
-    .container {
-        margin: -17em 0em 5em 0em;
-        position: relative;
-        display: block;
-        align-items: center;
-        justify-content: center;
-        top: -29em;
-        bottom: 30px;
-        left: -12px;
-        width: 225px;
-        height: calc(77% - 85px);
-        background-color: var(--grmj-profile-background_5);
-        overflow: hidden;
-        transform: translateX(-227px);
-        transition: all 1s;
-        filter: var(--grmj-filter-dropShadow-0);
-        border: var(--grmj-border-0);
-        border-radius: 0px 8px 8px 0px;
-        font-Family: var(--grmj-font-family-1);
-        z-index: 5;
-    }
-    .container::before {
-        position: absolute;
-        content: "";
-        background-image: var(--grmj-profile-background_image_2);
-        background-size: cover;
-        top: 0px;
-        right: 0px;
-        bottom: 0px;
-        left: 0px;
-        opacity: 0.09;
-        z-index: 5;
-    }
-    #webBig3 {
-        margin: 27px 0px 15px 0px;
-        left: 25px;
-        display: inline-block;
-        position: absolute;
-        width: 160px;
-        align-items: center;
-        filter: var(--grmj-filter-dropShadow-1);
-        transform: rotate(-360deg);
-        transition: all 2s;
-        aspect-ratio: 160 / 61;
-        z-index: 1000;
-    }
-    #line {
-        margin: 110px 0px 20px 0px;
-        left: 15px;
-    }
-    #jsSymbol {
-        margin: -14px 0px 0.5px 0px;
-        left: 60px;
-        display: inline-block;
-        position: absolute;
-        width: 80px;
-        align-items: center;
-        filter: var(--grmj-filter-dropShadow-2);
-        transform: rotate(-360deg);
-        transition: all 2s;
-        aspect-ratio: 1 / 1;
-        z-index: 1000;
-    }
-    #tsSymbol {
-        margin: 80px 0px 1px 0px;
-        left: 60px;
-        display: inline-block;
-        position: absolute;
-        width: 80px;
-        align-items: baseline;
-        filter: var(--grmj-filter-dropShadow-2);
-        transform: rotate(-360deg);
-        transition: all 2s;
-        aspect-ratio: 1 / 1;
-        z-index: 1000;
-    }
-    #line2 {
-        margin: 190px 0px 20px 0px;
-        left: 15px;
-    }    
- 
-    #blueVanilla {
-        margin: 7px 0px 3px 0px;
-        padding: 0.3em;
-        position: absolute;
-        display: inline-block;
-        left: 0px;
-        align-self: center;
-        text-align: center;
-        background: var(--grmj-profile-background_4);
-        font-size: var(--grmj-font-size-1avw);
-        font-weight: var(--grmj-font-weight-9);
-        letter-spacing: 0.2em;
-        color: var(--grmj-font-color-13);
-        text-shadow: var(--grmj-text-shadow-0);
-        border-top: 2px solid hsl(10, 66%, 51%);
-        border-bottom: 2px solid hsl(213, 62%, 45%);
-        box-shadow: var(--grmj-box-shadow-1);
-    }
-    
-    #line3 {
-        margin: 221px 0px 20px 0px;
-        left: 15px;
-    }
-       #yellowVanilla {
-        margin: -112px 0px 3px 0px;
-        padding: 0.3em;
-        position: absolute;
-        display: inline-block;
-        left: 0px;
-        align-self: center;
-        text-align: center;
-        background: var(--grmj-profile-background_4);
-        font-size: var(--grmj-font-size-1avw);
-        font-weight: var(--grmj-font-weight-9);
-        letter-spacing: 0.2em;
-        color: var(--grmj-font-color-14);
-        text-shadow: var(--grmj-text-shadow-0);
-        border-top: 2px solid hsl(10, 66%, 51%);
-        border-bottom: 2px solid hsl(213, 62%, 45%);
-        box-shadow: var(--grmj-box-shadow-1);
-    }
-    
-    @keyframes FadeIn {
-        0% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 1;
-        }
-    }
-    @keyframes FadeOut {
-        0% {
-            opacity: 1;
-        }
-        100% {
-            opacity: 0;
-        }
-    }
-    .hamburger-menu {
-        margin: 32px -2px 3px 30px;
-        position: absolute;
-        top: -9px;
-        cursor: pointer;
-        font-size: 40px;
-        color: var(--grmj-font-color-3);
-        text-shadow: var(--grmj-text-shadow-4);
-        filter: var(--grmj-filter-dropShadow-5);
-    }
-    .hamburger-menu:hover {
-        color: var(--grmj-font-color-12);
-    }
-    .hamburger-menu:active {
-        color: var(--grmj-font-color-11);
-        transform: rotate(180deg);
-        transition: all .5s;
-    }
-    .item {
-        padding: 15px 0 15px 7px;
-        position: relative;
-        width: 200px;
-        height: 8px;
-        line-height: 9px;
-        border-bottom: 1px solid #999;
-        font-size: 10px; 
-        cursor: pointer;
-        z-index: 999;  
-    }
-    .space-invaders-anchor {
-        color: var(--grmj-profile-background_4);
-        text-decoration: none;
-        outline: none;
-    }
-    .space-X-anchor {
-        color: var(--grmj-profile-background_4);
-        text-decoration: none;
-        outline: none;
-    }
-    .stock-anchor {
-        color: var(--grmj-profile-background_4);
-        text-decoration: none;
-        outline: none;
-    }
-    .blog-anchor {
-        color: var(--grmj-profile-background_4);
-        text-decoration: none;
-        outline: none;
-    }
-    .i-own {
-        color: var(--grmj-profile-background_4);
-        text-decoration: none;
-        outline: none;
-    }
-    .item:hover {
-        background: rgb(112, 112, 112);
-        border-radius: 0px 8px 8px 0px;
-        box-shadow: 10px 6px 16px  rgba(0, 0, 0, 0.6);
-        color: rgb(233, 242, 255);
-        font-size: 9px;
-        font-weight: 200;
-        letter-spacing: 0.15em;
-    }
 `;
 
 profileProjects_sharedStyles.footer = /*css*/ `

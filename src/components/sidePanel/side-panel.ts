@@ -237,9 +237,12 @@ export class SidePanel extends SidePanelTemplate {
     }
     override get template() {
         return /*html*/ `
-            <style>${sidePanel_sharedStyles.panel}</style>
             ${sidePanel_sharedHTML.panel} 
-        `;
+            ${sidePanel_sharedHTML.home} 
+            <style>${sidePanel_sharedStyles.panel}</style>
+            
+            `;
     }
 }
 ComponentRegistry('side-panel', SidePanel);
+// <style>${sidePanel_sharedStyles.panel}</style>

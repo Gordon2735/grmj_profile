@@ -13,13 +13,35 @@ interface profile_sharedHTML {
 interface sidePanel_sharedStyles {
     global: string;
     panel: string;
+    landing: string;
     home: string;
-    dropdown: string;
+    letter: string;
+    about: string;
+    projects: string;
+    history: string;
+    resume: string;
+    codeEx: string;
+    goals: string;
+    contact: string;
+    spacex: string;
+    library: string;
 }
 
 interface sidePanel_sharedHTML {
     shell: string;
     panel: string;
+    landing: string;
+    home: string;
+    letter: string;
+    about: string;
+    projects: string;
+    history: string;
+    resume: string;
+    codeEx: string;
+    goals: string;
+    contact: string;
+    spacex: string;
+    library: string;
 }
 
 interface profileHistory_sharedStyles {
@@ -49,7 +71,6 @@ interface profileResume_sharedHTML {
 interface profileProjects_sharedStyles {
     shell: string;
     projects: string;
-    slide: string;
     footer: string;
     footerMod: string;
 }
@@ -57,7 +78,6 @@ interface profileProjects_sharedStyles {
 interface profileProjects_sharedHTML {
     shell: string;
     projects: string;
-    slide: string;
     footerWC: string;
     footer: string;
 }
