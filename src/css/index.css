@@ -42,6 +42,7 @@
     --grmj-profile-background_image_01: url('../../src/components/componentTools/resources/images/005___home-theme-light__BACKGROUND.webp');
     --grmj-profile-background_image_01g: url('../../src/components/componentTools/resources/images/006___cover-light__BACKGROUND.webp');
     --grmj-profile-background_image_1: url('../../src/components/componentTools/resources/images/000_projects_page-main.webp');
+    --grmj-profile-background_image_1a: url('../../src/components/componentTools/resources/images/000a_projects_page-main.webp');
     --grmj-profile-background_image_2: url('../../src/components/componentTools/resources/images/000_brown_slider-main.webp');
     --grmj-profile-background_image_3: url('../../src/components/componentTools/resources/images/003_background.webp');
     --grmj-profile-background_image_4: url('../../src/components/componentTools/resources/images/gordonPhoto.webp');
@@ -291,7 +292,12 @@
     --history-page-hover: hsla(35, 9%, 46%, 0.719);
     --history-h3-00: hsla(39, 98%, 19%, 0.99);
     --history-h3-01: hsla(0, 98%, 20%, 0.99);
-
+    --project-bg-image: var(--grmj-profile-background_image_1a);
+    --project-font-color-1: hsla(0, 0%, 0%, 0.99);
+    --project-color-1: hsla(197, 96%, 21%, 0.651);
+    --project-border-1: 8px solid var(--project-color-1);
+    --project-drop-shadow-1: drop-shadow(0.3rem 0.5rem 1.55rem hsla(0, 0%, 0%, 0.89));
+    --project-ul-1: hsla(0, 0%, 0%, 0.99);
 }
 
 .theme-startup,
@@ -359,6 +365,13 @@
     --history-page-border-radius: 7px;
     --history-h3-00: hsla(39, 99%, 45%, 0.99);
     --history-h3-01: hsla(0, 96%, 50%, 0.99);
+    --project-bg-image: var(--grmj-profile-background_image_1);
+    --project-font-color-1: hsla(0, 0%, 100%, 0.99);
+    --project-color-1: hsla(198, 53%, 87%, 0.19);
+    --project-border-1: 4px solid var(--project-color-1);
+    --project-drop-shadow-1: drop-shadow(0.3rem 0.5rem 1.55rem hsla(0, 0%, 0%, 0.01));
+    --project-ul-1: hsla(90, 99%, 49%, 0.99);
+
 }
 
 @font-face {

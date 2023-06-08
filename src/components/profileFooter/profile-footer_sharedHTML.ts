@@ -4,7 +4,8 @@ import { profileFooter_sharedHTML } from '../../interfaces/interfaces.js';
 
 const profileFooter_sharedHTML = {
     footer: ``,
-    jumps: ``
+    jumps: ``,
+    pageHREF: ``
 };
 
 profileFooter_sharedHTML.footer = /*html*/ `

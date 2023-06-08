@@ -4,34 +4,44 @@
 interface ProfileProject extends HTMLElement {
     activateShadowDOM: boolean;
     root: ShadowRoot;
-    projectPage: number | undefined;
     connectedCallback(): void;
-    get observedAttributes(): string[];
     attributeChangedCallback(
         _name: string,
         _oldValue: string,
         _newValue: string
     ): void;
-    state: string | undefined;
-    dataProjectPage: ProfileProjectsState | null | undefined;
-    stateValue: ProfileProjectsState | null | undefined;
-    dataValue: ProfileProjectsState | null | undefined;
     template: string;
     render(template: string): void;
+    dataProjectPage: ProfileProjectsState | null | undefined;
+    projectPage: string[];
+
+    // get observedAttributes(): string[];
+    head: HTMLHeadElement | null | undefined;
+    state: string | undefined;
+    profileProjectComponent: HTMLElement;
+    page_0: string;
+    page_1: string;
+    page_2: string;
+    page_3: string;
+    page_4: string;
+
     // Project Application's Listing
     spaceInvaders: string;
     teamWebelisticsBlog: string;
     todoApp: string;
+    synth: string;
+    dogType: string;
     // Project Application's Grouping Object
-    projectGrouping: HTMLElement[];
+    projectGrouping: string[];
+    projectUl: HTMLUListElement | null | undefined;
+    iFrameViewer: HTMLIFrameElement;
+    stateValue: ProfileProjectsState | null | undefined;
+    dataValue: ProfileProjectsState | null | undefined;
 }
 
 // Interface definition for the "STATE" of profile-projects web component
 interface ProfileProjectsState {
     state: string;
-    dataProjectPage: string;
-    stateValue: string;
-    dataValue: string;
 }
 
 export { ProfileProject as default, ProfileProjectsState };

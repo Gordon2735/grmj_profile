@@ -11,7 +11,11 @@ const profileProjects_sharedStyles = {
 
 profileProjects_sharedStyles.shell = /*css*/ `
     body {
-        background-image: var(--grmj-profile-background_image_1);
+        background-image: var(--project-bg-image);
+        background-blend-mode: screen;  
+        background-size: cover; 
+        background-repeat: no-repeat; 
+        overflow: hidden;
     }
       
     .profile-projects-shell .drop-down-shell {
@@ -38,11 +42,15 @@ profileProjects_sharedStyles.projects = /*css*/ `
       padding: 20px;
       background-color: var(--grmj-profile-background_6);
       font-size: var(--grmj-font-size-9vw);  
-      color: var(--grmj-font-color-10);
-      border: 4px solid var(--grmj-font-color-15);
+      color: var(--project-font-color-1);
+      border: var(--project-border-1);
       border-radius: 10px;
-      background-image: url('/src/components/componentTools/resources/images/water-drops-transparent-many.png')
+      filter: var(--project-drop-shadow-1);
     }  
+
+    .a {
+      background-image: url('/src/components/componentTools/resources/images/water-drops-transparent-many.png')
+    }
     
     .gordon-projects {
         grid-column: col1-start / col3-start;
@@ -51,39 +59,98 @@ profileProjects_sharedStyles.projects = /*css*/ `
         align-items: center;
         text-align: center;        
     }
-    .profile-projects__title {
+
+    .profile-projects__title-h1 {
         font-family: var(--grmj-font-family-1);
         font-size: var(--grmj-font-size-9vw);
         font-weight: var(--grmj-font-weight-7);
-        color: var(--grmj-font-color-3);
+        color: var(--project-font-color-1);
         text-shadow: var(--grmj-text-shadow-0);
         letter-spacing: var(--grmj-letter-spacing-2);
         filter: var(--grmj-filter-dropShadow-3);
     }
-    .b {
+
+    .profile-projects-list {
+        margin: 1em auto 0.001em auto;
+        text-align: center;        
+    }
+
+    .profile-projects-list li {
+        margin: 0.10em auto 0.5em auto;
+        padding: 0.5em;
+        font-family: var(--grmj-font-family-12);
+        font-size: 1.45rem;
+        color: var(--project-ul-1);
+        text-align: center;
+    }
+
+    .main-wrapper .b {
+        margin: 0.5em auto 0.5em 1em;
+        position: relative;
         grid-column: col3-start ;
         grid-row: row1-start / row2-end;  
         text-align: center;
         align-items: center; 
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
     }
-    .project-tools__title {
+    
+    .project-viewer-h1 {
         font-family: var(--grmj-font-family-1);
         font-size: var(--grmj-font-size-9vw);
         font-weight: var(--grmj-font-weight-7);
-        color: var(--grmj-font-color-3);
+        color: var(--project-font-color-1);
         text-shadow: var(--grmj-text-shadow-0);
         letter-spacing: var(--grmj-letter-spacing-2);
         filter: var(--grmj-filter-dropShadow-3);
     }
+
+    .b .project-viewer {
+        margin: 2em auto 0.5em auto;
+        background-color: var(--grmj-profile-background_6);
+        border: none;
+        border-radius: 0.23em;
+        filter: var(--grmj-filter-dropShadow-3);
+        box-shadow: var(--grmj-profile-box-shadow-1);
+        overflow: hidden;
+        text-align: center;
+    }
+
+    iFrame {
+        zoom: 0.65;
+        -moz-transform: scale(0.75);
+        -moz-transform-origin: 0 0;
+        -o-transform: scale(0.75);
+        -o-transform-origin: 0 0;
+        -webkit-transform: scale(0.75);
+        -webkit-transform-origin: 0 0;
+        width: 680px;
+        height: 800px;
+
+        resize: both;
+        position: relative;
+        z-index: 2;
+    }
+
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+        #projectViewer {
+          zoom: 1;
+        }
+      }
+
+    /*
     .projects-line {
         margin: 8em auto -9em auto;
-        width: 35vw;
+        width: 37vw;
         border: 0.01px solid var(--grmj-font-color-3);
-        border-radius: 0.33em;
+        border-radius: 0.43em;
         filter: var(--grmj-filter-dropShadow-3);
         box-shadow: var(--grmj-profile-box-shadow-1);
     }
+    */
     
+    /*
     .b .express-image {
         margin: 5em 0.45em 1.5em 0em;
         display: inline-flex;
@@ -158,6 +225,7 @@ profileProjects_sharedStyles.projects = /*css*/ `
          filter: var(--grmj-filter-dropShadow-4);
          aspect-ratio: 457 / 634;        
      }
+     */
   
     .c {
         grid-column: col1-start;
@@ -178,7 +246,10 @@ profileProjects_sharedStyles.footer = /*css*/ `
 
 profileProjects_sharedStyles.footerMod = /*css*/ `
     .footer {
-        margin: 0em auto 0em auto; 
+        margin: 1em auto 0em auto; 
+        position: absolute;
+        left: 0;
+        bottom: 0;
     }
 `;
 

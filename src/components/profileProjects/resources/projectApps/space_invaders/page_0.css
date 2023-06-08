@@ -1,0 +1,40 @@
+.space-invader-header {
+    margin-top: 3.2em auto 1.5em auto;
+    position: absolute;
+    top: 0;
+    left: 25%;
+    display: inline-flex;
+    width: 100%;
+    text-align: center;
+}
+
+.space-invader-header .space-invaders-h1 {
+    margin: 0.5em auto;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    font-family: fantasy;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: hsla(0, 0%, 100%, 0.99);
+    letter-spacing: 0.2em;
+}
+
+.space-invader-header .built-by-h1 {
+    margin: 1.85em auto 0.5em auto;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: hsla(199, 96%, 83%, 0.99);
+}
+
+.built-by-h1 u {
+    text-decoration-line: underline;
+    font-weight: 900;
+    color: hsla(199, 96%, 79%, 0.99);
+    inset: 10% auto 15% auto;
+    filter: drop-shadow(0 0 0.5rem hsla(198, 100%, 2%, 0.59));
+}

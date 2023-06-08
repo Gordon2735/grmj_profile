@@ -244,13 +244,24 @@ interface profileHdr_sharedStyles {
 interface profileFooter_sharedHTML {
     footer: string;
     jumps: string;
+    pageHREF: string;
 }
 interface profileFooter_sharedStyles {
     footer: string;
     footerMod: string;
     jumps: string;
+    pageHREF: string;
+    landing: string;
     home: string;
     letter: string;
+    projects: string;
+    blog: string;
+    contact: string;
+    about: string;
+    resume: string;
+    goals: string;
+    history: string;
+    codeEx: string;
 }
 
 interface HistoryObject {
