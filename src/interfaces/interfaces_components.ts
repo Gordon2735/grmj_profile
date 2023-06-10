@@ -31,6 +31,7 @@ interface ProfileProject extends HTMLElement {
     todoApp: string;
     synth: string;
     dogType: string;
+
     // Project Application's Grouping Object
     projectGrouping: string[];
     projectUl: HTMLUListElement | null | undefined;

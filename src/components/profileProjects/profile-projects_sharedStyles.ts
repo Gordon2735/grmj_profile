@@ -82,6 +82,8 @@ profileProjects_sharedStyles.projects = /*css*/ `
         font-size: 1.45rem;
         color: var(--project-ul-1);
         text-align: center;
+        text-decoration: none;
+
     }
 
     .main-wrapper .b {
@@ -90,7 +92,6 @@ profileProjects_sharedStyles.projects = /*css*/ `
         grid-column: col3-start ;
         grid-row: row1-start / row2-end;  
         text-align: center;
-        align-items: center; 
         width: 100%;
         height: 100%;
         overflow: hidden;
@@ -106,6 +107,78 @@ profileProjects_sharedStyles.projects = /*css*/ `
         filter: var(--grmj-filter-dropShadow-3);
     }
 
+    .b .project-viewer-nav {
+        left: 13%;
+        top: 8.3%;
+        width: 20%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        position: absolute;
+        z-index: 3;
+    }
+
+    .project-viewer-nav .back-button {
+        padding: 0px 2.5px;
+        display: flex;  
+        justify-content: center;
+        align-items: center;
+        width: 7.5em;
+        height: 2.4em;
+        border: var(--button-border);
+        border-radius: 5.5px 0px 0px 5.5px;
+        filter: var(--button-filter);
+        background-color: var(--button-color-history);
+        font-family: var(--grmj-font-family-1);
+        font-size: 14px;
+        font-weight: bold;
+        color: var(--button-fc-history);
+    }
+
+    .project-viewer-nav .forward-button {
+        padding: 0px 2.5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 7.5em;
+        height: 2.4em;
+        border: var(--button-border);
+        border-radius: 0px 5.5px 5.5px 0px;
+        filter: var(--button-filter);
+        background-color: var(--button-color-history);
+        font-family: var(--grmj-font-family-1);
+        font-size: 14px;
+        font-weight: bold;
+        color: var(--button-fc-history);
+    }
+
+    .project-viewer-nav .forward-button:hover {
+        cursor: pointer;
+        background-color: var(--button-bg-history-hover);
+        color: var(--button-fc-history-hover)
+    }
+
+    .project-viewer-nav .back-button:hover {
+        cursor: pointer;
+        background-color: var(--button-bg-history-hover);
+        color: var(--button-fc-history-hover)
+    }
+    
+    .project-viewer-nav .forward-button:active {
+        color: var(--button-fc-history-hover);
+        box-shadow: var(--button-bs-inset-history-active);
+    }
+
+    .project-viewer-nav .back-button:active {
+        color: var(--button-fc-history-hover);
+        box-shadow: var(--button-bs-inset-history-active);
+    }
+
+    .project-viewer-nav .btn-viewer span {
+        font-size: 1.5em;
+        color: var(--button-fc-history);
+    }
+    
     .b .project-viewer {
         margin: 2em auto 0.5em auto;
         background-color: var(--grmj-profile-background_6);
@@ -127,9 +200,9 @@ profileProjects_sharedStyles.projects = /*css*/ `
         -webkit-transform-origin: 0 0;
         width: 680px;
         height: 800px;
-
         resize: both;
         position: relative;
+        overflow: hidden;
         z-index: 2;
     }
 

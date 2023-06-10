@@ -28,7 +28,8 @@ profileProjects_sharedHTML.projects = /*html*/ `
 			<section id="sectionB" class="box b">
 				<h1 id="projectViewerH1" class="project-viewer-h1">
 					Project App Viewer
-				</h1>	
+				</h1>
+				<nav id="projectViewerNav" class="project-viewer-nav"></nav>	
 			</section>			
 			<section class="box c">C</section>
 			<section class="box d">D</section>
