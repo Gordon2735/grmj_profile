@@ -295,6 +295,7 @@ export default class ProfileProjects
     static get observedAttributes(): string[] {
         return ['data-project-page'];
     }
+
     public attributeChangedCallback(
         _name: string,
         _oldValue: string,
@@ -360,6 +361,7 @@ export default class ProfileProjects
                 const forwardButton = document.createElement(
                     'button'
                 ) as HTMLButtonElement;
+
                 setAttributes(backButton, {
                     id: 'backButton',
                     class: 'back-button btn-viewer',
@@ -368,9 +370,6 @@ export default class ProfileProjects
                     'aria-pressed': 'false',
                     alt: 'back-button'
                 });
-                console.log(
-                    `ARE THESE BUTTONS BEING RENDERED???: ${backButton}`
-                );
                 setAttributes(forwardButton, {
                     id: 'forwardButton',
                     class: 'forward-button btn-viewer',
@@ -392,11 +391,6 @@ export default class ProfileProjects
 
                 navContainer?.insertAdjacentElement('beforeend', forwardButton);
                 navContainer?.insertAdjacentElement('afterbegin', backButton);
-
-                console.log(`
-                    ARE THESE BUTTONS BEING RENDERED???:
-                    ${backButton}, ${forwardButton}
-                `);
 
                 return;
             } catch (error: unknown) {
@@ -499,7 +493,7 @@ export default class ProfileProjects
                 ) as NodeListOf<HTMLButtonElement>;
 
                 grabButtons?.forEach((button: HTMLButtonElement) => {
-                    console.info(button);
+                    // console.info(button);
 
                     if (navContainer?.contains(button) !== false) {
                         const grabBackNavButton = navContainer?.querySelector(
@@ -511,27 +505,15 @@ export default class ProfileProjects
                                 '.forward-button'
                             ) as HTMLButtonElement;
 
-                        grabBackNavButton?.addEventListener(
-                            'click',
-                            (event: MouseEvent) => {
-                                const target =
-                                    event.target as HTMLButtonElement;
-                                assignSrcToBackIframeViewer(_oldValue);
-                                console.info(target);
-                                return;
-                            }
-                        );
+                        grabBackNavButton?.addEventListener('click', () => {
+                            assignSrcToBackIframeViewer(_oldValue);
+                            return;
+                        });
 
-                        grabForwardNavButton?.addEventListener(
-                            'click',
-                            (event: MouseEvent) => {
-                                const target =
-                                    event.target as HTMLButtonElement;
-                                assignSrcToBackIframeViewer(_newValue);
-                                console.info(target);
-                                return;
-                            }
-                        );
+                        grabForwardNavButton?.addEventListener('click', () => {
+                            assignSrcToIFrameViewer(_newValue);
+                            return;
+                        });
                         return;
                     } else {
                         console.error('NO BUTTON FOUND');
