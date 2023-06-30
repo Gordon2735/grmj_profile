@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use strict';
 
@@ -59,24 +60,25 @@ export class ProfileHome extends ProfileTemplate {
                 : (this.State = { pageOpen: '/' });
             console.log(this.State.pageOpen);
         };
-        console.log(history.state);
-        console.log(this.historyStack, window.location.href);
+        // console.log(history.state);
+        // console.log(this.historyStack, window.location.href);
     }
     override connectedCallback(): void {
         super.connectedCallback();
 
-        console.log(window.location.origin);
+        // console.log(window.location.origin);
     }
     public attributeChangedCallback(
-        name: string,
-        oldValue: string,
-        newValue: string
+        _name: string,
+        _oldValue: string,
+        _newValue: string
     ): void {
-        oldValue !== newValue
-            ? console.info(`old location: ${oldValue},
-				${name} has a new location of: ${newValue}
-				which should be equal to: ${window.location} `)
-            : console.info(`old location: ${oldValue}`);
+        null;
+        // oldValue !== newValue
+        //     ? console.info(`old location: ${oldValue},
+        // 		${name} has a new location of: ${newValue}
+        // 		which should be equal to: ${window.location} `)
+        //     : console.info(`old location: ${oldValue}`);
     }
 }
 RegisterComponent('profile-home', ProfileHome);

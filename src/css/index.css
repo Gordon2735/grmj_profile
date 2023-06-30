@@ -601,3 +601,23 @@ p {
 .card-container {
     width: 600px;
 }
+
+.bracket-colorizer {
+    color: #fddd29;
+    color: #c172d9;
+    color: #abb2c0;
+    color: #fd6f53;
+    color: #449cfd;
+    color: #d6871f;
+    color: #60be85;
+    color: #b883a5;
+    color: #ffd700;
+    color: #f9fd01;
+    color: #7fff00;
+    color: #9376c0;
+    color: #c39cff;
+    color: #ff03c8;
+    color: #ffe4b5;
+    color: #fcce7e;
+    color: #f8a831;
+}

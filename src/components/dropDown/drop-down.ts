@@ -146,7 +146,7 @@ export class DropDown extends DropDownTemplate {
 
         initialRender();
 
-        console.log(window.location);
+        // console.log(window.location);
 
         const thiz: this = this;
 
@@ -380,12 +380,13 @@ export class DropDown extends DropDownTemplate {
                             break;
                     }
                     setTimeout(() => {
-                        console.log(
-                            `%cRedirection has been successful to ${grabComponent?.getAttribute(
-                                'operations'
-                            )}`,
-                            'color: green; font-size: 1rem;'
-                        );
+                        null;
+                        // console.log(
+                        //     `%cRedirection has been successful to ${grabComponent?.getAttribute(
+                        //         'operations'
+                        //     )}`,
+                        //     'color: green; font-size: 1rem;'
+                        // );
                     }, 2500);
                 } catch (error: unknown) {
                     console.error(
@@ -472,9 +473,9 @@ export class DropDown extends DropDownTemplate {
                             'color: red; font-weight: 900;'
                         );
                     }
-                    setTimeout(() => {
-                        console.log(getDropdown?.dataset.dd1_2);
-                    }, 100);
+                    // setTimeout(() => {
+                    //     console.log(getDropdown?.dataset.dd1_2);
+                    // }, 100);
                 }
 
                 this.elem.addEventListener('mousedown', function () {
@@ -696,11 +697,11 @@ export class DropDown extends DropDownTemplate {
         setTimeout(() => {
             try {
                 oldValue !== newValue
-                    ? console.info(
-                          `%c attributeChangedCallback: ${name} has new location of: ${newValue}`,
-                          'color: green; font-weight: bold;'
-                      )
-                    : null;
+                    ? null //console.info(
+                    : //       `%c attributeChangedCallback: ${name} has new location of: ${newValue}`,
+                      //       'color: green; font-weight: bold;'
+                      //   )
+                      null;
             } catch (error: unknown) {
                 console.error(
                     `%c attributeChangedCallback FAILED: ${name} has old location of: ${oldValue}`,

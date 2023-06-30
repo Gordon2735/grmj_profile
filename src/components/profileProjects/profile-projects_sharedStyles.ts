@@ -109,7 +109,7 @@ profileProjects_sharedStyles.projects = /*css*/ `
 
     .b .project-viewer-nav {
         left: 13%;
-        top: 8.3%;
+        top: 4.7%;
         width: 20%;
         display: flex;
         flex-direction: row;
@@ -133,6 +133,7 @@ profileProjects_sharedStyles.projects = /*css*/ `
         font-size: 14px;
         font-weight: bold;
         color: var(--button-fc-history);
+        z-index: 4;
     }
 
     .project-viewer-nav .forward-button {
@@ -152,6 +153,24 @@ profileProjects_sharedStyles.projects = /*css*/ `
         color: var(--button-fc-history);
     }
 
+    .project-viewer-nav .save-storage-button {
+        margin-left: 2.75em;
+        padding: 0px 2.5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 8.5em;
+        height: 2.4em;
+        border: var(--button-border);
+        border-radius: 5.5px 5.5px 5.5px 5.5px;
+        filter: var(--button-filter);
+        background-color: var(--button-color-history);
+        font-family: var(--grmj-font-family-1);
+        font-size: 14px;
+        font-weight: bold;
+        color: var(--button-fc-history);
+    }
+
     .project-viewer-nav .forward-button:hover {
         cursor: pointer;
         background-color: var(--button-bg-history-hover);
@@ -163,6 +182,12 @@ profileProjects_sharedStyles.projects = /*css*/ `
         background-color: var(--button-bg-history-hover);
         color: var(--button-fc-history-hover)
     }
+
+    .project-viewer-nav .save-storage-button:hover {
+        cursor: pointer;
+        background-color: var(--button-bg-history-hover);
+        color: var(--button-fc-history-hover)
+    }
     
     .project-viewer-nav .forward-button:active {
         color: var(--button-fc-history-hover);
@@ -170,6 +195,11 @@ profileProjects_sharedStyles.projects = /*css*/ `
     }
 
     .project-viewer-nav .back-button:active {
+        color: var(--button-fc-history-hover);
+        box-shadow: var(--button-bs-inset-history-active);
+    }
+
+    .project-viewer-nav .save-storage-button:active {
         color: var(--button-fc-history-hover);
         box-shadow: var(--button-bs-inset-history-active);
     }

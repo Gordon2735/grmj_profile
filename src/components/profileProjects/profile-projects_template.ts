@@ -26,4 +26,7 @@ export class ProjectsTemplate extends HTMLElement {
             return;
         }
     }
+    disconnectedCallback(): void {
+        return;
+    }
 }

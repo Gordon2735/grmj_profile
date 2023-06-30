@@ -1,15 +1,13 @@
-export default interface profile_sharedStyles {
-    global: string;
-    home: string;
-    dropdown: string;
-}
-
 interface profile_sharedHTML {
     shell: string;
     home: string;
     dropdown: string;
 }
-
+interface profile_sharedStyles {
+    global: string;
+    home: string;
+    dropdown: string;
+}
 interface sidePanel_sharedStyles {
     global: string;
     panel: string;
@@ -26,7 +24,6 @@ interface sidePanel_sharedStyles {
     spacex: string;
     library: string;
 }
-
 interface sidePanel_sharedHTML {
     shell: string;
     panel: string;
@@ -271,7 +268,8 @@ interface HistoryObject {
 }
 
 export {
-    profile_sharedHTML,
+    profile_sharedHTML as default,
+    profile_sharedStyles,
     sidePanel_sharedStyles,
     sidePanel_sharedHTML,
     profileHistory_sharedStyles,

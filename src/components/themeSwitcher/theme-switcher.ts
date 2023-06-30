@@ -141,42 +141,46 @@ export class ThemeSwitcher extends ThemeSwitcherTemplate {
         return ['state'];
     }
 
-    attributeChangedCallback(name: string, oldValue: string, newValue: string) {
+    attributeChangedCallback(
+        _name: string,
+        oldValue: string,
+        newValue: string
+    ) {
         try {
-            console.log(name, oldValue, newValue);
+            // console.log(name, oldValue, newValue);
             switch (oldValue) {
                 case 'theme-startup':
-                    console.log(
-                        `%cThe component's state (${name}) attribute changed from ${oldValue} to ${newValue}`,
-                        'color: fuchsia; font-weight: bold;'
-                    );
+                    // console.log(
+                    //     `%cThe component's state (${name}) attribute changed from ${oldValue} to ${newValue}`,
+                    //     'color: fuchsia; font-weight: bold;'
+                    // );
                     break;
                 case 'theme-light':
-                    console.log(
-                        `%cThe component's state (${name}) attribute changed from ${oldValue} to ${newValue}`,
-                        'color: fuchsia; font-weight: bold;'
-                    );
+                    // console.log(
+                    //     `%cThe component's state (${name}) attribute changed from ${oldValue} to ${newValue}`,
+                    //     'color: fuchsia; font-weight: bold;'
+                    // );
                     break;
                 case 'theme-dark':
-                    console.log(
-                        `%cThe component's state (${name}) attribute changed from ${oldValue} to ${newValue}`,
-                        'color: gold; font-weight: bold;'
-                    );
+                    // console.log(
+                    //     `%cThe component's state (${name}) attribute changed from ${oldValue} to ${newValue}`,
+                    //     'color: gold; font-weight: bold;'
+                    // );
                     break;
                 case null || undefined:
-                    console.log(
-                        `%cThe component's state attribute is ${null}`,
-                        'color: fuchsia; font-weight: bold;'
-                    );
+                    // console.log(
+                    //     `%cThe component's state attribute is ${null}`,
+                    //     'color: fuchsia; font-weight: bold;'
+                    // );
                     break;
                 default:
                     window.localStorage.getItem('theme') ===
                     ('theme-dark' || 'theme-startup')
-                        ? console.log(
-                              `%cThe component's state attribute changed from ${oldValue} to ${newValue}`,
-                              'color: fuchsia; font-weight: bold;'
-                          )
-                        : null;
+                        ? null //console.log(
+                        : //       `%cThe component's state attribute changed from ${oldValue} to ${newValue}`,
+                          //       'color: fuchsia; font-weight: bold;'
+                          //   )
+                          null;
                     break;
             }
             return;

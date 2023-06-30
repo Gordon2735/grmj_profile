@@ -1,7 +1,15 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use strict';
 
 import express, { Application, Request, Response, NextFunction } from 'express';
+import notifier from 'node-notifier';
+import { ensureAuth } from '../middleware/auth.js';
+import { fileURLToPath } from 'url';
+import path from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 let user: any;
 
@@ -449,17 +457,32 @@ export async function projectsHandler(
 }
 export async function projectsHandlerPost(
     req: Request,
-    res: Response
+    _res: Response
 ): Promise<void> {
     try {
-        res.json(
-            await user.create(req.body).catch((error: unknown) => {
-                res.status(404),
-                    console.info(
-                        `Whoops, seems there was a "Page Not Found Error" ${error}`
-                    );
-            })
-        );
+        ensureAuth;
+        const user: any = req.body;
+        const user_name: string = user.username;
+        let done: any;
+
+        done(null, {
+            username: user_name,
+            title: `Welcome ${user_name}!`,
+            Object: notifier.notify({
+                title: 'Login Successful',
+                message: `
+                          Welcome ${user_name}! Great to have you browsing-in!
+                          Gordon invites you to explore and learn about his 
+                          life's journey: professionally || personally.
+                          Have a Question? contact Gordon via email: webelistics@gmail.com
+                          `,
+                icon: path.join(
+                    __dirname,
+                    './src/images/team_webelistics_brackets.png'
+                )
+            }),
+            message: 'Contact Gordon via email: webelistics@gmail.com'
+        });
     } catch (error: unknown) {
         console.error(`ProjectsHandlerPost Error: ${error}`);
     }

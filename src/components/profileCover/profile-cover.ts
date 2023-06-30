@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use strict';
 
 import { ProfileCoverTemplate } from './profile-cover_template.js';
@@ -119,15 +120,16 @@ export class ProfileCover extends ProfileCoverTemplate {
                             page3.style.display = 'none';
                             page3.style.visibility = 'hidden';
                         }, 1500);
-                        console.info(
-                            '%cCurrent Page is || page_0',
-                            'color: chartreuse; font-size: 0.75rem; font-weight: bold;'
-                        );
+                        // console.info(
+                        //     '%cCurrent Page is || page_0',
+                        //     'color: chartreuse; font-size: 0.75rem; font-weight: bold;'
+                        // );
                         setTimeout(() => {
-                            console.info(
-                                `%cDataset value for Page 0 is: ${page0.dataset.active}`,
-                                'color: violet; font-size: 1rem; font-weight: bold;'
-                            );
+                            null;
+                            // console.info(
+                            //     `%cDataset value for Page 0 is: ${page0.dataset.active}`,
+                            //     'color: violet; font-size: 1rem; font-weight: bold;'
+                            // );
                         }, 1500);
                         break;
                     case 'page1':
@@ -147,15 +149,16 @@ export class ProfileCover extends ProfileCoverTemplate {
                             page3.style.display = 'none';
                             page3.style.visibility = 'hidden';
                         }, 1500);
-                        console.info(
-                            '%cCurrent Page is || page_1',
-                            'color: chartreuse; font-size: 0.75rem; font-weight: bold;'
-                        );
+                        // console.info(
+                        //     '%cCurrent Page is || page_1',
+                        //     'color: chartreuse; font-size: 0.75rem; font-weight: bold;'
+                        // );
                         setTimeout(() => {
-                            console.info(
-                                `%cDataset value for Page 1 is: ${page1.dataset.active}`,
-                                'color: violet; font-size: 1rem; font-weight: bold;'
-                            );
+                            null;
+                            // console.info(
+                            //     `%cDataset value for Page 1 is: ${page1.dataset.active}`,
+                            //     'color: violet; font-size: 1rem; font-weight: bold;'
+                            // );
                         }, 1500);
                         break;
                     case 'page2':
@@ -176,15 +179,16 @@ export class ProfileCover extends ProfileCoverTemplate {
                             page3.style.display = 'none';
                             page3.style.visibility = 'hidden';
                         }, 1500);
-                        console.info(
-                            '%cCurrent Page is || page_2',
-                            'color: chartreuse; font-size: 0.75rem; font-weight: bold;'
-                        );
+                        // console.info(
+                        //     '%cCurrent Page is || page_2',
+                        //     'color: chartreuse; font-size: 0.75rem; font-weight: bold;'
+                        // );
                         setTimeout(() => {
-                            console.info(
-                                `%cDataset value for Page 2 is: ${page2.dataset.active}`,
-                                'color: violet; font-size: 1rem; font-weight: bold;'
-                            );
+                            null;
+                            // console.info(
+                            //     `%cDataset value for Page 2 is: ${page2.dataset.active}`,
+                            //     'color: violet; font-size: 1rem; font-weight: bold;'
+                            // );
                         }, 1500);
                         break;
                     case 'page3':
@@ -205,22 +209,24 @@ export class ProfileCover extends ProfileCoverTemplate {
                             page3.style.display = 'block';
                             page3.style.visibility = 'visible';
                         }, 1500);
-                        console.info(
-                            '%cCurrent Page is || page_3',
-                            'color: chartreuse; font-size: 0.75rem; font-weight: bold;'
-                        );
+                        // console.info(
+                        //     '%cCurrent Page is || page_3',
+                        //     'color: chartreuse; font-size: 0.75rem; font-weight: bold;'
+                        // );
                         setTimeout(() => {
-                            console.info(
-                                `%cDataset value for Page 3 is: ${page3.dataset.active}`,
-                                'color: violet; font-size: 1rem; font-weight: bold;'
-                            );
+                            null;
+                            // console.info(
+                            //     `%cDataset value for Page 3 is: ${page3.dataset.active}`,
+                            //     'color: violet; font-size: 1rem; font-weight: bold;'
+                            // );
                         }, 1500);
                         break;
                     default:
-                        console.info(
-                            `%c${componentLetterAttribute} was the Letter Attribute @ DEFAULT of Switch Statement!`,
-                            'color: red; font-size: 1rem; font-weight: bold;'
-                        );
+                        null;
+                        // console.info(
+                        //     `%c${componentLetterAttribute} was the Letter Attribute @ DEFAULT of Switch Statement!`,
+                        //     'color: red; font-size: 1rem; font-weight: bold;'
+                        // );
                         break;
                 }
             } catch (error: unknown) {
@@ -235,20 +241,21 @@ export class ProfileCover extends ProfileCoverTemplate {
         }
     }
     attributeChangedCallback(
-        name: string | undefined | null,
-        oldValue: string | undefined,
-        newValue: string
+        _name: string | undefined | null,
+        _oldValue: string | undefined,
+        _newValue: string
     ): void {
         setTimeout(() => {
-            const currentName: string | undefined | null =
-                this.getAttribute('letter');
-            console.info(
-                `%c${currentName} is the current component's letter attribute:
-        ${name} is the name of the attribute.
-        ${newValue} is the new value.
-        ${oldValue} is the old value.`,
-                'color: orange; font-size: 1rem; font-weight: bold;'
-            );
+            null;
+            // const currentName: string | undefined | null =
+            //     this.getAttribute('letter');
+            //     console.info(
+            //         `%c${currentName} is the current component's letter attribute:
+            // ${name} is the name of the attribute.
+            // ${newValue} is the new value.
+            // ${oldValue} is the old value.`,
+            //         'color: orange; font-size: 1rem; font-weight: bold;'
+            //     );
         }, 100);
     }
     disconnectedCallback(): void {

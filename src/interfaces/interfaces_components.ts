@@ -13,7 +13,10 @@ interface ProfileProject extends HTMLElement {
     template: string;
     render(template: string): void;
     dataProjectPage: ProfileProjectsState | null | undefined;
-    projectPage: string[];
+    projectPage: ProfileProjectDataset | string[];
+    pageDataset: ProfileProjectDataset | DOMStringMap;
+    pageHistory: ProfileProjectDataset | string[];
+    pageForwardHistory: ProfileProjectDataset | string[];
 
     // get observedAttributes(): string[];
     head: HTMLHeadElement | null | undefined;
@@ -45,4 +48,18 @@ interface ProfileProjectsState {
     state: string;
 }
 
-export { ProfileProject as default, ProfileProjectsState };
+interface ProfileProjectDataset {
+    pageDataset: DOMStringMap;
+    pageHistory: Array<string> | string[];
+    pageForwardHistory: Array<string> | string[];
+    length: number;
+    pagesValue: string;
+    push: (arg0: string) => void;
+    pop: () => string;
+}
+
+export {
+    ProfileProject as default,
+    ProfileProjectsState,
+    ProfileProjectDataset
+};

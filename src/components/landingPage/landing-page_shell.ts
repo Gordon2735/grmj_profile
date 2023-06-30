@@ -43,7 +43,7 @@ export class LandingPageShell extends LandingPageTemplate {
 
         this.head?.appendChild(this.landingPageScript);
 
-        console.info('The Landing Page has Rendered');
+        // console.info('The Landing Page has Rendered');
     }
 }
 RegisterComponents('landing-page_shell', LandingPageShell);

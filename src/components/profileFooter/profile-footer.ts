@@ -164,7 +164,7 @@ export class ProfileFooter extends ProfileFooterTemplate {
             //     this.targetStyleMap,
             //     this.targetElement
             // );
-            console.info(this.targetStyleMap);
+            // console.info(this.targetStyleMap);
             return this.targetStyleMap;
         };
         currentStyleMod();

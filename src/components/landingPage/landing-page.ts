@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 'use strict';
@@ -132,25 +133,25 @@ export class LandingPage extends LandingPageTemplate {
                             'data-theme',
                             currentTheme
                         );
-                        console.info(
-                            `%c The current state of the Landing Page dataset-theme: ${currentTheme}`,
-                            'color: chartreuse;'
-                        );
+                        // console.info(
+                        //     `%c The current state of the Landing Page dataset-theme: ${currentTheme}`,
+                        //     'color: chartreuse;'
+                        // );
                         break;
                     case 'theme-light':
                         this.grabComponent.setAttribute(
                             'data-theme',
                             currentTheme
                         );
-                        console.info(
-                            `%c The current state of the Landing Page dataset-theme: ${currentTheme}`,
-                            'color: yellow;'
-                        );
+                        // console.info(
+                        //     `%c The current state of the Landing Page dataset-theme: ${currentTheme}`,
+                        //     'color: yellow;'
+                        // );
                         break;
                     default:
-                        console.error(
-                            `There's has been an error in the dataTheme Function`
-                        );
+                        // console.error(
+                        //     `There's has been an error in the dataTheme Function`
+                        // );
                         break;
                 }
                 return;
@@ -171,14 +172,14 @@ export class LandingPage extends LandingPageTemplate {
             attributes: true
         };
 
-        function callback(mutationList: any[], observer: any) {
+        function callback(mutationList: any[], _observer: any) {
             mutationList.map(function (mutation) {
                 if (
                     mutation.type === 'attributes' &&
                     mutation.attributeName === 'class'
                 ) {
                     dataTheme();
-                    console.info(observer);
+                    // console.info(observer);
                 }
             });
         }
@@ -193,13 +194,14 @@ export class LandingPage extends LandingPageTemplate {
     }
 
     public attributeChangedCallback(
-        name: string,
-        oldValue: string,
-        newValue: string
+        _name: string,
+        _oldValue: string,
+        _newValue: string
     ): void {
-        console.info(
-            `LIFECYCLE__attribute callback: ${name}, ${oldValue}, ${newValue}`
-        );
+        // console.info(
+        //     `LIFECYCLE__attribute callback: ${name}, ${oldValue}, ${newValue}`
+        // );
+        null;
     }
 
     override get template(): string {

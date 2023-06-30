@@ -151,3 +151,5 @@ export type Engine = (
 //     import: '../../Global/global_fonts.css';
 //     assert: { type: 'css' };
 // }
+
+export type UrlArray = string[];

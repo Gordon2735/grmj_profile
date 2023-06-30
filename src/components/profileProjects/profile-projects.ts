@@ -1,3 +1,5 @@
+/* eslint-disable prefer-const */
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use strict';
 
@@ -6,12 +8,11 @@ import { profileProjects_sharedHTML } from './profile-projects_sharedHTML.js';
 import { profileProjects_sharedStyles } from './profile-projects_sharedStyles.js';
 import RegisterComponent, {
     setAttributes
-    // appendChildren
 } from '../componentTools/components_services.js';
 import ProfileProject, {
-    ProfileProjectsState
+    ProfileProjectsState,
+    ProfileProjectDataset
 } from '../../interfaces/interfaces_components.js';
-
 export default class ProfileProjects
     extends ProjectsTemplate
     implements ProfileProject
@@ -35,9 +36,28 @@ export default class ProfileProjects
     dogType: string;
     projectUl: HTMLUListElement;
     iFrameViewer: HTMLIFrameElement;
+    navContainer: HTMLElement;
     dataProjectPage: ProfileProjectsState | null | undefined;
     stateValue: ProfileProjectsState | null | undefined;
     dataValue: ProfileProjectsState | null | undefined;
+    savedStorageState: {
+        storage_state_saved: boolean;
+        storage_state_unsaved: boolean;
+    };
+    pageDataset: ProfileProjectDataset | DOMStringMap;
+    pageHistory: ProfileProjectDataset | Array<string> | string[];
+    pageForwardHistory: ProfileProjectDataset | Array<string> | string[];
+    pagesValue: ProfileProjectDataset | string | undefined;
+
+    override get template(): string {
+        return /*html*/ `
+        
+            ${profileProjects_sharedHTML.projects}
+            <style>${profileProjects_sharedStyles.projects}</style>
+            ${profileProjects_sharedHTML.footer}
+            <style>${profileProjects_sharedStyles.footerMod}</style>
+        `;
+    }
 
     constructor(
         head: HTMLHeadElement | null | undefined,
@@ -54,7 +74,12 @@ export default class ProfileProjects
         todoApp: string,
         synth: string,
         dogType: string,
-        iFrameViewer: HTMLIFrameElement
+        iFrameViewer: HTMLIFrameElement,
+        pageDataset: DOMStringMap,
+        pageHistory: ProfileProjectDataset | Array<string> | string[],
+        pageForwardHistory: ProfileProjectDataset | Array<string> | string[],
+        pagesValue: string,
+        navContainer: HTMLElement
     ) {
         super();
 
@@ -81,6 +106,10 @@ export default class ProfileProjects
 
         iFrameViewer = document.createElement('iframe') as HTMLIFrameElement;
 
+        navContainer = document.getElementById(
+            'projectViewerNav'
+        ) as HTMLElement;
+
         setAttributes(iFrameViewer, {
             id: 'projectViewer',
             class: 'project-viewer',
@@ -92,6 +121,21 @@ export default class ProfileProjects
         });
 
         this.iFrameViewer = iFrameViewer;
+        this.navContainer = navContainer;
+
+        this.pageDataset = pageDataset as ProfileProjectDataset | DOMStringMap;
+        this.pageHistory = pageHistory as
+            | ProfileProjectDataset
+            | Array<string>
+            | string[];
+        this.pageForwardHistory = pageForwardHistory as
+            | ProfileProjectDataset
+            | Array<string>
+            | string[];
+        this.pagesValue = pagesValue as ProfileProjectDataset | string;
+
+        this.pageHistory = [];
+        this.pageForwardHistory = [];
 
         this.spaceInvaders =
             'src/components/profileProjects/resources/projectApps/space_invaders/page_0.html';
@@ -133,16 +177,34 @@ export default class ProfileProjects
             this.page_3,
             this.page_4
         ] as string[];
+
+        const savedStorageState = {
+            storage_state_saved: false,
+            storage_state_unsaved: true
+        };
+
+        this.savedStorageState = savedStorageState;
     }
-    override get template(): string {
-        return /*html*/ `
-        
-            ${profileProjects_sharedHTML.projects}
-            <style>${profileProjects_sharedStyles.projects}</style>
-            ${profileProjects_sharedHTML.footer}
-            <style>${profileProjects_sharedStyles.footerMod}</style>
-        `;
+
+    override disconnectedCallback(): void {
+        super.disconnectedCallback();
+
+        const disconnecting = async (): Promise<void> => {
+            this.savedStorageState.storage_state_saved !== false
+                ? console.info(
+                      `%c ProfileProjects Disconnected and localStorage is Saved`,
+                      'color: #bada55'
+                  )
+                : localStorage.clear(),
+                console.info(
+                    `%c ProfileProjects Disconnected and localStorage is cleared`,
+                    'color: #bada55'
+                );
+            return;
+        };
+        disconnecting();
     }
+
     override connectedCallback(): void {
         super.connectedCallback();
 
@@ -207,7 +269,7 @@ export default class ProfileProjects
                             'state',
                             page[0]
                         );
-                        componentWithDataset.dataset.projectPage = '10';
+                        componentWithDataset.dataset.projectPage = '0';
                         break;
                 }
                 return (
@@ -221,8 +283,8 @@ export default class ProfileProjects
                     `There was an ERROR in the processProjectPage() 
                         ASYNCHRONOUS ARROW FUNCTION: ${await error}`
                 );
+                return;
             }
-            return;
         };
 
         const renderProjectList = async (): Promise<void> => {
@@ -244,6 +306,7 @@ export default class ProfileProjects
                     `There was an ERROR in the renderProjectList() 
                     ASYNCHRONOUS ARROW FUNCTION: ${await error}`
                 );
+                return;
             }
             return;
         };
@@ -256,7 +319,7 @@ export default class ProfileProjects
                 ) as NodeListOf<HTMLLIElement>;
 
                 liList.forEach((li: HTMLLIElement) => {
-                    li.addEventListener('click', (event: MouseEvent) => {
+                    li.addEventListener('click', async (event: MouseEvent) => {
                         const isActive = document.querySelector(
                             '.active'
                         ) as HTMLLIElement;
@@ -287,6 +350,7 @@ export default class ProfileProjects
                     `There was an ERROR in the liListHandler() 
                 ASYNCHRONOUS ARROW FUNCTION: ${await error}`
                 );
+                return;
             }
         };
         liListHandler();
@@ -311,54 +375,147 @@ export default class ProfileProjects
             | HTMLElement
             | undefined;
 
-        const navContainer = document.getElementById(
-            'projectViewerNav'
-        ) as HTMLElement;
+        const iFrameElement: HTMLIFrameElement = this.iFrameViewer;
 
-        async function processNavButtons(): Promise<void> {
+        const assignSrcToIFrameViewer = async (
+            value: string | undefined
+        ): Promise<HTMLElement | undefined> => {
             try {
-                const grabAllNavButtons = navContainer?.querySelectorAll(
-                    '.btn-viewer'
-                ) as NodeListOf<HTMLButtonElement>;
-
-                grabAllNavButtons !== null
-                    ? grabAllNavButtons?.forEach(
-                          (button: HTMLButtonElement) => {
-                              navContainer?.contains(button) !== false
-                                  ? button.remove()
-                                  : console.info(
-                                        `Apparently there are no buttons to remove even though 
-                                        the grabAllNavButtons() QUERY was deemed NULL || CHECKING Button Query Return: ${button}`
-                                    );
-                              return;
-                          }
-                      )
-                    : console.info(
-                          `Apparently there are no buttons to remove || Button Query Return: ${navContainer}`,
-                          `CHECK AND VERIFY THAT A Back & Forward Button WERE created`
-                      ),
-                    createNavButtons(),
-                    assignSrcToIFrameViewer(_newValue);
-                return;
+                if (_name === 'data-project-page') {
+                    switch (value) {
+                        case '0':
+                            iFrameElement.src = this.spaceInvaders;
+                            break;
+                        case '1':
+                            iFrameElement.src = this.teamWebelisticsBlog;
+                            break;
+                        case '2':
+                            iFrameElement.src = this.todoApp;
+                            break;
+                        case '3':
+                            iFrameElement.src = this.synth;
+                            break;
+                        case '4':
+                            iFrameElement.src = this.dogType;
+                            break;
+                        default:
+                            iFrameElement.src = this.spaceInvaders;
+                            break;
+                    }
+                    sectionB?.insertAdjacentElement(
+                        'afterbegin',
+                        iFrameElement
+                    );
+                    return sectionB;
+                }
             } catch (error: unknown) {
                 console.error(
-                    `There was an ERROR in the removeOldButtons() 
-                        ASYNCHRONOUS ARROW FUNCTION: ${await error}`
+                    `There was an ERROR assigning the SRC PATH String to the
+                        iFrame Element: ${await error}`
                 );
                 return;
             }
-        }
+            return;
+        };
 
-        async function createNavButtons(): Promise<void> {
+        const buttonHandler = async (
+            backNavButton: HTMLButtonElement,
+            forwardButton: HTMLButtonElement
+        ): Promise<any> => {
+            const history: string[] | ProfileProjectDataset = this.pageHistory;
+            const forwardHistory: string[] | undefined | ProfileProjectDataset =
+                this.pageForwardHistory;
+            const historyLength: number = this.pageHistory.length;
+
             try {
-                const navContainer = document.getElementById(
+                if (historyLength === 2) {
+                    assignSrcToIFrameViewer(_newValue);
+                    history.push(_newValue);
+                    await createNavButtons(backNavButton, forwardButton);
+
+                    backNavButton = document.getElementById(
+                        'backButton'
+                    ) as HTMLButtonElement;
+
+                    backNavButton.addEventListener('click', async () => {
+                        try {
+                            const lastPage: string | undefined = history.pop();
+                            assignSrcToIFrameViewer(lastPage);
+                            forwardHistory.push(lastPage!);
+                        } catch (error: unknown) {
+                            console.error(
+                                `There was an ERROR in the back button event listener: ${await error}`
+                            );
+                        }
+                    });
+
+                    forwardButton = document.getElementById(
+                        'forwardButton'
+                    ) as HTMLButtonElement;
+
+                    forwardButton.addEventListener('click', async () => {
+                        try {
+                            const nextPage: string | undefined =
+                                forwardHistory.pop();
+                            assignSrcToIFrameViewer(nextPage);
+                            history.push(nextPage!);
+                        } catch (error: unknown) {
+                            console.error(
+                                `There was an ERROR in the forward button event listener: ${await error}`
+                            );
+                            return;
+                        }
+                    });
+                    return backNavButton && forwardButton;
+                } else if (historyLength === 1) {
+                    assignSrcToIFrameViewer(_newValue);
+                    history.push(_newValue);
+
+                    return;
+                } else if (historyLength >= 0 && _newValue !== _oldValue) {
+                    assignSrcToIFrameViewer(_newValue);
+                    history.push(_newValue);
+                    backNavButton = document.getElementById(
+                        'backButton'
+                    ) as HTMLButtonElement;
+
+                    return;
+                } else {
+                    console.info(
+                        `this.pageHistory.length:  ${historyLength}`,
+                        historyLength
+                    );
+                }
+            } catch (error: unknown) {
+                console.error(
+                    `There was an ERROR in the buttonHandler()
+                ASYNCHRONOUS ARROW FUNCTION: ${await error}`
+                );
+                return;
+            }
+
+            return;
+        };
+        let backNavButton: HTMLButtonElement = document.createElement(
+            'button'
+        ) as HTMLButtonElement;
+        let forwardButton: HTMLButtonElement = document.createElement(
+            'button'
+        ) as HTMLButtonElement;
+
+        buttonHandler(backNavButton, forwardButton);
+
+        async function createNavButtons(
+            backButton: HTMLButtonElement,
+            forwardButton: HTMLButtonElement
+        ): Promise<void> {
+            try {
+                const navContainer = (await document.getElementById(
                     'projectViewerNav'
-                ) as HTMLElement;
+                )) as HTMLElement;
                 // console.info(navContainer);
-                const backButton = document.createElement(
-                    'button'
-                ) as HTMLButtonElement;
-                const forwardButton = document.createElement(
+
+                const saveStorageButton = document.createElement(
                     'button'
                 ) as HTMLButtonElement;
 
@@ -378,6 +535,14 @@ export default class ProfileProjects
                     'aria-pressed': 'false',
                     alt: 'forward-button'
                 });
+                setAttributes(saveStorageButton, {
+                    id: 'saveStorageButton',
+                    class: 'save-storage-button btn-viewer',
+                    type: 'button',
+                    'aria-label': 'save-storage-button',
+                    'aria-pressed': 'false',
+                    alt: 'save-storage-button'
+                });
 
                 backButton.innerHTML = /* html*/ `
                     <span class="btn-arrow-back">←</span>
@@ -389,9 +554,16 @@ export default class ProfileProjects
                 `;
                 forwardButton.setAttribute('data-btn-forward', 'page_1');
 
+                saveStorageButton.innerHTML = /* html*/ `
+                    <span class="btn-save-storage">💾</span>
+                `;
+
                 navContainer?.insertAdjacentElement('beforeend', forwardButton);
                 navContainer?.insertAdjacentElement('afterbegin', backButton);
-
+                navContainer?.insertAdjacentElement(
+                    'beforeend',
+                    saveStorageButton
+                );
                 return;
             } catch (error: unknown) {
                 console.error(
@@ -401,136 +573,6 @@ export default class ProfileProjects
                 return;
             }
         }
-
-        const assignSrcToIFrameViewer = async (
-            value: string
-        ): Promise<HTMLElement | undefined> => {
-            try {
-                if (_name === 'data-project-page') {
-                    switch (value) {
-                        case '0':
-                            this.iFrameViewer.src = this.spaceInvaders;
-                            break;
-                        case '1':
-                            this.iFrameViewer.src = this.teamWebelisticsBlog;
-                            break;
-                        case '2':
-                            this.iFrameViewer.src = this.todoApp;
-                            break;
-                        case '3':
-                            this.iFrameViewer.src = this.synth;
-                            break;
-                        case '4':
-                            this.iFrameViewer.src = this.dogType;
-                            break;
-                        default:
-                            this.iFrameViewer.src = this.spaceInvaders;
-                            break;
-                    }
-                    sectionB?.insertAdjacentElement(
-                        'beforeend',
-                        this.iFrameViewer
-                    );
-                    return this.iFrameViewer;
-                }
-            } catch (error: unknown) {
-                console.error(
-                    `There was an ERROR assigning the SRC PATH String to the
-                        iFrame Element: ${await error}`
-                );
-            }
-            return;
-        };
-
-        const assignSrcToBackIframeViewer = async (
-            value: string
-        ): Promise<HTMLElement | undefined> => {
-            try {
-                if (_name === 'data-project-page') {
-                    switch (value) {
-                        case '0':
-                            this.iFrameViewer.src = this.spaceInvaders;
-                            break;
-                        case '1':
-                            this.iFrameViewer.src = this.teamWebelisticsBlog;
-                            break;
-                        case '2':
-                            this.iFrameViewer.src = this.todoApp;
-                            break;
-                        case '3':
-                            this.iFrameViewer.src = this.synth;
-                            break;
-                        case '4':
-                            this.iFrameViewer.src = this.dogType;
-                            break;
-                        default:
-                            this.iFrameViewer.src = this.spaceInvaders;
-                            break;
-                    }
-                    sectionB?.insertAdjacentElement(
-                        'beforeend',
-                        this.iFrameViewer
-                    );
-                    return this.iFrameViewer;
-                }
-            } catch (error: unknown) {
-                console.error(
-                    `createNavButtons Function had an ERROR:  ${await error}`
-                );
-            }
-            return;
-        };
-        processNavButtons();
-
-        const buttonHandler = async (): Promise<void> => {
-            try {
-                const navContainer = document.getElementById(
-                    'projectViewerNav'
-                ) as HTMLElement;
-
-                const grabButtons = navContainer?.querySelectorAll(
-                    '.btn-viewer'
-                ) as NodeListOf<HTMLButtonElement>;
-
-                grabButtons?.forEach((button: HTMLButtonElement) => {
-                    // console.info(button);
-
-                    if (navContainer?.contains(button) !== false) {
-                        const grabBackNavButton = navContainer?.querySelector(
-                            '.back-button'
-                        ) as HTMLButtonElement;
-
-                        const grabForwardNavButton =
-                            navContainer?.querySelector(
-                                '.forward-button'
-                            ) as HTMLButtonElement;
-
-                        grabBackNavButton?.addEventListener('click', () => {
-                            assignSrcToBackIframeViewer(_oldValue);
-                            return;
-                        });
-
-                        grabForwardNavButton?.addEventListener('click', () => {
-                            assignSrcToIFrameViewer(_newValue);
-                            return;
-                        });
-                        return;
-                    } else {
-                        console.error('NO BUTTON FOUND');
-                        return;
-                    }
-                });
-            } catch (error: unknown) {
-                console.error(
-                    `There was an ERROR in the buttonHandler()
-                ASYNCHRONOUS ARROW FUNCTION: ${await error}`
-                );
-            }
-        };
-        buttonHandler();
     }
 }
 RegisterComponent('profile-projects', ProfileProjects);
-
-// left arrow long  &#8592;
-// right arrow long &#8594;

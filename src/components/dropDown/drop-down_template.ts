@@ -84,94 +84,94 @@ export class DropDownTemplate extends HTMLElement {
             switch (this.locationHREF) {
                 case 'http://127.0.0.1:9080/landing':
                     this.dropShell!.innerHTML = `<style>${this.landingHREF}</style>`;
-                    console.log(
-                        `%cUsing landingHREF for Dropdown Menu Styles`,
-                        'color: orange; font-size: 1.5rem;'
-                    );
+                    // console.log(
+                    //     `%cUsing landingHREF for Dropdown Menu Styles`,
+                    //     'color: orange; font-size: 1.5rem;'
+                    // );
                     break;
                 case 'http://127.0.0.1:9080/home':
                     this.dropShell!.innerHTML = `<style>${this.homeStartHREF}</style>`;
-                    console.log(
-                        `%cUsing homeHREF for Dropdown Menu Styles`,
-                        'color: orange; font-size: 1.5rem;'
-                    );
+                    // console.log(
+                    //     `%cUsing homeHREF for Dropdown Menu Styles`,
+                    //     'color: orange; font-size: 1.5rem;'
+                    // );
                     break;
                 case 'http://127.0.0.1:9080/cover_letter':
                     this.dropShell!.innerHTML = `<style>${this.coverLetterHREF}</style>`;
-                    console.log(
-                        `%cUsing coverLetterHREF for Dropdown Menu Styles`,
-                        'color: orange; font-size: 1.5rem;'
-                    );
+                    // console.log(
+                    //     `%cUsing coverLetterHREF for Dropdown Menu Styles`,
+                    //     'color: orange; font-size: 1.5rem;'
+                    // );
                     break;
                 case 'http://127.0.0.1:9080/about':
                     this.dropShell!.innerHTML = `<style>${this.aboutHREF}</style>`;
-                    console.log(
-                        `%cUsing aboutHREF for Dropdown Menu Styles`,
-                        'color: orange; font-size: 1.5rem;'
-                    );
+                    // console.log(
+                    //     `%cUsing aboutHREF for Dropdown Menu Styles`,
+                    //     'color: orange; font-size: 1.5rem;'
+                    // );
                     break;
                 case 'http://127.0.0.1:9080/projects':
                     this.dropShell!.innerHTML = `<style>${this.projectsHREF}</style>`;
-                    console.log(
-                        `%cUsing projectsHREF for Dropdown Menu Styles`,
-                        'color: orange; font-size: 1.5rem;'
-                    );
+                    // console.log(
+                    //     `%cUsing projectsHREF for Dropdown Menu Styles`,
+                    //     'color: orange; font-size: 1.5rem;'
+                    // );
                     break;
                 case 'http://127.0.0.1:9080/history':
                     this.dropShell!.innerHTML = `<style>${this.historyHREF}</style>`;
-                    console.log(
-                        `%cUsing historyHREF for Dropdown Menu Styles`,
-                        'color: orange; font-size: 1.5rem;'
-                    );
+                    // console.log(
+                    //     `%cUsing historyHREF for Dropdown Menu Styles`,
+                    //     'color: orange; font-size: 1.5rem;'
+                    // );
                     break;
                 case 'http://127.0.0.1:9080/resume':
                     this.dropShell!.innerHTML = `<style>${this.resumeHREF}</style>`;
-                    console.log(
-                        `%cUsing resumeHREF for Dropdown Menu Styles`,
-                        'color: orange; font-size: 1.5rem;'
-                    );
+                    // console.log(
+                    //     `%cUsing resumeHREF for Dropdown Menu Styles`,
+                    //     'color: orange; font-size: 1.5rem;'
+                    // );
                     break;
                 case 'http://127.0.0.1:9080/code_examples':
                     this.dropShell!.innerHTML = `<style>${this.codeExHREF}</style>`;
-                    console.log(
-                        `%cUsing codeExHREF for Dropdown Menu Styles`,
-                        'color: orange; font-size: 1.5rem;'
-                    );
+                    // console.log(
+                    //     `%cUsing codeExHREF for Dropdown Menu Styles`,
+                    //     'color: orange; font-size: 1.5rem;'
+                    // );
                     break;
                 case 'http://127.0.0.1:9080/goals':
                     this.dropShell!.innerHTML = `<style>${this.goalsHREF}</style>`;
-                    console.log(
-                        `%cUsing goalsHREF for Dropdown Menu Styles`,
-                        'color: orange; font-size: 1.5rem;'
-                    );
+                    // console.log(
+                    //     `%cUsing goalsHREF for Dropdown Menu Styles`,
+                    //     'color: orange; font-size: 1.5rem;'
+                    // );
                     break;
                 case 'http://127.0.0.1:9080/contact':
                     this.dropShell!.innerHTML = `<style>${this.contactHREF}</style>`;
-                    console.log(
-                        `%cUsing contactHREF for Dropdown Menu Styles`,
-                        'color: orange; font-size: 1.5rem;'
-                    );
+                    // console.log(
+                    //     `%cUsing contactHREF for Dropdown Menu Styles`,
+                    //     'color: orange; font-size: 1.5rem;'
+                    // );
                     break;
                 case 'http://127.0.0.1:9080/spacex':
                     this.dropShell!.innerHTML = `<style>${this.spacexHREF}</style>`;
-                    console.log(
-                        `%cUsing spacexHREF for Dropdown Menu Styles`,
-                        'color: orange; font-size: 1.5rem;'
-                    );
+                    // console.log(
+                    //     `%cUsing spacexHREF for Dropdown Menu Styles`,
+                    //     'color: orange; font-size: 1.5rem;'
+                    // );
                     break;
                 case 'http://127.0.0.1:9080/library':
                     this.dropShell!.innerHTML = `<style>${this.libraryHREF}</style>`;
-                    console.log(
-                        `%cUsing libraryHREF for Dropdown Menu Styles`,
-                        'color: orange; font-size: 1.5rem;'
-                    );
+                    // console.log(
+                    //     `%cUsing libraryHREF for Dropdown Menu Styles`,
+                    //     'color: orange; font-size: 1.5rem;'
+                    // );
                     break;
                 default:
                     this.dropShell!.innerHTML = `<style>${this.homeStartHREF}</style>`;
-                    console.log(
-                        `%cUsing homeHREF for Dropdown Menu Styles FROM DEFAULT in SWITCH STATEMENT`,
-                        'color: orange; font-size: 1.5rem;'
-                    );
+                    // console.log(
+                    //     `%cUsing homeHREF for Dropdown Menu Styles FROM DEFAULT in SWITCH STATEMENT`,
+                    //     'color: orange; font-size: 1.5rem;'
+                    // );
                     break;
             }
         } catch (error: unknown) {

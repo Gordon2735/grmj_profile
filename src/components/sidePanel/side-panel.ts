@@ -118,10 +118,11 @@ export class SidePanel extends SidePanelTemplate {
         const hamburgers: HTMLElement | null | undefined =
             document.getElementById('hamburgers');
         function conLog(): void {
-            const conLogging: void = console.log(
-                'Side-Panel is Rendered :::: HooT™️ Webelistics®️ '
-            );
-            return conLogging;
+            // const conLogging: void = console.log(
+            //     'Side-Panel is Rendered :::: HooT™️ Webelistics®️ '
+            // );null;
+            // return conLogging;
+            return;
         }
 
         hamburgers?.addEventListener(
@@ -137,7 +138,7 @@ export class SidePanel extends SidePanelTemplate {
                     : (menu.slide(), (menu.isMenuShown = false));
 
                 event.stopPropagation();
-                console.log(event);
+                // console.log(event);
             }
         );
         const sliderContainer: HTMLElement | null | undefined =
