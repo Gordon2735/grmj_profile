@@ -138,7 +138,7 @@ export default class ProfileProjects
         this.pageForwardHistory = [];
 
         this.spaceInvaders =
-            'src/components/profileProjects/resources/projectApps/space_invaders/page_0.html';
+            'src/components/profileProjects/resources/projectApps/space_invaders/index.html';
         this.teamWebelisticsBlog =
             'src/components/profileProjects/resources/projectApps/twBlog/page_1.html';
         this.todoApp =
