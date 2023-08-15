@@ -144,6 +144,7 @@ landingPage_sharedStyles.page = /*css*/ `
     }
 
     .navbar-brand > .navbar-div {
+        padding-left: 2em;
         text-align: center;
     }
     

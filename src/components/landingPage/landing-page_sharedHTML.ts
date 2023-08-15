@@ -30,7 +30,10 @@ landingPage_sharedHTML.page = /*html*/ `
                 <h2 id="h2Webelistics" class="h2-webelistics">Webelistics<sup class="sup-reg">&#174;</sup></h2>
             </div>            
             <div class="navbar-div">            
-                <p id="pSimplicity" class="p-simplicity">refactored for clean, readable code, always respecting the constraints while empirically reaching for an engineering simplicity</p>
+                <p id="pSimplicity" class="p-simplicity">Software Development with a focal point to build Intuitive Internet Applications delivering a confidence and feel of a Desktop Machine!</p>
+            </div>            
+            <div class="navbar-div">            
+                <p id="pSimplicity" class="p-simplicity">Development of Smart Phone Applications with a definitive architecture designed to excel beyond your business model's expectancies!</p>
             </div>            
         </div>
         <ul class="navbar-nav-left">

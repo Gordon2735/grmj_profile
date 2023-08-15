@@ -7,6 +7,7 @@ import RegisterComponent from '../componentTools/components_services.js';
 
 export class ProfileResume extends ResumeTemplate {
     override activateShadowDOM: boolean;
+
     constructor() {
         super();
 
@@ -15,7 +16,53 @@ export class ProfileResume extends ResumeTemplate {
     override connectedCallback() {
         super.connectedCallback();
 
-        console.log('Resume-Page is Rendered :::: HooT™️ Webelistics®️ ');
+        const landingBtn = document.getElementById(
+            'resumeLandingBtn'
+        ) as HTMLButtonElement | null;
+
+        const historyBtn: HTMLButtonElement | null = document.querySelector(
+            '.resume-history-btn'
+        );
+        const projectsBtn: HTMLButtonElement | null = document.querySelector(
+            '.resume-projects-btn'
+        );
+        const goalsBtn: HTMLButtonElement | null =
+            document.querySelector('.resume-goals-btn');
+
+        const contactBtn: HTMLButtonElement | null = document.querySelector(
+            '.resume-contact-btn'
+        );
+
+        landingBtn?.addEventListener('click', (event: MouseEvent) => {
+            createAElement('/landing', event);
+            console.log(event.target);
+        });
+
+        historyBtn?.addEventListener('click', (event: MouseEvent) => {
+            createAElement('/history', event);
+            console.log(event.target);
+        });
+
+        projectsBtn?.addEventListener('click', (event: MouseEvent) => {
+            createAElement('/projects', event);
+        });
+
+        goalsBtn?.addEventListener('click', (event: MouseEvent) => {
+            createAElement('/goals', event);
+        });
+
+        contactBtn?.addEventListener('click', (event: MouseEvent) => {
+            createAElement('/contact', event);
+        });
+
+        async function createAElement(
+            HREF: string,
+            ev: MouseEvent
+        ): Promise<void> {
+            const anchorElement = ev.target as HTMLAnchorElement;
+            anchorElement.href = HREF;
+            return location.replace(anchorElement.href);
+        }
     }
     override get template() {
         return /*html*/ `

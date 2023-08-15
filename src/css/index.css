@@ -87,6 +87,7 @@
     --grmj-text-shadow-3: 2px 1px 1px hsla(0, 0%, 0%, 0.25);
     --grmj-text-shadow-4: 3px 2px 3px hsla(0, 0%, 0%, 0.6);
     --grmj-text-shadow-5: 2px 1px 2px hsla(0, 0%, 0%, 0.4);
+    --grmj-text-shadow-6: 0.1rem 0.1rem 0.5rem hsla(0, 0%, 0%, 0.29);
 
     /*Box Shadows*/
     --grmj-box-shadow-0: 5px 4px 7px hsla(0, 0%, 0%, 0.79);
@@ -208,14 +209,23 @@
     --color-scratchy-darkblue: hsla(137, 15%, 82%, 0.99);
     --color-scratchy-darkerblue: hsla(140, 3%, 21%, 0.99);
 
-
-
     /*Borders*/
     --grmj-border-0: 2.5px solid hsla(240, 81%, 12%, 0.99);
     --grmj-border-1: 1.25px solid hsla(240, 81%, 12%, 0.99);
     --grmj-border-2: 2.25px solid hsla(212, 62%, 49%, 0.99);
+    --grmj-border-2a: 3.25px solid hsla(212, 97%, 24%, 0.99);
     --grmj-border-3: 0.75px solid hsla(240, 81%, 12%, 0.99);
     --grmj-border-4: 0.50px solid hsla(240, 81%, 12%, 0.99);
+
+    /*Border Radius*/
+    --grmj-border-radius-1: 0.2em;
+    --grmj-border-radius-2: 0.4em;
+    --grmj-border-radius-3: 0.6em;
+    --grmj-border-radius-4: 0.8em;
+    --grmj-border-radius-5: 1em;
+    --grmj-border-radius-6: 1.2em;
+    --grmj-border-radius-7: 2.2em;
+    --grmj-border-radius-8: 4.2em;
 
     /*Scrollbar Colors*/
     --grmj_profile_scrollbar-background: hsla(201, 11%, 53%, 0.99);
@@ -298,6 +308,31 @@
     --project-border-1: 8px solid var(--project-color-1);
     --project-drop-shadow-1: drop-shadow(0.3rem 0.5rem 1.55rem hsla(0, 0%, 0%, 0.89));
     --project-ul-1: hsla(0, 0%, 0%, 0.99);
+    --resume-yellow-note: url("/src/components/componentTools/resources/images/sticky-note-blue.png");
+    --resume-background-main: hsla(56, 71%, 77%, 0.61);
+    --resume-background-1: hsla(0, 0%, 54%, 0.993);
+    --resume-background-2: hsla(56, 100%, 50%, 0.664);
+    --resume-border-color: hsla(197, 98%, 17%, 0.99);
+    --resume-border-1: 0.4em solid var(--resume-border-color);
+    --resume-color: hsla(0, 0%, 4%, 0.69);
+    --resume-line: hsla(0, 0%, 0%, 0.99);
+    --resume_line-border-top: 0.12em solid hsla(0, 0%, 0%, 0.998);
+    --resume_line-border-bottom: 0.17em solid hsla(0, 0%, 0%, 0.998);
+    --resume-filter-dropShadow-1: drop-shadow(0.7rem 0.7rem 1.9rem rgba(0, 0, 0, 0.342));
+    --resume-filter-dropShadow-2: drop-shadow(0.08rem 0.1rem 0.5rem rgba(0, 0, 0, 0.39));
+    --resume-filter-dropShadow-3: drop-shadow(0 0 0.5rem hsla(198, 100%, 2%, 0.29));
+    --resume-caption-color: hsla(197, 98%, 69%, 0.69);
+    --resume-footer-color: hsla(0, 0%, 0%, 0.99);
+    --resume-background-section: hsla(194, 92%, 72%, 0.993);
+    --resume-box-shadow: -15px -15px 19px hsla(194, 92%, 72%, 0.42),
+        15px 15px 15px rgba(0, 0, 0, 0.5);
+    --resume-background-btn: hsla(0, 0%, 41%, 0.719);
+    --resume-background-btn-hover: hsla(194, 92%, 72%, 0.329);
+    --resume-btn-text-color: hsla(0, 0%, 100%, 0.899);
+    --resume-btn-text-color-hover: hsla(195, 100%, 7%, 0.993);
+    --resume-btn-text-color-active: hsla(0, 100%, 50%, 0.979);
+    --resume-background-btn-active: hsla(278, 100%, 50%, 0.329);
+    --resume-border-btn: 0.25em solid hsla(0, 0%, 0%, 0.99);
 }
 
 .theme-startup,
@@ -371,6 +406,30 @@
     --project-border-1: 4px solid var(--project-color-1);
     --project-drop-shadow-1: drop-shadow(0.3rem 0.5rem 1.55rem hsla(0, 0%, 0%, 0.01));
     --project-ul-1: hsla(90, 99%, 49%, 0.99);
+    --resume-yellow-note: url("/src/components/componentTools/resources/images/sticky-note.png");
+    --resume-background-main: hsla(0, 0%, 20%, 0.99);
+    --resume-background-1: hsla(56, 100%, 50%, 0.904);
+    --resume-border-color: hsla(197, 98%, 17%, 0.99);
+    --resume-border-1: 0.4em solid var(--resume-border-color);
+    --resume-color: hsla(197, 98%, 42%, 0.69);
+    --resume-line: hsla(0, 0%, 0%, 0.99);
+    --resume_line-border-top: 0.12em solid hsla(0, 0%, 0%, 0.998);
+    --resume_line-border-bottom: 0.17em solid hsla(0, 0%, 0%, 0.998);
+    --resume-filter-dropShadow-1: drop-shadow(0.7rem 0.7rem 1.9rem rgba(0, 0, 0, 0.99));
+    --resume-filter-dropShadow-2: drop-shadow(0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.79));
+    --resume-filter-dropShadow-3: drop-shadow(0 0 0.5rem hsla(198, 100%, 2%, 0.59));
+    --resume-caption-color: hsla(197, 98%, 69%, 0.69);
+    --resume-footer-color: hsla(56, 100%, 50%, 0.904);
+    --resume-background-section: hsla(0, 0%, 20%, 0.993);
+    --resume-box-shadow: -11px -11px 13px rgba(255, 255, 255, 0.3),
+        15px 15px 15px rgba(0, 0, 0, 0.5);
+    --resume-background-btn: hsla(0, 0%, 60%, 0.993);
+    --resume-background-btn-hover: hsla(56, 100%, 50%, 0.342);
+    --resume-btn-text-color: hsla(0, 0%, 0%, 0.99);
+    --resume-btn-text-color-hover: hsla(90, 100%, 50%, 0.993);
+    --resume-btn-text-color-active: hsla(0, 100%, 50%, 0.877);
+    --resume-background-btn-active: hsla(278, 100%, 50%, 0.308);
+    --resume-border-btn: 0.25em solid hsla(0, 0%, 0%, 0.99);
 
 }
 
