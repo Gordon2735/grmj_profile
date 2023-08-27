@@ -8,13 +8,17 @@ import { create, ExpressHandlebars } from 'express-handlebars';
 import Handlebars from 'handlebars';
 import { allowInsecurePrototypeAccess } from '@handlebars/allow-prototype-access';
 import path from 'path';
+import bodyParser from 'body-parser';
 import MongoStore from 'connect-mongo';
 import passport from 'passport';
 import passportConfig from '../config/passportGoogle.js';
 import authenticateUser from '../config/passportGoogle.js';
+import OpenAI from 'openai';
+// import openAi from '../config/OpenAiAPI.js';
 import session from 'express-session';
 import methodOverride from 'method-override';
 import fs from 'fs';
+// import { generateResponse } from './controller/openai/controllers.js';
 import morgan from 'morgan';
 import cors from 'cors';
 import { EventEmitter } from 'events';
@@ -26,6 +30,7 @@ import router from './controller/router.js';
 import { error404, error500 } from './controller/routes/appRoutes.js';
 import helper from '../views/helpers/hbsHelpers.js';
 import blogDB from './models/databases/blogDB.js';
+// import OpenAI from 'openai';
 
 /**
  *
@@ -45,9 +50,16 @@ dotenv.config({ path: './config/config.env' });
 passportConfig(passport);
 authenticateUser(passport);
 
+const openAi: OpenAI = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY
+});
+const OpenAiConfig: OpenAI = openAi;
+OpenAiConfig;
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 // const authenticate: any = './src/controller/middleware/authenticate.js';
+// console.log('OpenAi API: ', OpenAiConfig, process.env.OPENAI_API_KEY);
 
 /**
  * @description The express package is Node.js Framework for building web applications and APIs.
@@ -81,6 +93,7 @@ const openApps = apps;
 if (environment) {
     app.use(morgan('dev'));
 }
+// generateResponse();
 
 // Method-override
 app.use(
@@ -97,13 +110,25 @@ app.use(
 
 // body-parser...
 app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(express.json());
 app.use(
     cors({
-        origin: 'http://localhost:9080/landing'
+        origin: '*', // allow to server to accept request from different origin
+        credentials: true,
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+        allowedHeaders: [
+            'Origin',
+            'X-Requested-With',
+            'Content-Type',
+            'Accept',
+            'X-Access-Token'
+        ]
     })
 );
 openDatabases();
+
+// console.log(process.env.OPENAI_API_KEY);
 
 // Handlebars Mapping
 const handlebars: ExpressHandlebars = create({
@@ -154,6 +179,8 @@ app.use(function (req: Request, res: Response, next: NextFunction) {
     next();
 });
 
+// app.post('/chatbox', generateResponse);
+
 // Integrated Routes
 app.use('/', router);
 
@@ -162,7 +189,7 @@ const PORT: string | 9080 = process.env.PORT || 9080;
 const HOST: string = process.env.HOST || `http://127.0.0.1`;
 
 // Launch Server & Create Event Logger
-createServer(HOST, PORT);
+createServer(HOST, PORT, date);
 // Database Connections for multiple models and Databases
 async function openDatabases(): Promise<void> {
     try {
@@ -175,12 +202,17 @@ async function openDatabases(): Promise<void> {
 }
 
 // Create Server
-async function createServer(host: string, port: string | 9080): Promise<void> {
+async function createServer(
+    host: string,
+    port: string | 9080,
+    backlog: Date
+): Promise<void> {
     try {
         app.listen(PORT, () => {
             console.info(
                 `Server running in ${environment} mode on port ${PORT}`
             );
+            console.info(`Server INSTANCE occurred: ` + backlog);
             const openBrowser = async (): Promise<void> => {
                 await open(`${host}:${port}/landing`, {
                     app: { name: openApps.chrome }
@@ -247,3 +279,5 @@ try {
     app.use('/', error404);
     app.use('/', error500);
 }
+
+export default openAi;

@@ -39,6 +39,7 @@ interface sidePanel_sharedHTML {
     contact: string;
     spacex: string;
     library: string;
+    chatbox: string;
 }
 
 interface profileHistory_sharedStyles {
@@ -218,6 +219,23 @@ interface profileBlog_sharedStyles {
     blog: string;
 }
 
+interface chatBox_sharedHTML {
+    shell: string;
+    chatBox: string;
+    footer: string;
+}
+
+interface chatBox_sharedStyles {
+    shell: string;
+    chatBox: string;
+    footer: string;
+}
+
+interface CompleteCreateParamsStream {
+    role: string;
+    content: string;
+}
+
 interface landingPage_sharedHTML {
     shell: string;
     page: string;
@@ -298,6 +316,9 @@ export {
     timeObject_sharedStyles,
     profileBlog_sharedHTML,
     profileBlog_sharedStyles,
+    chatBox_sharedHTML,
+    chatBox_sharedStyles,
+    CompleteCreateParamsStream,
     landingPage_sharedHTML,
     landingPage_sharedStyles,
     profileHdr_sharedStyles,

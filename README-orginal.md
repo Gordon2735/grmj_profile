@@ -95,6 +95,15 @@
     npm i moment
     npm install --save-dev @jest/create-cache-key-function
     npx ts-jest config:init
+    npm install typechat -- uninstalled
+    npm install chalk
+    npm install --save @cw-types/chalk
+        Then, you must add node_modules/@cw-types to your tsconifg.json file, like so:
+
+    "typeRoots": [
+      "node_modules/@cw-types",
+      "node_modules/@types"
+    ]
 
 ## --- phase III ---
 
@@ -122,6 +131,8 @@
 
     npm install @handlebars/allow-prototype-access
     npm install node-fetch
+    npm i @types/body-parser
+    npm i openai
 
 # NPM UNINSTALLS
 

@@ -35,12 +35,10 @@ export class ProfileResume extends ResumeTemplate {
 
         landingBtn?.addEventListener('click', (event: MouseEvent) => {
             createAElement('/landing', event);
-            console.log(event.target);
         });
 
         historyBtn?.addEventListener('click', (event: MouseEvent) => {
             createAElement('/history', event);
-            console.log(event.target);
         });
 
         projectsBtn?.addEventListener('click', (event: MouseEvent) => {

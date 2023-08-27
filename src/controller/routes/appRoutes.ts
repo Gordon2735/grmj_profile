@@ -13,6 +13,8 @@ import {
     homeHandlerPost,
     landingHandler,
     landingHandlerPost,
+    chatBoxHandler,
+    chatBoxHandlerPost,
     coverHandler,
     coverHandlerPost,
     aboutHandler,
@@ -46,6 +48,11 @@ import {
     signinUserPostHandler,
     userLogoutHandler
 } from '../route_handlers/signinModal_handlers.js';
+import {
+    openaiHandler,
+    openaiHandlerPost,
+    openaiHandlerPut
+} from '../openaiAPI/openai_handlers.js';
 
 // import isLoggedIn from '../middleware/authenticate.js';
 
@@ -77,6 +84,16 @@ const home: Router = router
 const landing: Router = router
     .get('/landing', landingHandler)
     .post('/landing', landingHandlerPost);
+
+// Chat Box Router
+const chatBox: Router = router
+    .get('/chatbox', chatBoxHandler)
+    .post('/chatbox', chatBoxHandlerPost);
+
+const openAI: Router = router
+    .get('/openai', openaiHandler)
+    .post('/openai', openaiHandlerPost)
+    .put('/openai', openaiHandlerPut);
 
 // Cover Letter Page Router
 const cover: Router = router
@@ -144,6 +161,8 @@ const error500: Router = router.get('*', error500Handler);
 
 export {
     landing as default,
+    chatBox,
+    openAI,
     loginModal,
     signinModal,
     home,

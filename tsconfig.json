@@ -39,7 +39,8 @@
             "./login/signin*.*",
             "./src/resources/**/*.*",
             "src/resources/font/**/*.ttf",
-            "./src/Global/*.*"
+            "./src/Global/*.*",
+            "./openaiAPI/*.*"
         ] /* Allow multiple folders to be treated as one when resolving modules. */,
         // "typeRoots": [],                                  /* Specify multiple folders that act like './node_modules/@types'. */
         // "types": [
@@ -138,5 +139,6 @@
         "entryPoints": ["./src/**/*.ts", "./src/components/**/*.ts"],
         "plugin": "typedoc-plugin-markdown",
         "out": "public/appDocs"
-    }
+    },
+    "typeRoots": ["node_modules/@cw-types", "node_modules/@types"]
 }

@@ -26,6 +26,7 @@ export class SidePanelShell extends SidePanelTemplate {
         contact: string;
         spacex: string;
         library: string;
+        chatbox: string;
     };
     landing!: string;
 
@@ -74,6 +75,7 @@ export class SidePanelShell extends SidePanelTemplate {
             (this.contactHREF = `${sidePanel_sharedStyles.contact}`),
             (this.spacexHREF = `${sidePanel_sharedStyles.spacex}`),
             (this.libraryHREF = `${sidePanel_sharedStyles.library}`),
+            (this.chatboxHREF = `${sidePanel_sharedStyles.chatbox}`),
             this.renderStyles
         );
 

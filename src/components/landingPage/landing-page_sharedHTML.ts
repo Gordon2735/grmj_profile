@@ -44,6 +44,9 @@ landingPage_sharedHTML.page = /*html*/ `
                 <a href="/cover_letter">Cover</a>
             </li>
             <li>
+                <a href="/resume">Resume</a>
+            </li>
+            <li>
                 <a href="/">Blog</a>
             </li>
             <li>
@@ -53,7 +56,7 @@ landingPage_sharedHTML.page = /*html*/ `
                 <a href="/spacex">SpaceX API</a>
             </li>
             <li>
-                <a href="/admin_panel">Admin Panel</a>
+                <a href="/chatbox">Ai Chatbot</a>
             </li>
         </ul>
         <ul class="navbar-nav-right">

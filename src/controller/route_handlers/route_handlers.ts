@@ -7,6 +7,7 @@ import notifier from 'node-notifier';
 import { ensureAuth } from '../middleware/auth.js';
 import { fileURLToPath } from 'url';
 import path from 'path';
+// import { generateResponse } from '../openai/controllers.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -35,7 +36,7 @@ export async function homeHandler(
         });
         return;
     } catch (error: unknown) {
-        console.error(`HomeHandler Error: ${error}`);
+        console.error(`HomeHandler Error: ${await error}`);
     }
 }
 export async function homeHandlerPost(
@@ -51,8 +52,8 @@ export async function homeHandlerPost(
                     );
             })
         );
-    } catch (error) {
-        console.error(`HomeHandlerPost Error: ${error}`);
+    } catch (error: unknown) {
+        console.error(`HomeHandlerPost Error: ${await error}`);
     }
 }
 
@@ -72,10 +73,13 @@ export async function landingHandler(
         });
         return;
     } catch (error: unknown) {
-        console.error(`LandingHandler Error: ${error}`);
+        console.error(`LandingHandler Error: ${await error}`);
     }
 }
-export function landingHandlerPost(req: Request, res: Response): void {
+export async function landingHandlerPost(
+    req: Request,
+    res: Response
+): Promise<void> {
     try {
         res.json(
             user.create(req.body).catch((error: unknown) => {
@@ -86,7 +90,45 @@ export function landingHandlerPost(req: Request, res: Response): void {
             })
         );
     } catch (error: unknown) {
-        console.error(`LandingHandlerPost Error: ${error}`);
+        console.error(`LandingHandlerPost Error: ${await error}`);
+    }
+}
+// ChatBox Page Route Handlers
+export async function chatBoxHandler(
+    _req: Request,
+    res: Response
+): Promise<void> {
+    try {
+        const chatBoxScript = /*html*/ `<script type="module" content="text/javascript" src="/src/components/chatBox/chat-box_shell.js" alt="ChatBox Script File"></script>`;
+        res.set('Content-Type', 'text/html');
+        res.set('target', 'blank');
+        res.render('chatbox', {
+            layout: 'chatbox_main',
+            title: 'ChatBox-ChatGPT4',
+            script: [`${chatBoxScript}`]
+        });
+        // generateResponse();
+        return;
+    } catch (error: unknown) {
+        console.error(`Chat-Box-ChatGPT4Handler Error: ${await error}`);
+        return;
+    }
+}
+export async function chatBoxHandlerPost(
+    req: Request,
+    res: Response
+): Promise<void> {
+    try {
+        res.json(
+            user.create(req.body).catch((error: unknown) => {
+                res.status(404),
+                    console.info(
+                        `Whoops, seems there was a "Page Not Found Error" ${error}`
+                    );
+            })
+        );
+    } catch (error: unknown) {
+        console.error(`LandingHandlerPost Error: ${await error}`);
     }
 }
 
@@ -181,7 +223,7 @@ export async function blogComponentHandler(
         });
         return;
     } catch (error: unknown) {
-        console.error(`BlogComponentHandler Error: ${error}`);
+        console.error(`BlogComponentHandler Error: ${await error}`);
     }
 }
 export async function blogComponentHandlerPost(
@@ -198,7 +240,7 @@ export async function blogComponentHandlerPost(
             })
         );
     } catch (error: unknown) {
-        console.error(`BlogComponentHandlerPost Error: ${error}`);
+        console.error(`BlogComponentHandlerPost Error: ${await error}`);
     }
 }
 
@@ -217,7 +259,7 @@ export async function codeExampleHandler(
         });
         return;
     } catch (error: unknown) {
-        console.error(`CodeExampleHandler Error: ${error}`);
+        console.error(`CodeExampleHandler Error: ${await error}`);
     }
 }
 export async function codeExampleHandlerPost(
@@ -234,7 +276,7 @@ export async function codeExampleHandlerPost(
             })
         );
     } catch (error: unknown) {
-        console.error(`CodeExampleHandlerPost Error: ${error}`);
+        console.error(`CodeExampleHandlerPost Error: ${await error}`);
     }
 }
 
@@ -254,7 +296,7 @@ export async function contactHandler(
         });
         return;
     } catch (error: unknown) {
-        console.error(`ContactHandler Error: ${error}`);
+        console.error(`ContactHandler Error: ${await error}`);
     }
 }
 export async function contactHandlerPost(
@@ -271,7 +313,7 @@ export async function contactHandlerPost(
             })
         );
     } catch (error: unknown) {
-        console.error(`ContactHandlerPost Error: ${error}`);
+        console.error(`ContactHandlerPost Error: ${await error}`);
     }
 }
 
@@ -290,7 +332,7 @@ export async function goalsHandler(
         });
         return;
     } catch (error: unknown) {
-        console.error(`GoalsHandler Error: ${error}`);
+        console.error(`GoalsHandler Error: ${await error}`);
     }
 }
 export async function goalsHandlerPost(
@@ -307,7 +349,7 @@ export async function goalsHandlerPost(
             })
         );
     } catch (error: unknown) {
-        console.error(`GoalsHandlerPost Error: ${error}`);
+        console.error(`GoalsHandlerPost Error: ${await error}`);
     }
 }
 
@@ -329,7 +371,7 @@ export async function historyHandler(
         });
         return;
     } catch (error: unknown) {
-        console.error(`HistoryHandler Error: ${error}`);
+        console.error(`HistoryHandler Error: ${await error}`);
     }
     return;
 }
@@ -347,7 +389,7 @@ export async function historyHandlerPost(
             })
         );
     } catch (error: unknown) {
-        console.error(`HistoryHandlerPost Error: ${error}`);
+        console.error(`HistoryHandlerPost Error: ${await error}`);
     }
 }
 
@@ -366,7 +408,7 @@ export async function libraryHandler(
         });
         return;
     } catch (error: unknown) {
-        console.error(`LibraryHandler Error: ${error}`);
+        console.error(`LibraryHandler Error: ${await error}`);
     }
 }
 export async function libraryHandlerPost(
@@ -383,21 +425,21 @@ export async function libraryHandlerPost(
             })
         );
     } catch (error: unknown) {
-        console.error(`LibraryHandlerPost Error: ${error}`);
+        console.error(`LibraryHandlerPost Error: ${await error}`);
     }
 }
 
 // Partials Route Handlers
-export function partialsHandler(
+export async function partialsHandler(
     _req: Request,
     res: Response,
     next: NextFunction
-): void {
+): Promise<void> {
     try {
         if (!res.locals.partials) res.locals.partials = {};
         next();
     } catch (error: unknown) {
-        console.error(`PartialsHandler Error: ${error}`);
+        console.error(`PartialsHandler Error: ${await error}`);
     }
 }
 
@@ -416,7 +458,7 @@ export async function resumeHandler(
         });
         return;
     } catch (error: unknown) {
-        console.error(`ResumeHandler Error: ${error}`);
+        console.error(`ResumeHandler Error: ${await error}`);
     }
 }
 export async function resumeHandlerPost(
@@ -433,7 +475,7 @@ export async function resumeHandlerPost(
             })
         );
     } catch (error: unknown) {
-        console.error(`ResumeHandlerPost Error: ${error}`);
+        console.error(`ResumeHandlerPost Error: ${await error}`);
     }
 }
 
@@ -452,7 +494,7 @@ export async function projectsHandler(
         });
         return;
     } catch (error: unknown) {
-        console.error(`ProjectsHandler Error: ${error}`);
+        console.error(`ProjectsHandler Error: ${await error}`);
     }
 }
 export async function projectsHandlerPost(
@@ -484,7 +526,7 @@ export async function projectsHandlerPost(
             message: 'Contact Gordon via email: webelistics@gmail.com'
         });
     } catch (error: unknown) {
-        console.error(`ProjectsHandlerPost Error: ${error}`);
+        console.error(`ProjectsHandlerPost Error: ${await error}`);
     }
 }
 
@@ -507,7 +549,7 @@ export async function spaceXHandler(
         });
         return;
     } catch (error: unknown) {
-        console.error(`SpaceXHandler Error: ${error}`);
+        console.error(`SpaceXHandler Error: ${await error}`);
     }
 }
 export async function spaceXHandlerPost(
@@ -524,6 +566,6 @@ export async function spaceXHandlerPost(
             })
         );
     } catch (error: unknown) {
-        console.error(`SpaceXHandlerPost Error: ${error}`);
+        console.error(`SpaceXHandlerPost Error: ${await error}`);
     }
 }

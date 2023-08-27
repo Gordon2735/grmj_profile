@@ -5,5 +5,6 @@ namespace NodeJS {
         PORT: string;
         MONGO_URI: string;
         MONGO_ATLAS: string;
+        OPENAI_API_KEY: string;
     }
 }

@@ -21,6 +21,15 @@ export class LandingPage extends LandingPageTemplate {
     grabComponent: HTMLElement;
     setTheme: string | null | undefined;
 
+    override get template(): string {
+        return /*html*/ `
+
+           ${landingPage_sharedHTML.page}
+           <style>${landingPage_sharedStyles.page}</style>        
+        
+        `;
+    }
+
     constructor(
         body: HTMLBodyElement,
         button: HTMLElement,
@@ -202,15 +211,6 @@ export class LandingPage extends LandingPageTemplate {
         //     `LIFECYCLE__attribute callback: ${name}, ${oldValue}, ${newValue}`
         // );
         null;
-    }
-
-    override get template(): string {
-        return /*html*/ `
-
-           ${landingPage_sharedHTML.page}
-           <style>${landingPage_sharedStyles.page}</style>        
-        
-        `;
     }
 
     disconnectedCallback(): void {

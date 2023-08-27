@@ -14,7 +14,6 @@ export class DropDown extends DropDownTemplate {
     head: HTMLHeadElement | null;
     elem: any;
     dd1: Element;
-    dd2: Element;
     initOperations: () => Promise<void>;
     setOperations: () => Promise<void>;
     window: any;
@@ -27,12 +26,11 @@ export class DropDown extends DropDownTemplate {
 		`;
     }
 
-    constructor(dd1: any, dd2: any) {
+    constructor(dd1: any) {
         super();
 
         this.activateShadowDOM = false;
         this.dd1 = dd1;
-        this.dd2 = dd2;
 
         const head: HTMLHeadElement | null = document.querySelector('#head');
         this.head = head;
@@ -145,8 +143,6 @@ export class DropDown extends DropDownTemplate {
         super.connectedCallback();
 
         initialRender();
-
-        // console.log(window.location);
 
         const thiz: this = this;
 
@@ -381,12 +377,6 @@ export class DropDown extends DropDownTemplate {
                     }
                     setTimeout(() => {
                         null;
-                        // console.log(
-                        //     `%cRedirection has been successful to ${grabComponent?.getAttribute(
-                        //         'operations'
-                        //     )}`,
-                        //     'color: green; font-size: 1rem;'
-                        // );
                     }, 2500);
                 } catch (error: unknown) {
                     console.error(
@@ -478,23 +468,22 @@ export class DropDown extends DropDownTemplate {
                     // }, 100);
                 }
 
-                this.elem.addEventListener('mousedown', function () {
-                    thiz.hide();
-                });
+                // this.elem.addEventListener('mousedown', function () {
+                // thiz.hide();
+                //     return;
+                // });
 
                 this.elem.addEventListener(
                     'mousedown',
                     function (event: Event): any {
                         try {
-                            // event.preventDefault();
-                            // console.log(thiz.elem.pointerId);
-
+                            console.log(event);
                             const grabDropdown = document.getElementById(
                                 'dropDown'
                             ) as HTMLElement | null | undefined;
                             const currentStateOfDropdown = grabDropdown?.dataset
                                 .dd1_2 as string;
-                            const scrollbar = grabDropdown?.querySelector(
+                            const scrollbar = document.querySelector(
                                 '.scrollbar'
                             ) as HTMLDivElement | undefined | null;
                             // console.log(currentStateOfDropdown);
@@ -509,7 +498,6 @@ export class DropDown extends DropDownTemplate {
                                     // probably can only remove the listener from the disconnectedCallback
                                     // method. connectedCallback is only called once. This is causing my switch statement
                                     // not to iterate properly?
-                                    event.stopPropagation();
                                     break;
                                 case 'viewing':
                                     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -517,7 +505,6 @@ export class DropDown extends DropDownTemplate {
                                         'var(--grmj-profile-background_3)';
                                     thiz.hide();
                                     dropdownView();
-                                    event.stopPropagation();
                                     break;
                                 default:
                                     console.error(
@@ -535,10 +522,9 @@ export class DropDown extends DropDownTemplate {
                     }
                 );
             };
-
             this.clicked = function (elem: any) {
-                let event: Event | undefined;
-                event?.stopPropagation();
+                // let event: Event | undefined;
+                // event?.stopPropagation();
 
                 this.hide();
 
@@ -553,7 +539,7 @@ export class DropDown extends DropDownTemplate {
             this.show = function (): void {
                 // { { !--close all dropdowns--; } }
                 for (const dd in (<any>window).dropdowns)
-                    (<any>window).dropdowns[dd].hide();
+                    (<any>window).dropdowns[dd];
 
                 this.inVisible = true;
                 this.items.style.transform = 'translate(0px, 0px)';
@@ -642,52 +628,6 @@ export class DropDown extends DropDownTemplate {
                         `%cResetting Callback Function of Drop Down list FAILED: **** ${error} ****`,
                         'color: red; font-size: 1rem;'
                     );
-                }
-                this.setOperations;
-            }
-        });
-
-        this.dd2 = new (DropDownMenu as any)({
-            id: 'dd2',
-            class: 'dd-1-2',
-            val2: 'Library',
-            data: [
-                'Web Components',
-                'Web Components I',
-                'Web Components II',
-                'Web Components III',
-                'Errors',
-                'Research & Development',
-                'HooT Web Components'
-            ],
-            cb: function (_newval2: any) {
-                switch (_newval2) {
-                    case 'Library':
-                        window.location.href = '/Library';
-                        break;
-                    case 'Web Components I':
-                        window.location.href = '/web_components_1';
-                        break;
-                    case 'Web Components II':
-                        window.location.href = '/web_component_2';
-                        break;
-                    case 'Web Components III':
-                        window.location.href = '/web_components_3';
-                        break;
-                    case 'Errors':
-                        window.location.href = '/errors';
-                        break;
-                    case 'Blog':
-                        window.location.href = '/';
-                        break;
-                    case 'Research & Development':
-                        window.location.href = '/r_n_d';
-                        break;
-                    case 'HooT Web Components':
-                        window.location.href = '/hoot';
-                        break;
-                    default:
-                        window.location.href = '/';
                 }
                 this.setOperations;
             }

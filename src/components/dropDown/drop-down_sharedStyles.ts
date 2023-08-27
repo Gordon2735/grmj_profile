@@ -86,12 +86,12 @@ dropDown_sharedStyles.dropdown = /*css*/ `
         position: absolute;
         background: transparent;
         width: calc(100% + 11px);
-        z-index: 999;
+        /*z-index: 999;*/
         height: 203px;
         left: -1px;
         top: 28px;
         overflow: hidden;
-        pointer-events: none;
+       /* pointer-events: none;*/
     }
     .dropdown ::-webkit-scrollbar {
         width: 0.4em;
@@ -105,13 +105,14 @@ dropDown_sharedStyles.dropdown = /*css*/ `
         width: 0.5em;
         background-color: hsl(224, 42%, 40%);
         border-radius: 0.5em;
+
     }
     .dropdown ::-webkit-scrollbar-thumb:hover {
         background-color: hsla(224, 25%, 73%, 0.993);
     }
     .dropdown_items {
         position: absolute;
-        pointer-events: all;
+        /* pointer-events: all; */
         top: 0px;
         width: calc(100% - 11px);
         max-height: 170px;
@@ -236,7 +237,7 @@ dropDown_sharedStyles.landing = /*css*/ `
         filter: var(--grmj-filter-dropShadow-4);
         justify-content: space-between;
         align-items: right;
-        z-index: 3;
+        /* z-index: 3;*/
     }
     
     .shutdown-container {
@@ -310,10 +311,12 @@ dropDown_sharedStyles.landing = /*css*/ `
         left: 65%;
     }
 
+    /*
     #dd2 {
         position: sticky;
         left: 80%;
     }
+    */
 
     .dropdown_value {
         display: inline-block;
@@ -331,46 +334,38 @@ dropDown_sharedStyles.landing = /*css*/ `
         position: absolute;
         background: transparent;
         width: calc(100% + 11px);
-        z-index: 4;
         height: 209px;
         left: -1px;
         top: 46px;
         overflow: hidden;
         pointer-events: none;
+        /* z-index: 1000; */
     }
     .dropdown ::-webkit-scrollbar {
         width: 0.4em;
         background-color: hsla(0, 1%, 66%, 0.9);
         overflow: auto;
-        z-index: 999;
-
     }
     .dropdown ::-webkit-scrollbar:hover {
         width: 0.85em;
         background-color: hsla(0, 1%, 34%, 0.9);
-        z-index: 999;
-
     }
     .dropdown ::-webkit-scrollbar-thumb {
         width: 0.5em;
         background-color: hsl(224, 42%, 40%);
         border-radius: 0.5em;
         overflow: auto;
-        z-index: 999;
-
     }
     .dropdown ::-webkit-scrollbar-thumb:hover {
         background-color: hsla(224, 25%, 73%, 0.993);
         width: 1.85em;
         scrollbar-width: 1.85em;
-        z-index: 999;
-    }
+   }
     .dropdown ::-webkit-scrollbar-thumb:active {
         background-color: hsla(224, 25%, 73%, 0.993);
         width: 1.85em;
         overflow: auto;
-        z-index: 999;
-    }
+   }
     
     .dropdown_items {
         padding: 5px;
@@ -1227,34 +1222,37 @@ dropDown_sharedStyles.history = /*css*/ `
         overflow: hidden;
         pointer-events: none;
     }
-    .dropdown ::-webkit-scrollbar {
+    /* .dropdown ::-webkit-scrollbar { */
+    ::-webkit-scrollbar {
         width: 0.4em;
         background-color: hsla(0, 1%, 66%, 0.9);
         overflow: auto;
         z-index: 999;
-
     }
-    .dropdown ::-webkit-scrollbar:hover {
+    /* .dropdown::-webkit-scrollbar:hover {*/
+    ::-webkit-scrollbar:hover {
         width: 0.85em;
         background-color: hsla(0, 1%, 34%, 0.9);
         z-index: 999;
-
     }
-    .dropdown ::-webkit-scrollbar-thumb {
+    /*.dropdown::-webkit-scrollbar-thumb {*/
+    ::-webkit-scrollbar-thumb {
         width: 0.5em;
         background-color: hsl(224, 42%, 40%);
         border-radius: 0.5em;
         overflow: auto;
         z-index: 999;
-
     }
-    .dropdown ::-webkit-scrollbar-thumb:hover {
+    /*.dropdown::-webkit-scrollbar-thumb:hover {*/
+    /*::-webkit-scrollbar-thumb:hover {*/
+    ::-webkit-scrollbar-thumb:hover {
         background-color: hsla(224, 25%, 73%, 0.993);
         width: 1.85em;
         scrollbar-width: 1.85em;
         z-index: 999;
     }
-    .dropdown ::-webkit-scrollbar-thumb:active {
+    /*.dropdown::-webkit-scrollbar-thumb:active {*/
+    ::-webkit-scrollbar-thumb:active {
         background-color: hsla(224, 25%, 73%, 0.993);
         width: 1.85em;
         overflow: auto;
