@@ -17,9 +17,9 @@ export class DropDownShell extends DropDownTemplate {
     override get template() {
         return /*html*/ `
 			${dropDown_sharedHTML.shell}             
-			${dropDown_sharedHTML.dynadrop}             
-        `;
+            `;
     }
+    // ${dropDown_sharedHTML.dynadrop}
     constructor() {
         super();
 
@@ -50,6 +50,7 @@ export class DropDownShell extends DropDownTemplate {
             (this.locationHREF = window.location.href),
             (this.checkLocation = 'http://127.0.0.1:9080/landing'),
             (this.landingHREF = `${dropDown_sharedStyles.landing}`),
+            (this.chatboxHREF = `${dropDown_sharedStyles.chatbox}`),
             (this.homeStartHREF = `${dropDown_sharedStyles.home}`),
             (this.coverLetterHREF = `${dropDown_sharedStyles.letter}`),
             (this.aboutHREF = `${dropDown_sharedStyles.about}`),

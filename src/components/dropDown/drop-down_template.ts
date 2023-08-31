@@ -9,6 +9,7 @@ export class DropDownTemplate extends HTMLElement {
     checkLocation: string | undefined;
     styleSheetMod: string | null | undefined;
     landingHREF: string | undefined;
+    chatboxHREF: string | undefined;
     homeStartHREF: string | undefined;
     coverLetterHREF: string | undefined;
     projectsHREF: string | undefined;
@@ -47,6 +48,7 @@ export class DropDownTemplate extends HTMLElement {
         locationHREF: string | undefined,
         checkLocation: string | undefined,
         landingHREF: string | undefined,
+        chatboxHREF: string | undefined,
         homeStartHREF: string | undefined,
         coverLetterHREF: string | undefined,
         aboutHREF: string | undefined,
@@ -63,6 +65,7 @@ export class DropDownTemplate extends HTMLElement {
         this.locationHREF = window.location.href;
         this.checkLocation = checkLocation;
         this.landingHREF = landingHREF;
+        this.chatboxHREF = chatboxHREF;
         this.homeStartHREF = homeStartHREF;
         this.coverLetterHREF = coverLetterHREF;
         this.aboutHREF = aboutHREF;
@@ -86,6 +89,13 @@ export class DropDownTemplate extends HTMLElement {
                     this.dropShell!.innerHTML = `<style>${this.landingHREF}</style>`;
                     // console.log(
                     //     `%cUsing landingHREF for Dropdown Menu Styles`,
+                    //     'color: orange; font-size: 1.5rem;'
+                    // );
+                    break;
+                case 'http://127.0.0.1:9080/chatbox':
+                    this.dropShell!.innerHTML = `<style>${this.chatboxHREF}</style>`;
+                    // console.log(
+                    //     `%cUsing chatboxHREF for Dropdown Menu Styles`,
                     //     'color: orange; font-size: 1.5rem;'
                     // );
                     break;

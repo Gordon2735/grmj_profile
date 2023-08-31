@@ -349,7 +349,7 @@
     --chatbox-filter-button-active: drop-shadow(0.57rem 0.57rem 0.98rem hsla(187, 52%, 80%, 0.993));
     --chatbox-filter-modified: drop-shadow(0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.79));
     --chatbox-filter-logo: drop-shadow(0.07rem 0.07rem 0.2rem rgba(0, 0, 0, 0.69));
-
+    --chatbox-color-date: hsla(56, 100%, 50%, 0.99);
 }
 
 .theme-startup,
@@ -462,6 +462,7 @@
     --chatbox-filter-button-active: drop-shadow(0.57rem 0.57rem 0.98rem hsla(187, 52%, 80%, 0.993));
     --chatbox-filter-modified: drop-shadow(0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.89));
     --chatbox-filter-logo: drop-shadow(0.07rem 0.07rem 0.15rem rgba(0, 0, 0, 0.69));
+    --chatbox-color-date: hsla(56, 100%, 50%, 0.99);
 }
 
 @font-face {

@@ -3,7 +3,6 @@ import { router as index } from './routes/index.js';
 import { router as auth } from './routes/auth_route.js';
 import { router as blogs } from './routes/blogs_route.js';
 import { router as users } from './routes/user_route.js';
-// import { openAI } from './openaiAPI/openai_routes.js';
 import landing, {
     chatBox,
     openAI,

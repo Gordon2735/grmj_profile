@@ -1,7 +1,9 @@
+```typescript
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use strict';
 
+import * as dotenv from 'dotenv';
 import express, { Application, Request, Response, NextFunction } from 'express';
 import { create, ExpressHandlebars } from 'express-handlebars';
 import Handlebars from 'handlebars';
@@ -14,6 +16,7 @@ import authenticateUser from '../config/passportGoogle.js';
 import session from 'express-session';
 import methodOverride from 'method-override';
 import fs from 'fs';
+import { generateResponse } from './controller/openaiAPI/controllers.js';
 import morgan from 'morgan';
 import cors from 'cors';
 import { EventEmitter } from 'events';
@@ -26,23 +29,61 @@ import { error404, error500 } from './controller/routes/appRoutes.js';
 import helper from '../views/helpers/hbsHelpers.js';
 import blogDB from './models/databases/blogDB.js';
 
+/**
+ *
+ * Using the dotenv package to load environment variables from a .env file into process.env
+ *
+ * @see https://www.npmjs.com/package/dotenv
+ *
+ * @description The dotenv package will look for a config.env file in the config folder in the root
+ *  of the project and load any environment variables into process.env
+ * The config.env file is not tracked by git and is used to store sensitive information such as
+ * database credentials, API keys, etc.
+ *
+ * @example process.env.MY_ENV_VAR
+ */
+// Load Environment Variables
+dotenv.config({ path: './config/config.env' });
 passportConfig(passport);
 authenticateUser(passport);
 
 const app: Application = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const PORT: string | 9080 = process.env.PORT || 9080;
-const HOST: string = process.env.HOST || `http://127.0.0.1`;
 const openApps = apps;
-const environment: string | NodeJS.ProcessEnv =
-    process.env.NODE_ENV || 'development';
+const environment =
+    process.env.NODE_ENV || ('development' as unknown as NodeJS.ProcessEnv);
+
+/**
+ * @description The express package is Node.js Framework for building web applications and APIs.
+ *
+ * @see https://www.npmjs.com/package/express
+ *
+ * @var {Application} app - The express application
+ *
+ * @type {Application}
+ * @const app
+ * @description The express application*
+ *
+ */
+
+/**
+ * @description The morgan package is a HTTP request logger middleware for node.js
+ *
+ * @see https://www.npmjs.com/package/morgan
+ *
+ * @description The morgan package will log HTTP requests to the console when the server is running in development mode
+ */
+// Logging Middleware
+if (environment) {
+    app.use(morgan('dev'));
+}
 
 // Method-override
 app.use(
     methodOverride(function (req: any, res: any) {
         if (req.body && typeof req.body === 'object' && '_method' in req.body) {
-            //! look in urlencoded POST bodies and delete it
+            // look in urlencoded POST bodies and delete it
             const method = req.body._method;
             delete req.body._method;
             return method;
@@ -51,10 +92,6 @@ app.use(
     })
 );
 
-// Logging Middleware
-if (environment) {
-    app.use(morgan('dev'));
-}
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(
@@ -71,6 +108,7 @@ app.use(
         ]
     })
 );
+openDatabases();
 
 // Handlebars Mapping
 const handlebars: ExpressHandlebars = create({
@@ -121,11 +159,38 @@ app.use(function (req: Request, res: Response, next: NextFunction) {
     next();
 });
 
+console.log(
+    `Hello OpenAI from server.ts! apiKey: ${process.env.OPENAI_API_KEY}`
+);
+
+// app.post('/chatbox', generateResponse);
+app.post('/generate', async (req: Request, res: Response) => {
+    const { messages } = req.body;
+    const responseMessage = await generateResponse(messages);
+    res.json({ message: responseMessage });
+});
+
 // Integrated Routes
 app.use('/', router);
 
+// OpenAI POST Routes
+
+// Configure Port and Host
+const PORT: string | 9080 = process.env.PORT || 9080;
+const HOST: string = process.env.HOST || `http://127.0.0.1`;
+
 // Launch Server & Create Event Logger
 createServer(HOST, PORT, date);
+// Database Connections for multiple models and Databases
+async function openDatabases(): Promise<void> {
+    try {
+        await blogDB();
+    } catch (error: unknown) {
+        console.error(
+            `There was a problem invoking databases, ERROR: ${await error}`
+        );
+    }
+}
 
 // Create Server
 async function createServer(
@@ -157,7 +222,6 @@ async function createServer(
             };
             openBrowser();
         });
-        openDatabases();
     } catch (error: unknown) {
         console.error(
             `Unable to start Browser due to a Server Problem: ${await error}`
@@ -206,14 +270,4 @@ try {
     app.use('/', error404);
     app.use('/', error500);
 }
-
-// Database Connections for multiple models and Databases
-async function openDatabases(): Promise<void> {
-    try {
-        await blogDB();
-    } catch (error: unknown) {
-        console.error(
-            `There was a problem invoking databases, ERROR: ${await error}`
-        );
-    }
-}
+```

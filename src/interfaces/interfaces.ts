@@ -142,6 +142,7 @@ interface dropDown_sharedStyles {
     letter: string;
     about: string;
     landing: string;
+    chatbox: string;
     projects: string;
     history: string;
     resume: string;
@@ -222,12 +223,14 @@ interface profileBlog_sharedStyles {
 interface chatBox_sharedHTML {
     shell: string;
     chatBox: string;
+    openai: string;
     footer: string;
 }
 
 interface chatBox_sharedStyles {
     shell: string;
     chatBox: string;
+    openai: string;
     footer: string;
 }
 

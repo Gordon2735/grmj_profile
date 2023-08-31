@@ -50,8 +50,7 @@ import {
 } from '../route_handlers/signinModal_handlers.js';
 import {
     openaiHandler,
-    openaiHandlerPost,
-    openaiHandlerPut
+    openaiHandlerPost
 } from '../openaiAPI/openai_handlers.js';
 
 // import isLoggedIn from '../middleware/authenticate.js';
@@ -91,9 +90,8 @@ const chatBox: Router = router
     .post('/chatbox', chatBoxHandlerPost);
 
 const openAI: Router = router
-    .get('/openai', openaiHandler)
-    .post('/openai', openaiHandlerPost)
-    .put('/openai', openaiHandlerPut);
+    .get('/title', openaiHandler)
+    .post('/title', openaiHandlerPost);
 
 // Cover Letter Page Router
 const cover: Router = router

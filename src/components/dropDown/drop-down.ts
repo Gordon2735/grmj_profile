@@ -68,6 +68,10 @@ export class DropDown extends DropDownTemplate {
                         getComponent.setAttribute('operations', 'landing');
                         getComponent.setAttribute('target', 'blank');
                         break;
+                    case 'http://127.0.0.1:9080/chatbox':
+                        getComponent.setAttribute('operations', 'chatbox');
+                        getComponent.setAttribute('target', 'blank');
+                        break;
                     case 'http://127.0.0.1:9080/home':
                         getComponent.setAttribute('operations', 'home');
                         getComponent.setAttribute('target', 'blank');
@@ -240,6 +244,16 @@ export class DropDown extends DropDownTemplate {
                                 grabComponent?.setAttribute(
                                     'operations',
                                     'landing'
+                                );
+                                grabComponent?.setAttribute('target', 'blank');
+                            }, 100);
+                            break;
+                        case 'http://127.0.0.1:9080/chatbox':
+                            val = this.options.val = 'Chatbox';
+                            setTimeout(() => {
+                                grabComponent?.setAttribute(
+                                    'operations',
+                                    'chatbox'
                                 );
                                 grabComponent?.setAttribute('target', 'blank');
                             }, 100);
@@ -475,7 +489,7 @@ export class DropDown extends DropDownTemplate {
 
                 this.elem.addEventListener(
                     'mousedown',
-                    function (event: Event): any {
+                    function (event: MouseEvent): any {
                         try {
                             console.log(event);
                             const grabDropdown = document.getElementById(
@@ -565,6 +579,7 @@ export class DropDown extends DropDownTemplate {
             val: 'Home',
             data: [
                 'Landing Page',
+                'Chatbox',
                 'Home',
                 'Cover Letter',
                 'About',
@@ -583,6 +598,9 @@ export class DropDown extends DropDownTemplate {
                     switch (_newval) {
                         case 'Landing Page':
                             window.location.href = '/landing';
+                            break;
+                        case 'Chatbox':
+                            window.location.href = '/chatbox';
                             break;
                         case 'Home':
                             window.location.href = '/home';
@@ -651,9 +669,9 @@ export class DropDown extends DropDownTemplate {
         }, 500);
     }
     disconnectedCallback() {
-        this.elem.removeEventListener('mousedown', (event: MouseEvent) => {
-            event.stopPropagation();
-        });
+        // this.elem.removeEventListener('mousedown', (event: MouseEvent) => {
+        //     event.stopPropagation();
+        // });
     }
 }
 RegisterComponent('drop-down', DropDown);

@@ -5,27 +5,40 @@ import { chatBox_sharedStyles } from '../../interfaces/interfaces.js';
 const chatBox_sharedStyles = {
     shell: ``,
     chatBox: ``,
+    openai: ``,
     footer: ``
 };
 
 chatBox_sharedStyles.shell = /*css*/ `
 
-    html,
-    body {
-        margin: 0;
-        padding: 0;
+	* {
+		margin: 0;
+		padding: 0;
 		box-sizing: border-box;
+	}
 
-        background-color: var(--chatbox-background-color);
+	.drop-down-shell {
+		margin: 0;
+		padding: 0;
+		position: sticky;
+		top: 0em;
+		width: 100%;
+		height: 10vh;
+		z-index: 1;
+	}
+
+    body {    
+        background: var(--chatbox-background-color);
 		overflow: hidden;  
     }
+
  
 `;
 
 chatBox_sharedStyles.chatBox = /*css*/ `
 
 	.header {
-		margin: 0.75em auto 0em auto;
+		margin: 0em auto 0em auto;
 		padding-top: 0.025em;
 		position: absolute;
 		width: 31%;
@@ -216,7 +229,11 @@ chatBox_sharedStyles.chatBox = /*css*/ `
 		cursor: pointer;
 		opacity: 1;
 	}
+	
+`;
 
+chatBox_sharedStyles.openai = /*css*/ `
+	
 	.openai-chatbot-section {
 		margin: 1.2em auto 0em auto;
 		position: absolute;
@@ -232,7 +249,7 @@ chatBox_sharedStyles.chatBox = /*css*/ `
 	}
 
 	.openai-chatbot-section .openai-time-aside {
-		margin: 0em auto 0em auto;
+		margin: 1em auto 0em auto;
 		position: relative;
 		display: block;
 		width: 20em;
@@ -241,23 +258,35 @@ chatBox_sharedStyles.chatBox = /*css*/ `
 	}
 
 	.openai-chatbot-section .openai-time-aside .openai-time {
-		margin: 0em auto 0.2em auto;
+		margin: 1em auto 0.2em auto;
 		position: relative;
 		display: inline-block;
 		font-family: 'Source Sans Pro', sans-serif;
 		font-size: 0.65rem;
 		font-weight: 200;
-		color: var(--chatbox-color-powderblue);
+		color: powderblue;
 		text-shadow: 0.1em 0.1em 0.3em hsla(0, 0%, 0%, 0.7);
 		letter-spacing: 0.07em;
 	}
+	
+	.chat-container {
+		margin: 2em auto 0em auto;
+		position: absolute;	
+		top: 0;
+		left: 0;
+		display: flex;	
+		flex-direction: column;
+		text-align: center;
+		overflow: hidden;
+		background-color: var(--chatbox-background-main);
+	}
 
-	.openai-chatbot-section .openai-frame {
-		margin: 0em auto 0em auto;
+	.chat-container .chat-form {
+		margin: 00.2em auto 0em auto;
 		position: relative;
 		display: inline-block;
-		width: 75em;
-		height: 24em;
+		width: 55em;
+		height: 18em;
 		border-radius: 0.4em;
 		overflow: hidden;
 		box-shadow:
@@ -265,8 +294,76 @@ chatBox_sharedStyles.chatBox = /*css*/ `
 		  1px 1px 25px var(--chatbox-color-black_white_box),
 		  1px 1px 25px var(--chatbox-color-black_white_box),	
 		  1px 1px 25px var(--chatbox-color-black_white_box);
+		background: var(--chatbox-background-main);
+		color: var(--chatbox-color-lightgrey);
+		text-shadow: 1px 2px 3px hsla(0, 0%, 0%, 0.493);	
 	}
 
+	
+	.chat-form .chat-form-h2 {
+		margin: 2em auto 1em auto;
+		position: relative;
+		display: flex;
+		text-align: center;
+		font-family: 'Chango', cursive;
+		font-size: 1.25rem;
+		font-weight: 200;
+		color: var(--chatbox-color-lightgrey);
+		letter-spacing: 0.1em;
+		text-shadow: 0.07em 0.07em 0.05em hsla(0, 0%, 0%, 0.5);		
+	}
+/*
+	.chat-form .span-date {
+		margin: 0em auto 1em auto;
+		position: relative;
+		display: flex;
+		text-align: center;
+		font-family: 'Source Sans Pro', sans-serif;
+		font-size: 1.25rem;
+		font-weight: 200;
+		color: var(--chatbox-color-date);
+		letter-spacing: 0.1em;
+		text-shadow: 0.07em 0.07em 0.05em hsla(0, 0%, 0%, 0.5);
+	}
+	*/
+
+	.chat-form .openai-label {
+		padding: 0.5em 0.5em 0.5em 0.5em;
+	}
+	
+	.openai-label .user {
+		margin: 0.5em 0.1em 0em 1em;
+		padding: 0.5em 0.5em 0.5em 0.5em;
+		width: 60em;
+		height: 4em;
+		text-align: start;
+		overflow: hidden;
+		background-color: var(--chatbox-background-main);
+		border: var(--chatbox-border-standard);
+		border-radius: 0.5em;
+		font-family: 'Source Sans Pro', sans-serif;
+		font-size: 0.75rem;
+		font-weight: 200;
+		color: var(--chatbox-color-lightgrey);
+		box-shadow: inset 0px 0px 6px hsla(0, 0%, 0%, 0.693);
+	}
+
+	.chat-form .article-openai {
+		margin: 0.5em 0.1em 0em 1em;
+		position: relative;
+		display: flex;
+		width: 60%;
+		height: 25%;
+		text-align: start;
+		overflow: hidden;
+		background-color: var(--chatbox-background-main);
+		border: var(--chatbox-border-standard);
+		border-radius: 0.5em;
+		font-family: 'Source Sans Pro', sans-serif;
+		font-size: 0.75rem;
+		font-weight: 200;
+		color: var(--chatbox-color-lightgrey);
+	}
 	.openai-chatbot-section .openai-span {
 		margin: 1.25em auto 0em auto;
 		position: relative;

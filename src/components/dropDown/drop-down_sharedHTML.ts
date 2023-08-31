@@ -12,12 +12,12 @@ dropDown_sharedHTML.shell = /*html*/ `
 `;
 
 dropDown_sharedHTML.dropdown = /*html*/ `
-	<section id="ddSection" class="dd-section" data-testid="dropdowntestid" name="ddsection">
-		<section id="shutdownContainer" class="shutdown-container">
-			<button id="shutdownButton" class="shutdown-button" data-testid="shutdownbutton" name="shutdownbutton">Shutdown</button>
-		</section>
-   		<div id="dd1"></div>
+<section id="ddSection" class="dd-section" data-testid="dropdowntestid" name="ddsection">
+	<section id="shutdownContainer" class="shutdown-container">
+		<button id="shutdownButton" class="shutdown-button" data-testid="shutdownbutton" name="shutdownbutton">Shutdown</button>
 	</section>
+   	<div id="dd1"></div>
+</section>
 `;
 
 dropDown_sharedHTML.dynadrop = /*html*/ `

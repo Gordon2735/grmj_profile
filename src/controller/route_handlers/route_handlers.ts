@@ -7,7 +7,7 @@ import notifier from 'node-notifier';
 import { ensureAuth } from '../middleware/auth.js';
 import { fileURLToPath } from 'url';
 import path from 'path';
-// import { generateResponse } from '../openai/controllers.js';
+import { generateResponse } from '../openaiAPI/controllers.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -99,13 +99,14 @@ export async function chatBoxHandler(
     res: Response
 ): Promise<void> {
     try {
-        const chatBoxScript = /*html*/ `<script type="module" content="text/javascript" src="/src/components/chatBox/chat-box_shell.js" alt="ChatBox Script File"></script>`;
+        const chatBoxScript = /*html*/ `<script type="module" content="text/javascript" src="/src/components/chatBox/chat-box_shell.js" alt="ChatBox Script File"></script>
+            <script type="module" content="text/javascript" src="/src/components/chatBox/resources/API/openai.js" alt="OpenAI Script File"></script>`;
         res.set('Content-Type', 'text/html');
         res.set('target', 'blank');
         res.render('chatbox', {
             layout: 'chatbox_main',
             title: 'ChatBox-ChatGPT4',
-            script: [`${chatBoxScript}`]
+            script: [chatBoxScript]
         });
         // generateResponse();
         return;
@@ -116,19 +117,15 @@ export async function chatBoxHandler(
 }
 export async function chatBoxHandlerPost(
     req: Request,
-    res: Response
+    res: Response,
+    next: NextFunction
 ): Promise<void> {
     try {
-        res.json(
-            user.create(req.body).catch((error: unknown) => {
-                res.status(404),
-                    console.info(
-                        `Whoops, seems there was a "Page Not Found Error" ${error}`
-                    );
-            })
-        );
+        generateResponse(req, res, next);
+        return;
     } catch (error: unknown) {
         console.error(`LandingHandlerPost Error: ${await error}`);
+        return;
     }
 }
 

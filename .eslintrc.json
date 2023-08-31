@@ -8,7 +8,13 @@
         "es6": true,
         "node": true
     },
-    "ignorePatterns": ["dist", "views/helpers", "jest.config.js", "utils"],
+    "ignorePatterns": [
+        "dist",
+        "views/helpers",
+        "jest.config.js",
+        "utils",
+        "OpenAiAPI.ts"
+    ],
     "rules": {},
     "extends": [
         "eslint:recommended",

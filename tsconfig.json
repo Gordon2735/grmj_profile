@@ -40,7 +40,8 @@
             "./src/resources/**/*.*",
             "src/resources/font/**/*.ttf",
             "./src/Global/*.*",
-            "./openaiAPI/*.*"
+            "./openaiAPI/*.*",
+            "./config/OpenAiAPI.ts"
         ] /* Allow multiple folders to be treated as one when resolving modules. */,
         // "typeRoots": [],                                  /* Specify multiple folders that act like './node_modules/@types'. */
         // "types": [
@@ -132,7 +133,8 @@
         "src/resources/font/**/*.ttf",
         "src/@types/*.ts",
         "src/components/profileHistory/json/grmj_history.json",
-        "src/css/*.css"
+        "src/css/*.css",
+        "OpenAiAPI.ts"
     ],
 
     "typedocOptions": {

@@ -5,6 +5,7 @@ import { chatBox_sharedHTML } from '../../interfaces/interfaces.js';
 const chatBox_sharedHTML = {
     shell: ``,
     chatBox: ``,
+    openai: ``,
     footer: ``
 };
 
@@ -54,17 +55,36 @@ chatBox_sharedHTML.chatBox = /*html*/ `
         </figure>    
     </section>
 
+`;
+
+chatBox_sharedHTML.openai = /*html*/ `
+
     <section id="openaiChatbotSection" class="openai-chatbot-section">
         <aside id="openaiTimeAside" class="openai-time-aside" alt="An Aside container for time">
-            <time id="openaiTime" class="openai-time" alt="OpenAI Time">
-                Wednesday, August 25, 2023 11:00:00 PM
-            </time>
+    <br />
+            <time id="openaiTime" class="openai-time" alt="OpenAI Time"></time>
         </aside>
-        <iFrame id="openaiFrame" class="openai-frame" src="http://localhost:9080/openai" title="OpenAI's" name="openai_chatbot">
-        </iFrame>
+    <br />
+
+        <section id="chat-container">
+            <form id="openaiForm" class="chat-form" name="title">
+                <progress value="71" max="100">ChatGPT</progress>
+                <h2 id="chatFormH2" class="chat-form-h2">OpenAI ChatGPT-3-5-turbo-0613</h2>
+                <br />            	
+                <br />
+                <label for="openai" class="openai-label">
+                    <span>OpenAI ChatGPT-3-5-turbo-0613</span>
+                    <input id="title" type="text" class="user" name="title" />
+                </label>
+                <article name="openai" id="articleOpenai" class="article-openai">
+                    <p>ChatGPT-3.5-turbo-0613 Response:</p>
+                </article>
+            </form>
+        </section>
+
         <span id="openaiSpan" class="openai-span" alt="OpenAI Span">
             <hr class="openai-span-break" alt="OpenAI Span Thematic Break" />
-            <button id="openaiChatButton" class="openai-chat-button" alt="Activate Chatbot OpenAI Button">
+            <button type="submit" form="openaiForm" id="openaiChatButton" class="openai-chat-button" alt="Activate Chatbot OpenAI Button">
                 Chat
             </button>
             <hr class="openai-span-break" alt="OpenAI Span Thematic Break" />
@@ -90,7 +110,8 @@ chatBox_sharedHTML.chatBox = /*html*/ `
             <hr class="openai-span-break" alt="OpenAI Span Thematic Break" />
         </span>
     </section>
-   
+
+
 `;
 
 chatBox_sharedHTML.footer = /*html*/ `
@@ -108,3 +129,6 @@ chatBox_sharedHTML.footer = /*html*/ `
 `;
 
 export { chatBox_sharedHTML };
+
+// <iFrame id="openaiFrame" class="openai-frame" src="http://localhost:9080/openai" title="OpenAI's" name="openai_chatbot">
+// </iFrame>
