@@ -117,11 +117,10 @@ export async function chatBoxHandler(
 }
 export async function chatBoxHandlerPost(
     req: Request,
-    res: Response,
-    next: NextFunction
+    res: Response
 ): Promise<void> {
     try {
-        generateResponse(req, res, next);
+        generateResponse(req, res);
         return;
     } catch (error: unknown) {
         console.error(`LandingHandlerPost Error: ${await error}`);

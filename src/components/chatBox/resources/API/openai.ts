@@ -8,7 +8,7 @@ const chatForm: HTMLElement | null = document.querySelector('.chat-form');
 const paraOpenai: HTMLParagraphElement | null =
     document.querySelector('.article-openai p');
 
-chatForm?.addEventListener('submit', async (event: Event) => {
+chatForm?.addEventListener('submit', async (event: SubmitEvent) => {
     event.preventDefault();
 
     const response = await fetch('/title', {

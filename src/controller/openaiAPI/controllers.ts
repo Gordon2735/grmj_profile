@@ -1,15 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use strict';
 
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response } from 'express';
 import openAi from '../../../config/OpenAiAPI.js';
 import { ChatCompletionMessage } from 'openai/resources/chat/completions.mjs';
 
-async function generateResponse(
-    req: Request,
-    res: Response,
-    next: NextFunction
-): Promise<void> {
+async function generateResponse(req: Request, res: Response): Promise<void> {
     try {
         const { title }: any = req.body;
 
@@ -55,8 +51,8 @@ async function generateResponse(
                 content: responseMessage.content
             });
             await sendResponseMessage(responseMessage);
-            next();
         }
+        return;
     } catch (error: unknown) {
         console.error(
             `
@@ -86,6 +82,7 @@ async function generateResponse(
             return;
         }
     }
+    return;
 }
 
 export { generateResponse };

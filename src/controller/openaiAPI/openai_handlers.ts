@@ -1,6 +1,6 @@
 'use strict';
 
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response } from 'express';
 import { generateResponse } from '../openaiAPI/controllers.js';
 
 async function openaiHandler(req: Request, res: Response): Promise<void> {
@@ -13,13 +13,9 @@ async function openaiHandler(req: Request, res: Response): Promise<void> {
     }
 }
 
-async function openaiHandlerPost(
-    req: Request,
-    res: Response,
-    next: NextFunction
-): Promise<void> {
+async function openaiHandlerPost(req: Request, res: Response): Promise<void> {
     try {
-        generateResponse(req, res, next);
+        generateResponse(req, res);
     } catch (error) {
         console.error(`ERROR: ${error}`);
         res.render('errors/500');
