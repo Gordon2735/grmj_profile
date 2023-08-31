@@ -62,7 +62,9 @@ async function generateResponse(req: Request, res: Response): Promise<void> {
         );
     }
 
-    async function sendResponseMessage(resMsg: ChatCompletionMessage) {
+    async function sendResponseMessage(
+        resMsg: ChatCompletionMessage
+    ): Promise<Response<any, Record<string, any>> | undefined> {
         try {
             const currentResponseMessage = resMsg.content;
 

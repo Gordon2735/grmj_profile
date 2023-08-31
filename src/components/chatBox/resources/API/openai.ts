@@ -9,20 +9,31 @@ const paraOpenai: HTMLParagraphElement | null =
     document.querySelector('.article-openai p');
 
 chatForm?.addEventListener('submit', async (event: SubmitEvent) => {
-    event.preventDefault();
+    try {
+        event.preventDefault();
 
-    const response = await fetch('/title', {
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title: chatForm.title.valueOf() }),
-        method: 'POST'
-    });
-    const chatData = await response.json();
+        console.log(`The event listener fired!`);
 
-    let chatReceiver: string | null | undefined = paraOpenai?.textContent;
+        const response = await fetch('/title', {
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ title: chatForm.title.valueOf() }),
+            method: 'POST'
+        });
+        const chatData = await response.json();
 
-    console.info(`chatData: ${chatData}`);
+        let chatReceiver: string | null | undefined = paraOpenai?.textContent;
 
-    chatReceiver !== undefined || null
-        ? (chatReceiver = chatData.message.content)
-        : (chatReceiver = `No response from OpenAI.`);
+        console.info(`chatData: ${chatData}`);
+
+        chatReceiver !== undefined || null
+            ? (chatReceiver = chatData.message.content)
+            : (chatReceiver = `No response from OpenAI.`);
+    } catch (error: unknown) {
+        console.error(
+            `
+                Error occurred in the chatForm?.addEventListener()
+                    Function || ERROR: ${error}
+            `
+        );
+    }
 });
