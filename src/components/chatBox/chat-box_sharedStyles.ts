@@ -27,11 +27,11 @@ chatBox_sharedStyles.shell = /*css*/ `
 		z-index: 1;
 	}
 
-    body {    
-        background: var(--chatbox-background-color);
-		overflow: hidden;  
-    }
-
+	.chat-body {
+		margin: 0;
+		padding: 0;
+		background-color: var(--chatbox-background-main);
+	}
  
 `;
 
@@ -331,7 +331,7 @@ chatBox_sharedStyles.openai = /*css*/ `
 		padding: 0.5em 0.5em 0.5em 0.5em;
 	}
 	
-	.openai-label .user {
+	.openai-label .user-input {
 		margin: 0.5em 0.1em 0em 1em;
 		padding: 0.5em 0.5em 0.5em 0.5em;
 		width: 60em;
@@ -353,7 +353,7 @@ chatBox_sharedStyles.openai = /*css*/ `
 		position: relative;
 		display: flex;
 		width: 60%;
-		height: 25%;
+		height: 45%;
 		text-align: start;
 		overflow: hidden;
 		background-color: var(--chatbox-background-main);

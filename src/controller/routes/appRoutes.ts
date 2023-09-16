@@ -48,19 +48,8 @@ import {
     signinUserPostHandler,
     userLogoutHandler
 } from '../route_handlers/signinModal_handlers.js';
-import {
-    openaiHandler,
-    openaiHandlerPost
-} from '../openaiAPI/openai_handlers.js';
 
-// import isLoggedIn from '../middleware/authenticate.js';
-
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
-// const app: express.Application = express();
 const router: Router = express.Router();
-
-// app.use(express.static(path.join(__dirname, 'src')));
 
 // loginModal Pop-up Router
 const loginModal: Router = router
@@ -88,10 +77,6 @@ const landing: Router = router
 const chatBox: Router = router
     .get('/chatbox', chatBoxHandler)
     .post('/chatbox', chatBoxHandlerPost);
-
-const openAI: Router = router
-    .get('/title', openaiHandler)
-    .post('/title', openaiHandlerPost);
 
 // Cover Letter Page Router
 const cover: Router = router
@@ -160,7 +145,6 @@ const error500: Router = router.get('*', error500Handler);
 export {
     landing as default,
     chatBox,
-    openAI,
     loginModal,
     signinModal,
     home,

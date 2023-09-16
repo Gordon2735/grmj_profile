@@ -1,3 +1,4 @@
+```typescript
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use strict';
 
@@ -79,3 +80,4 @@ async function generateResponse(
 }
 
 export default generateResponse;
+```

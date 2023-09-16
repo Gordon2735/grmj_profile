@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use strict';
 
+import dotenv from 'dotenv';
 import express, { Application, Request, Response, NextFunction } from 'express';
 import { create, ExpressHandlebars } from 'express-handlebars';
 import Handlebars from 'handlebars';
@@ -28,6 +29,8 @@ import blogDB from './models/databases/blogDB.js';
 
 passportConfig(passport);
 authenticateUser(passport);
+
+dotenv.config({ path: './config/config.env' });
 
 const app: Application = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -75,6 +78,7 @@ app.use(
 // Handlebars Mapping
 const handlebars: ExpressHandlebars = create({
     extname: '.hbs',
+    // ! CHECK THIS OUT || MAYBE CHANGE TO 'main'
     defaultLayout: 'dash',
     layoutsDir: path.join(__dirname, '..', '..', 'views', 'layouts'),
     partialsDir: path.join(__dirname, '..', '..', 'views', 'partials'),

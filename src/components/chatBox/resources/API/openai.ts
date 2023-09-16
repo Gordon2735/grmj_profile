@@ -1,39 +1,39 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 'use strict';
 
 console.log(`Hello OpenAI from openai.ts!`);
+// const chatForm: HTMLFormElement | null = document.querySelector('.chat-form');
+// const input: HTMLInputElement | null = document.querySelector('.user-input');
 
-const chatForm: HTMLElement | null = document.querySelector('.chat-form');
+// input?.addEventListener('submit', async (event: Event) => {
+//     event.preventDefault();
 
-const paraOpenai: HTMLParagraphElement | null =
-    document.querySelector('.article-openai p');
+//     const paraOpenai: HTMLParagraphElement | null =
+//         document.querySelector('.article-openai p');
 
-chatForm?.addEventListener('submit', async (event: SubmitEvent) => {
-    try {
-        event.preventDefault();
+//     try {
+//         console.log(`The event listener fired!`);
 
-        console.log(`The event listener fired!`);
+//         const response = await fetch('/chatbox', {
+//             body: JSON.stringify({ message: chatForm?.usesInput.value }),
+//             method: 'POST'
+//         });
+//         const chatData = await response.json();
 
-        const response = await fetch('/title', {
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ title: chatForm.title.valueOf() }),
-            method: 'POST'
-        });
-        const chatData = await response.json();
+//         let chatReceiver: any = paraOpenai?.textContent;
 
-        let chatReceiver: string | null | undefined = paraOpenai?.textContent;
+//         console.info(`chatData: ${chatData}${chatReceiver}`);
 
-        console.info(`chatData: ${chatData}`);
+//         chatReceiver = chatData.message[0].content;
 
-        chatReceiver !== undefined || null
-            ? (chatReceiver = chatData.message.content)
-            : (chatReceiver = `No response from OpenAI.`);
-    } catch (error: unknown) {
-        console.error(
-            `
-                Error occurred in the chatForm?.addEventListener()
-                    Function || ERROR: ${error}
-            `
-        );
-    }
-});
+//         paraOpenai!.insertAdjacentHTML('afterbegin', `${chatReceiver}`);
+//     } catch (error: unknown) {
+//         console.error(
+//             `
+//                 Error occurred in the chatForm?.addEventListener()
+//                     Function || ERROR: ${error}
+//             `
+//         );
+//     }
+// });

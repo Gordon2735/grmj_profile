@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use strict';
@@ -5,9 +6,9 @@
 import express, { Application, Request, Response, NextFunction } from 'express';
 import notifier from 'node-notifier';
 import { ensureAuth } from '../middleware/auth.js';
-import { fileURLToPath } from 'url';
 import path from 'path';
-import { generateResponse } from '../openaiAPI/controllers.js';
+import { fileURLToPath } from 'url';
+import generateResponse from '../openaiAPI/controllers.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -76,54 +77,76 @@ export async function landingHandler(
         console.error(`LandingHandler Error: ${await error}`);
     }
 }
-export async function landingHandlerPost(
-    req: Request,
-    res: Response
-): Promise<void> {
+export async function landingHandlerPost(): Promise<void> {
+    // _req: Request,
+    // _res: Response
     try {
-        res.json(
-            user.create(req.body).catch((error: unknown) => {
-                res.status(404),
-                    console.info(
-                        `Whoops, seems there was a "Page Not Found Error" ${error}`
-                    );
-            })
-        );
+        // res.json(
+        //     user.create(req.body).catch((error: unknown) => {
+        //         res.status(404),
+        //             console.info(
+        //                 `Whoops, seems there was a "Page Not Found Error" ${error}`
+        //             );
+        //     })
+        // );
+        return;
     } catch (error: unknown) {
         console.error(`LandingHandlerPost Error: ${await error}`);
+        return;
     }
 }
 // ChatBox Page Route Handlers
 export async function chatBoxHandler(
-    _req: Request,
+    req: Request,
     res: Response
 ): Promise<void> {
     try {
-        const chatBoxScript = /*html*/ `<script type="module" content="text/javascript" src="/src/components/chatBox/chat-box_shell.js" alt="ChatBox Script File"></script>
-            <script type="module" content="text/javascript" src="/src/components/chatBox/resources/API/openai.js" alt="OpenAI Script File"></script>`;
+        const chatBoxScript = /*html*/ `
+            <script type="module" content="text/javascript" src="/src/components/chatBox/chat-box_shell.js" alt="ChatBox Script File"></script>
+            <script type="module" content="text/javascript" src="/src/components/chatBox/resources/API/openai.js" alt="OpenAI Script File"></script>
+        `;
+
+        const body = await req.body;
+        const chat_container_section = body.querySelector('.chat-container');
+
         res.set('Content-Type', 'text/html');
         res.set('target', 'blank');
-        res.render('chatbox', {
+
+        const insertRender = res.render('chatbox', {
             layout: 'chatbox_main',
             title: 'ChatBox-ChatGPT4',
-            script: [chatBoxScript]
+            script: [`${chatBoxScript}`],
+            partials: ['_chat_section'],
+            response: ''
         });
-        // generateResponse();
-        return;
+        chat_container_section.insertAdjacentHTML('afterbegin', insertRender);
     } catch (error: unknown) {
         console.error(`Chat-Box-ChatGPT4Handler Error: ${await error}`);
         return;
     }
 }
+
 export async function chatBoxHandlerPost(
     req: Request,
     res: Response
 ): Promise<void> {
     try {
-        generateResponse(req, res);
+        const usesInput = req.body.response;
+        // await generateResponse(req, res, usesInput);
+        await generateResponse(req, res, usesInput);
+        // const chatGptResponse = await generateResponse(req, res, usesInput);
+
+        // res.render('chatbox', {
+        //     response: chatGptResponse
+        // });
+
         return;
     } catch (error: unknown) {
-        console.error(`LandingHandlerPost Error: ${await error}`);
+        console.error(`Chat-BoxPostHandler  ${await error}`);
+        const usesInput = req.body.usesInput;
+        res.render('chatbox', {
+            response: await generateResponse(req, res, usesInput)
+        });
         return;
     }
 }
