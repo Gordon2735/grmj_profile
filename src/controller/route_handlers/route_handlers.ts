@@ -97,32 +97,27 @@ export async function landingHandlerPost(): Promise<void> {
 }
 // ChatBox Page Route Handlers
 export async function chatBoxHandler(
-    req: Request,
+    _req: Request,
     res: Response
-): Promise<void> {
+): Promise<unknown> {
     try {
         const chatBoxScript = /*html*/ `
             <script type="module" content="text/javascript" src="/src/components/chatBox/chat-box_shell.js" alt="ChatBox Script File"></script>
             <script type="module" content="text/javascript" src="/src/components/chatBox/resources/API/openai.js" alt="OpenAI Script File"></script>
         `;
-
-        const body = await req.body;
-        const chat_container_section = body.querySelector('.chat-container');
-
         res.set('Content-Type', 'text/html');
         res.set('target', 'blank');
 
-        const insertRender = res.render('chatbox', {
+        res.render('chatbox', {
             layout: 'chatbox_main',
             title: 'ChatBox-ChatGPT4',
             script: [`${chatBoxScript}`],
-            partials: ['_chat_section'],
             response: ''
         });
-        chat_container_section.insertAdjacentHTML('afterbegin', insertRender);
+        return;
     } catch (error: unknown) {
         console.error(`Chat-Box-ChatGPT4Handler Error: ${await error}`);
-        return;
+        return '';
     }
 }
 
@@ -131,22 +126,11 @@ export async function chatBoxHandlerPost(
     res: Response
 ): Promise<void> {
     try {
-        const usesInput = req.body.response;
-        // await generateResponse(req, res, usesInput);
-        await generateResponse(req, res, usesInput);
-        // const chatGptResponse = await generateResponse(req, res, usesInput);
-
-        // res.render('chatbox', {
-        //     response: chatGptResponse
-        // });
+        await generateResponse(req, res);
 
         return;
     } catch (error: unknown) {
         console.error(`Chat-BoxPostHandler  ${await error}`);
-        const usesInput = req.body.usesInput;
-        res.render('chatbox', {
-            response: await generateResponse(req, res, usesInput)
-        });
         return;
     }
 }

@@ -12,12 +12,12 @@
     <title>Gordon's || 'Share a Blog' Site</title>
 </head>
 
-<body class="body-dash">
+<body class="body body-dash">
 
     {{> _add_btn}}
     {{> _header}}
 
-    <div id="containerDash" class="container-dash">
+    <div id="editor1" contenteditable="true" class="container container-dash">
             {{{body}}}
     </div>
 
@@ -28,12 +28,8 @@
         <script>
             M.Sidenav.init(document.querySelector('.sidenav'));
             M.FormSelect.init(document.querySelector('#status'));
-        </script>
-</body>
-    
-</html>
-
-            {{!-- CKEDITOR.replace('container', {
+            {{!-- Research the proper CKEDITOR METHODOLOGY --}}
+            CKEDITOR.replace('editor1', {
                 plugins: 'wysiwygarea, toolbar, basicstyles, link',
                 element: 'body',
                 allowedContent: {
@@ -41,4 +37,8 @@
                         content: {} || ''
                     }
                 }
-            }); --}}
+            });
+        </script>
+</body>
+    
+</html>

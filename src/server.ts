@@ -25,6 +25,7 @@ import logEvents, { date } from './logEvents.js';
 import router from './controller/router.js';
 import { error404, error500 } from './controller/routes/appRoutes.js';
 import helper from '../views/helpers/hbsHelpers.js';
+import mongoose from 'mongoose';
 import blogDB from './models/databases/blogDB.js';
 
 passportConfig(passport);
@@ -99,7 +100,7 @@ app.use(
         resave: false,
         saveUninitialized: false,
         store: MongoStore.create({
-            mongoUrl: process.env.MONGO_URI as string
+            mongoUrl: process.env.MONGODB_URI as string
         })
     })
 );
@@ -214,7 +215,7 @@ try {
 // Database Connections for multiple models and Databases
 async function openDatabases(): Promise<void> {
     try {
-        await blogDB();
+        await blogDB(mongoose);
     } catch (error: unknown) {
         console.error(
             `There was a problem invoking databases, ERROR: ${await error}`

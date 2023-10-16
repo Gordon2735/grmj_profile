@@ -65,12 +65,54 @@ chatBox_sharedHTML.openai = /*html*/ `
             <time id="openaiTime" class="openai-time" alt="OpenAI Time"></time>
         </aside>
     <br />       
+    <form method="post" id="openaiForm" class="chat-form" name="usesInput"
+            placeholder="Ask a question..." >
+            <h2 id="chatFormH2" class="chat-form-h2">OpenAI ChatGPT-3-5-turbo-0613</h2>
+            <br />            	
+            <br />
+            <label for="usesInput" class="openai-label">
+                <span>OpenAI ChatGPT-3-5-turbo-0613</span>
+                <input id="usesInput" type="text" class="user-input" name="usesInput" />
+                
+            </label>
+            <article name="openai" id="articleOpenai" class="article-openai">
+                <h3 id="chatFormH3" class="chat-form-h3">ChatGPT-3.5-turbo-0613 Response:</h3>
+                <p> 
+                    {{response}}
+                </p>
+            </article>
+            <span id="openaiSpan" class="openai-span" alt="OpenAI Span">
+                <hr class="openai-span-break" alt="OpenAI Span Thematic Break" />
+                <button type="submit" form="openaiForm" id="openaiChatButton" class="openai-chat-button" alt="Activate Chatbot OpenAI Button">
+                    Chat
+                </button>
+                <hr class="openai-span-break" alt="OpenAI Span Thematic Break" />
+                <button id="openaiResetButton" class="openai-reset-button" alt="Reset OpenAI Button">
+                    Reset
+                </button>
+                <hr class="openai-span-break" alt="OpenAI Span Thematic Break" />
+                <button id="openaiClearButton" class="openai-clear-button" alt="Clear OpenAI Button">
+                    Clear
+                </button>
+                <hr class="openai-span-break" alt="OpenAI Span Thematic Break" />
+                <button id="openaiCloseButton" class="openai-close-button" alt="Close OpenAI Button">
+                    Close
+                </button>
+                <hr class="openai-span-break" alt="OpenAI Span Thematic Break" />
+                <button id="openaiHelpButton" class="openai-help-button" alt="Help OpenAI Button">
+                    Help
+                </button>
+                <hr class="openai-span-break" alt="OpenAI Span Thematic Break" />
+                <button id="openaiLandingButton" class="openai-landing-button" alt="Landing Link OpenAI Button">
+                Landing
+                </button>
+                <hr class="openai-span-break" alt="OpenAI Span Thematic Break" />
+            </span>
+        </form>
     </section>
 
- <section id="chat-container"></section>
-
-
-
+    <section id="chat-container"></section>
+    
 `;
 
 chatBox_sharedHTML.footer = /*html*/ `
